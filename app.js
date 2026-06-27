@@ -4683,7 +4683,7 @@ const QuickKitApp = () => {
 
                             // LinkedIn Link
                             React.createElement('a', {
-                                href: '#',
+                                href: 'https://www.linkedin.com/in/abrar-jamshed-994030265?utm_source=share_via&utm_content=profile&utm_medium=member_android',
                                 target: '_blank',
                                 rel: 'noopener noreferrer',
                                 style: { display: 'block', padding: '14px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)', textDecoration: 'none', color: '#fff', fontSize: '1.05rem', cursor: 'pointer' }
