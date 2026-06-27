@@ -7822,7 +7822,7 @@ const QuickKitApp = () => {
                             letterSpacing: '1px',
                             backdropFilter: 'blur(10px)'
                         }
-                    }, '✨ HI WELCOME TO APEX CODE'),
+                    }, '✨ HELLO WELCOME TO APEX CODE'),
                     React.createElement('h1', {
                         style: {
                             fontSize: '3rem',
