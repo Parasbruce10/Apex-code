@@ -7807,22 +7807,31 @@ const QuickKitApp = () => {
             },
                 // LEFT COLUMN: Typography
                 React.createElement('div', { className: 'hero-left-col', style: { flex: '1 1 550px', textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' } },
-                    React.createElement('div', {
-                        style: {
-                            display: 'inline-block',
-                            padding: '8px 20px',
-                            marginBottom: '20px',
-                            background: 'rgba(255, 255, 255, 0.04)',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                            borderRadius: '50px',
-                            color: '#00f2fe',
-                            fontSize: '0.85rem',
-                            fontWeight: '600',
-                            fontFamily: "'Bruno Ace SC', sans-serif",
-                            letterSpacing: '1px',
-                            backdropFilter: 'blur(10px)'
-                        }
-                    }, '✨ HELLO WELCOME TO APEX CODE'),
+    React.createElement('div', {
+        style: {
+            display: 'inline-block',
+            padding: '8px 16px', // Mobile screen ke liye padding halki si kam ki taake safe rahe
+            marginBottom: '20px',
+            background: 'rgba(255, 255, 255, 0.04)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            borderRadius: '50px',
+            color: '#00f2fe',
+            
+            // 📱 Mobile responsive dynamic font-size (Har screen par auto-adjust hoga)
+            fontSize: 'clamp(0.65rem, 3vw, 0.85rem)', 
+            
+            // 🛠️ TEXT KO EK LINE MEIN LOCK KARNE KE LIYE
+            whiteSpace: 'nowrap', 
+            
+            fontWeight: '600',
+            fontFamily: "'Bruno Ace SC', sans-serif",
+            letterSpacing: '1px',
+            backdropFilter: 'blur(10px)',
+            maxWidth: '100%', // Div ko screen se bahar nikalne se roke ga
+            boxSizing: 'border-box'
+        }
+    }, '✨ HELLO WELCOME TO APEX CODE'), // 'âœ¨' ko clean '✨' emoji se replace kiya hai
+
                     React.createElement('h1', {
                         style: {
                             fontSize: '3rem',
