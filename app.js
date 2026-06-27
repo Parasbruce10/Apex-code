@@ -9136,12 +9136,14 @@ const QuickKitApp = () => {
                         // Interactive Capsule Button
                         // Interactive Capsule Button
                         React.createElement('button', {
-                            onClick: toServices, // 🔥 Window href ki jagah React function call karein
-                            className: 'apex-capsule-btn'
-                        },
-                            'Explore Services',
-                            React.createElement('span', { className: 'apex-arrow', style: { transition: 'transform 0.3s ease', display: 'inline-block' } }, '➔')
-                        )
+        onClick: toServices,
+        className: 'apex-capsule-btn'
+    },
+    'Explore Services',
+    React.createElement('span', { 
+        className: 'apex-arrow' 
+    }, '➔')
+)
                     )
                 )
             )

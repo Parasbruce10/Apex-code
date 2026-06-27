@@ -711,3 +711,60 @@
                     margin-left: 4px;
                     text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
                 }
+/* 🖥️ Desktop & Default Styles */
+.apex-capsule-btn {
+    background: #00f2fe;
+    color: #0a192f; /* Dark theme text color */
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px; /* Capsule shape */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+    width: auto; /* Desktop par text ke mutabiq width le ga */
+}
+
+.apex-arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect (Sirf Desktop/Laptop par) */
+@media (min-width: 769px) {
+    .apex-capsule-btn:hover {
+        background: #fff;
+        box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+        transform: translateY(-2px);
+    }
+    
+    .apex-capsule-btn:hover .apex-arrow {
+        transform: translateX(5px); /* Hover par arrow agay shift hoga */
+    }
+}
+
+/* 📱 Mobile Responsive Styles (Screens 768px aur us se choti) */
+@media (max-width: 768px) {
+    .apex-capsule-btn {
+        width: 100%; /* Mobile screen par button full width ho jaye ga */
+        padding: 14px 20px; /* Tap target behtar karne ke liye padding barhai hai */
+        font-size: 0.95rem; /* Text size thora compress kiya */
+        letter-spacing: 0.5px;
+        box-shadow: 0 4px 12px rgba(0, 242, 254, 0.2); /* Mobile par glow thora kam */
+    }
+    
+    /* Mobile par click (active state) ka halka feedback */
+    .apex-capsule-btn:active {
+        transform: scale(0.98); 
+        background: #00d8e4;
+    }
+
+    .apex-arrow {
+        font-size: 0.9rem; /* Arrow size adjustments */
+    }
+}
