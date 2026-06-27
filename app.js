@@ -3886,7 +3886,7 @@ const QuickKitApp = () => {
 
                         // Interactive Link Button
                         React.createElement('a', {
-                            href: 'https://quickkit.resumepro.com',
+                            href: 'https://quickkit.resumepro.it.com',
                             target: '_blank',
                             rel: 'noopener noreferrer',
                             style: {
@@ -7111,7 +7111,7 @@ const QuickKitApp = () => {
                 },
                     websites.map(web => {
                         // 🔥 PURE ADMIN LINK EXTRACTION (Apne paas se koi third-party link nahi lagaya)
-                        const adminImgSrc = web.image || web.imageUrl;
+                        const adminImgSrc = web.imageLink || web.image || web.imageUrl;
 
                         return React.createElement('div', {
                             key: web.id,
@@ -7224,8 +7224,7 @@ const QuickKitApp = () => {
             // 5️⃣ DETAILS DESCRIPTION MODAL (Exact Jobs Modal Mirror Architecture)
             selectedWebsiteDesc ? (() => {
                 // Modal ke liye bhi wahi exact link check jo admin provide kar raha hai
-                const adminModalImgSrc = selectedWebsiteDesc.image || selectedWebsiteDesc.imageUrl;
-
+const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.image || selectedWebsiteDesc.imageUrl;
                 return React.createElement('div', {
                     onClick: () => setSelectedWebsiteDesc(null),
                     style: {
