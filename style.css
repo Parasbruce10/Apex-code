@@ -1,0 +1,713 @@
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: linear-gradient(180deg, rgba(13, 17, 23, 0.88), rgba(13, 17, 23, 0.95)),
+                url('https://images.unsplash.com/photo-1777021118603-3f8653bf4e63?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat fixed;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Modern Minimalist Header */
+/* =======================================================
+   UPDATED: HEADER WITH RUNNING MULTI-COLOR GRADIENT LINE
+======================================================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px 15px 30px; /* Niche ka padding thoda badhaya taake line set baithe */
+    background: rgba(22, 27, 34, 0.9);
+    border-bottom: none; /* Purana solid border hata diya */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative; /* Ye zaroori hai taake line header ke sath attach rahe */
+    overflow: hidden;
+}
+
+/* Ye naya block add karein: Header ke niche chalne wali animation line */
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: 0; /* Header ke sab se niche fit karne ke liye */
+    left: 0;
+    width: 100%;
+    height: 3px; /* Line ki thickness */
+    background: linear-gradient(90deg, #00f2fe, #4facfe, #ff0080, #7928ca, #00f2fe);
+    background-size: 200% auto;
+    animation: runningHeaderLine 3s linear infinite; /* Line ko chalane ke liye animation */
+}
+
+/* Header line ki movement animation (Aapke footer wali split speed se match karegi) */
+@keyframes runningHeaderLine {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Chota, Clear aur Premium Text Style */
+.logo-text {
+    font-size: 1.25rem; /* Text size chota aur decent kiya */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    
+    /* Clean Prism Gradient Effect */
+    background: linear-gradient(90deg, #00f2fe, #4facfe, #ff0080, #00f2fe);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: smoothPrism 4s linear infinite;
+    
+    /* Clear Glow Effect (Blur kam kiya taake text clear read ho) */
+    filter: drop-shadow(0 2px 4px rgba(0, 242, 254, 0.3));
+}
+
+/* Smooth Color Shift Animation */
+@keyframes smoothPrism {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Logo Image Style */
+.logo-img {
+    height: 42px; /* Logo ko text ke mutabiq perfect size diya */
+    width: 42px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #00f2fe;
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 128, 0.5);
+    cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-content h2 {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    color: #8b949e;
+    font-weight: 300;
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #161b22;
+    border-top: 1px solid #30363d;
+    font-size: 0.85rem;
+    color: #8b949e;
+}
+
+/* =========================================
+   PREMIUM FOOTER STYLES (GLASSMORPHISM & GLOW)
+========================================= */
+
+.footer-premium {
+    background: rgba(13, 17, 23, 0.7); /* Glassmorphism Base */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(0, 242, 254, 0.2);
+    box-shadow: 0 -10px 30px rgba(0, 242, 254, 0.05); /* Upar ki taraf halka glow */
+    padding: 40px 40px 10px 40px;
+    margin-top: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+/* Column 1: Brand */
+.footer-brand {
+    flex: 2;
+    min-width: 250px;
+}
+
+.footer-logo-text {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #00f2fe, #4facfe, #ff0080, #00f2fe);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: smoothPrism 4s linear infinite;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.5)); /* Glow effect */
+}
+
+.footer-desc {
+    color: #8b949e;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 350px;
+}
+
+/* Columns 2 & 3: Nav and Legal */
+.footer-nav {
+    flex: 1;
+    min-width: 150px;
+}
+
+.footer-heading {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #00f2fe;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-list li {
+    margin-bottom: 12px;
+}
+
+.footer-list a {
+    color: #8b949e;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.footer-list a:hover {
+    color: #00f2fe;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+    padding-left: 5px; /* Hover par thora aagay move hoga */
+}
+
+/* Footer Bottom: Animated Copyright */
+/* =======================================================
+   UPDATED: ANIMATED COLOR LINE & PREMIUM COPYRIGHT STYLE
+======================================================= */
+
+/* Footer ke top par chalne wali color line */
+.footer-premium {
+    position: relative;
+    background: rgba(13, 17, 23, 0.7);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    /* Purana border-top hata kar padding badha di taake line sahi jagah par aaye */
+    border-top: none; 
+    box-shadow: 0 -10px 30px rgba(0, 242, 254, 0.05);
+    padding: 45px 40px 15px 40px;
+    margin-top: auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+}
+
+/* Yeh hai woh dynamic line jo footer ke upar move karegi */
+.footer-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px; /* Line ki thickness */
+    background: linear-gradient(90deg, #00f2fe, #4facfe, #ff0080, #7928ca, #00f2fe);
+    background-size: 200% auto;
+    animation: runningLine 3s linear infinite; /* Line chalne ki animation */
+}
+
+/* Line ki movement animation */
+@keyframes runningLine {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Copyright line ka super premium layout aur font */
+.copyright-animated {
+    font-family: 'Courier New', Courier, monospace; /* Clean tech look font */
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 3px; /* Aksharon ke beech gap badhaya */
+    text-transform: uppercase;
+    
+    /* Silver Aur Cyan Metallic Blend */
+    background: linear-gradient(90deg, #8b949e 0%, #ffffff 25%, #00f2fe 50%, #ffffff 75%, #8b949e 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+    /* Neon Glow + Light Reflection Animation */
+    animation: copyrightShine 4s linear infinite, neonPulse 2s ease-in-out infinite alternate;
+}
+
+/* Silver-Shine Wave Animation */
+@keyframes copyrightShine {
+    0% { background-position: 0% auto; }
+    100% { background-position: 200% auto; }
+}
+
+/* Halka neon pulse effect jo background mein blink karega */
+@keyframes neonPulse {
+    0% {
+        filter: drop-shadow(0 0 2px rgba(0, 242, 254, 0.2));
+    }
+    100% {
+        filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.6)) drop-shadow(0 0 12px rgba(255, 0, 128, 0.3));
+    }
+}
+/* =======================================================
+   SERVICES PAGE & PREMIUM CARD MODERN DESIGN
+======================================================= */
+
+/* Services main layout */
+.services-page {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: transparent;
+    animation: fadeInPage 0.4s ease-in-out;
+}
+
+.services-heading {
+    font-size: 2.4rem; /* Thoda sa size bada kiya taake authority lage */
+    font-weight: 900;  /* Pehle se zyada bold */
+    letter-spacing: 5px; /* Alphabets ke beech ka gap thoda aur premium kiya */
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 18px 50px;
+    margin-bottom: 35px;
+    border-radius: 16px; /* Edges ko mazeed smooth kiya */
+    
+    /* 1. Liquid Glassmorphism Base */
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* Dual Layer Border (Cyan and Neon Pink Mix) */
+    border: 1px solid rgba(0, 242, 254, 0.25);
+    
+    /* 2. Premium Metallic Gradient Text (No more plain white) */
+    background-image: linear-gradient(90deg, #ffffff, #00f2fe, #ffffff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShine 4s linear infinite;
+
+    /* 3. Multi-Layer Volumetric Glow (Outer + Inner Glass Reflection) */
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.6), 
+                inset 0 0 20px rgba(0, 242, 254, 0.15),
+                0 0 20px rgba(0, 242, 254, 0.1);
+                
+    /* Smooth transition for hover effect */
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: default;
+}
+
+/* 4. Extra Premium Hover Interaction */
+.services-heading:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgba(255, 0, 128, 0.4); /* Hover par halka sa pink cyberpunk shade trigger hoga */
+    box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.7), 
+                inset 0 0 25px rgba(255, 0, 128, 0.15),
+                0 0 30px rgba(0, 242, 254, 0.3);
+}
+
+/* Metallic Gradient Movement Animation */
+@keyframes textShine {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+.services-sub-text {
+    color: #8b949e;
+    font-size: 1rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px; /* 4 cards ke liye width 1140px se badha kar 1200px kar di */
+    margin: 0 auto;
+}
+
+/* Glassmorphism & Cyberpunk Blend Card */
+.service-card {
+    background: rgba(22, 27, 34, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 242, 254, 0.15);
+    border-radius: 16px;
+    padding: 40px 30px;
+    max-width: 380px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+/* Card ka top dynamic indicator bar */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #00f2fe, #ff0080);
+}
+
+/* Hover effect - card smoothly upar uthega aur border rang badlegi */
+.service-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(255, 0, 128, 0.4);
+    box-shadow: 0 20px 40px rgba(255, 0, 128, 0.15), 0 0 25px rgba(0, 242, 254, 0.1);
+}
+
+/* Inner elements styling */
+.card-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid #00f2fe;
+    color: #00f2fe;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #00f2fe;
+    margin-bottom: 20px;
+    font-family: monospace;
+    text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+}
+
+.service-card h3 {
+    color: #ffffff;
+    font-size: 1.35rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.service-card p {
+    color: #8b949e;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+/* Glowing Dynamic Button inside card */
+.card-btn {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #00f2fe;
+    padding: 10px 24px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.card-btn:hover {
+    background: linear-gradient(90deg, #00f2fe, #4facfe);
+    border-color: transparent;
+    color: #0d1117;
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
+}
+
+/* Smooth Fade-in effect jab link click ho */
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* =======================================================
+   📱 MOBILE RESPONSIVE OVERRIDES (Laptop look same rakha,
+   sirf mobile/tablet screens ke liye fix kiya gaya hai)
+======================================================= */
+
+/* ---------- TABLET & MOBILE (≤768px) ---------- */
+@media (max-width: 768px) {
+
+    /* Safety net: kisi bhi element se horizontal scroll na bane */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    .container {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    img {
+        max-width: 100%;
+    }
+
+    /* 🔥 GRID OVERFLOW FIX: minmax() ki minimum width chhoti screen
+       se bigger hoti thi jis se cards horizontally scroll karte thay */
+    .tier-responsive-grid,
+    .blueprint-responsive-grid,
+    .action-directory-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* ---------- HEADER ---------- */
+    .header {
+        padding: 10px 16px 13px 16px !important;
+    }
+    .logo-text {
+        font-size: 1rem !important;
+        letter-spacing: 2px !important;
+    }
+    .logo-img {
+        height: 36px !important;
+        width: 36px !important;
+    }
+
+    /* ---------- PAGE WRAPPERS (padding kam kiya) ---------- */
+    .services-page,
+    .about-page,
+    .privacy-page,
+    .terms-page,
+    .home-page {
+        padding: 40px 16px !important;
+    }
+
+    /* ---------- HEADINGS / BADGES ---------- */
+    .services-heading {
+        font-size: 1.5rem !important;
+        letter-spacing: 2px !important;
+        padding: 14px 22px !important;
+    }
+    .section-heading {
+        font-size: 1.5rem !important;
+        letter-spacing: 1px !important;
+        padding: 10px 18px !important;
+    }
+    .services-sub-text {
+        font-size: 0.9rem !important;
+        padding: 0 10px;
+    }
+
+    /* ---------- SERVICE / PLAN CARDS ---------- */
+    .services-container {
+        gap: 18px !important;
+    }
+    .service-card {
+        padding: 28px 20px !important;
+        max-width: 100% !important;
+    }
+    .card-icon {
+        font-size: 2rem !important;
+    }
+
+    /* ---------- HOME PAGE HERO ---------- */
+    .home-page h1 {
+        font-size: 2.1rem !important;
+        line-height: 1.25 !important;
+    }
+    .home-page h2 {
+        font-size: 1.6rem !important;
+    }
+    .moving-neon-text {
+        font-size: 1.7rem !important;
+    }
+    .cta-btn-primary,
+    .cta-btn-secondary {
+        width: 100% !important;
+        text-align: center !important;
+        padding: 14px 20px !important;
+        justify-content: center !important;
+    }
+
+    /* ---------- HOME PAGE: PREMIUM CARDS / GRIDS ---------- */
+    .premium-card,
+    .premium-portal-card,
+    .premium-suite-card,
+    .wave-text-block-1,
+    .wave-text-block-2,
+    .blueprint-detailed-card {
+        flex: 1 1 100% !important;
+        padding: 28px 22px !important;
+    }
+    .action-detail-card {
+        padding: 20px !important;
+    }
+    .blueprint-body-text {
+        text-align: left !important;
+    }
+    .card {
+        padding: 35px 22px !important;
+    }
+
+    /* ---------- FOOTER ---------- */
+    .footer-premium {
+        padding: 30px 20px 10px 20px !important;
+    }
+    /* ---------- FOOTER MOBILE FIX ---------- */
+    .footer-top {
+        display: flex !important;
+        flex-direction: column !important; /* Yeh column sab ko ek ke neeche ek layega */
+        align-items: center !important;    /* Sab ko screen ke center mein karega */
+        text-align: center !important;
+        gap: 35px !important;              /* Sections ke beech ka gap */
+    }
+
+    /* Yeh block zaroor add karein taake koi cheez side par na bhage */
+    .footer-brand, 
+    .footer-nav {
+        flex: none !important;
+        width: 100% !important;
+        min-width: 100% !important;
+    }
+    .hero-left-col {
+    text-align: center !important;
+    align-items: center !important;
+}
+.hero-left-col > div:last-child {
+    justify-content: center !important;
+}
+    
+    .footer-desc {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+    }
+    .footer-logo-text {
+        font-size: 1.4rem !important;
+    }
+    .copyright-animated {
+        font-size: 0.7rem !important;
+        letter-spacing: 1.5px !important;
+    }
+}
+
+/* ---------- SMALL PHONES (≤480px) ---------- */
+@media (max-width: 480px) {
+
+    .home-page h1 {
+        font-size: 1.7rem !important;
+    }
+    .home-page h2 {
+        font-size: 1.35rem !important;
+    }
+    .moving-neon-text {
+        font-size: 1.4rem !important;
+    }
+    .services-heading {
+        font-size: 1.25rem !important;
+        letter-spacing: 1px !important;
+        padding: 12px 16px !important;
+    }
+    .section-heading {
+        font-size: 1.25rem !important;
+        padding: 8px 14px !important;
+    }
+    .footer-logo-text {
+        font-size: 1.2rem !important;
+    }
+    .blueprint-detailed-card,
+    .premium-suite-card,
+    .wave-text-block-1,
+    .wave-text-block-2 {
+        padding: 22px 18px !important;
+    }
+    .service-card,
+    .card {
+        padding: 24px 16px !important;
+    }
+    .logo-text {
+        font-size: 0.9rem !important;
+        letter-spacing: 1px !important;
+    }
+    
+    
+}@media (max-width: 768px) {
+    .service-row-group {
+        flex-direction: column !important;
+    }
+    .service-card {
+        flex: none !important;
+        width: 100% !important;
+    }
+}
+@media (max-width: 992px) {
+    .team-row-group {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+    .service-card {
+        flex: none !important;
+        width: 100% !important;
+        max-width: 400px;
+    }
+}
+.logo-text {
+    /* Agar image mein clean cursive/serif look hy toh 'Playfair Display' ya 'Georgia' use karein */
+    font-family: 'Montserrat', 'Segoe UI', sans-serif; 
+    font-size: 2.2rem;       /* Font ka size chota bada karne ke liye */
+    font-weight: 800;        /* Boldness control karne ke liye */
+    letter-spacing: 2px;     /* Spacing styling */
+    cursor: pointer;
+}
+/* ✨ Typewriter Blinking Cursor */
+                @keyframes blink {
+                    0%, 100% { opacity: 1; }
+                    50% { opacity: 0; }
+                }
+                .blinking-cursor {
+                    animation: blink 0.8s step-end infinite;
+                    color: #00f2fe;
+                    font-weight: bold;
+                    margin-left: 4px;
+                    text-shadow: 0 0 8px rgba(0, 242, 254, 0.6);
+                }
