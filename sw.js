@@ -25,7 +25,7 @@ self.addEventListener('fetch', event => {
     caches.match(event.request)
       .then(response => {
         // Agar file cache mein mili toh wahan se return karein, warna network se fetch karein
-        return response || fetch(event.request);
+        // return response || fetch(event.request);
       })
   );
 });
