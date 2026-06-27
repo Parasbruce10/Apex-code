@@ -63,7 +63,7 @@ const QuickKitApp = () => {
 
     // ✅ BACKEND SE SAARI WEBSITES FETCH KARNE WALA FUNCTION
     const fetchWebsites = () => {
-        fetch('http://127.0.0.1:5000/api/websites') // Backend mein yeh API banani hogi
+        fetch('https://hamzaparas-apex-code.hf.space/api/websites') // Backend mein yeh API banani hogi
             .then(res => res.json())
             .then(data => { if (data.success) setWebsites(data.websites); })
             .catch(err => console.log('Websites fetch error:', err));
@@ -84,7 +84,7 @@ const QuickKitApp = () => {
 
     // ✅ BACKEND SE SAARI JOBS FETCH KARNE WALA FUNCTION
     const fetchJobs = () => {
-        fetch('http://127.0.0.1:5000/api/jobs')
+        fetch('https://hamzaparas-apex-code.hf.space/api/jobs')
             .then(res => res.json())
             .then(data => { if (data.success) setJobs(data.jobs); })
             .catch(err => console.log('Jobs fetch error:', err));
@@ -193,7 +193,7 @@ const QuickKitApp = () => {
         const email = e.target.email.value;
         const password = e.target.password.value;
 
-        fetch('http://127.0.0.1:5000/api/admin/login', {
+        fetch('https://hamzaparas-apex-code.hf.space/api/admin/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -217,7 +217,7 @@ const QuickKitApp = () => {
         e.preventDefault();
         const newPassword = e.target.newPassword.value;
 
-        fetch('http://127.0.0.1:5000/api/admin/update-password', {
+        fetch('https://hamzaparas-apex-code.hf.space/api/admin/update-password', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ newPassword })
@@ -251,8 +251,8 @@ const QuickKitApp = () => {
 
         const isEditing = jobToEdit !== null;
         const url = isEditing
-            ? `http://127.0.0.1:5000/api/jobs/${jobToEdit.id}`
-            : 'http://127.0.0.1:5000/api/jobs';
+            ? `https://hamzaparas-apex-code.hf.space/api/jobs/${jobToEdit.id}`
+            : 'https://hamzaparas-apex-code.hf.space/api/jobs';
         const method = isEditing ? 'PUT' : 'POST';
 
         fetch(url, {
@@ -284,8 +284,8 @@ const QuickKitApp = () => {
 
         const isEditing = websiteToEdit !== null;
         const url = isEditing
-            ? `http://127.0.0.1:5000/api/websites/${websiteToEdit.id}`
-            : 'http://127.0.0.1:5000/api/websites';
+            ? `https://hamzaparas-apex-code.hf.space/api/websites/${websiteToEdit.id}`
+            : 'https://hamzaparas-apex-code.hf.space/api/websites';
         const method = isEditing ? 'PUT' : 'POST';
 
         fetch(url, {
@@ -310,7 +310,7 @@ const QuickKitApp = () => {
     const handleWebsiteDelete = (websiteId) => {
         if (!window.confirm('Pakka delete karna hai is website ko?')) return;
 
-        fetch(`http://127.0.0.1:5000/api/websites/${websiteId}`, { method: 'DELETE' })
+        fetch(`https://hamzaparas-apex-code.hf.space/api/websites/${websiteId}`, { method: 'DELETE' })
             .then(res => res.json())
             .then(data => {
                 if (data.success) fetchWebsites();
@@ -323,7 +323,7 @@ const QuickKitApp = () => {
     const handleJobDelete = (jobId) => {
         if (!window.confirm('Pakka delete karna hai is job ko?')) return;
 
-        fetch(`http://127.0.0.1:5000/api/jobs/${jobId}`, { method: 'DELETE' })
+        fetch(`https://hamzaparas-apex-code.hf.space/api/jobs/${jobId}`, { method: 'DELETE' })
             .then(res => res.json())
             .then(data => {
                 if (data.success) fetchJobs();
