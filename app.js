@@ -77,6 +77,115 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
 
     return React.createElement('span', { ref: ref }, count + suffix);
 };
+// ❓ Collapsible FAQ Item Component
+// ❓ Collapsible FAQ Item Component
+const FAQItem = ({ question, answer }) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+    const contentRef = React.useRef(null);
+
+    return React.createElement('div', {
+        style: {
+            background: 'rgba(255, 255, 255, 0.03)',
+            border: isOpen ? '1px solid rgba(0, 255, 204, 0.35)' : '1px solid rgba(255, 255, 255, 0.09)',
+            borderRadius: '12px',
+            padding: '20px 24px',
+            cursor: 'pointer',
+            transition: 'border-color 0.25s ease, background 0.25s ease'
+        },
+        onClick: () => setIsOpen(!isOpen)
+    }, [
+        React.createElement('div', {
+            key: 'header',
+            style: {
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                gap: '14px'
+            }
+        }, [
+            React.createElement('span', {
+                key: 'q',
+                style: {
+                    fontSize: '0.98rem',
+                    fontWeight: '500',
+                    color: '#fff',
+                    lineHeight: '1.4'
+                }
+            }, question),
+            React.createElement('svg', {
+                key: 'arrow',
+                width: '18',
+                height: '18',
+                viewBox: '0 0 24 24',
+                fill: 'none',
+                stroke: isOpen ? '#00ffcc' : '#9aa0ad',
+                strokeWidth: '2',
+                strokeLinecap: 'round',
+                strokeLinejoin: 'round',
+                style: {
+                    flexShrink: 0,
+                    transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.25s ease, stroke 0.25s ease'
+                }
+            }, React.createElement('polyline', { points: '6 9 12 15 18 9' }))
+        ]),
+        React.createElement('div', {
+            key: 'answer',
+            ref: contentRef,
+            style: {
+                maxHeight: isOpen && contentRef.current ? contentRef.current.scrollHeight + 'px' : '0px',
+                overflow: 'hidden',
+                transition: 'max-height 0.3s ease'
+            }
+        }, React.createElement('p', {
+            style: {
+                marginTop: '12px',
+                marginBottom: '0',
+                color: '#9aa0ad',
+                fontSize: '0.88rem',
+                lineHeight: '1.6',
+                whiteSpace: 'pre-line'
+            }
+        }, answer))
+    ]);
+};
+
+// Main 10 Questions Wrapper
+const TopFAQSection = () => {
+    const faqs = [
+    { question: "What services does Apex Code provide?", answer: "We build custom code-based websites (React + Python/Flask), professional WordPress sites, on-page and technical SEO optimization, and ad monetization setups using AdSense, Adsterra, or Monetag." },
+    { question: "How do I get started with a project?", answer: "Just fill out the project details form on our site. Tell us what you need and our team will reach out to discuss the right plan, timeline, and pricing for you." },
+    { question: "Do you build custom-coded sites or just WordPress?", answer: "Both. We offer fully custom React/Flask websites for performance-critical projects, plus WordPress builds for clients who want an easy-to-manage CMS." },
+    { question: "Are your websites mobile responsive?", answer: "Yes. Every plan we offer, Basic, Standard, or Premium, is built with fluid layouts that scale cleanly from desktop screens down to mobile devices." },
+    { question: "Do you offer SEO optimization for websites?", answer: "Yes, we have dedicated SEO plans covering on-page optimization, technical audits, keyword strategy, and structured data to help improve your Google ranking." },
+    { question: "Can you help monetize my website with ads?", answer: "Yes, we set up AdSense, Adsterra, or Monetag ad placements designed for strong revenue without hurting your site's user experience or load speed." },
+    { question: "What payment methods do you accept?", answer: "We support Sadapay, Raqami, Jazzcash, HBL Bank, UBL Bank, Meezan Bank, NayaPay, Easypaisa, and standard corporate bank transfers for project payments." },
+    { question: "How long does a project take to complete?", answer: "It depends on the plan. Basic builds have a quick turnaround, while Standard and Premium plans with database integration or enterprise architecture take longer based on scope." },
+    { question: "Who owns the website once it's finished?", answer: "Full ownership transfers to you once payment is completed. Reusing or redistributing our proprietary framework themes without authorization is not permitted." },
+    { question: "Do you offer revisions or support after launch?", answer: "Custom development revisions follow the written scope agreed at project start. Pre-built website-for-sale purchases are final, so we recommend reviewing the live preview carefully before booking." }
+];
+
+    return React.createElement('div', {
+        style: {
+            width: '100%',
+            maxWidth: '900px',
+            margin: '0 auto 30px auto'
+        }
+    }, [
+        React.createElement('h3', {
+            key: 'title',
+            style: { color: '#00ffcc', fontSize: '1.2rem', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px', textAlign: 'center' }
+        }, "Pre-Project Knowledge Base"),
+        React.createElement('div', {
+            key: 'grid',
+            style: {
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '16px'
+            }
+        }, faqs.map((faq, i) => React.createElement(FAQItem, { key: i, question: faq.question, answer: faq.answer })))
+    ]);
+};
 
 // Yahan se aapka original code shuru ho raha hai
 // const QuickKitApp = () => { ...
@@ -85,6 +194,7 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
 const QuickKitApp = () => {
     const currentYear = 2026;
     const [currentPage, setCurrentPage] = React.useState('home');
+    const [openFaqIndex, setOpenFaqIndex] = React.useState(null);
     const toContactUs = (e) => { e.preventDefault(); setCurrentPage('contact-us'); };
     const toComplain = (e) => { e.preventDefault(); setCurrentPage('complain-form'); };
     // NAYA STATE: Selected Plan ki details save karne ke liye
@@ -9224,7 +9334,10 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                         )
 
                     )
+                    
                 ),
+                React.createElement(TopFAQSection, null),
+                
                 // 🏷️ 8. APEX CODE ULTRALUXE BORDERLESS GRID CTA (Vercel/Stripe Style)
                 React.createElement('div', {
                     style: {
