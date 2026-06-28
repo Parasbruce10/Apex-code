@@ -172,6 +172,15 @@ const TopFAQSection = () => {
             margin: '0 auto 30px auto'
         }
     }, [
+        React.createElement('div', {
+    key: 'divider-top',
+    style: {
+        width: '120px',
+        height: '2px',
+        margin: '0 auto 18px auto',
+        background: 'linear-gradient(90deg, transparent, #00ffcc, transparent)'
+    }
+}),
         React.createElement('h3', {
             key: 'title',
             style: { color: '#00ffcc', fontSize: '1.2rem', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px', textAlign: 'center' }
@@ -184,6 +193,7 @@ const TopFAQSection = () => {
                 gap: '16px'
             }
         }, faqs.map((faq, i) => React.createElement(FAQItem, { key: i, question: faq.question, answer: faq.answer })))
+        
     ]);
 };
 
