@@ -7701,29 +7701,43 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
         },
 
             // 🚀 HEADER SECTION (Stunning Pill-Shaped Glowing Border & Gradient)
+            // Main Section Header Container
             React.createElement('div', { style: { textAlign: 'center', marginBottom: '60px', position: 'relative' } },
-                React.createElement('h2', {
-                    className: 'section-heading',
+                
+                // 💎 STEP 1: Outer Glass Pill Box Wrapper (Isolated safely)
+                React.createElement('div', {
                     style: {
-                        fontSize: '3rem',
-                        fontWeight: '850',
-                        letterSpacing: '1.5px',
-                        textAlign: 'center',
-                        margin: '0 auto',
                         display: 'inline-block',
                         padding: '12px 35px',
                         border: '1px solid rgba(255, 255, 255, 0.08)',
                         borderRadius: '20px',
-                        background: 'linear-gradient(90deg, #FF0080 0%, #00F2FE 100%)', // Inverted gradient for visual variety
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        WebkitTextStroke: '1px rgba(255, 255, 255, 0.05)',
-                        filter: 'drop-shadow(0 4px 12px rgba(255, 0, 128, 0.25))',
-                        lineHeight: '1.2',
-                        backdropFilter: 'blur(4px)',
-                        boxShadow: 'inset 0 0 12px rgba(255, 255, 255, 0.02)'
+                        background: 'rgba(255, 255, 255, 0.02)', // Smooth subtle container base
+                        backdropFilter: 'blur(8px)',
+                        WebkitBackdropFilter: 'blur(8px)',
+                        boxShadow: 'inset 0 0 12px rgba(255, 255, 255, 0.02), 0 8px 32px rgba(0, 0, 0, 0.3)',
+                        margin: '0 auto',
+                        filter: 'drop-shadow(0 4px 12px rgba(255, 0, 128, 0.15))' // Ambient container glow
                     }
-                }, 'Terms & Conditions'),
+                },
+                    // 💎 STEP 2: Pure Gradient Text (No layout properties to avoid browser bugs)
+                    React.createElement('h2', {
+                        className: 'section-heading',
+                        style: {
+                            fontSize: '3rem',
+                            fontWeight: '850',
+                            letterSpacing: '1.5px',
+                            margin: '0',
+                            padding: '0',
+                            background: 'linear-gradient(90deg, #FF0080 0%, #00F2FE 100%)', // Your beautiful gradient
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            display: 'block',
+                            lineHeight: '1.2'
+                        }
+                    }, 'Terms & Conditions')
+                ),
+                
+                // Last Updated Subtext
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '1.05rem', marginTop: '20px', fontWeight: '500' } }, 'Last Updated: June 2026')
             ),
 
