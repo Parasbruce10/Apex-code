@@ -9279,7 +9279,134 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
         ),
 
         // Footer Bottom Section: Animated Copyright
-        React.createElement('div', { className: 'footer-bottom' },
+        // Footer Bottom Section: Premium Social Media Icons & Animated Copyright
+        React.createElement('div', { 
+            className: 'footer-bottom', 
+            style: { 
+                position: 'relative', 
+                zIndex: '10',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                width: '100%'
+            } 
+        },
+            
+            // 🎨 CSS For Premium Minimalistic Responsive Buttons
+            React.createElement('style', { 
+                dangerouslySetInnerHTML: { __html: `
+                    .premium-social-container {
+                        display: flex; 
+                        justify-content: center; 
+                        gap: 20px; 
+                        margin-bottom: 25px; 
+                        flex-wrap: wrap;
+                        width: 100%;
+                    }
+                    .social-btn {
+                        display: flex; 
+                        align-items: center; 
+                        justify-content: center;
+                        width: 48px; 
+                        height: 48px; 
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.05); 
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        color: rgba(255, 255, 255, 0.8); 
+                        text-decoration: none;
+                        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+                        backdrop-filter: blur(10px);
+                        -webkit-backdrop-filter: blur(10px);
+                    }
+                    .social-btn svg {
+                        width: 20px; 
+                        height: 20px; 
+                        fill: currentColor;
+                        transition: transform 0.3s ease;
+                    }
+                    
+                    /* Premium Hover Effects (No text glow, only solid button transitions) */
+                    .social-btn:hover { 
+                        color: #ffffff; 
+                        transform: translateY(-5px); 
+                        border-color: transparent;
+                    }
+                    .social-btn:hover svg {
+                        transform: scale(1.1);
+                    }
+                    
+                    .social-btn.fb:hover { background: #1877F2; }
+                    .social-btn.ig:hover { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+                    .social-btn.th:hover { background: #000000; border: 1px solid rgba(255, 255, 255, 0.2); }
+                    .social-btn.li:hover { background: #0A66C2; }
+
+                    /* Mobile Optimization */
+                    @media (max-width: 600px) {
+                        .premium-social-container { 
+                            gap: 14px; 
+                            margin-bottom: 20px; 
+                        }
+                        .social-btn { 
+                            width: 42px; 
+                            height: 42px; 
+                        }
+                        .social-btn svg { 
+                            width: 18px; 
+                            height: 18px; 
+                        }
+                    }
+                `} 
+            }),
+
+            // 🌐 PREMIUM SOCIAL MEDIA ICONS SECTION
+            React.createElement('div', { className: 'premium-social-container' },
+                
+                // Facebook
+                React.createElement('a', { 
+                    href: 'https://www.facebook.com/share/1SdJG6FCo5/', // <-- Apna Link Dalein
+                    target: '_blank', rel: 'noopener noreferrer',
+                    className: 'social-btn fb', 'aria-label': 'Facebook'
+                }, 
+                    React.createElement('svg', { viewBox: '0 0 24 24' },
+                        React.createElement('path', { d: 'M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z' })
+                    )
+                ),
+
+                // Instagram
+                React.createElement('a', { 
+                    href: 'https://www.instagram.com/apex.code_?igsh=MWk2ZjdqaXpkaG5wNg==', // <-- Apna Link Dalein
+                    target: '_blank', rel: 'noopener noreferrer',
+                    className: 'social-btn ig', 'aria-label': 'Instagram'
+                }, 
+                    React.createElement('svg', { viewBox: '0 0 24 24' },
+                        React.createElement('path', { d: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z' })
+                    )
+                ),
+
+                // Threads
+                React.createElement('a', { 
+                    href: 'https://www.threads.com/@apex.code_', // <-- Apna Link Yahan Dalein
+                    target: '_blank', rel: 'noopener noreferrer',
+                    className: 'social-btn th', 'aria-label': 'Threads'
+                }, 
+                    React.createElement('svg', { viewBox: '0 0 24 24' },
+                        React.createElement('path', { d: 'M18.32 12.7c-.12 3.32-1.74 5.38-4.59 5.38-1.57 0-2.85-.71-3.32-1.85-.14-.35-.22-.73-.22-1.12V10.1c0-.4.08-.77.22-1.12.47-1.14 1.75-1.85 3.32-1.85 2.86 0 4.47 2.06 4.59 5.38zM24 12c0-6.63-5.37-12-12-12S0 5.37 0 12s5.37 12 12 12c3.06 0 5.86-1.14 8-3.03l-1.58-1.47C16.81 21.04 14.53 21.8 12 21.8c-5.41 0-9.8-4.39-9.8-9.8S6.59 2.2 12 2.2s9.8 4.39 9.8 9.8c0 1.95-.53 3.49-1.57 4.5-.83.81-1.97 1.25-3.23 1.25-1.57 0-2.73-.77-3.13-2.07l-.02-.05c1.43-.8 2.37-2.31 2.37-4.13v-1.1c0-2.92-2.13-5.06-5.22-5.06-3.1 0-5.22 2.14-5.22 5.06v5.02c0 2.92 2.13 5.06 5.22 5.06 1.7 0 3.16-.65 4.14-1.82 1.5 1.29 3.48 1.96 5.66 1.96 1.83 0 3.51-.61 4.79-1.75C23.23 16.71 24 14.61 24 12z' })
+                    )
+                ),
+
+                // LinkedIn
+                React.createElement('a', { 
+                    href: 'https://linkedin.com/in/your-profile-link', // <-- Apna Link Yahan Dalein
+                    target: '_blank', rel: 'noopener noreferrer',
+                    className: 'social-btn li', 'aria-label': 'LinkedIn'
+                }, 
+                    React.createElement('svg', { viewBox: '0 0 24 24' },
+                        React.createElement('path', { d: 'M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z' })
+                    )
+                )
+            ),
+
+            // Copyright Text
             React.createElement('p', { className: 'copyright-animated' },
                 `Copyright © ${currentYear} Apex Code. All rights reserved.`
             )
