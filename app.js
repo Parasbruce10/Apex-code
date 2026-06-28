@@ -41,6 +41,45 @@ const TypewriterText = ({ texts, speed = 40, delay = 2000 }) => {
     );
 };
 
+// ✨ NAYA COUNTER COMPONENT (Premium Number Animation Ke Liye)
+const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
+    const [count, setCount] = React.useState(0);
+    const [hasStarted, setHasStarted] = React.useState(false);
+    const ref = React.useRef(null);
+
+    React.useEffect(() => {
+        // Scroll hone par animation start karne ke liye
+        const observer = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting) {
+                setHasStarted(true);
+                observer.disconnect();
+            }
+        }, { threshold: 0.3 });
+        if (ref.current) observer.observe(ref.current);
+        return () => observer.disconnect();
+    }, []);
+
+    React.useEffect(() => {
+        if (!hasStarted) return;
+        let startTimestamp = null;
+        const step = (timestamp) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            // Smooth easing effect
+            const easeProgress = 1 - Math.pow(1 - progress, 4); 
+            setCount(Math.floor(easeProgress * end));
+            if (progress < 1) {
+                window.requestAnimationFrame(step);
+            }
+        };
+        window.requestAnimationFrame(step);
+    }, [end, duration, hasStarted]);
+
+    return React.createElement('span', { ref: ref }, count + suffix);
+};
+
+// Yahan se aapka original code shuru ho raha hai
+// const QuickKitApp = () => { ...
 // JavaScript logic aur React dynamic element creation ek sath
 
 const QuickKitApp = () => {
@@ -7894,6 +7933,211 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                                 React.createElement('div', { style: { height: '6px', width: '85%', background: 'rgba(255,255,255,0.2)', borderRadius: '4px' } })
                             )
                         )
+                    )
+                )
+            ),
+            // ✨ ULTRA-PREMIUM ANIMATED STATS BAR (NEXT-GEN CINEMATIC VERSION)
+            React.createElement('div', { 
+                className: 'premium-stats-container',
+                style: { width: '100%', display: 'flex', justifyContent: 'center', overflow: 'hidden', padding: '10px 0' }
+            },
+                
+                // 🎨 CINEMATIC ANIMATIONS & RESPONSIVE GRID INJECTION
+                React.createElement('style', { 
+                    dangerouslySetInnerHTML: { __html: `
+                        /* 🌟 Entrance & Ambient Keyframes */
+                        @keyframes statsBarEntrance {
+                            0% { opacity: 0; transform: translateY(40px) scale(0.98); }
+                            100% { opacity: 1; transform: translateY(0) scale(1); }
+                        }
+                        
+                        @keyframes ambientGlowPulse {
+                            0% { 
+                                border-color: rgba(255, 255, 255, 0.05); 
+                                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06); 
+                            }
+                            50% { 
+                                border-color: rgba(255, 255, 255, 0.12); 
+                                box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 242, 254, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.12); 
+                            }
+                            100% { 
+                                border-color: rgba(255, 255, 255, 0.05); 
+                                box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06); 
+                            }
+                        }
+
+                        .premium-stats-bar {
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            width: 100%;
+                            max-width: 1140px;
+                            margin-bottom: 60px;
+                            padding: 45px 20px;
+                            background: linear-gradient(135deg, rgba(10, 10, 18, 0.8) 0%, rgba(20, 20, 35, 0.5) 100%);
+                            border: 1px solid rgba(255, 255, 255, 0.05);
+                            border-radius: 32px;
+                            backdrop-filter: blur(30px);
+                            -webkit-backdrop-filter: blur(30px);
+                            
+                            /* Animations Applier */
+                            animation: statsBarEntrance 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+                                      ambientGlowPulse 6s ease-in-out infinite;
+                            will-change: transform, opacity, box-shadow;
+                        }
+
+                        .stat-box {
+                            text-align: center;
+                            padding: 15px 25px;
+                            position: relative;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+                            will-change: transform;
+                        }
+                        
+                        /* Super Smooth Hover Jump */
+                        .stat-box:hover {
+                            transform: translateY(-8px) scale(1.02);
+                        }
+                        
+                        /* Premium Glass Dividers (Desktop Only) */
+                        .stat-box:not(:last-child)::after {
+                            content: '';
+                            position: absolute;
+                            right: 0;
+                            top: 10%;
+                            height: 80%;
+                            width: 1px;
+                            background: linear-gradient(to bottom, transparent via rgba(255, 255, 255, 0.12) to transparent);
+                            transition: opacity 0.3s ease;
+                        }
+                        .stat-box:hover::after, .stat-box:hover + .stat-box::after {
+                            opacity: 0.3; /* Fade out dividers near active hover */
+                        }
+                        
+                        .stat-number {
+                            font-size: 3.6rem; 
+                            font-weight: 950; 
+                            line-height: 1.05;
+                            margin-bottom: 10px;
+                            letter-spacing: -1.5px;
+                            display: inline-block;
+                            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+                            will-change: transform, filter;
+                        }
+                        
+                        /* Dynamic Scaling inside the hovered container */
+                        .stat-box:hover .stat-number {
+                            transform: scale(1.08);
+                        }
+
+                        .stat-label {
+                            color: rgba(255, 255, 255, 0.45); 
+                            font-size: 0.85rem; 
+                            font-weight: 800; 
+                            letter-spacing: 2px; 
+                            text-transform: uppercase;
+                            transition: all 0.4s ease;
+                            position: relative;
+                        }
+                        
+                        /* Subtle label slide up/brighten */
+                        .stat-box:hover .stat-label {
+                            color: #ffffff;
+                            letter-spacing: 2.3px;
+                        }
+
+                        /* 📱 Tablets Screen Optimization (2 Columns) */
+                        @media (max-width: 992px) {
+                            .premium-stats-bar {
+                                grid-template-columns: repeat(2, 1fr);
+                                gap: 40px 0;
+                                padding: 40px 20px;
+                                border-radius: 26px;
+                            }
+                            .stat-box:nth-child(2n)::after {
+                                display: none !important;
+                            }
+                            .stat-number {
+                                font-size: 3.2rem;
+                            }
+                        }
+
+                        /* 📱 Mobile Screen Optimization (1 Column Absolute Smooth) */
+                        @media (max-width: 520px) {
+                            .premium-stats-bar {
+                                grid-template-columns: 1fr;
+                                gap: 45px 0;
+                                padding: 50px 15px;
+                                margin-bottom: 40px;
+                            }
+                            .stat-box {
+                                padding: 10px;
+                            }
+                            .stat-box::after {
+                                display: none !important;
+                            }
+                            .stat-number {
+                                font-size: 3rem;
+                            }
+                            .stat-label {
+                                font-size: 0.8rem;
+                                letter-spacing: 1.5px;
+                            }
+                            .stat-box:hover {
+                                transform: translateY(-4px) scale(1.01); /* Reduced motion for mobile */
+                            }
+                        }
+                    `} 
+                }),
+
+                // 🌐 UI GRID CONTAINER
+                React.createElement('div', { className: 'premium-stats-bar' },
+                    
+                    // Stat 1: Projects Completed
+                    React.createElement('div', { className: 'stat-box' },
+                        React.createElement('div', { 
+                            className: 'stat-number',
+                            style: { background: 'linear-gradient(90deg, #00f2fe, #4facfe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 242, 254, 0.25))' } 
+                        },
+                            React.createElement(AnimatedCounter, { end: 50, suffix: '+' })
+                        ),
+                        React.createElement('div', { className: 'stat-label' }, 'Projects Completed')
+                    ),
+
+                    // Stat 2: Expert Members
+                    React.createElement('div', { className: 'stat-box' },
+                        React.createElement('div', { 
+                            className: 'stat-number',
+                            style: { background: 'linear-gradient(90deg, #ff0080, #ff8c00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 0, 128, 0.25))' } 
+                        },
+                            React.createElement(AnimatedCounter, { end: 10, suffix: '+' })
+                        ),
+                        React.createElement('div', { className: 'stat-label' }, 'Expert Members')
+                    ),
+
+                    // Stat 3: Satisfied Clients
+                    React.createElement('div', { className: 'stat-box' },
+                        React.createElement('div', { 
+                            className: 'stat-number',
+                            style: { background: 'linear-gradient(90deg, #00e28c, #00f2fe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 224, 140, 0.25))' } 
+                        },
+                            React.createElement(AnimatedCounter, { end: 10, suffix: '+' })
+                        ),
+                        React.createElement('div', { className: 'stat-label' }, 'Satisfied Clients')
+                    ),
+
+                    // Stat 4: Years Experience
+                    React.createElement('div', { className: 'stat-box' },
+                        React.createElement('div', { 
+                            className: 'stat-number',
+                            style: { background: 'linear-gradient(90deg, #ffbd2e, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 189, 46, 0.25))' } 
+                        },
+                            React.createElement(AnimatedCounter, { end: 2, suffix: '+' })
+                        ),
+                        React.createElement('div', { className: 'stat-label' }, 'Years Experience')
                     )
                 )
             ),
