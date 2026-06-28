@@ -8124,7 +8124,7 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                             className: 'stat-number',
                             style: { background: 'linear-gradient(90deg, #00e28c, #00f2fe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 224, 140, 0.25))' } 
                         },
-                            React.createElement(AnimatedCounter, { end: 10, suffix: '+' })
+                            React.createElement(AnimatedCounter, { end: 20, suffix: '+' })
                         ),
                         React.createElement('div', { className: 'stat-label' }, 'Satisfied Clients')
                     ),
