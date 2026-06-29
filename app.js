@@ -4445,30 +4445,67 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { style: { ...portfolioInputStyle, textAlign: 'center', background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', border: '1px solid rgba(0, 242, 254, 0.15)' } },
-                    React.createElement('img', {
-                        src: 'usman.jpeg',
-                        alt: 'Usman Nadeem',
-                        style: {
-                            width: '130px',
-                            height: '130px',
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            marginBottom: '20px',
-                            border: '3px solid #00f2fe',
-                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-                            display: 'inline-block'
-                        }
-                    }),
-                    React.createElement('h2', {
-                        style: { fontSize: '2.rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
-                    }, 'Engr. Usman Nadeem'), //
-                    React.createElement('p', { style: { color: '#00f2fe', fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', margin: '0 0 15px 0' } }, 'Lead Wordpress Developer & Frontend Developer'), //
-                    React.createElement('p', { style: { maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem' } },
-                        'Specializing in custom WordPress ecosystems and high-performance frontend interfaces. Passionate about architecting scalable web solutions that blend seamless UI/UX with robust backend utility.' //
-
-                    )
-                ),
+                React.createElement('div', { 
+    style: { 
+        ...portfolioInputStyle, 
+        display: 'flex',                             
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center', 
+        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
+        border: '1px solid rgba(0, 242, 254, 0.15)',
+        padding: '30px 15px',                        // Padding thodi mazeed optimize ki mobile edges ke liye
+        maxWidth: '95%',                             
+        margin: '0 auto',
+        boxSizing: 'border-box'
+    } 
+},
+    React.createElement('img', {
+        src: 'usman.jpeg',                           
+        alt: 'Usman Nadeem',
+        style: {
+            width: 'clamp(90px, 22vw, 130px)',      // Mobile par size thoda aur streamline kiya taaki space bache
+            height: 'clamp(90px, 22vw, 130px)',     
+            borderRadius: '50%',
+            objectFit: 'cover',
+            marginBottom: '15px',                    
+            border: '3px solid #00f2fe',
+            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+            display: 'inline-block'
+        }
+    }),
+    React.createElement('h2', {
+        style: { 
+            fontSize: 'clamp(1.2rem, 5.5vw, 2.4rem)', // Font scale ko thoda scale-down kiya taaki ek line me fit aye
+            fontWeight: '800', 
+            margin: '0 0 10px 0', 
+            whiteSpace: 'nowrap',                    // STRICT LOCK: Kisi bhi haal me text 2 lines me nahi tootega
+            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            lineHeight: '1.2'
+        }
+    }, 'Engr. Usman Nadeem'),
+    React.createElement('p', { 
+        style: { 
+            color: '#00f2fe', 
+            fontWeight: '700', 
+            fontSize: 'clamp(0.9rem, 3.8vw, 1.2rem)', // Isko bhi balance kiya heading ke mutabiq
+            letterSpacing: '0.5px',                  
+            margin: '0 0 15px 0' 
+        } 
+    }, 'Lead Software Engineer & Full-Stack Developer'),
+    React.createElement('p', { 
+        style: { 
+            maxWidth: '650px', 
+            margin: '0 auto', 
+            color: 'rgba(255,255,255,0.7)', 
+            fontSize: 'clamp(0.9rem, 3.5vw, 1.05rem)', 
+            lineHeight: '1.5',
+            padding: '0 5px'                        
+        } 
+    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -5785,7 +5822,7 @@ textOverflow: 'ellipsis',
 display: 'block',
 width: '100%',
     }
-  }, 'Engr. Usman '),
+  }, 'Engr. Usman Nadeem'),
 
   // Title
   React.createElement('p', { 
