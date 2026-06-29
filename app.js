@@ -4461,7 +4461,7 @@ React.createElement('p', {
                         }
                     }),
                     React.createElement('h2', {
-                        style: { fontSize: '2.8rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
+                        style: { fontSize: '2.rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
                     }, 'Engr. Usman Nadeem'), //
                     React.createElement('p', { style: { color: '#00f2fe', fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', margin: '0 0 15px 0' } }, 'Lead Wordpress Developer & Frontend Developer'), //
                     React.createElement('p', { style: { maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem' } },
@@ -5738,65 +5738,77 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { 
-    style: { 
-        ...portfolioInputStyle, 
-        display: 'flex',                             // Block se flexbox select kiya vertical layout manage karne ke liye
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center', 
-        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
-        border: '1px solid rgba(0, 242, 254, 0.15)',
-        padding: '30px 20px',                        // Mobile spacing adjust ki takay edges tight na laghein
-        maxWidth: '95%',                             // Card browser width ke mutabiq compact ho jayega
-        margin: '0 auto',
-        boxSizing: 'border-box'
-    } 
+React.createElement('div', { 
+  style: { 
+    ...portfolioInputStyle, 
+    display: 'flex',
+    flexDirection: 'column', 
+    alignItems: 'center', 
+    textAlign: 'center', 
+    background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
+    border: '1px solid rgba(0, 242, 254, 0.15)', 
+    padding: '30px 10px',           // thoda padding badhaya
+    width: '100%', 
+    maxWidth: '100%',
+    margin: '0 auto', 
+    boxSizing: 'border-box', 
+    overflow: 'hidden' 
+  } 
 },
-    React.createElement('img', {
-        src: 'usman.jpeg',                           // Aapka image path update kar diya hai
-        alt: 'Usman Nadeem',
-        style: {
-            width: 'clamp(100px, 25vw, 130px)',      // Mobile par auto downscale hokar adjust ho jayegi
-            height: 'clamp(100px, 25vw, 130px)',     // Circle ratio perfect match rahega
-            borderRadius: '50%',
-            objectFit: 'cover',
-            marginBottom: '15px',                    // Vertical distance compact kiya
-            border: '3px solid #00f2fe',
-            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-            display: 'inline-block'
-        }
-    }),
-    React.createElement('h2', {
-        style: { 
-            fontSize: 'clamp(1.8rem, 6vw, 2.8rem)',  // Mobile screen par layout break nahi hoga aur font size perfect compress hoga
-            fontWeight: '800', 
-            margin: '0 0 10px 0', 
-            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent',
-            lineHeight: '1.2'
-        }
-    }, 'Engr. Usman Nadeem'),
-    React.createElement('p', { 
-        style: { 
-            color: '#00f2fe', 
-            fontWeight: '700', 
-            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title dynamic viewports ko track karega
-            letterSpacing: '0.5px',                  // Overlapping issues se bachane ke liye optimal text tracking
-            margin: '0 0 15px 0' 
-        } 
-    }, 'Lead Software Engineer & Full-Stack Developer'),
-    React.createElement('p', { 
-        style: { 
-            maxWidth: '650px', 
-            margin: '0 auto', 
-            color: 'rgba(255,255,255,0.7)', 
-            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio layout reading block responsive setup
-            lineHeight: '1.5',
-            padding: '0 10px'                        // Border bleeding filter lagaya
-        } 
-    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+
+  // Image
+  React.createElement('img', { 
+    src: 'usman.jpeg',
+    alt: 'Usman Nadeem', 
+    style: { 
+      width: 'clamp(80px, 18vw, 120px)',
+      height: 'clamp(80px, 18vw, 120px)',
+      borderRadius: '50%', 
+      objectFit: 'cover', 
+      marginBottom: '15px',
+      border: '3px solid #00f2fe', 
+      boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)' 
+    } 
+  }), 
+
+  // Name - Yeh wala main fix hai
+  React.createElement('h2', { 
+    style: { 
+      fontSize: 'clamp(8px, 2.3vw, 1.6rem)',
+fontWeight: '800',
+margin: '0 0 10px 0',
+letterSpacing: '-0.3px',
+whiteSpace: 'nowrap',
+wordBreak: 'keep-all',
+overflow: 'hidden',
+textOverflow: 'ellipsis',
+display: 'block',
+width: '100%',
+    }
+  }, 'Engr. Usman '),
+
+  // Title
+  React.createElement('p', { 
+    style: { 
+      color: '#00f2fe', 
+      fontWeight: '700', 
+      fontSize: 'clamp(12px, 3.5vw, 1.1rem)', 
+      letterSpacing: '0',                                       
+      margin: '0 0 15px 0' 
+    } 
+  }, 'Lead Software Engineer & Full-Stack Developer'),
+
+  // Description
+  React.createElement('p', { 
+    style: { 
+      maxWidth: '650px', 
+      margin: '0 auto', 
+      color: 'rgba(255,255,255,0.7)', 
+      fontSize: 'clamp(12px, 3.2vw, 1rem)', 
+      lineHeight: '1.5',
+      padding: '0 8px'                        
+    } 
+  }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
 ),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
