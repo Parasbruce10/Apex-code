@@ -8367,7 +8367,7 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                 )
             )
         );
-    } else if (currentPage === 'privacy-policy') {
+    }else if (currentPage === 'privacy-policy') {
         // 🌌 Premium Core Section Style (Sophisticated Glassmorphism matching About page)
         const sectionStyle = {
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
@@ -8431,7 +8431,7 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                     React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '1. Information We Collect')
                 ),
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
-                    'At Apex Code, accessible from our platform, one of our main priorities is the privacy of our visitors. When you request a service, contact us via email, or fill out a form (such as ordering websites listed for sale), we may collect personal information including your full name, email address, phone/WhatsApp number, and location country.'
+                    'At Apex Code, accessible from our platform, one of our main priorities is the privacy of our visitors. When you request a service, contact us via email, fill out a form (such as ordering websites listed for sale), submit a job application, or communicate with us through any channel, we may collect personal information including your full name, email address, phone/WhatsApp number, country of residence, project details, and payment information. All payment transactions are processed securely through third-party payment gateways.'
                 )
             ),
 
@@ -8443,36 +8443,96 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                     React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '2. How We Use Your Information')
                 ),
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
-                    'We utilize the collected information strictly to process your business inquiries, fulfill custom layout orders, enhance user experience, and communicate updates or support regarding your purchases. We do not sell, rent, or distribute your credentials to third-party marketing networks.'
+                    'We utilize the collected information strictly to process your business inquiries, fulfill custom website development and design orders, process job applications, enhance user experience, and communicate updates or support regarding your purchases. We do not sell, rent, or distribute your credentials to third-party marketing networks. Your data is used solely for the purpose of delivering our services to you.'
                 )
             ),
 
-            // 🌐 3. THIRD-PARTY SERVICES & AD NETWORKS
+            // 💳 3. PAYMENT TERMS & PROJECT POLICY (NEW SECTION)
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#eab308') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#eab308', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '3. Payment Terms & Project Policy')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'We require a 50% advance payment before starting any project. The remaining 50% is due upon project completion and before final delivery. All payments are non-refundable once the project work has commenced. We do not store your payment information on our servers.'
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300', marginTop: '15px' } },
+                    'Important Notice: Apex Code is not responsible for any website crashes, technical failures, data loss, or security breaches that occur 6 months after project completion and final delivery. After this 6-month period, the client assumes full responsibility for website maintenance, security updates, plugin updates, backups, and all technical support. We offer separate maintenance and support packages that can be purchased to extend coverage beyond the 6-month period.'
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300', marginTop: '15px' } },
+                    'All website-for-sale purchases are final and binding. We highly recommend reviewing live previews and templates thoroughly before making a purchase. Custom development revisions are subject to the initial written scope agreed upon at project start.'
+                )
+            ),
+
+            // 🌐 4. THIRD-PARTY SERVICES & AD NETWORKS
             React.createElement('div', { style: sectionStyle },
                 React.createElement('div', { style: glowLineStyle('#00f2fe') }),
                 React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
                     React.createElement('span', { style: { color: '#00f2fe', fontSize: '1.5rem' } }, '✦'),
-                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '3. Third-Party Services & Ad Networks')
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '4. Third-Party Services & Ad Networks')
                 ),
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
-                    'Our platform may utilize integrated third-party analytics and ad-monetization publisher networks to serve premium advertisements. These networks may track anonymized user visits or deploy web cookies to optimize target delivery. Please refer to their respective individual privacy policies for full terms.'
+                    'Our platform may utilize integrated third-party analytics (such as Google Analytics) and ad-monetization publisher networks (including AdSense, Adsterra, and Monetag) to serve premium advertisements. These networks may track anonymized user visits, collect anonymous usage data, or deploy web cookies to optimize target delivery. Please refer to their respective individual privacy policies for full terms on their data collection and usage practices.'
                 )
             ),
 
-            // 🔐 4. DATA PROTECTION
+            // 🔐 5. DATA PROTECTION & SECURITY
             React.createElement('div', { style: sectionStyle },
                 React.createElement('div', { style: glowLineStyle('#ff0080') }),
                 React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
                     React.createElement('span', { style: { color: '#ff0080', fontSize: '1.5rem' } }, '✦'),
-                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '4. Data Protection')
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '5. Data Protection & Security')
                 ),
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
-                    'We institute robust digital security measures to maintain the absolute confidentiality of your order forms and payment verification queries submitted across our secure networks.'
+                    'We implement robust digital security measures to maintain the absolute confidentiality of your order forms and payment verification queries submitted across our secure networks. This includes SSL encryption for data transmission, limited access to personal data, regular security audits, and compliance with data protection regulations. However, please note that no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.'
                 )
             ),
 
+            // 📋 6. DATA RETENTION & YOUR RIGHTS
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#00f2fe') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#00f2fe', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '6. Data Retention & Your Rights')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'We retain your personal information only for as long as necessary to fulfill the purposes outlined in this privacy policy, unless a longer retention period is required by law. You have the right to access, correct, or request deletion of your personal information at any time. You may also withdraw consent for data processing or object to the processing of your personal information. To exercise any of these rights, please contact us at book.apexcode@gmail.com.'
+                )
+            ),
+
+            // 🍪 7. COOKIES & CHILDREN'S PRIVACY
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#ff0080') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#ff0080', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '7. Cookies & Children\'s Privacy')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'Our website may use cookies to enhance your browsing experience. You can control cookie preferences through your browser settings. Please note that disabling cookies may affect certain features of our website. Our services are not intended for individuals under the age of 13, and we do not knowingly collect personal information from children under 13 years of age.'
+                )
+            ),
+
+            // 📞 8. CONTACT US & POLICY UPDATES
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#00f2fe') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#00f2fe', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '8. Contact Us & Policy Updates')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'We reserve the right to update this privacy policy at any time. We will notify you of any changes by posting the new policy on this page with an updated "Last Updated" date. If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us at:'
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.9)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '500', marginTop: '15px' } },
+                    '📧 Email: book.apexcode@gmail.com'
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300', marginTop: '15px', fontStyle: 'italic' } },
+                    'By using our services, you acknowledge that you have read, understood, and agree to this Privacy Policy and our Terms & Conditions.'
+                )
+            )
+
         );
-    } else if (currentPage === 'terms-conditions') {
+    }else if (currentPage === 'terms-conditions') {
         // 🌌 Premium Core Section Style (Sophisticated Glassmorphism)
         const sectionStyle = {
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
@@ -8502,25 +8562,22 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
         },
 
             // 🚀 HEADER SECTION (Stunning Pill-Shaped Glowing Border & Gradient)
-            // Main Section Header Container
             React.createElement('div', { style: { textAlign: 'center', marginBottom: '60px', position: 'relative' } },
                 
-                // 💎 STEP 1: Outer Glass Pill Box Wrapper (Isolated safely)
                 React.createElement('div', {
                     style: {
                         display: 'inline-block',
                         padding: '12px 35px',
                         border: '1px solid rgba(255, 255, 255, 0.08)',
                         borderRadius: '20px',
-                        background: 'rgba(255, 255, 255, 0.02)', // Smooth subtle container base
+                        background: 'rgba(255, 255, 255, 0.02)',
                         backdropFilter: 'blur(8px)',
                         WebkitBackdropFilter: 'blur(8px)',
                         boxShadow: 'inset 0 0 12px rgba(255, 255, 255, 0.02), 0 8px 32px rgba(0, 0, 0, 0.3)',
                         margin: '0 auto',
-                        filter: 'drop-shadow(0 4px 12px rgba(255, 0, 128, 0.15))' // Ambient container glow
+                        filter: 'drop-shadow(0 4px 12px rgba(255, 0, 128, 0.15))'
                     }
                 },
-                    // 💎 STEP 2: Pure Gradient Text (No layout properties to avoid browser bugs)
                     React.createElement('h2', {
                         className: 'section-heading',
                         style: {
@@ -8529,7 +8586,7 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                             letterSpacing: '1.5px',
                             margin: '0',
                             padding: '0',
-                            background: 'linear-gradient(90deg, #FF0080 0%, #00F2FE 100%)', // Your beautiful gradient
+                            background: 'linear-gradient(90deg, #FF0080 0%, #00F2FE 100%)',
                             WebkitBackgroundClip: 'text',
                             WebkitTextFillColor: 'transparent',
                             display: 'block',
@@ -8538,7 +8595,6 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                     }, 'Terms & Conditions')
                 ),
                 
-                // Last Updated Subtext
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '1.05rem', marginTop: '20px', fontWeight: '500' } }, 'Last Updated: June 2026')
             ),
 
@@ -8550,46 +8606,189 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                     React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '1. Introduction & Agreement')
                 ),
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
-                    'By accessing, browsing, or placing orders via Apex Code, you acknowledge and agree to comply fully with these standard Terms and Conditions. If you disagree with any part of these terms, please halt usage of our services immediately.'
+                    'By accessing, browsing, or placing orders via Apex Code, you acknowledge and agree to comply fully with these standard Terms and Conditions. If you disagree with any part of these terms, please halt usage of our services immediately. These terms constitute a legally binding agreement between you ("Client," "User," "You") and Apex Code ("Company," "We," "Us," "Our").'
                 )
             ),
 
-            // 💎 2. PURCHASE & INTELLECTUAL PROPERTY
+            // 🛠️ 2. SERVICES WE PROVIDE
             React.createElement('div', { style: sectionStyle },
                 React.createElement('div', { style: glowLineStyle('#00f2fe') }),
                 React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
                     React.createElement('span', { style: { color: '#00f2fe', fontSize: '1.5rem' } }, '✦'),
-                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '2. Purchase & Intellectual Property')
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '2. Services We Provide')
                 ),
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
-                    'When purchasing a pre-built web package or hiring us for custom WordPress development/SEO optimization, ownership assets are fully transferred upon absolute completion of clear payments. Replicating, pirating, or redistributing our specific framework themes without explicit authorization is strictly prohibited.'
+                    'Apex Code offers the following services: Custom Code-Based Website Development using modern frameworks like React, Python/Flask, and other technologies; WordPress Website Development with custom theme configuration and plugin integration; SEO Optimization including on-page optimization, technical SEO audits, keyword strategy, and structured data implementation; Ad Monetization Setup integrating AdSense, Adsterra, Monetag, and other ad networks; Website for Sale including ready-made premium templates and websites; and Job Postings for recruitment and career opportunities.'
                 )
             ),
 
-            // 💳 3. REFUNDS & PROJECT DELIVERIES
+            // 💳 3. PAYMENT TERMS & PROJECT POLICY
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#eab308') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#eab308', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '3. Payment Terms & Project Policy')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'We require a 50% advance payment before starting any project. The remaining 50% is due upon project completion and before final delivery. All payments are non-refundable once project work has commenced. We accept payments via Sadapay, Raqami, Jazzcash, HBL Bank, UBL Bank, Meezan Bank, NayaPay, Easypaisa, and corporate bank transfers.'
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300', marginTop: '15px' } },
+                    'Project completion time varies based on the selected plan and project scope. Basic plans have a quick turnaround, while Standard and Premium plans with database integration or enterprise architecture take longer based on scope.'
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300', marginTop: '15px' } },
+                    'Important Notice: Apex Code is not responsible for any website crashes, technical failures, data loss, or security breaches that occur 6 months after project completion and final delivery. After this 6-month period, the client assumes full responsibility for website maintenance, security updates, plugin updates, backups, and all technical support. We offer separate maintenance and support packages that can be purchased to extend coverage beyond the 6-month period.'
+                )
+            ),
+
+            // 🛒 4. WEBSITE FOR SALE PURCHASES
             React.createElement('div', { style: sectionStyle },
                 React.createElement('div', { style: glowLineStyle('#ff0080') }),
                 React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
                     React.createElement('span', { style: { color: '#ff0080', fontSize: '1.5rem' } }, '✦'),
-                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '3. Refunds & Project Deliveries')
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '4. Website for Sale Purchases')
                 ),
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
-                    'Due to the operational nature of digital coding and domain transfers, all website-for-sale purchases are binding. We highly recommend reviewing live live-previews and templates thoroughly before filling out the booking form. Revisions for custom agency development are subject to initial written scope sheets.'
+                    'All website-for-sale purchases are final and binding. We highly recommend reviewing live previews and templates thoroughly before making a purchase. Full ownership of the purchased website transfers to you once payment is completed. Reusing or redistributing our proprietary framework themes without authorization is not permitted. Pre-built website-for-sale purchases are final, so we recommend reviewing the live preview carefully before booking.'
                 )
             ),
 
-            // 🛡️ 4. LIMITATION OF LIABILITY
+            // 💻 5. CUSTOM DEVELOPMENT PROJECTS
             React.createElement('div', { style: sectionStyle },
                 React.createElement('div', { style: glowLineStyle('#00f2fe') }),
                 React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
                     React.createElement('span', { style: { color: '#00f2fe', fontSize: '1.5rem' } }, '✦'),
-                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '4. Limitation of Liability')
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '5. Custom Development Projects')
                 ),
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
-                    'Apex Code stands as a dedicated service provider and will not be held liable for sudden shifts in external ad network configurations, domain host downtime, or hosting modifications caused by third-party configurations post-handover.'
+                    'Custom development revisions follow the written scope agreed upon at project start. Any changes to the scope after project commencement may incur additional charges. Clients must provide all necessary content, images, and information in a timely manner. Delays caused by client non-responsiveness may affect project timelines. Clients are responsible for reviewing and approving deliverables at each stage. Limited revisions are included as per the agreed scope, and additional revisions beyond the scope may be billed separately.'
                 )
             ),
 
+            // 🔒 6. INTELLECTUAL PROPERTY
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#ff0080') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#ff0080', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '6. Intellectual Property')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'Upon full payment, all intellectual property rights for the custom-developed website transfer to the client. For website-for-sale purchases, full ownership transfers upon completion of payment. Replicating, pirating, or redistributing our specific framework themes without explicit authorization is strictly prohibited. You may not resell or redistribute any proprietary code or templates provided by Apex Code without written consent. Any third-party assets (plugins, images, libraries) used in your project remain the property of their respective owners and are subject to their licensing terms.'
+                )
+            ),
+
+            // 🔄 7. REFUND POLICY
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#eab308') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#eab308', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '7. Refund Policy')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'Due to the operational nature of digital coding and domain transfers, all website-for-sale purchases are binding and non-refundable. For custom development projects, payments are non-refundable once work has commenced. If a project is canceled before work begins, the 50% advance payment may be refundable, minus any administrative fees. Any disputes regarding our services will be handled through direct communication. If a resolution cannot be reached, the matter may be escalated to formal dispute resolution.'
+                )
+            ),
+
+            // 🛡️ 8. LIMITATION OF LIABILITY
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#ff0080') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#ff0080', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '8. Limitation of Liability')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'Apex Code stands as a dedicated service provider and will not be held liable for sudden shifts in external ad network configurations, domain host downtime, hosting modifications caused by third-party configurations post-handover, or acts of God, natural disasters, or events beyond our reasonable control. To the maximum extent permitted by law, our total liability to you for any claims arising out of or relating to these terms or our services shall not exceed the total amount paid by you to us for the specific service in question. In no event shall Apex Code be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to lost profits, lost data, or business interruption.'
+                )
+            ),
+
+            // 👤 9. USER RESPONSIBILITIES & CONDUCT
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#00f2fe') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#00f2fe', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '9. User Responsibilities & Conduct')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'You agree to provide accurate, complete, and current information when using our services, including contact details, project requirements, and payment information. You agree not to use our services for any illegal or unauthorized purpose, violate any applicable laws or regulations, attempt to gain unauthorized access to our systems, interfere with or disrupt our services or servers, or use our services to harass, abuse, or harm others. You represent that you own or have the necessary rights to all content you provide to us for your project.'
+                )
+            ),
+
+            // 🔐 10. PRIVACY & DATA PROTECTION
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#ff0080') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#ff0080', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '10. Privacy & Data Protection')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'Our Privacy Policy, which is incorporated by reference into these Terms and Conditions, governs how we collect, use, and protect your personal information. We implement reasonable security measures to protect your data. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security.'
+                )
+            ),
+
+            // ⚡ 11. TERMINATION
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#00f2fe') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#00f2fe', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '11. Termination')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'You may terminate your use of our services at any time. However, payments made are non-refundable as outlined in Section 7. We reserve the right to terminate or suspend your access to our services at any time, without notice, for conduct that we believe violates these terms or is harmful to other users, us, or third parties.'
+                )
+            ),
+
+            // 📝 12. CHANGES TO TERMS
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#ff0080') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#ff0080', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '12. Changes to Terms')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'We reserve the right to update these Terms and Conditions at any time. We will notify you of any changes by posting the new terms on this page with an updated "Last Updated" date. By continuing to use our services after changes are posted, you accept and agree to the updated Terms and Conditions.'
+                )
+            ),
+
+            // ⚖️ 13. GOVERNING LAW & DISPUTE RESOLUTION
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#eab308') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#eab308', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '13. Governing Law & Dispute Resolution')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'These Terms and Conditions shall be governed by and construed in accordance with the laws of Pakistan. In the event of any dispute arising out of or relating to these terms, you agree to first attempt to resolve the dispute informally by contacting us at book.apexcode@gmail.com. If the dispute cannot be resolved informally, it shall be resolved through binding arbitration in accordance with the rules of the relevant arbitration body in Pakistan.'
+                )
+            ),
+
+            // 📞 14. CONTACT INFORMATION
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#00f2fe') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#00f2fe', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '14. Contact Information')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.9)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '500' } },
+                    '📧 Email: book.apexcode@gmail.com'
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300', marginTop: '15px' } },
+                    'If you have any questions, concerns, or requests regarding these Terms and Conditions, please contact us at the email address above.'
+                )
+            ),
+
+            // 📄 15. ENTIRE AGREEMENT
+            React.createElement('div', { style: sectionStyle },
+                React.createElement('div', { style: glowLineStyle('#ff0080') }),
+                React.createElement('div', { style: { display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('span', { style: { color: '#ff0080', fontSize: '1.5rem' } }, '✦'),
+                    React.createElement('h3', { style: { color: '#ffffff', fontSize: '1.65rem', fontWeight: '700', margin: 0 } }, '15. Entire Agreement')
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300' } },
+                    'These Terms and Conditions, together with our Privacy Policy and any other policies referenced herein, constitute the entire agreement between you and Apex Code regarding your use of our services and supersede all prior agreements and understandings.'
+                ),
+                React.createElement('p', { style: { color: 'rgba(255,255,255,0.75)', lineHeight: '1.9', fontSize: '1.1rem', fontWeight: '300', marginTop: '15px', fontStyle: 'italic' } },
+                    'By using our services, you acknowledge that you have read, understood, and agree to these Terms and Conditions and our Privacy Policy.'
+                )
+            )
 
         );
     } else if (currentPage === 'home' || currentPage === '') {
