@@ -66,7 +66,7 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = '' }) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             // Smooth easing effect
-            const easeProgress = 1 - Math.pow(1 - progress, 4); 
+            const easeProgress = 1 - Math.pow(1 - progress, 4);
             setCount(Math.floor(easeProgress * end));
             if (progress < 1) {
                 window.requestAnimationFrame(step);
@@ -153,17 +153,17 @@ const FAQItem = ({ question, answer }) => {
 // Main 10 Questions Wrapper
 const TopFAQSection = () => {
     const faqs = [
-    { question: "What services does Apex Code provide?", answer: "We build custom code-based websites (React + Python/Flask), professional WordPress sites, on-page and technical SEO optimization, and ad monetization setups using AdSense, Adsterra, or Monetag." },
-    { question: "How do I get started with a project?", answer: "Just fill out the project details form on our site. Tell us what you need and our team will reach out to discuss the right plan, timeline, and pricing for you." },
-    { question: "Do you build custom-coded sites or just WordPress?", answer: "Both. We offer fully custom React/Flask websites for performance-critical projects, plus WordPress builds for clients who want an easy-to-manage CMS." },
-    { question: "Are your websites mobile responsive?", answer: "Yes. Every plan we offer, Basic, Standard, or Premium, is built with fluid layouts that scale cleanly from desktop screens down to mobile devices." },
-    { question: "Do you offer SEO optimization for websites?", answer: "Yes, we have dedicated SEO plans covering on-page optimization, technical audits, keyword strategy, and structured data to help improve your Google ranking." },
-    { question: "Can you help monetize my website with ads?", answer: "Yes, we set up AdSense, Adsterra, or Monetag ad placements designed for strong revenue without hurting your site's user experience or load speed." },
-    { question: "What payment methods do you accept?", answer: "We support Sadapay, Raqami, Jazzcash, HBL Bank, UBL Bank, Meezan Bank, NayaPay, Easypaisa, and standard corporate bank transfers for project payments." },
-    { question: "How long does a project take to complete?", answer: "It depends on the plan. Basic builds have a quick turnaround, while Standard and Premium plans with database integration or enterprise architecture take longer based on scope." },
-    { question: "Who owns the website once it's finished?", answer: "Full ownership transfers to you once payment is completed. Reusing or redistributing our proprietary framework themes without authorization is not permitted." },
-    { question: "Do you offer revisions or support after launch?", answer: "Custom development revisions follow the written scope agreed at project start. Pre-built website-for-sale purchases are final, so we recommend reviewing the live preview carefully before booking." }
-];
+        { question: "What services does Apex Code provide?", answer: "We build custom code-based websites (React + Python/Flask), professional WordPress sites, on-page and technical SEO optimization, and ad monetization setups using AdSense, Adsterra, or Monetag." },
+        { question: "How do I get started with a project?", answer: "Just fill out the project details form on our site. Tell us what you need and our team will reach out to discuss the right plan, timeline, and pricing for you." },
+        { question: "Do you build custom-coded sites or just WordPress?", answer: "Both. We offer fully custom React/Flask websites for performance-critical projects, plus WordPress builds for clients who want an easy-to-manage CMS." },
+        { question: "Are your websites mobile responsive?", answer: "Yes. Every plan we offer, Basic, Standard, or Premium, is built with fluid layouts that scale cleanly from desktop screens down to mobile devices." },
+        { question: "Do you offer SEO optimization for websites?", answer: "Yes, we have dedicated SEO plans covering on-page optimization, technical audits, keyword strategy, and structured data to help improve your Google ranking." },
+        { question: "Can you help monetize my website with ads?", answer: "Yes, we set up AdSense, Adsterra, or Monetag ad placements designed for strong revenue without hurting your site's user experience or load speed." },
+        { question: "What payment methods do you accept?", answer: "We support Sadapay, Raqami, Jazzcash, HBL Bank, UBL Bank, Meezan Bank, NayaPay, Easypaisa, and standard corporate bank transfers for project payments." },
+        { question: "How long does a project take to complete?", answer: "It depends on the plan. Basic builds have a quick turnaround, while Standard and Premium plans with database integration or enterprise architecture take longer based on scope." },
+        { question: "Who owns the website once it's finished?", answer: "Full ownership transfers to you once payment is completed. Reusing or redistributing our proprietary framework themes without authorization is not permitted." },
+        { question: "Do you offer revisions or support after launch?", answer: "Custom development revisions follow the written scope agreed at project start. Pre-built website-for-sale purchases are final, so we recommend reviewing the live preview carefully before booking." }
+    ];
 
     return React.createElement('div', {
         style: {
@@ -173,14 +173,14 @@ const TopFAQSection = () => {
         }
     }, [
         React.createElement('div', {
-    key: 'divider-top',
-    style: {
-        width: '120px',
-        height: '2px',
-        margin: '0 auto 18px auto',
-        background: 'linear-gradient(90deg, transparent, #00ffcc, transparent)'
-    }
-}),
+            key: 'divider-top',
+            style: {
+                width: '120px',
+                height: '2px',
+                margin: '0 auto 18px auto',
+                background: 'linear-gradient(90deg, transparent, #00ffcc, transparent)'
+            }
+        }),
         React.createElement('h3', {
             key: 'title',
             style: { color: '#00ffcc', fontSize: '1.2rem', marginBottom: '20px', textTransform: 'uppercase', letterSpacing: '1px', textAlign: 'center' }
@@ -193,7 +193,7 @@ const TopFAQSection = () => {
                 gap: '16px'
             }
         }, faqs.map((faq, i) => React.createElement(FAQItem, { key: i, question: faq.question, answer: faq.answer })))
-        
+
     ]);
 };
 
@@ -237,17 +237,17 @@ const renderSaleDetailsBlocks = () => {
         }
     },
         React.createElement('h2', {
-            style: { 
-                fontSize: '2.2rem', 
-                fontWeight: '800', 
-                marginBottom: '50px', 
-                textAlign: 'center', 
-                background: 'linear-gradient(135deg, #fff, #00f2fe)', 
-                WebkitBackgroundClip: 'text', 
-                WebkitTextFillColor: 'transparent' 
+            style: {
+                fontSize: '2.2rem',
+                fontWeight: '800',
+                marginBottom: '50px',
+                textAlign: 'center',
+                background: 'linear-gradient(135deg, #fff, #00f2fe)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
             }
         }, 'Why Choose Our Premium Websites?'),
-        
+
         React.createElement('div', {
             style: { display: 'flex', flexDirection: 'column', gap: '30px' }
         },
@@ -273,10 +273,10 @@ const renderSaleDetailsBlocks = () => {
                         React.createElement('img', {
                             src: detail.img,
                             alt: detail.title,
-                            style: { 
-                                width: '100%', 
-                                borderRadius: '16px', 
-                                boxShadow: isEven ? '0 10px 30px rgba(0, 242, 254, 0.15)' : '0 10px 30px rgba(255, 0, 128, 0.15)', 
+                            style: {
+                                width: '100%',
+                                borderRadius: '16px',
+                                boxShadow: isEven ? '0 10px 30px rgba(0, 242, 254, 0.15)' : '0 10px 30px rgba(255, 0, 128, 0.15)',
                                 display: 'block',
                                 border: '1px solid rgba(255,255,255,0.05)'
                             }
@@ -284,20 +284,20 @@ const renderSaleDetailsBlocks = () => {
                     ),
                     // Text Section
                     React.createElement('div', { style: { flex: '1 1 350px' } },
-                        React.createElement('h3', { 
-                            style: { 
+                        React.createElement('h3', {
+                            style: {
                                 color: isEven ? '#00f2fe' : '#ff0080', // Color toggle for premium feel
-                                fontSize: '1.5rem', 
-                                marginBottom: '15px', 
-                                fontWeight: '800' 
-                            } 
+                                fontSize: '1.5rem',
+                                marginBottom: '15px',
+                                fontWeight: '800'
+                            }
                         }, detail.title),
-                        React.createElement('p', { 
-                            style: { 
-                                color: 'rgba(255, 255, 255, 0.7)', 
-                                fontSize: '1.05rem', 
-                                lineHeight: '1.7' 
-                            } 
+                        React.createElement('p', {
+                            style: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                fontSize: '1.05rem',
+                                lineHeight: '1.7'
+                            }
                         }, detail.desc)
                     )
                 );
@@ -345,17 +345,17 @@ const renderAvailableJobsBlocks = () => {
         }
     },
         React.createElement('h2', {
-            style: { 
-                fontSize: '2.2rem', 
-                fontWeight: '800', 
-                marginBottom: '50px', 
-                textAlign: 'center', 
+            style: {
+                fontSize: '2.2rem',
+                fontWeight: '800',
+                marginBottom: '50px',
+                textAlign: 'center',
                 background: 'linear-gradient(135deg, #00ff87, #60efff)', // Greenish-blue neon for Jobs
-                WebkitBackgroundClip: 'text', 
-                WebkitTextFillColor: 'transparent' 
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent'
             }
         }, 'Explore Open Opportunities'),
-        
+
         React.createElement('div', {
             style: { display: 'flex', flexDirection: 'column', gap: '30px' }
         },
@@ -381,10 +381,10 @@ const renderAvailableJobsBlocks = () => {
                         React.createElement('img', {
                             src: job.img,
                             alt: job.title,
-                            style: { 
-                                width: '100%', 
-                                borderRadius: '16px', 
-                                boxShadow: isEven ? '0 10px 30px rgba(96, 239, 255, 0.15)' : '0 10px 30px rgba(0, 255, 135, 0.15)', 
+                            style: {
+                                width: '100%',
+                                borderRadius: '16px',
+                                boxShadow: isEven ? '0 10px 30px rgba(96, 239, 255, 0.15)' : '0 10px 30px rgba(0, 255, 135, 0.15)',
                                 display: 'block',
                                 border: '1px solid rgba(255,255,255,0.05)'
                             }
@@ -392,21 +392,21 @@ const renderAvailableJobsBlocks = () => {
                     ),
                     // Text Section
                     React.createElement('div', { style: { flex: '1 1 350px' } },
-                        React.createElement('h3', { 
-                            style: { 
+                        React.createElement('h3', {
+                            style: {
                                 color: isEven ? '#60efff' : '#00ff87', // Toggle neon green/blue
-                                fontSize: '1.5rem', 
-                                marginBottom: '15px', 
-                                fontWeight: '800' 
-                            } 
+                                fontSize: '1.5rem',
+                                marginBottom: '15px',
+                                fontWeight: '800'
+                            }
                         }, job.title),
-                        React.createElement('p', { 
-                            style: { 
-                                color: 'rgba(255, 255, 255, 0.7)', 
-                                fontSize: '1.05rem', 
+                        React.createElement('p', {
+                            style: {
+                                color: 'rgba(255, 255, 255, 0.7)',
+                                fontSize: '1.05rem',
                                 lineHeight: '1.7',
                                 marginBottom: '20px'
-                            } 
+                            }
                         }, job.desc),
                         // Apply Now Button Mockup
                         React.createElement('button', {
@@ -801,54 +801,54 @@ const QuickKitApp = () => {
         mainElement = React.createElement('main', { className: 'services-page' },
             // 1️⃣ 👑 ULTRA-PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' se 'flex' kiya takay layout wrap ho sake
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 20px',                       // Margin-bottom thoda kam kiya mobile space ke liye
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)',
-        WebkitBackdropFilter: 'blur(15px)',
-        border: '1px solid rgba(255, 255, 255, 0.12)',
-        borderRadius: '24px',
-        padding: '12px 20px',                        // Padding mobile ke liye adjust ki
-        width: 'fit-content',
-        maxWidth: '92%',                             // Screen ke dono side se safe gap rakhega
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        className: 'section-heading',
-        style: {
-            fontSize: 'clamp(1.25rem, 4.8vw, 2.3rem)', // Text lamba hai isliye mobile par thoda aur scale-down hoga
-            fontWeight: '800',
-            letterSpacing: '0.5px',                  // Overlap se bachane ke liye mobile friendly spacing
-            textAlign: 'center',
-            margin: '0',
-            display: 'inline-flex',                  // flex se inline-flex kiya tight mapping ke liye
-            alignItems: 'center',
-            gap: '8px',
-            whiteSpace: 'nowrap',                    // Kisi bhi haal mein text ko single line mein lock rakhega
-            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            WebkitTextStroke: '1px rgba(255, 255, 255, 0.08)',
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'The Services We Provide')
-),
-React.createElement('p', { 
-    className: 'services-sub-text',
-    style: {
-        fontSize: 'clamp(0.9rem, 3.5vw, 1.1rem)',    // Sub-text bhi mobile screen ke mutabiq scale ho jayegi
-        textAlign: 'center',
-        padding: '0 15px',                           // Taki sides se responsive text safe rahe
-        margin: '0 auto',
-        maxWidth: '600px',
-        lineHeight: '1.5'
-    }
-}, 'We craft high-performance digital experiences tailored to your needs.'),
+                style: {
+                    display: 'flex',                             // 'table' se 'flex' kiya takay layout wrap ho sake
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 20px',                       // Margin-bottom thoda kam kiya mobile space ke liye
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 20px',                        // Padding mobile ke liye adjust ki
+                    width: 'fit-content',
+                    maxWidth: '92%',                             // Screen ke dono side se safe gap rakhega
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    className: 'section-heading',
+                    style: {
+                        fontSize: 'clamp(1.25rem, 4.8vw, 2.3rem)', // Text lamba hai isliye mobile par thoda aur scale-down hoga
+                        fontWeight: '800',
+                        letterSpacing: '0.5px',                  // Overlap se bachane ke liye mobile friendly spacing
+                        textAlign: 'center',
+                        margin: '0',
+                        display: 'inline-flex',                  // flex se inline-flex kiya tight mapping ke liye
+                        alignItems: 'center',
+                        gap: '8px',
+                        whiteSpace: 'nowrap',                    // Kisi bhi haal mein text ko single line mein lock rakhega
+                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        WebkitTextStroke: '1px rgba(255, 255, 255, 0.08)',
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'The Services We Provide')
+            ),
+            React.createElement('p', {
+                className: 'services-sub-text',
+                style: {
+                    fontSize: 'clamp(0.9rem, 3.5vw, 1.1rem)',    // Sub-text bhi mobile screen ke mutabiq scale ho jayegi
+                    textAlign: 'center',
+                    padding: '0 15px',                           // Taki sides se responsive text safe rahe
+                    margin: '0 auto',
+                    maxWidth: '600px',
+                    lineHeight: '1.5'
+                }
+            }, 'We craft high-performance digital experiences tailored to your needs.'),
             // Container jo saaray rows ko hold karega
             React.createElement('div', {
                 style: {
@@ -1417,51 +1417,51 @@ React.createElement('p', {
             // Headings
             // 👑 PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' se 'flex' kiya takay screen size ke mutabiq adapt ho sake
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 15px',                       // Margin-bottom thoda adjust kiya mobile spacing ke liye
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)', 
-        WebkitBackdropFilter: 'blur(15px)',
-        border: '1px solid rgba(255, 255, 255, 0.12)', 
-        borderRadius: '24px', 
-        padding: '12px 24px',                        // Padding mobile ke liye thodi kam ki
-        width: 'fit-content',
-        maxWidth: '92%',                             // Card ko mobile screen ke andar wrap rakhega
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        style: {
-            display: 'inline-block',
-            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            WebkitTextFillColor: 'transparent',
-            margin: '0',
-            fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Mobile par automatically responsive scale down hoga
-            fontWeight: '800',
-            textAlign: 'center',
-            whiteSpace: 'nowrap',                    // Text ko force karega ke ek hi line me clean dikhay
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'Website Development Plans')
-),
-React.createElement('p', {
-    style: { 
-        textAlign: 'center', 
-        color: 'rgba(255,255,255,0.6)', 
-        marginBottom: '30px',                        // Mobile par gap 50px se kam kar ke 30px kiya takay scroll lamba na ho
-        fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka size bhi mobile par automatic adjust hoga
-        padding: '0 15px',                           // Sides se safe padding di hai
-        maxWidth: '500px',
-        margin: '0 auto 30px'
-    }
-}, 'Choose the best plan that fits your business needs.'),
+                style: {
+                    display: 'flex',                             // 'table' se 'flex' kiya takay screen size ke mutabiq adapt ho sake
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 15px',                       // Margin-bottom thoda adjust kiya mobile spacing ke liye
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 24px',                        // Padding mobile ke liye thodi kam ki
+                    width: 'fit-content',
+                    maxWidth: '92%',                             // Card ko mobile screen ke andar wrap rakhega
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    style: {
+                        display: 'inline-block',
+                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        WebkitTextFillColor: 'transparent',
+                        margin: '0',
+                        fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Mobile par automatically responsive scale down hoga
+                        fontWeight: '800',
+                        textAlign: 'center',
+                        whiteSpace: 'nowrap',                    // Text ko force karega ke ek hi line me clean dikhay
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'Website Development Plans')
+            ),
+            React.createElement('p', {
+                style: {
+                    textAlign: 'center',
+                    color: 'rgba(255,255,255,0.6)',
+                    marginBottom: '30px',                        // Mobile par gap 50px se kam kar ke 30px kiya takay scroll lamba na ho
+                    fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka size bhi mobile par automatic adjust hoga
+                    padding: '0 15px',                           // Sides se safe padding di hai
+                    maxWidth: '500px',
+                    margin: '0 auto 30px'
+                }
+            }, 'Choose the best plan that fits your business needs.'),
 
             // Grid Container
             React.createElement('div', {
@@ -1728,50 +1728,50 @@ React.createElement('p', {
             // Headings
             // 👑 PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' se 'flex' kiya takay layout responsive handle ho sake
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 15px',                       // Mobile spacing ke liye margin-bottom adjust kiya
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)', 
-        WebkitBackdropFilter: 'blur(15px)',
-        border: '1px solid rgba(255, 255, 255, 0.12)', 
-        borderRadius: '24px', 
-        padding: '12px 24px',                        // Padding sides se thodi kam ki mobile screen ke liye
-        width: 'fit-content',
-        maxWidth: '92%',                             // Container mobile screen edges ke andar hi rahega
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        style: {
-            display: 'inline-block',
-            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            WebkitTextFillColor: 'transparent',
-            margin: '0',
-            fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Viewport width ke sath auto-scale down ho jayega
-            fontWeight: '800',
-            textAlign: 'center',
-            whiteSpace: 'nowrap',                    // Heading text hamesha single line me safe rahega
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'Wordpress Development Plans')
-),
-React.createElement('p', {
-    style: { 
-        textAlign: 'center', 
-        color: 'rgba(255,255,255,0.6)', 
-        fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka size bhi devices ke mutabiq fluid kiya
-        padding: '0 15px',                           // Taki corners se text bilkul chipkay na
-        maxWidth: '500px',
-        margin: '0 auto 30px'                        // Bottom margin 50px se kam kar ke 30px kiya responsive height optimization ke liye
-    }
-}, 'Choose the perfect WordPress package for your business.'),
+                style: {
+                    display: 'flex',                             // 'table' se 'flex' kiya takay layout responsive handle ho sake
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 15px',                       // Mobile spacing ke liye margin-bottom adjust kiya
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 24px',                        // Padding sides se thodi kam ki mobile screen ke liye
+                    width: 'fit-content',
+                    maxWidth: '92%',                             // Container mobile screen edges ke andar hi rahega
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    style: {
+                        display: 'inline-block',
+                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        WebkitTextFillColor: 'transparent',
+                        margin: '0',
+                        fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Viewport width ke sath auto-scale down ho jayega
+                        fontWeight: '800',
+                        textAlign: 'center',
+                        whiteSpace: 'nowrap',                    // Heading text hamesha single line me safe rahega
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'Wordpress Development Plans')
+            ),
+            React.createElement('p', {
+                style: {
+                    textAlign: 'center',
+                    color: 'rgba(255,255,255,0.6)',
+                    fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka size bhi devices ke mutabiq fluid kiya
+                    padding: '0 15px',                           // Taki corners se text bilkul chipkay na
+                    maxWidth: '500px',
+                    margin: '0 auto 30px'                        // Bottom margin 50px se kam kar ke 30px kiya responsive height optimization ke liye
+                }
+            }, 'Choose the perfect WordPress package for your business.'),
 
             // Grid Container
             React.createElement('div', {
@@ -2031,50 +2031,50 @@ React.createElement('p', {
             // Headings
             // 👑 PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' se 'flex' kiya takay layout wrap aur shrink ho sake
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 15px',                       // Mobile spacing ke mutabiq bottom margin adjust kiya
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)', 
-        WebkitBackdropFilter: 'blur(15px)',
-        border: '1px solid rgba(255, 255, 255, 0.12)', 
-        borderRadius: '24px', 
-        padding: '12px 24px',                        // Side padding mobile screen ke liye thodi optimal ki
-        width: 'fit-content',
-        maxWidth: '92%',                             // Container ko mobile screen ke edges ke andar secure rakhega
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        style: {
-            display: 'inline-block',
-            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            WebkitTextFillColor: 'transparent',
-            margin: '0',
-            fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Viewport width ke mutabiq font auto-scale down hoga
-            fontWeight: '800',
-            textAlign: 'center',
-            whiteSpace: 'nowrap',                    // Heading text break nahi hoga, hamesha ek line me rahega
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'SEO Optimization Plans')
-),
-React.createElement('p', {
-    style: { 
-        textAlign: 'center', 
-        color: 'rgba(255,255,255,0.6)', 
-        fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka font size bhi modern fluid scale par chalega
-        padding: '0 15px',                           // Taki small viewports par text side walls se touch na kare
-        maxWidth: '500px',
-        margin: '0 auto 30px'                        // Space adjust ki takay mobile par faltu blank scrolling na ho
-    }
-}, 'Choose the best SEO package to grow your online presence.'),
+                style: {
+                    display: 'flex',                             // 'table' se 'flex' kiya takay layout wrap aur shrink ho sake
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 15px',                       // Mobile spacing ke mutabiq bottom margin adjust kiya
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 24px',                        // Side padding mobile screen ke liye thodi optimal ki
+                    width: 'fit-content',
+                    maxWidth: '92%',                             // Container ko mobile screen ke edges ke andar secure rakhega
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    style: {
+                        display: 'inline-block',
+                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        WebkitTextFillColor: 'transparent',
+                        margin: '0',
+                        fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Viewport width ke mutabiq font auto-scale down hoga
+                        fontWeight: '800',
+                        textAlign: 'center',
+                        whiteSpace: 'nowrap',                    // Heading text break nahi hoga, hamesha ek line me rahega
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'SEO Optimization Plans')
+            ),
+            React.createElement('p', {
+                style: {
+                    textAlign: 'center',
+                    color: 'rgba(255,255,255,0.6)',
+                    fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka font size bhi modern fluid scale par chalega
+                    padding: '0 15px',                           // Taki small viewports par text side walls se touch na kare
+                    maxWidth: '500px',
+                    margin: '0 auto 30px'                        // Space adjust ki takay mobile par faltu blank scrolling na ho
+                }
+            }, 'Choose the best SEO package to grow your online presence.'),
 
             // Grid Container
             React.createElement('div', {
@@ -2333,51 +2333,51 @@ React.createElement('p', {
 
             // Headings
             // 👑 PREMIUM BORDERED HEADING BADGE
-           React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' se 'flex' kiya takay container responsive auto-fit ho ske
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 15px',                       // Margin-bottom mobile viewport ke hissab se optimize kiya
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)', 
-        WebkitBackdropFilter: 'blur(15px)',
-        border: '1px solid rgba(255, 255, 255, 0.12)', 
-        borderRadius: '24px', 
-        padding: '12px 24px',                        // Sides padding thodi responsive ki
-        width: 'fit-content',
-        maxWidth: '92%',                             // Container mobile boundaries ke andar hi lock rahega
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        style: {
-            display: 'inline-block',
-            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            WebkitTextFillColor: 'transparent',
-            margin: '0',
-            fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Fluid pricing heading size, mobile par perfect scale down hoga
-            fontWeight: '800',
-            textAlign: 'center',
-            whiteSpace: 'nowrap',                    // Heading text line split hokar tootega nahi
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'Ads Placement Plans')
-),
-React.createElement('p', {
-    style: { 
-        textAlign: 'center', 
-        color: 'rgba(255,255,255,0.6)', 
-        fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Paragraph text size dynamic screen tracking ke mutabiq
-        padding: '0 15px',                           // Text edge bleeding rokne ke liye left/right padding
-        maxWidth: '500px',
-        margin: '0 auto 30px'                        // Space down scaling takay responsive flow seamless lagay
-    }
-}, 'Monetize your website traffic with the right ads package.'),
+            React.createElement('div', {
+                style: {
+                    display: 'flex',                             // 'table' se 'flex' kiya takay container responsive auto-fit ho ske
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 15px',                       // Margin-bottom mobile viewport ke hissab se optimize kiya
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 24px',                        // Sides padding thodi responsive ki
+                    width: 'fit-content',
+                    maxWidth: '92%',                             // Container mobile boundaries ke andar hi lock rahega
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    style: {
+                        display: 'inline-block',
+                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        WebkitTextFillColor: 'transparent',
+                        margin: '0',
+                        fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Fluid pricing heading size, mobile par perfect scale down hoga
+                        fontWeight: '800',
+                        textAlign: 'center',
+                        whiteSpace: 'nowrap',                    // Heading text line split hokar tootega nahi
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'Ads Placement Plans')
+            ),
+            React.createElement('p', {
+                style: {
+                    textAlign: 'center',
+                    color: 'rgba(255,255,255,0.6)',
+                    fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Paragraph text size dynamic screen tracking ke mutabiq
+                    padding: '0 15px',                           // Text edge bleeding rokne ke liye left/right padding
+                    maxWidth: '500px',
+                    margin: '0 auto 30px'                        // Space down scaling takay responsive flow seamless lagay
+                }
+            }, 'Monetize your website traffic with the right ads package.'),
 
             // Grid Container
             React.createElement('div', {
@@ -2642,43 +2642,43 @@ React.createElement('p', {
 
             // 👑 ULTRA-PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' se 'flex' kiya taaki card fluidly behave kare
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 20px',                       // Margin thoda kam kiya mobile spacing ke liye
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)',
-        WebkitBackdropFilter: 'blur(15px)',
-        border: '1px solid rgba(255, 255, 255, 0.12)',
-        borderRadius: '24px',
-        padding: '12px 20px',                        // Side padding mobile ke liye thodi kam ki
-        width: 'fit-content',
-        maxWidth: '92%',                             // Mobile screen se bahar nikalne se rokega
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        className: 'section-heading',
-        style: {
-            fontSize: 'clamp(1.2rem, 4.6vw, 2.3rem)', // Text lamba hone ki wajah se smooth flexible size lagaya
-            fontWeight: '800',
-            letterSpacing: '0.5px',                  // Letters ko tight space mein overlap hone se bachayega
-            textAlign: 'center',
-            margin: '0',
-            display: 'inline-flex',                  // inline-flex kiya taaki layout elements wrap na hon
-            alignItems: 'center',
-            gap: '8px',
-            whiteSpace: 'nowrap',                    // Kisi bhi haal mein text ko tootne nahi dega, hamesha ek line me rakhega
-            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            WebkitTextStroke: '1px rgba(255, 255, 255, 0.08)',
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'Our Team Members Portfolio')
-),
+                style: {
+                    display: 'flex',                             // 'table' se 'flex' kiya taaki card fluidly behave kare
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 20px',                       // Margin thoda kam kiya mobile spacing ke liye
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 20px',                        // Side padding mobile ke liye thodi kam ki
+                    width: 'fit-content',
+                    maxWidth: '92%',                             // Mobile screen se bahar nikalne se rokega
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    className: 'section-heading',
+                    style: {
+                        fontSize: 'clamp(1.2rem, 4.6vw, 2.3rem)', // Text lamba hone ki wajah se smooth flexible size lagaya
+                        fontWeight: '800',
+                        letterSpacing: '0.5px',                  // Letters ko tight space mein overlap hone se bachayega
+                        textAlign: 'center',
+                        margin: '0',
+                        display: 'inline-flex',                  // inline-flex kiya taaki layout elements wrap na hon
+                        alignItems: 'center',
+                        gap: '8px',
+                        whiteSpace: 'nowrap',                    // Kisi bhi haal mein text ko tootne nahi dega, hamesha ek line me rakhega
+                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        WebkitTextStroke: '1px rgba(255, 255, 255, 0.08)',
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'Our Team Members Portfolio')
+            ),
 
             React.createElement('p', {
                 className: 'portfolio-sub-text',
@@ -3800,40 +3800,40 @@ React.createElement('p', {
             // Gradient Animated Heading
             // Gradient Animated Heading// 👑 PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' ko hata kar 'flex' kiya taaki screen width ke mutabiq adjust ho
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 10px',
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)', 
-        WebkitBackdropFilter: 'blur(15px)',
-        border: '1px solid rgba(255, 255, 255, 0.12)', 
-        borderRadius: '24px',
-        padding: '12px 20px',                        // Mobile par safe space ke liye side padding thodi kam ki (32px -> 20px)
-        width: 'fit-content',
-        maxWidth: '92%',                             // Box ko mobile screen se bahar nikalne se rokega
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        style: {
-            display: 'inline-block',
-            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-            backgroundClip: 'text',
-            WebkitBackgroundClip: 'text',
-            color: 'transparent',
-            WebkitTextFillColor: 'transparent',
-            margin: '0',
-            fontSize: 'clamp(1.2rem, 5vw, 2.5rem)',  // 2.5rem static size ko hata kar fluid clamping laga di
-            fontWeight: '800',
-            textAlign: 'center',
-            whiteSpace: 'nowrap',                    // Text ko har haal mein single line mein lock rakhega
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'Complete Your Order')
-),
+                style: {
+                    display: 'flex',                             // 'table' ko hata kar 'flex' kiya taaki screen width ke mutabiq adjust ho
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 10px',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 20px',                        // Mobile par safe space ke liye side padding thodi kam ki (32px -> 20px)
+                    width: 'fit-content',
+                    maxWidth: '92%',                             // Box ko mobile screen se bahar nikalne se rokega
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    style: {
+                        display: 'inline-block',
+                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        WebkitTextFillColor: 'transparent',
+                        margin: '0',
+                        fontSize: 'clamp(1.2rem, 5vw, 2.5rem)',  // 2.5rem static size ko hata kar fluid clamping laga di
+                        fontWeight: '800',
+                        textAlign: 'center',
+                        whiteSpace: 'nowrap',                    // Text ko har haal mein single line mein lock rakhega
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'Complete Your Order')
+            ),
 
             React.createElement('p', {
                 className: 'services-sub-text',
@@ -3994,66 +3994,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { 
-    style: { 
-        ...portfolioInputStyle, 
-        display: 'flex',                             // Grid/Table issues se bachne ke liye flexbox select kiya
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center', 
-        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
-        border: '1px solid rgba(0, 242, 254, 0.15)',
-        padding: '30px 20px',                        // Mobile par safe layout cushioning ke liye padding
-        maxWidth: '95%',                             // Card mobile screen edges ke andar hi compact rahega
-        margin: '0 auto',
-        boxSizing: 'border-box'
-    } 
-},
-    React.createElement('img', {
-        src: 'Pic.jpeg',
-        alt: 'Paras Bruce',
-        style: {
-            width: 'clamp(100px, 25vw, 130px)',      // Mobile par automatic choti ho kar perfectly adjust ho jayegi
-            height: 'clamp(100px, 25vw, 130px)',     // Image square ratio maintain rakhegi circular filter ke sath
-            borderRadius: '50%',
-            objectFit: 'cover',
-            marginBottom: '15px',                    // Spacing mobile layout ke liye thodi optimal ki
-            border: '3px solid #00f2fe',
-            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-            display: 'inline-block'
-        }
-    }),
-    React.createElement('h2', {
-        style: { 
-            fontSize: 'clamp(1.8rem, 6vw, 2.8rem)',  // Name heading desktop par full 2.8rem aur mobile par auto-scale down hogi
-            fontWeight: '800', 
-            margin: '0 0 10px 0', 
-            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent',
-            lineHeight: '1.2'
-        }
-    }, 'Engr. Paras Bruce'),
-    React.createElement('p', { 
-        style: { 
-            color: '#00f2fe', 
-            fontWeight: '700', 
-            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Designation ka font size fluid kiya taaki single/clean layout wrap ho
-            letterSpacing: '0.5px',                  // Letters spacing choti screen ke liye track compact ki
-            margin: '0 0 15px 0' 
-        } 
-    }, 'Lead Software Engineer & Full-Stack Developer'),
-    React.createElement('p', { 
-        style: { 
-            maxWidth: '650px',                       // Clean horizontal margins text structure ke liye
-            margin: '0 auto', 
-            color: 'rgba(255,255,255,0.7)', 
-            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio description paragraph responsive adjustment
-            lineHeight: '1.5',
-            padding: '0 10px'                        // Side bleeding protection for low-res devices
-        } 
-    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
-),
+                React.createElement('div', {
+                    style: {
+                        ...portfolioInputStyle,
+                        display: 'flex',                             // Grid/Table issues se bachne ke liye flexbox select kiya
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))',
+                        border: '1px solid rgba(0, 242, 254, 0.15)',
+                        padding: '30px 20px',                        // Mobile par safe layout cushioning ke liye padding
+                        maxWidth: '95%',                             // Card mobile screen edges ke andar hi compact rahega
+                        margin: '0 auto',
+                        boxSizing: 'border-box'
+                    }
+                },
+                    React.createElement('img', {
+                        src: 'Pic.jpeg',
+                        alt: 'Paras Bruce',
+                        style: {
+                            width: 'clamp(100px, 25vw, 130px)',      // Mobile par automatic choti ho kar perfectly adjust ho jayegi
+                            height: 'clamp(100px, 25vw, 130px)',     // Image square ratio maintain rakhegi circular filter ke sath
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            marginBottom: '15px',                    // Spacing mobile layout ke liye thodi optimal ki
+                            border: '3px solid #00f2fe',
+                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+                            display: 'inline-block'
+                        }
+                    }),
+                    React.createElement('h2', {
+                        style: {
+                            fontSize: 'clamp(1.8rem, 6vw, 2.8rem)',  // Name heading desktop par full 2.8rem aur mobile par auto-scale down hogi
+                            fontWeight: '800',
+                            margin: '0 0 10px 0',
+                            background: 'linear-gradient(90deg, #00f2fe, #ff0080)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            lineHeight: '1.2'
+                        }
+                    }, 'Engr. Paras Bruce'),
+                    React.createElement('p', {
+                        style: {
+                            color: '#00f2fe',
+                            fontWeight: '700',
+                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Designation ka font size fluid kiya taaki single/clean layout wrap ho
+                            letterSpacing: '0.5px',                  // Letters spacing choti screen ke liye track compact ki
+                            margin: '0 0 15px 0'
+                        }
+                    }, 'Lead Software Engineer & Full-Stack Developer'),
+                    React.createElement('p', {
+                        style: {
+                            maxWidth: '650px',                       // Clean horizontal margins text structure ke liye
+                            margin: '0 auto',
+                            color: 'rgba(255,255,255,0.7)',
+                            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio description paragraph responsive adjustment
+                            lineHeight: '1.5',
+                            padding: '0 10px'                        // Side bleeding protection for low-res devices
+                        }
+                    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+                ),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -4473,66 +4473,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header
-                React.createElement('div', { 
-    style: { 
-        ...portfolioInputStyle, 
-        display: 'flex',                             // Block configuration se flexbox par shift kiya vertical layout ke liye
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center', 
-        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
-        border: '1px solid rgba(0, 242, 254, 0.15)',
-        padding: '30px 20px',                        // Layout margins ko padding cushioning di takay corners tight na laghein
-        maxWidth: '95%',                             // Card container auto-adjust hokar screen boundaries ke andar rahega
-        margin: '0 auto',
-        boxSizing: 'border-box'
-    } 
-},
-    React.createElement('img', {
-        src: 'rana.jpeg',                            // Saif Bhai ka image asset source yahan map ho gaya hai
-        alt: 'Saif Ur Rehman',
-        style: {
-            width: 'clamp(100px, 25vw, 130px)',      // Mobile screen sizes par fluid size optimization
-            height: 'clamp(100px, 25vw, 130px)',     // Border radius display ratio square to circle tight lock
-            borderRadius: '50%',
-            objectFit: 'cover',
-            marginBottom: '15px',                    // Bottom spacer layout compact kiya
-            border: '3px solid #00f2fe',
-            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-            display: 'inline-block'
-        }
-    }),
-    React.createElement('h2', {
-        style: { 
-            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport width tracking responsive text sizing mechanism
-            fontWeight: '800', 
-            margin: '0 0 10px 0', 
-            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent',
-            lineHeight: '1.2'
-        }
-    }, 'Engr. Saif Ur Rehman'),
-    React.createElement('p', { 
-        style: { 
-            color: '#00f2fe', 
-            fontWeight: '700', 
-            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Mobile resolutions par single line execution control karega
-            letterSpacing: '0.5px',                  // Clean line tracking compression matrix
-            margin: '0 0 15px 0' 
-        } 
-    }, 'Front End Developer & CEO of Zarvex'),
-    React.createElement('p', { 
-        style: { 
-            maxWidth: '650px', 
-            margin: '0 auto', 
-            color: 'rgba(255,255,255,0.7)', 
-            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio descriptions paragraphs standard responsive grid setup
-            lineHeight: '1.5',
-            padding: '0 10px'                        // Low-res mobile displays edge bleeding filtering override
-        } 
-    }, 'A results-driven Front End Developer and entrepreneur specializing in crafting high-performance, visually immersive web experiences. Passionate about scalable UI architectures, seamless user interactions, and modern web interfaces that deliver real business impact.')
-),
+                React.createElement('div', {
+                    style: {
+                        ...portfolioInputStyle,
+                        display: 'flex',                             // Block configuration se flexbox par shift kiya vertical layout ke liye
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))',
+                        border: '1px solid rgba(0, 242, 254, 0.15)',
+                        padding: '30px 20px',                        // Layout margins ko padding cushioning di takay corners tight na laghein
+                        maxWidth: '95%',                             // Card container auto-adjust hokar screen boundaries ke andar rahega
+                        margin: '0 auto',
+                        boxSizing: 'border-box'
+                    }
+                },
+                    React.createElement('img', {
+                        src: 'rana.jpeg',                            // Saif Bhai ka image asset source yahan map ho gaya hai
+                        alt: 'Saif Ur Rehman',
+                        style: {
+                            width: 'clamp(100px, 25vw, 130px)',      // Mobile screen sizes par fluid size optimization
+                            height: 'clamp(100px, 25vw, 130px)',     // Border radius display ratio square to circle tight lock
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            marginBottom: '15px',                    // Bottom spacer layout compact kiya
+                            border: '3px solid #00f2fe',
+                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+                            display: 'inline-block'
+                        }
+                    }),
+                    React.createElement('h2', {
+                        style: {
+                            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport width tracking responsive text sizing mechanism
+                            fontWeight: '800',
+                            margin: '0 0 10px 0',
+                            background: 'linear-gradient(90deg, #00f2fe, #ff0080)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            lineHeight: '1.2'
+                        }
+                    }, 'Engr. Saif Ur Rehman'),
+                    React.createElement('p', {
+                        style: {
+                            color: '#00f2fe',
+                            fontWeight: '700',
+                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Mobile resolutions par single line execution control karega
+                            letterSpacing: '0.5px',                  // Clean line tracking compression matrix
+                            margin: '0 0 15px 0'
+                        }
+                    }, 'Front End Developer & CEO of Zarvex'),
+                    React.createElement('p', {
+                        style: {
+                            maxWidth: '650px',
+                            margin: '0 auto',
+                            color: 'rgba(255,255,255,0.7)',
+                            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio descriptions paragraphs standard responsive grid setup
+                            lineHeight: '1.5',
+                            padding: '0 10px'                        // Low-res mobile displays edge bleeding filtering override
+                        }
+                    }, 'A results-driven Front End Developer and entrepreneur specializing in crafting high-performance, visually immersive web experiences. Passionate about scalable UI architectures, seamless user interactions, and modern web interfaces that deliver real business impact.')
+                ),
 
                 // Two Column
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -4685,67 +4685,67 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { 
-    style: { 
-        ...portfolioInputStyle, 
-        display: 'flex',                             
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center', 
-        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
-        border: '1px solid rgba(0, 242, 254, 0.15)',
-        padding: '30px 15px',                        // Padding thodi mazeed optimize ki mobile edges ke liye
-        maxWidth: '95%',                             
-        margin: '0 auto',
-        boxSizing: 'border-box'
-    } 
-},
-    React.createElement('img', {
-        src: 'usman.jpeg',                           
-        alt: 'Usman Nadeem',
-        style: {
-            width: 'clamp(90px, 22vw, 130px)',      // Mobile par size thoda aur streamline kiya taaki space bache
-            height: 'clamp(90px, 22vw, 130px)',     
-            borderRadius: '50%',
-            objectFit: 'cover',
-            marginBottom: '15px',                    
-            border: '3px solid #00f2fe',
-            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-            display: 'inline-block'
-        }
-    }),
-    React.createElement('h2', {
-        style: { 
-            fontSize: 'clamp(1.2rem, 5.5vw, 2.4rem)', // Font scale ko thoda scale-down kiya taaki ek line me fit aye
-            fontWeight: '800', 
-            margin: '0 0 10px 0', 
-            whiteSpace: 'nowrap',                    // STRICT LOCK: Kisi bhi haal me text 2 lines me nahi tootega
-            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent',
-            lineHeight: '1.2'
-        }
-    }, 'Engr. Usman Nadeem'),
-    React.createElement('p', { 
-        style: { 
-            color: '#00f2fe', 
-            fontWeight: '700', 
-            fontSize: 'clamp(0.9rem, 3.8vw, 1.2rem)', // Isko bhi balance kiya heading ke mutabiq
-            letterSpacing: '0.5px',                  
-            margin: '0 0 15px 0' 
-        } 
-    }, 'Lead Software Engineer & Full-Stack Developer'),
-    React.createElement('p', { 
-        style: { 
-            maxWidth: '650px', 
-            margin: '0 auto', 
-            color: 'rgba(255,255,255,0.7)', 
-            fontSize: 'clamp(0.9rem, 3.5vw, 1.05rem)', 
-            lineHeight: '1.5',
-            padding: '0 5px'                        
-        } 
-    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
-),
+                React.createElement('div', {
+                    style: {
+                        ...portfolioInputStyle,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))',
+                        border: '1px solid rgba(0, 242, 254, 0.15)',
+                        padding: '30px 15px',                        // Padding thodi mazeed optimize ki mobile edges ke liye
+                        maxWidth: '95%',
+                        margin: '0 auto',
+                        boxSizing: 'border-box'
+                    }
+                },
+                    React.createElement('img', {
+                        src: 'usman.jpeg',
+                        alt: 'Usman Nadeem',
+                        style: {
+                            width: 'clamp(90px, 22vw, 130px)',      // Mobile par size thoda aur streamline kiya taaki space bache
+                            height: 'clamp(90px, 22vw, 130px)',
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            marginBottom: '15px',
+                            border: '3px solid #00f2fe',
+                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+                            display: 'inline-block'
+                        }
+                    }),
+                    React.createElement('h2', {
+                        style: {
+                            fontSize: 'clamp(1.2rem, 5.5vw, 2.4rem)', // Font scale ko thoda scale-down kiya taaki ek line me fit aye
+                            fontWeight: '800',
+                            margin: '0 0 10px 0',
+                            whiteSpace: 'nowrap',                    // STRICT LOCK: Kisi bhi haal me text 2 lines me nahi tootega
+                            background: 'linear-gradient(90deg, #00f2fe, #ff0080)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            lineHeight: '1.2'
+                        }
+                    }, 'Engr. Usman Nadeem'),
+                    React.createElement('p', {
+                        style: {
+                            color: '#00f2fe',
+                            fontWeight: '700',
+                            fontSize: 'clamp(0.9rem, 3.8vw, 1.2rem)', // Isko bhi balance kiya heading ke mutabiq
+                            letterSpacing: '0.5px',
+                            margin: '0 0 15px 0'
+                        }
+                    }, 'Lead Software Engineer & Full-Stack Developer'),
+                    React.createElement('p', {
+                        style: {
+                            maxWidth: '650px',
+                            margin: '0 auto',
+                            color: 'rgba(255,255,255,0.7)',
+                            fontSize: 'clamp(0.9rem, 3.5vw, 1.05rem)',
+                            lineHeight: '1.5',
+                            padding: '0 5px'
+                        }
+                    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+                ),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -4964,66 +4964,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { 
-    style: { 
-        ...portfolioInputStyle, 
-        display: 'flex',                             // Layout block chain se flexbox runtime par shift kiya
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center', 
-        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
-        border: '1px solid rgba(0, 242, 254, 0.15)',
-        padding: '30px 20px',                        // Content padding structural buffering mobile ke liye optimize ki
-        maxWidth: '95%',                             // Mobile device boundaries ke andar template safe rahega
-        margin: '0 auto',
-        boxSizing: 'border-box'
-    } 
-},
-    React.createElement('img', {
-        src: 'nafay.jpeg',                           // Nafay Bhai ka asset pointer update ho gaya hai
-        alt: 'Abdul Nafay',
-        style: {
-            width: 'clamp(100px, 25vw, 130px)',      // Responsive viewports compression track matrix
-            height: 'clamp(100px, 25vw, 130px)',     // Circle overflow filter system lock
-            borderRadius: '50%',
-            objectFit: 'cover',
-            marginBottom: '15px',                    // Layout tracking compact kiya
-            border: '3px solid #00f2fe',
-            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-            display: 'inline-block'
-        }
-    }),
-    React.createElement('h2', {
-        style: { 
-            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Display grid font spacing compression code
-            fontWeight: '800', 
-            margin: '0 0 10px 0', 
-            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent',
-            lineHeight: '1.2'
-        }
-    }, 'Engr. Abdul Nafay'),
-    React.createElement('p', { 
-        style: { 
-            color: '#00f2fe', 
-            fontWeight: '700', 
-            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title string scale logic mapping
-            letterSpacing: '0.5px',                  // Clean multi-device text rendering optimization
-            margin: '0 0 15px 0' 
-        } 
-    }, 'Lead Wordpress Developer'),
-    React.createElement('p', { 
-        style: { 
-            maxWidth: '650px', 
-            margin: '0 auto', 
-            color: 'rgba(255,255,255,0.7)', 
-            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio description layout text viewport fluid
-            lineHeight: '1.5',
-            padding: '0 10px'                        // Edge alignment safe space protection filter
-        } 
-    }, 'Specializing in dynamic WordPress scaling, automated REST/GraphQL API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures, decoupled (headless) solutions, and custom plugin architectures that optimize processing speeds and modern web utility.')
-),
+                React.createElement('div', {
+                    style: {
+                        ...portfolioInputStyle,
+                        display: 'flex',                             // Layout block chain se flexbox runtime par shift kiya
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))',
+                        border: '1px solid rgba(0, 242, 254, 0.15)',
+                        padding: '30px 20px',                        // Content padding structural buffering mobile ke liye optimize ki
+                        maxWidth: '95%',                             // Mobile device boundaries ke andar template safe rahega
+                        margin: '0 auto',
+                        boxSizing: 'border-box'
+                    }
+                },
+                    React.createElement('img', {
+                        src: 'nafay.jpeg',                           // Nafay Bhai ka asset pointer update ho gaya hai
+                        alt: 'Abdul Nafay',
+                        style: {
+                            width: 'clamp(100px, 25vw, 130px)',      // Responsive viewports compression track matrix
+                            height: 'clamp(100px, 25vw, 130px)',     // Circle overflow filter system lock
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            marginBottom: '15px',                    // Layout tracking compact kiya
+                            border: '3px solid #00f2fe',
+                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+                            display: 'inline-block'
+                        }
+                    }),
+                    React.createElement('h2', {
+                        style: {
+                            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Display grid font spacing compression code
+                            fontWeight: '800',
+                            margin: '0 0 10px 0',
+                            background: 'linear-gradient(90deg, #00f2fe, #ff0080)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            lineHeight: '1.2'
+                        }
+                    }, 'Engr. Abdul Nafay'),
+                    React.createElement('p', {
+                        style: {
+                            color: '#00f2fe',
+                            fontWeight: '700',
+                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title string scale logic mapping
+                            letterSpacing: '0.5px',                  // Clean multi-device text rendering optimization
+                            margin: '0 0 15px 0'
+                        }
+                    }, 'Lead Wordpress Developer'),
+                    React.createElement('p', {
+                        style: {
+                            maxWidth: '650px',
+                            margin: '0 auto',
+                            color: 'rgba(255,255,255,0.7)',
+                            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio description layout text viewport fluid
+                            lineHeight: '1.5',
+                            padding: '0 10px'                        // Edge alignment safe space protection filter
+                        }
+                    }, 'Specializing in dynamic WordPress scaling, automated REST/GraphQL API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures, decoupled (headless) solutions, and custom plugin architectures that optimize processing speeds and modern web utility.')
+                ),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -5243,66 +5243,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { 
-    style: { 
-        ...portfolioInputStyle, 
-        display: 'flex',                             // Block chain se pure flexbox par shift kiya vertical architecture ke liye
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center', 
-        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
-        border: '1px solid rgba(0, 242, 254, 0.15)',
-        padding: '30px 20px',                        // Layout cushioning takay mobile display tight na ho
-        maxWidth: '95%',                             // Card browser grid ke mutabiq screen borders me compress ho sakega
-        margin: '0 auto',
-        boxSizing: 'border-box'
-    } 
-},
-    React.createElement('img', {
-        src: 'abrar.jpeg',                           // Abrar Bhai ka profile image mapping path
-        alt: 'Abrar Jamshed',
-        style: {
-            width: 'clamp(100px, 25vw, 130px)',      // Small screens par automatic downscale tracking matrix
-            height: 'clamp(100px, 25vw, 130px)',     // Circle alignment ratio square to round safe zone
-            borderRadius: '50%',
-            objectFit: 'cover',
-            marginBottom: '15px',                    // Bottom spacing text compression layout optimal kiya
-            border: '3px solid #00f2fe',
-            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-            display: 'inline-block'
-        }
-    }),
-    React.createElement('h2', {
-        style: { 
-            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport variable mapping taaki name string screen width ke sath wrap ho
-            fontWeight: '800', 
-            margin: '0 0 10px 0', 
-            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent',
-            lineHeight: '1.2'
-        }
-    }, 'Engr. Abrar Jamshed'),
-    React.createElement('p', { 
-        style: { 
-            color: '#00f2fe', 
-            fontWeight: '700', 
-            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title string scales optimized for compact display tracking
-            letterSpacing: '0.5px',                  // Clean multi-device layout tracking
-            margin: '0 0 15px 0' 
-        } 
-    }, 'Lead Software Engineer & Full-Stack Developer'),
-    React.createElement('p', { 
-        style: { 
-            maxWidth: '650px', 
-            margin: '0 auto', 
-            color: 'rgba(255,255,255,0.7)', 
-            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Paragraph description text adaptive typography tracking
-            lineHeight: '1.5',
-            padding: '0 10px'                        // Border bleeding margin safety layer
-        } 
-    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
-),
+                React.createElement('div', {
+                    style: {
+                        ...portfolioInputStyle,
+                        display: 'flex',                             // Block chain se pure flexbox par shift kiya vertical architecture ke liye
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))',
+                        border: '1px solid rgba(0, 242, 254, 0.15)',
+                        padding: '30px 20px',                        // Layout cushioning takay mobile display tight na ho
+                        maxWidth: '95%',                             // Card browser grid ke mutabiq screen borders me compress ho sakega
+                        margin: '0 auto',
+                        boxSizing: 'border-box'
+                    }
+                },
+                    React.createElement('img', {
+                        src: 'abrar.jpeg',                           // Abrar Bhai ka profile image mapping path
+                        alt: 'Abrar Jamshed',
+                        style: {
+                            width: 'clamp(100px, 25vw, 130px)',      // Small screens par automatic downscale tracking matrix
+                            height: 'clamp(100px, 25vw, 130px)',     // Circle alignment ratio square to round safe zone
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            marginBottom: '15px',                    // Bottom spacing text compression layout optimal kiya
+                            border: '3px solid #00f2fe',
+                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+                            display: 'inline-block'
+                        }
+                    }),
+                    React.createElement('h2', {
+                        style: {
+                            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport variable mapping taaki name string screen width ke sath wrap ho
+                            fontWeight: '800',
+                            margin: '0 0 10px 0',
+                            background: 'linear-gradient(90deg, #00f2fe, #ff0080)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            lineHeight: '1.2'
+                        }
+                    }, 'Engr. Abrar Jamshed'),
+                    React.createElement('p', {
+                        style: {
+                            color: '#00f2fe',
+                            fontWeight: '700',
+                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title string scales optimized for compact display tracking
+                            letterSpacing: '0.5px',                  // Clean multi-device layout tracking
+                            margin: '0 0 15px 0'
+                        }
+                    }, 'Lead Software Engineer & Full-Stack Developer'),
+                    React.createElement('p', {
+                        style: {
+                            maxWidth: '650px',
+                            margin: '0 auto',
+                            color: 'rgba(255,255,255,0.7)',
+                            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Paragraph description text adaptive typography tracking
+                            lineHeight: '1.5',
+                            padding: '0 10px'                        // Border bleeding margin safety layer
+                        }
+                    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+                ),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -5522,66 +5522,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { 
-    style: { 
-        ...portfolioInputStyle, 
-        display: 'flex',                             // Layout chain ko flexbox matrix me migrate kiya
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center', 
-        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
-        border: '1px solid rgba(0, 242, 254, 0.15)',
-        padding: '30px 20px',                        // Responsive padding structural tracking
-        maxWidth: '95%',                             // Card outer boundary layout control
-        margin: '0 auto',
-        boxSizing: 'border-box'
-    } 
-},
-    React.createElement('img', {
-        src: 'hamza.jpeg',                           // Asset path update ho gaya hai
-        alt: 'Hamza',
-        style: {
-            width: 'clamp(100px, 25vw, 130px)',      // Small viewports par fluid responsive downscaling
-            height: 'clamp(100px, 25vw, 130px)',     // Circle frame ratio constant lock
-            borderRadius: '50%',
-            objectFit: 'cover',
-            marginBottom: '15px',                    // Bottom gap spacing criteria optimal kiya
-            border: '3px solid #00f2fe',
-            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-            display: 'inline-block'
-        }
-    }),
-    React.createElement('h2', {
-        style: { 
-            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport variable mapping taaki name mobile par single line me safely compact ho sake
-            fontWeight: '800', 
-            margin: '0 0 10px 0', 
-            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent',
-            lineHeight: '1.2'
-        }
-    }, 'Engr. Hamza'),
-    React.createElement('p', { 
-        style: { 
-            color: '#00f2fe', 
-            fontWeight: '700', 
-            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Designation text dynamic compression track
-            letterSpacing: '0.5px',                  // Crisp screen rendering criteria
-            margin: '0 0 15px 0' 
-        } 
-    }, 'Lead Software Engineer & Full-Stack Developer'),
-    React.createElement('p', { 
-        style: { 
-            maxWidth: '650px', 
-            margin: '0 auto', 
-            color: 'rgba(255,255,255,0.7)', 
-            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Adaptive reading bio setup
-            lineHeight: '1.5',
-            padding: '0 10px'                        // Screen corner bleeding protective system
-        } 
-    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
-),
+                React.createElement('div', {
+                    style: {
+                        ...portfolioInputStyle,
+                        display: 'flex',                             // Layout chain ko flexbox matrix me migrate kiya
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))',
+                        border: '1px solid rgba(0, 242, 254, 0.15)',
+                        padding: '30px 20px',                        // Responsive padding structural tracking
+                        maxWidth: '95%',                             // Card outer boundary layout control
+                        margin: '0 auto',
+                        boxSizing: 'border-box'
+                    }
+                },
+                    React.createElement('img', {
+                        src: 'hamza.jpeg',                           // Asset path update ho gaya hai
+                        alt: 'Hamza',
+                        style: {
+                            width: 'clamp(100px, 25vw, 130px)',      // Small viewports par fluid responsive downscaling
+                            height: 'clamp(100px, 25vw, 130px)',     // Circle frame ratio constant lock
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            marginBottom: '15px',                    // Bottom gap spacing criteria optimal kiya
+                            border: '3px solid #00f2fe',
+                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+                            display: 'inline-block'
+                        }
+                    }),
+                    React.createElement('h2', {
+                        style: {
+                            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport variable mapping taaki name mobile par single line me safely compact ho sake
+                            fontWeight: '800',
+                            margin: '0 0 10px 0',
+                            background: 'linear-gradient(90deg, #00f2fe, #ff0080)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            lineHeight: '1.2'
+                        }
+                    }, 'Engr. Hamza'),
+                    React.createElement('p', {
+                        style: {
+                            color: '#00f2fe',
+                            fontWeight: '700',
+                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Designation text dynamic compression track
+                            letterSpacing: '0.5px',                  // Crisp screen rendering criteria
+                            margin: '0 0 15px 0'
+                        }
+                    }, 'Lead Software Engineer & Full-Stack Developer'),
+                    React.createElement('p', {
+                        style: {
+                            maxWidth: '650px',
+                            margin: '0 auto',
+                            color: 'rgba(255,255,255,0.7)',
+                            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Adaptive reading bio setup
+                            lineHeight: '1.5',
+                            padding: '0 10px'                        // Screen corner bleeding protective system
+                        }
+                    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+                ),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -5800,66 +5800,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { 
-    style: { 
-        ...portfolioInputStyle, 
-        display: 'flex',                             // Layout chain ko standard flexbox mein migrate kiya
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center', 
-        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
-        border: '1px solid rgba(0, 242, 254, 0.15)',
-        padding: '30px 20px',                        // Layout cushioning taaki edges tight na laghein
-        maxWidth: '95%',                             // Card outer boundary screen layout control
-        margin: '0 auto',
-        boxSizing: 'border-box'
-    } 
-},
-    React.createElement('img', {
-        src: 'ali.jpeg',                             // Asset path yahan map ho gaya hai
-        alt: 'Ali',
-        style: {
-            width: 'clamp(100px, 25vw, 130px)',      // Small viewports par automatic fluid downscaling
-            height: 'clamp(100px, 25vw, 130px)',     // Circle frame ratio tight lock
-            borderRadius: '50%',
-            objectFit: 'cover',
-            marginBottom: '15px',                    // Spacing matrix mobile ke liye adjust kiya
-            border: '3px solid #00f2fe',
-            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-            display: 'inline-block'
-        }
-    }),
-    React.createElement('h2', {
-        style: { 
-            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Name text mobile scales par bina line wrap hue set rahega
-            fontWeight: '800', 
-            margin: '0 0 10px 0', 
-            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent',
-            lineHeight: '1.2'
-        }
-    }, 'Mr. Ali'),
-    React.createElement('p', { 
-        style: { 
-            color: '#00f2fe', 
-            fontWeight: '700', 
-            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title text dynamic screens ko trace karega
-            letterSpacing: '0.5px',                  // Clean line rendering compression filter
-            margin: '0 0 15px 0' 
-        } 
-    }, 'Lead Software Tester'),
-    React.createElement('p', { 
-        style: { 
-            maxWidth: '650px', 
-            margin: '0 auto', 
-            color: 'rgba(255,255,255,0.7)', 
-            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio paragraph block layout responsive adjustment
-            lineHeight: '1.5',
-            padding: '0 10px'                        // Screen corner bleeding protective framework
-        } 
-    }, 'Specializing in automated test architecture, performance scaling validation, and enterprise cloud deployment testing. Passionate about verifying intelligent core logic structures to optimize processing speeds and ensure flawless web utility.')
-),
+                React.createElement('div', {
+                    style: {
+                        ...portfolioInputStyle,
+                        display: 'flex',                             // Layout chain ko standard flexbox mein migrate kiya
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))',
+                        border: '1px solid rgba(0, 242, 254, 0.15)',
+                        padding: '30px 20px',                        // Layout cushioning taaki edges tight na laghein
+                        maxWidth: '95%',                             // Card outer boundary screen layout control
+                        margin: '0 auto',
+                        boxSizing: 'border-box'
+                    }
+                },
+                    React.createElement('img', {
+                        src: 'ali.jpeg',                             // Asset path yahan map ho gaya hai
+                        alt: 'Ali',
+                        style: {
+                            width: 'clamp(100px, 25vw, 130px)',      // Small viewports par automatic fluid downscaling
+                            height: 'clamp(100px, 25vw, 130px)',     // Circle frame ratio tight lock
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            marginBottom: '15px',                    // Spacing matrix mobile ke liye adjust kiya
+                            border: '3px solid #00f2fe',
+                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+                            display: 'inline-block'
+                        }
+                    }),
+                    React.createElement('h2', {
+                        style: {
+                            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Name text mobile scales par bina line wrap hue set rahega
+                            fontWeight: '800',
+                            margin: '0 0 10px 0',
+                            background: 'linear-gradient(90deg, #00f2fe, #ff0080)',
+                            WebkitBackgroundClip: 'text',
+                            WebkitTextFillColor: 'transparent',
+                            lineHeight: '1.2'
+                        }
+                    }, 'Mr. Ali'),
+                    React.createElement('p', {
+                        style: {
+                            color: '#00f2fe',
+                            fontWeight: '700',
+                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title text dynamic screens ko trace karega
+                            letterSpacing: '0.5px',                  // Clean line rendering compression filter
+                            margin: '0 0 15px 0'
+                        }
+                    }, 'Lead Software Tester'),
+                    React.createElement('p', {
+                        style: {
+                            maxWidth: '650px',
+                            margin: '0 auto',
+                            color: 'rgba(255,255,255,0.7)',
+                            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio paragraph block layout responsive adjustment
+                            lineHeight: '1.5',
+                            padding: '0 10px'                        // Screen corner bleeding protective framework
+                        }
+                    }, 'Specializing in automated test architecture, performance scaling validation, and enterprise cloud deployment testing. Passionate about verifying intelligent core logic structures to optimize processing speeds and ensure flawless web utility.')
+                ),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -6015,78 +6015,78 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-React.createElement('div', { 
-  style: { 
-    ...portfolioInputStyle, 
-    display: 'flex',
-    flexDirection: 'column', 
-    alignItems: 'center', 
-    textAlign: 'center', 
-    background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
-    border: '1px solid rgba(0, 242, 254, 0.15)', 
-    padding: '30px 10px',           // thoda padding badhaya
-    width: '100%', 
-    maxWidth: '100%',
-    margin: '0 auto', 
-    boxSizing: 'border-box', 
-    overflow: 'hidden' 
-  } 
-},
+                React.createElement('div', {
+                    style: {
+                        ...portfolioInputStyle,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        textAlign: 'center',
+                        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))',
+                        border: '1px solid rgba(0, 242, 254, 0.15)',
+                        padding: '30px 10px',           // thoda padding badhaya
+                        width: '100%',
+                        maxWidth: '100%',
+                        margin: '0 auto',
+                        boxSizing: 'border-box',
+                        overflow: 'hidden'
+                    }
+                },
 
-  // Image
-  React.createElement('img', { 
-    src: 'usman.jpeg',
-    alt: 'Usman Nadeem', 
-    style: { 
-      width: 'clamp(80px, 18vw, 120px)',
-      height: 'clamp(80px, 18vw, 120px)',
-      borderRadius: '50%', 
-      objectFit: 'cover', 
-      marginBottom: '15px',
-      border: '3px solid #00f2fe', 
-      boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)' 
-    } 
-  }), 
+                    // Image
+                    React.createElement('img', {
+                        src: 'usman.jpeg',
+                        alt: 'Usman Nadeem',
+                        style: {
+                            width: 'clamp(80px, 18vw, 120px)',
+                            height: 'clamp(80px, 18vw, 120px)',
+                            borderRadius: '50%',
+                            objectFit: 'cover',
+                            marginBottom: '15px',
+                            border: '3px solid #00f2fe',
+                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)'
+                        }
+                    }),
 
-  // Name - Yeh wala main fix hai
-  React.createElement('h2', { 
-    style: { 
-      fontSize: 'clamp(8px, 2.3vw, 1.6rem)',
-fontWeight: '800',
-margin: '0 0 10px 0',
-letterSpacing: '-0.3px',
-whiteSpace: 'nowrap',
-wordBreak: 'keep-all',
-overflow: 'hidden',
-textOverflow: 'ellipsis',
-display: 'block',
-width: '100%',
-    }
-  }, 'Engr. Usman Nadeem'),
+                    // Name - Yeh wala main fix hai
+                    React.createElement('h2', {
+                        style: {
+                            fontSize: 'clamp(8px, 2.3vw, 1.6rem)',
+                            fontWeight: '800',
+                            margin: '0 0 10px 0',
+                            letterSpacing: '-0.3px',
+                            whiteSpace: 'nowrap',
+                            wordBreak: 'keep-all',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis',
+                            display: 'block',
+                            width: '100%',
+                        }
+                    }, 'Engr. Usman Nadeem'),
 
-  // Title
-  React.createElement('p', { 
-    style: { 
-      color: '#00f2fe', 
-      fontWeight: '700', 
-      fontSize: 'clamp(12px, 3.5vw, 1.1rem)', 
-      letterSpacing: '0',                                       
-      margin: '0 0 15px 0' 
-    } 
-  }, 'Lead Software Engineer & Full-Stack Developer'),
+                    // Title
+                    React.createElement('p', {
+                        style: {
+                            color: '#00f2fe',
+                            fontWeight: '700',
+                            fontSize: 'clamp(12px, 3.5vw, 1.1rem)',
+                            letterSpacing: '0',
+                            margin: '0 0 15px 0'
+                        }
+                    }, 'Lead Software Engineer & Full-Stack Developer'),
 
-  // Description
-  React.createElement('p', { 
-    style: { 
-      maxWidth: '650px', 
-      margin: '0 auto', 
-      color: 'rgba(255,255,255,0.7)', 
-      fontSize: 'clamp(12px, 3.2vw, 1rem)', 
-      lineHeight: '1.5',
-      padding: '0 8px'                        
-    } 
-  }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
-),
+                    // Description
+                    React.createElement('p', {
+                        style: {
+                            maxWidth: '650px',
+                            margin: '0 auto',
+                            color: 'rgba(255,255,255,0.7)',
+                            fontSize: 'clamp(12px, 3.2vw, 1rem)',
+                            lineHeight: '1.5',
+                            padding: '0 8px'
+                        }
+                    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+                ),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -6895,40 +6895,40 @@ width: '100%',
     } else if (currentPage === 'available-jobs') {
         mainElement = React.createElement('main', { className: 'services-page' },
             // HEADING BADGE
-            
+
             React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' se 'flex' kiya takay elements automatically fit ho sakein
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 20px',
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)',
-        WebkitBackdropFilter: 'blur(15px)',
-        border: '1px solid rgba(255, 255, 255, 0.12)',
-        borderRadius: '24px',
-        padding: '12px 24px',                        // Mobile spacing ke liye padding adjust ki
-        width: 'fit-content',
-        maxWidth: '90%',                             // Card ko mobile screen se bahar nikalne se rokega
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        style: {
-            fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',  // Mobile screens par font size automatic chota ho jayega
-            fontWeight: '800',
-            letterSpacing: '0.5px',                  // Squeeze hone se bachane ke liye spacing thodi kam ki
-            textAlign: 'center',
-            margin: '0',
-            whiteSpace: 'nowrap',                    // Text aur emoji hamesha single line mein lock rahenge
-            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'Available Jobs 💼')
-),
+                style: {
+                    display: 'flex',                             // 'table' se 'flex' kiya takay elements automatically fit ho sakein
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 20px',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 24px',                        // Mobile spacing ke liye padding adjust ki
+                    width: 'fit-content',
+                    maxWidth: '90%',                             // Card ko mobile screen se bahar nikalne se rokega
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    style: {
+                        fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',  // Mobile screens par font size automatic chota ho jayega
+                        fontWeight: '800',
+                        letterSpacing: '0.5px',                  // Squeeze hone se bachane ke liye spacing thodi kam ki
+                        textAlign: 'center',
+                        margin: '0',
+                        whiteSpace: 'nowrap',                    // Text aur emoji hamesha single line mein lock rahenge
+                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'Available Jobs 💼')
+            ),
 
             React.createElement('p', {
                 style: { color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.95rem', textAlign: 'center', marginBottom: '40px', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto', lineHeight: '1.6' }
@@ -6964,7 +6964,7 @@ width: '100%',
                         React.createElement('h3', { style: { color: '#fff', fontSize: '1.3rem', fontWeight: '700', marginBottom: '8px' } }, job.title),
                         React.createElement('p', { style: { color: '#00f2fe', fontSize: '0.9rem', fontWeight: '600', marginBottom: '24px' } }, job.salary || 'Salary: Negotiable'),
 
-                  React.createElement('div', { style: { display: 'flex', gap: '10px' } },
+                        React.createElement('div', { style: { display: 'flex', gap: '10px' } },
                             React.createElement('button', {
                                 onClick: () => setSelectedJobDescription(job),
                                 style: { flex: '1', padding: '12px', borderRadius: '14px', background: 'rgba(255, 255, 255, 0.08)', color: '#fff', border: '1px solid rgba(255, 255, 255, 0.2)', fontSize: '0.85rem', fontWeight: '600', cursor: 'pointer' }
@@ -7008,7 +7008,7 @@ width: '100%',
                 )
             ) : null
         );
-        
+
         // 1️⃣ PEHLE YEH PAGE KHULEGA (CONTACT US CARD)
     } else if (currentPage === 'job-apply-form' && selectedJobForApply) {
         const handleApplySubmit = (e) => {
@@ -7865,38 +7865,38 @@ width: '100%',
         mainElement = React.createElement('main', { className: 'services-page' },
             // 1️⃣ 👑 ULTRA-PREMIUM BORDERED HEADING BADGE (Exact Jobs Style)
             React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' se 'flex' change kiya takay responsive ho sake
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 20px',
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)',
-        WebkitBackdropFilter: 'blur(15px)',
-        border: '1px solid rgba(255, 255, 255, 0.12)',
-        borderRadius: '24px',
-        padding: '12px 24px',                        // Mobile ke liye padding thodi side se kam ki (32px se 24px)
-        width: 'fit-content',                        // Content ke mutabiq width adjust hogi
-        maxWidth: '90%',                             // Mobile screen ke corners se chipkay na
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        style: {
-            fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',  // Mobile par khud chota ho jayega, desktop par full 2.3rem rahega
-            fontWeight: '800',
-            letterSpacing: '0.5px',                  // Mobile par letters ko overlap hone se bachaane ke liye thoda kam kiya
-            textAlign: 'center',
-            margin: '0',
-            whiteSpace: 'nowrap',                    // Text aur emoji ko hamesha ek line me lock rakhega
-            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'Websites For Sale 🌐')
-),
+                style: {
+                    display: 'flex',                             // 'table' se 'flex' change kiya takay responsive ho sake
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 20px',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 24px',                        // Mobile ke liye padding thodi side se kam ki (32px se 24px)
+                    width: 'fit-content',                        // Content ke mutabiq width adjust hogi
+                    maxWidth: '90%',                             // Mobile screen ke corners se chipkay na
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    style: {
+                        fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',  // Mobile par khud chota ho jayega, desktop par full 2.3rem rahega
+                        fontWeight: '800',
+                        letterSpacing: '0.5px',                  // Mobile par letters ko overlap hone se bachaane ke liye thoda kam kiya
+                        textAlign: 'center',
+                        margin: '0',
+                        whiteSpace: 'nowrap',                    // Text aur emoji ko hamesha ek line me lock rakhega
+                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'Websites For Sale 🌐')
+            ),
 
             // 2️⃣ RELATED DESCRIPTION LINE
             React.createElement('p', {
@@ -8037,9 +8037,9 @@ width: '100%',
                                     }
                                 }, 'Buy Now 🚀')
                             )
-                            
+
                         );
-                        
+
                     }),
                     renderSaleDetailsBlocks()
                 ),
@@ -8047,7 +8047,7 @@ width: '100%',
             // 5️⃣ DETAILS DESCRIPTION MODAL (Exact Jobs Modal Mirror Architecture)
             selectedWebsiteDesc ? (() => {
                 // Modal ke liye bhi wahi exact link check jo admin provide kar raha hai
-const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.image || selectedWebsiteDesc.imageUrl;
+                const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.image || selectedWebsiteDesc.imageUrl;
                 return React.createElement('div', {
                     onClick: () => setSelectedWebsiteDesc(null),
                     style: {
@@ -8166,37 +8166,37 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
 
             // 👑 PREMIUM HEADING BADGE
             React.createElement('div', {
-    style: {
-        display: 'flex',                             // 'table' se 'flex' kiya takay small devices par shrink ho sake
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '0 auto 20px',
-        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-        backdropFilter: 'blur(15px)', 
-        WebkitBackdropFilter: 'blur(15px)',          // Safari support secure karne ke liye webkit overlay
-        border: '1px solid rgba(255, 255, 255, 0.12)', 
-        borderRadius: '24px',
-        padding: '12px 24px',                        // Side padding mobile frame ke hissab se optimize ki
-        width: 'fit-content',
-        maxWidth: '90%',                             // Element hamesha responsive screen layout ke andar fit rahega
-        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4)',
-        boxSizing: 'border-box'
-    }
-},
-    React.createElement('h2', {
-        style: {
-            fontSize: 'clamp(1.35rem, 5vw, 2.2rem)', // Viewport scaling lagayi takay mobile par text adjust ho jaye
-            fontWeight: '800', 
-            textAlign: 'center', 
-            margin: '0',
-            whiteSpace: 'nowrap',                    // Kisi bhi mobile device par text break hokar wrap nahi hoga
-            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)', 
-            WebkitBackgroundClip: 'text', 
-            WebkitTextFillColor: 'transparent',
-            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-        }
-    }, 'Secure Your Purchase 🛒')                    // Broken encoding template ko original shopping cart emoji se replace kiya
-),
+                style: {
+                    display: 'flex',                             // 'table' se 'flex' kiya takay small devices par shrink ho sake
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 20px',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',          // Safari support secure karne ke liye webkit overlay
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 24px',                        // Side padding mobile frame ke hissab se optimize ki
+                    width: 'fit-content',
+                    maxWidth: '90%',                             // Element hamesha responsive screen layout ke andar fit rahega
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    style: {
+                        fontSize: 'clamp(1.35rem, 5vw, 2.2rem)', // Viewport scaling lagayi takay mobile par text adjust ho jaye
+                        fontWeight: '800',
+                        textAlign: 'center',
+                        margin: '0',
+                        whiteSpace: 'nowrap',                    // Kisi bhi mobile device par text break hokar wrap nahi hoga
+                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                    }
+                }, 'Secure Your Purchase 🛒')                    // Broken encoding template ko original shopping cart emoji se replace kiya
+            ),
 
             // Order Highlight Text
             React.createElement('p', {
@@ -8367,7 +8367,7 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                 )
             )
         );
-    }else if (currentPage === 'privacy-policy') {
+    } else if (currentPage === 'privacy-policy') {
         // 🌌 Premium Core Section Style (Sophisticated Glassmorphism matching About page)
         const sectionStyle = {
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
@@ -8532,7 +8532,7 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
             )
 
         );
-    }else if (currentPage === 'terms-conditions') {
+    } else if (currentPage === 'terms-conditions') {
         // 🌌 Premium Core Section Style (Sophisticated Glassmorphism)
         const sectionStyle = {
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
@@ -8563,7 +8563,7 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
 
             // 🚀 HEADER SECTION (Stunning Pill-Shaped Glowing Border & Gradient)
             React.createElement('div', { style: { textAlign: 'center', marginBottom: '60px', position: 'relative' } },
-                
+
                 React.createElement('div', {
                     style: {
                         display: 'inline-block',
@@ -8594,7 +8594,7 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                         }
                     }, 'Terms & Conditions')
                 ),
-                
+
                 React.createElement('p', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '1.05rem', marginTop: '20px', fontWeight: '500' } }, 'Last Updated: June 2026')
             ),
 
@@ -8859,30 +8859,30 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
             },
                 // LEFT COLUMN: Typography
                 React.createElement('div', { className: 'hero-left-col', style: { flex: '1 1 550px', textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' } },
-    React.createElement('div', {
-        style: {
-            display: 'inline-block',
-            padding: '8px 16px', // Mobile screen ke liye padding halki si kam ki taake safe rahe
-            marginBottom: '20px',
-            background: 'rgba(255, 255, 255, 0.04)',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
-            borderRadius: '50px',
-            color: '#00f2fe',
-            
-            // 📱 Mobile responsive dynamic font-size (Har screen par auto-adjust hoga)
-            fontSize: 'clamp(0.65rem, 3vw, 0.85rem)', 
-            
-            // 🛠️ TEXT KO EK LINE MEIN LOCK KARNE KE LIYE
-            whiteSpace: 'nowrap', 
-            
-            fontWeight: '600',
-            fontFamily: "'Bruno Ace SC', sans-serif",
-            letterSpacing: '1px',
-            backdropFilter: 'blur(10px)',
-            maxWidth: '100%', // Div ko screen se bahar nikalne se roke ga
-            boxSizing: 'border-box'
-        }
-    }, '✨ HELLO WELCOME TO APEX CODE'), // 'âœ¨' ko clean '✨' emoji se replace kiya hai
+                    React.createElement('div', {
+                        style: {
+                            display: 'inline-block',
+                            padding: '8px 16px', // Mobile screen ke liye padding halki si kam ki taake safe rahe
+                            marginBottom: '20px',
+                            background: 'rgba(255, 255, 255, 0.04)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            borderRadius: '50px',
+                            color: '#00f2fe',
+
+                            // 📱 Mobile responsive dynamic font-size (Har screen par auto-adjust hoga)
+                            fontSize: 'clamp(0.65rem, 3vw, 0.85rem)',
+
+                            // 🛠️ TEXT KO EK LINE MEIN LOCK KARNE KE LIYE
+                            whiteSpace: 'nowrap',
+
+                            fontWeight: '600',
+                            fontFamily: "'Bruno Ace SC', sans-serif",
+                            letterSpacing: '1px',
+                            backdropFilter: 'blur(10px)',
+                            maxWidth: '100%', // Div ko screen se bahar nikalne se roke ga
+                            boxSizing: 'border-box'
+                        }
+                    }, '✨ HELLO WELCOME TO APEX CODE'), // 'âœ¨' ko clean '✨' emoji se replace kiya hai
 
                     React.createElement('h1', {
                         style: {
@@ -8951,14 +8951,15 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                 )
             ),
             // ✨ ULTRA-PREMIUM ANIMATED STATS BAR (NEXT-GEN CINEMATIC VERSION)
-            React.createElement('div', { 
+            React.createElement('div', {
                 className: 'premium-stats-container',
                 style: { width: '100%', display: 'flex', justifyContent: 'center', overflow: 'hidden', padding: '10px 0' }
             },
-                
+
                 // 🎨 CINEMATIC ANIMATIONS & RESPONSIVE GRID INJECTION
-                React.createElement('style', { 
-                    dangerouslySetInnerHTML: { __html: `
+                React.createElement('style', {
+                    dangerouslySetInnerHTML: {
+                        __html: `
                         /* 🌟 Entrance & Ambient Keyframes */
                         @keyframes statsBarEntrance {
                             0% { opacity: 0; transform: translateY(40px) scale(0.98); }
@@ -9104,17 +9105,17 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                                 transform: translateY(-4px) scale(1.01); /* Reduced motion for mobile */
                             }
                         }
-                    `} 
+                    `}
                 }),
 
                 // 🌐 UI GRID CONTAINER
                 React.createElement('div', { className: 'premium-stats-bar' },
-                    
+
                     // Stat 1: Projects Completed
                     React.createElement('div', { className: 'stat-box' },
-                        React.createElement('div', { 
+                        React.createElement('div', {
                             className: 'stat-number',
-                            style: { background: 'linear-gradient(90deg, #00f2fe, #4facfe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 242, 254, 0.25))' } 
+                            style: { background: 'linear-gradient(90deg, #00f2fe, #4facfe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 242, 254, 0.25))' }
                         },
                             React.createElement(AnimatedCounter, { end: 50, suffix: '+' })
                         ),
@@ -9123,9 +9124,9 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
 
                     // Stat 2: Expert Members
                     React.createElement('div', { className: 'stat-box' },
-                        React.createElement('div', { 
+                        React.createElement('div', {
                             className: 'stat-number',
-                            style: { background: 'linear-gradient(90deg, #ff0080, #ff8c00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 0, 128, 0.25))' } 
+                            style: { background: 'linear-gradient(90deg, #ff0080, #ff8c00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 0, 128, 0.25))' }
                         },
                             React.createElement(AnimatedCounter, { end: 10, suffix: '+' })
                         ),
@@ -9134,9 +9135,9 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
 
                     // Stat 3: Satisfied Clients
                     React.createElement('div', { className: 'stat-box' },
-                        React.createElement('div', { 
+                        React.createElement('div', {
                             className: 'stat-number',
-                            style: { background: 'linear-gradient(90deg, #00e28c, #00f2fe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 224, 140, 0.25))' } 
+                            style: { background: 'linear-gradient(90deg, #00e28c, #00f2fe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 224, 140, 0.25))' }
                         },
                             React.createElement(AnimatedCounter, { end: 20, suffix: '+' })
                         ),
@@ -9145,9 +9146,9 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
 
                     // Stat 4: Years Experience
                     React.createElement('div', { className: 'stat-box' },
-                        React.createElement('div', { 
+                        React.createElement('div', {
                             className: 'stat-number',
-                            style: { background: 'linear-gradient(90deg, #ffbd2e, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 189, 46, 0.25))' } 
+                            style: { background: 'linear-gradient(90deg, #ffbd2e, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 189, 46, 0.25))' }
                         },
                             React.createElement(AnimatedCounter, { end: 2, suffix: '+' })
                         ),
@@ -10224,10 +10225,10 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                         )
 
                     )
-                    
+
                 ),
                 React.createElement(TopFAQSection, null),
-                
+
                 // 🏷️ 8. APEX CODE ULTRALUXE BORDERLESS GRID CTA (Vercel/Stripe Style)
                 React.createElement('div', {
                     style: {
@@ -10405,14 +10406,14 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                         // Interactive Capsule Button
                         // Interactive Capsule Button
                         React.createElement('button', {
-        onClick: toServices,
-        className: 'apex-capsule-btn'
-    },
-    'Explore Services',
-    React.createElement('span', { 
-        className: 'apex-arrow' 
-    }, '➔')
-)
+                            onClick: toServices,
+                            className: 'apex-capsule-btn'
+                        },
+                            'Explore Services',
+                            React.createElement('span', {
+                                className: 'apex-arrow'
+                            }, '➔')
+                        )
                     )
                 )
             )
@@ -10541,21 +10542,22 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
 
         // Footer Bottom Section: Animated Copyright
         // Footer Bottom Section: Premium Social Media Icons & Animated Copyright
-        React.createElement('div', { 
-            className: 'footer-bottom', 
-            style: { 
-                position: 'relative', 
+        React.createElement('div', {
+            className: 'footer-bottom',
+            style: {
+                position: 'relative',
                 zIndex: '10',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 width: '100%'
-            } 
+            }
         },
-            
+
             // 🎨 CSS For Premium Minimalistic Responsive Buttons
-            React.createElement('style', { 
-                dangerouslySetInnerHTML: { __html: `
+            React.createElement('style', {
+                dangerouslySetInnerHTML: {
+                    __html: `
                     .premium-social-container {
                         display: flex; 
                         justify-content: center; 
@@ -10616,51 +10618,51 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
                             height: 18px; 
                         }
                     }
-                `} 
+                `}
             }),
 
             // 🌐 PREMIUM SOCIAL MEDIA ICONS SECTION
             React.createElement('div', { className: 'premium-social-container' },
-                
+
                 // Facebook
-                React.createElement('a', { 
+                React.createElement('a', {
                     href: 'https://www.facebook.com/share/1SdJG6FCo5/', // <-- Apna Link Dalein
                     target: '_blank', rel: 'noopener noreferrer',
                     className: 'social-btn fb', 'aria-label': 'Facebook'
-                }, 
+                },
                     React.createElement('svg', { viewBox: '0 0 24 24' },
                         React.createElement('path', { d: 'M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z' })
                     )
                 ),
 
                 // Instagram
-                React.createElement('a', { 
+                React.createElement('a', {
                     href: 'https://www.instagram.com/apex.code_?igsh=MWk2ZjdqaXpkaG5wNg==', // <-- Apna Link Dalein
                     target: '_blank', rel: 'noopener noreferrer',
                     className: 'social-btn ig', 'aria-label': 'Instagram'
-                }, 
+                },
                     React.createElement('svg', { viewBox: '0 0 24 24' },
                         React.createElement('path', { d: 'M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z' })
                     )
                 ),
 
                 // Threads
-                React.createElement('a', { 
+                React.createElement('a', {
                     href: 'https://www.threads.com/@apex.code_', // <-- Apna Link Yahan Dalein
                     target: '_blank', rel: 'noopener noreferrer',
                     className: 'social-btn th', 'aria-label': 'Threads'
-                }, 
+                },
                     React.createElement('svg', { viewBox: '0 0 24 24' },
                         React.createElement('path', { d: 'M18.32 12.7c-.12 3.32-1.74 5.38-4.59 5.38-1.57 0-2.85-.71-3.32-1.85-.14-.35-.22-.73-.22-1.12V10.1c0-.4.08-.77.22-1.12.47-1.14 1.75-1.85 3.32-1.85 2.86 0 4.47 2.06 4.59 5.38zM24 12c0-6.63-5.37-12-12-12S0 5.37 0 12s5.37 12 12 12c3.06 0 5.86-1.14 8-3.03l-1.58-1.47C16.81 21.04 14.53 21.8 12 21.8c-5.41 0-9.8-4.39-9.8-9.8S6.59 2.2 12 2.2s9.8 4.39 9.8 9.8c0 1.95-.53 3.49-1.57 4.5-.83.81-1.97 1.25-3.23 1.25-1.57 0-2.73-.77-3.13-2.07l-.02-.05c1.43-.8 2.37-2.31 2.37-4.13v-1.1c0-2.92-2.13-5.06-5.22-5.06-3.1 0-5.22 2.14-5.22 5.06v5.02c0 2.92 2.13 5.06 5.22 5.06 1.7 0 3.16-.65 4.14-1.82 1.5 1.29 3.48 1.96 5.66 1.96 1.83 0 3.51-.61 4.79-1.75C23.23 16.71 24 14.61 24 12z' })
                     )
                 ),
 
                 // LinkedIn
-                React.createElement('a', { 
+                React.createElement('a', {
                     href: 'https://linkedin.com/in/your-profile-link', // <-- Apna Link Yahan Dalein
                     target: '_blank', rel: 'noopener noreferrer',
                     className: 'social-btn li', 'aria-label': 'LinkedIn'
-                }, 
+                },
                     React.createElement('svg', { viewBox: '0 0 24 24' },
                         React.createElement('path', { d: 'M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z' })
                     )
