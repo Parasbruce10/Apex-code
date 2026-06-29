@@ -7610,20 +7610,37 @@ const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.im
 
             // 👑 PREMIUM HEADING BADGE
             React.createElement('div', {
-                style: {
-                    display: 'table', margin: '0 auto 20px', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)', border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '24px',
-                    padding: '12px 32px', boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4)'
-                }
-            },
-                React.createElement('h2', {
-                    style: {
-                        fontSize: '2.2rem', fontWeight: '800', textAlign: 'center', margin: '0',
-                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Secure Your Purchase 🛒')
-            ),
+    style: {
+        display: 'flex',                             // 'table' se 'flex' kiya takay small devices par shrink ho sake
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 20px',
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)', 
+        WebkitBackdropFilter: 'blur(15px)',          // Safari support secure karne ke liye webkit overlay
+        border: '1px solid rgba(255, 255, 255, 0.12)', 
+        borderRadius: '24px',
+        padding: '12px 24px',                        // Side padding mobile frame ke hissab se optimize ki
+        width: 'fit-content',
+        maxWidth: '90%',                             // Element hamesha responsive screen layout ke andar fit rahega
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        style: {
+            fontSize: 'clamp(1.35rem, 5vw, 2.2rem)', // Viewport scaling lagayi takay mobile par text adjust ho jaye
+            fontWeight: '800', 
+            textAlign: 'center', 
+            margin: '0',
+            whiteSpace: 'nowrap',                    // Kisi bhi mobile device par text break hokar wrap nahi hoga
+            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'Secure Your Purchase 🛒')                    // Broken encoding template ko original shopping cart emoji se replace kiya
+),
 
             // Order Highlight Text
             React.createElement('p', {
