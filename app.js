@@ -197,6 +197,237 @@ const TopFAQSection = () => {
     ]);
 };
 
+// 🌟 1. WEBSITE SALE DETAILS ARRAY (Online Images & English Details)
+const websiteSaleDetails = [
+    {
+        title: "01 / Ultra-Fast Performance & Clean Code",
+        desc: "Built with modern frameworks ensuring lightning-fast load times. Zero bloatware, highly optimized for maximum speed and user retention. Your users will experience instant page transitions.",
+        img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        title: "02 / Fully Responsive & Mobile Optimized",
+        desc: "Fluid layouts that adapt perfectly to any screen size. Whether on a desktop, tablet, or smartphone, your audience gets a flawless, app-like experience without layout shifts.",
+        img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        title: "03 / Advanced SEO & High Ranking Ready",
+        desc: "Programmatically structured for search engines. Includes semantic HTML, meta tags, and fast rendering architectures to help you rank on the first page of Google organically.",
+        img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        title: "04 / Integrated Monetization & Ads Placement",
+        desc: "Strategically placed ad zones ready for Google AdSense, Adsterra, or Monetag. Turn your traffic into a steady revenue stream effortlessly without ruining the user experience.",
+        img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        title: "05 / Secure Admin Panel & Easy Management",
+        desc: "Take full control with a powerful, secure backend architecture. Easily manage content, track real-time analytics, and update your site effortlessly with enterprise-grade security.",
+        img: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=600&q=80"
+    }
+];
+
+// 🌟 2. RENDER LOGIC (Zigzag Layout with Premium CSS)
+const renderSaleDetailsBlocks = () => {
+    return React.createElement('div', {
+        style: {
+            marginTop: '80px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            paddingTop: '60px',
+            width: '100%'
+        }
+    },
+        React.createElement('h2', {
+            style: { 
+                fontSize: '2.2rem', 
+                fontWeight: '800', 
+                marginBottom: '50px', 
+                textAlign: 'center', 
+                background: 'linear-gradient(135deg, #fff, #00f2fe)', 
+                WebkitBackgroundClip: 'text', 
+                WebkitTextFillColor: 'transparent' 
+            }
+        }, 'Why Choose Our Premium Websites?'),
+        
+        React.createElement('div', {
+            style: { display: 'flex', flexDirection: 'column', gap: '30px' }
+        },
+            websiteSaleDetails.map((detail, index) => {
+                const isEven = index % 2 === 0; // Zigzag logic (Left-Right)
+                return React.createElement('div', {
+                    key: index,
+                    style: {
+                        display: 'flex',
+                        flexDirection: isEven ? 'row' : 'row-reverse', // Image kabhi left, kabhi right
+                        flexWrap: 'wrap',
+                        gap: '40px',
+                        alignItems: 'center',
+                        background: 'rgba(255, 255, 255, 0.02)',
+                        padding: '30px',
+                        borderRadius: '24px',
+                        border: '1px solid rgba(255, 255, 255, 0.05)',
+                        boxShadow: '0 15px 35px rgba(0,0,0,0.3)',
+                    }
+                },
+                    // Image Section
+                    React.createElement('div', { style: { flex: '1 1 300px' } },
+                        React.createElement('img', {
+                            src: detail.img,
+                            alt: detail.title,
+                            style: { 
+                                width: '100%', 
+                                borderRadius: '16px', 
+                                boxShadow: isEven ? '0 10px 30px rgba(0, 242, 254, 0.15)' : '0 10px 30px rgba(255, 0, 128, 0.15)', 
+                                display: 'block',
+                                border: '1px solid rgba(255,255,255,0.05)'
+                            }
+                        })
+                    ),
+                    // Text Section
+                    React.createElement('div', { style: { flex: '1 1 350px' } },
+                        React.createElement('h3', { 
+                            style: { 
+                                color: isEven ? '#00f2fe' : '#ff0080', // Color toggle for premium feel
+                                fontSize: '1.5rem', 
+                                marginBottom: '15px', 
+                                fontWeight: '800' 
+                            } 
+                        }, detail.title),
+                        React.createElement('p', { 
+                            style: { 
+                                color: 'rgba(255, 255, 255, 0.7)', 
+                                fontSize: '1.05rem', 
+                                lineHeight: '1.7' 
+                            } 
+                        }, detail.desc)
+                    )
+                );
+            })
+        )
+    );
+};
+// 🌟 1. AVAILABLE JOBS ARRAY (Online Images & Professional Details)
+const availableJobsList = [
+    {
+        title: "01 / Front-End React Developer",
+        desc: "Looking for an enthusiastic developer to build highly responsive web interfaces. You will work on creating dynamic components, managing state efficiently, and ensuring mobile-first layouts.",
+        img: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        title: "02 / Software Engineering Internship",
+        desc: "Kickstart your career with our hands-on software engineering program. Collaborate with senior devs on real-world projects. Location: Remote / Karachi.",
+        img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        title: "03 / Backend Developer (Python & Flask)",
+        desc: "Join our core team to design and maintain robust APIs. You will work on Python-based algorithms, optimize server-side logic using Flask, and integrate with modern frontend frameworks.",
+        img: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        title: "04 / AI & Machine Learning Engineer",
+        desc: "Work on cutting-edge AI technologies, including text humanization models, LLM integrations, and intelligent detectors. Help bridge the gap between complex AI logic and user-friendly web apps.",
+        img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+        title: "05 / UI/UX Product Designer",
+        desc: "Shape the visual identity of our next-generation web applications. Focus on user-centric design, creating wireframes, and delivering pixel-perfect prototypes for the development team.",
+        img: "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=600&q=80"
+    }
+];
+
+// 🌟 2. RENDER LOGIC FOR JOBS (Zigzag Layout with Neon Accents)
+const renderAvailableJobsBlocks = () => {
+    return React.createElement('div', {
+        style: {
+            marginTop: '80px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            paddingTop: '60px',
+            width: '100%'
+        }
+    },
+        React.createElement('h2', {
+            style: { 
+                fontSize: '2.2rem', 
+                fontWeight: '800', 
+                marginBottom: '50px', 
+                textAlign: 'center', 
+                background: 'linear-gradient(135deg, #00ff87, #60efff)', // Greenish-blue neon for Jobs
+                WebkitBackgroundClip: 'text', 
+                WebkitTextFillColor: 'transparent' 
+            }
+        }, 'Explore Open Opportunities'),
+        
+        React.createElement('div', {
+            style: { display: 'flex', flexDirection: 'column', gap: '30px' }
+        },
+            availableJobsList.map((job, index) => {
+                const isEven = index % 2 === 0;
+                return React.createElement('div', {
+                    key: index,
+                    style: {
+                        display: 'flex',
+                        flexDirection: isEven ? 'row' : 'row-reverse', // Zigzag Layout
+                        flexWrap: 'wrap',
+                        gap: '40px',
+                        alignItems: 'center',
+                        background: 'rgba(255, 255, 255, 0.02)',
+                        padding: '30px',
+                        borderRadius: '24px',
+                        border: '1px solid rgba(255, 255, 255, 0.05)',
+                        boxShadow: '0 15px 35px rgba(0,0,0,0.3)',
+                    }
+                },
+                    // Image Section
+                    React.createElement('div', { style: { flex: '1 1 300px' } },
+                        React.createElement('img', {
+                            src: job.img,
+                            alt: job.title,
+                            style: { 
+                                width: '100%', 
+                                borderRadius: '16px', 
+                                boxShadow: isEven ? '0 10px 30px rgba(96, 239, 255, 0.15)' : '0 10px 30px rgba(0, 255, 135, 0.15)', 
+                                display: 'block',
+                                border: '1px solid rgba(255,255,255,0.05)'
+                            }
+                        })
+                    ),
+                    // Text Section
+                    React.createElement('div', { style: { flex: '1 1 350px' } },
+                        React.createElement('h3', { 
+                            style: { 
+                                color: isEven ? '#60efff' : '#00ff87', // Toggle neon green/blue
+                                fontSize: '1.5rem', 
+                                marginBottom: '15px', 
+                                fontWeight: '800' 
+                            } 
+                        }, job.title),
+                        React.createElement('p', { 
+                            style: { 
+                                color: 'rgba(255, 255, 255, 0.7)', 
+                                fontSize: '1.05rem', 
+                                lineHeight: '1.7',
+                                marginBottom: '20px'
+                            } 
+                        }, job.desc),
+                        // Apply Now Button Mockup
+                        React.createElement('button', {
+                            style: {
+                                background: 'transparent',
+                                color: '#fff',
+                                border: `1px solid ${isEven ? '#60efff' : '#00ff87'}`,
+                                padding: '10px 24px',
+                                borderRadius: '30px',
+                                cursor: 'pointer',
+                                fontWeight: '600',
+                                transition: 'all 0.3s ease',
+                                boxShadow: `0 0 10px ${isEven ? 'rgba(96, 239, 255, 0.2)' : 'rgba(0, 255, 135, 0.2)'}`
+                            }
+                        }, 'Position Closed')
+                    )
+                );
+            })
+        )
+    );
+};
 // Yahan se aapka original code shuru ho raha hai
 // const QuickKitApp = () => { ...
 // JavaScript logic aur React dynamic element creation ek sath
@@ -6664,6 +6895,7 @@ width: '100%',
     } else if (currentPage === 'available-jobs') {
         mainElement = React.createElement('main', { className: 'services-page' },
             // HEADING BADGE
+            
             React.createElement('div', {
     style: {
         display: 'flex',                             // 'table' se 'flex' kiya takay elements automatically fit ho sakein
@@ -6732,7 +6964,7 @@ width: '100%',
                         React.createElement('h3', { style: { color: '#fff', fontSize: '1.3rem', fontWeight: '700', marginBottom: '8px' } }, job.title),
                         React.createElement('p', { style: { color: '#00f2fe', fontSize: '0.9rem', fontWeight: '600', marginBottom: '24px' } }, job.salary || 'Salary: Negotiable'),
 
-                        React.createElement('div', { style: { display: 'flex', gap: '10px' } },
+                  React.createElement('div', { style: { display: 'flex', gap: '10px' } },
                             React.createElement('button', {
                                 onClick: () => setSelectedJobDescription(job),
                                 style: { flex: '1', padding: '12px', borderRadius: '14px', background: 'rgba(255, 255, 255, 0.08)', color: '#fff', border: '1px solid rgba(255, 255, 255, 0.2)', fontSize: '0.85rem', fontWeight: '600', cursor: 'pointer' }
@@ -6744,6 +6976,9 @@ width: '100%',
                         )
                     ))
                 ),
+
+            // 2. YEH WALA BLOCK HAMESHA SHOW HOGA (jobs posted hon ya na hon)
+            renderAvailableJobsBlocks(),
 
             // DESCRIPTION MODAL (Description button click karne par khulega)
             selectedJobDescription ? React.createElement('div', {
@@ -6773,6 +7008,7 @@ width: '100%',
                 )
             ) : null
         );
+        
         // 1️⃣ PEHLE YEH PAGE KHULEGA (CONTACT US CARD)
     } else if (currentPage === 'job-apply-form' && selectedJobForApply) {
         const handleApplySubmit = (e) => {
@@ -7801,8 +8037,11 @@ width: '100%',
                                     }
                                 }, 'Buy Now 🚀')
                             )
+                            
                         );
-                    })
+                        
+                    }),
+                    renderSaleDetailsBlocks()
                 ),
 
             // 5️⃣ DETAILS DESCRIPTION MODAL (Exact Jobs Modal Mirror Architecture)
