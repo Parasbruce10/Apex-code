@@ -3569,31 +3569,40 @@ React.createElement('p', {
             // Gradient Animated Heading
             // Gradient Animated Heading// 👑 PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-                style: {
-                    display: 'table', margin: '0 auto 10px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)', WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '24px',
-                    padding: '12px 32px',
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                }
-            },
-                React.createElement('h2', {
-                    style: {
-                        display: 'inline-block',
-                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        color: 'transparent',
-                        WebkitTextFillColor: 'transparent',
-                        margin: '0',
-                        fontSize: '2.5rem',
-                        fontWeight: '800',
-                        textAlign: 'center',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Complete Your Order')
-            ),
+    style: {
+        display: 'flex',                             // 'table' ko hata kar 'flex' kiya taaki screen width ke mutabiq adjust ho
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 10px',
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)', 
+        WebkitBackdropFilter: 'blur(15px)',
+        border: '1px solid rgba(255, 255, 255, 0.12)', 
+        borderRadius: '24px',
+        padding: '12px 20px',                        // Mobile par safe space ke liye side padding thodi kam ki (32px -> 20px)
+        width: 'fit-content',
+        maxWidth: '92%',                             // Box ko mobile screen se bahar nikalne se rokega
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        style: {
+            display: 'inline-block',
+            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+            margin: '0',
+            fontSize: 'clamp(1.2rem, 5vw, 2.5rem)',  // 2.5rem static size ko hata kar fluid clamping laga di
+            fontWeight: '800',
+            textAlign: 'center',
+            whiteSpace: 'nowrap',                    // Text ko har haal mein single line mein lock rakhega
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'Complete Your Order')
+),
 
             React.createElement('p', {
                 className: 'services-sub-text',
