@@ -3754,29 +3754,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { style: { ...portfolioInputStyle, textAlign: 'center', background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', border: '1px solid rgba(0, 242, 254, 0.15)' } },
-                    React.createElement('img', {
-                        src: 'Pic.jpeg',
-                        alt: 'Paras Bruce',
-                        style: {
-                            width: '130px',
-                            height: '130px',
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            marginBottom: '20px',
-                            border: '3px solid #00f2fe',
-                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-                            display: 'inline-block'
-                        }
-                    }),
-                    React.createElement('h2', {
-                        style: { fontSize: '2.8rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
-                    }, 'Engr. Paras Bruce'), //
-                    React.createElement('p', { style: { color: '#00f2fe', fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', margin: '0 0 15px 0' } }, 'Lead Software Engineer & Full-Stack Developer'), //
-                    React.createElement('p', { style: { maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem' } },
-                        'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.' //
-                    )
-                ),
+                React.createElement('div', { 
+    style: { 
+        ...portfolioInputStyle, 
+        display: 'flex',                             // Grid/Table issues se bachne ke liye flexbox select kiya
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center', 
+        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
+        border: '1px solid rgba(0, 242, 254, 0.15)',
+        padding: '30px 20px',                        // Mobile par safe layout cushioning ke liye padding
+        maxWidth: '95%',                             // Card mobile screen edges ke andar hi compact rahega
+        margin: '0 auto',
+        boxSizing: 'border-box'
+    } 
+},
+    React.createElement('img', {
+        src: 'Pic.jpeg',
+        alt: 'Paras Bruce',
+        style: {
+            width: 'clamp(100px, 25vw, 130px)',      // Mobile par automatic choti ho kar perfectly adjust ho jayegi
+            height: 'clamp(100px, 25vw, 130px)',     // Image square ratio maintain rakhegi circular filter ke sath
+            borderRadius: '50%',
+            objectFit: 'cover',
+            marginBottom: '15px',                    // Spacing mobile layout ke liye thodi optimal ki
+            border: '3px solid #00f2fe',
+            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+            display: 'inline-block'
+        }
+    }),
+    React.createElement('h2', {
+        style: { 
+            fontSize: 'clamp(1.8rem, 6vw, 2.8rem)',  // Name heading desktop par full 2.8rem aur mobile par auto-scale down hogi
+            fontWeight: '800', 
+            margin: '0 0 10px 0', 
+            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            lineHeight: '1.2'
+        }
+    }, 'Engr. Paras Bruce'),
+    React.createElement('p', { 
+        style: { 
+            color: '#00f2fe', 
+            fontWeight: '700', 
+            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Designation ka font size fluid kiya taaki single/clean layout wrap ho
+            letterSpacing: '0.5px',                  // Letters spacing choti screen ke liye track compact ki
+            margin: '0 0 15px 0' 
+        } 
+    }, 'Lead Software Engineer & Full-Stack Developer'),
+    React.createElement('p', { 
+        style: { 
+            maxWidth: '650px',                       // Clean horizontal margins text structure ke liye
+            margin: '0 auto', 
+            color: 'rgba(255,255,255,0.7)', 
+            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio description paragraph responsive adjustment
+            lineHeight: '1.5',
+            padding: '0 10px'                        // Side bleeding protection for low-res devices
+        } 
+    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -4196,29 +4233,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header
-                React.createElement('div', { style: { ...portfolioInputStyle, textAlign: 'center', background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', border: '1px solid rgba(0, 242, 254, 0.15)' } },
-                    React.createElement('img', {
-                        src: 'rana.jpeg',
-                        alt: 'Saif Ur Rehman',
-                        style: {
-                            width: '130px',
-                            height: '130px',
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            marginBottom: '20px',
-                            border: '3px solid #00f2fe',
-                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-                            display: 'inline-block'
-                        }
-                    }),
-                    React.createElement('h2', {
-                        style: { fontSize: '2.8rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
-                    }, 'Engr. Saif Ur Rehman'),
-                    React.createElement('p', { style: { color: '#00f2fe', fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', margin: '0 0 15px 0' } }, 'Front End Developer & CEO of Zarvex'),
-                    React.createElement('p', { style: { maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem' } },
-                        'A results-driven Front End Developer and entrepreneur specializing in crafting high-performance, visually immersive web experiences. Passionate about scalable UI architectures, seamless user interactions, and modern web interfaces that deliver real business impact.'
-                    )
-                ),
+                React.createElement('div', { 
+    style: { 
+        ...portfolioInputStyle, 
+        display: 'flex',                             // Block configuration se flexbox par shift kiya vertical layout ke liye
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center', 
+        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
+        border: '1px solid rgba(0, 242, 254, 0.15)',
+        padding: '30px 20px',                        // Layout margins ko padding cushioning di takay corners tight na laghein
+        maxWidth: '95%',                             // Card container auto-adjust hokar screen boundaries ke andar rahega
+        margin: '0 auto',
+        boxSizing: 'border-box'
+    } 
+},
+    React.createElement('img', {
+        src: 'rana.jpeg',                            // Saif Bhai ka image asset source yahan map ho gaya hai
+        alt: 'Saif Ur Rehman',
+        style: {
+            width: 'clamp(100px, 25vw, 130px)',      // Mobile screen sizes par fluid size optimization
+            height: 'clamp(100px, 25vw, 130px)',     // Border radius display ratio square to circle tight lock
+            borderRadius: '50%',
+            objectFit: 'cover',
+            marginBottom: '15px',                    // Bottom spacer layout compact kiya
+            border: '3px solid #00f2fe',
+            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+            display: 'inline-block'
+        }
+    }),
+    React.createElement('h2', {
+        style: { 
+            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport width tracking responsive text sizing mechanism
+            fontWeight: '800', 
+            margin: '0 0 10px 0', 
+            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            lineHeight: '1.2'
+        }
+    }, 'Engr. Saif Ur Rehman'),
+    React.createElement('p', { 
+        style: { 
+            color: '#00f2fe', 
+            fontWeight: '700', 
+            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Mobile resolutions par single line execution control karega
+            letterSpacing: '0.5px',                  // Clean line tracking compression matrix
+            margin: '0 0 15px 0' 
+        } 
+    }, 'Front End Developer & CEO of Zarvex'),
+    React.createElement('p', { 
+        style: { 
+            maxWidth: '650px', 
+            margin: '0 auto', 
+            color: 'rgba(255,255,255,0.7)', 
+            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio descriptions paragraphs standard responsive grid setup
+            lineHeight: '1.5',
+            padding: '0 10px'                        // Low-res mobile displays edge bleeding filtering override
+        } 
+    }, 'A results-driven Front End Developer and entrepreneur specializing in crafting high-performance, visually immersive web experiences. Passionate about scalable UI architectures, seamless user interactions, and modern web interfaces that deliver real business impact.')
+),
 
                 // Two Column
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -4613,29 +4687,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { style: { ...portfolioInputStyle, textAlign: 'center', background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', border: '1px solid rgba(0, 242, 254, 0.15)' } },
-                    React.createElement('img', {
-                        src: 'nafay.jpeg',
-                        alt: 'Abdul Nafay',
-                        style: {
-                            width: '130px',
-                            height: '130px',
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            marginBottom: '20px',
-                            border: '3px solid #00f2fe',
-                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-                            display: 'inline-block'
-                        }
-                    }),
-                    React.createElement('h2', {
-                        style: { fontSize: '2.8rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
-                    }, 'Engr. Abdul Nafay'), //
-                    React.createElement('p', { style: { color: '#00f2fe', fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', margin: '0 0 15px 0' } }, 'Lead Wordpress Developer'), //
-                    React.createElement('p', { style: { maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem' } },
-                        'Specializing in dynamic WordPress scaling, automated REST/GraphQL API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures, decoupled (headless) solutions, and custom plugin architectures that optimize processing speeds and modern web utility.' //
-                    )
-                ),
+                React.createElement('div', { 
+    style: { 
+        ...portfolioInputStyle, 
+        display: 'flex',                             // Layout block chain se flexbox runtime par shift kiya
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center', 
+        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
+        border: '1px solid rgba(0, 242, 254, 0.15)',
+        padding: '30px 20px',                        // Content padding structural buffering mobile ke liye optimize ki
+        maxWidth: '95%',                             // Mobile device boundaries ke andar template safe rahega
+        margin: '0 auto',
+        boxSizing: 'border-box'
+    } 
+},
+    React.createElement('img', {
+        src: 'nafay.jpeg',                           // Nafay Bhai ka asset pointer update ho gaya hai
+        alt: 'Abdul Nafay',
+        style: {
+            width: 'clamp(100px, 25vw, 130px)',      // Responsive viewports compression track matrix
+            height: 'clamp(100px, 25vw, 130px)',     // Circle overflow filter system lock
+            borderRadius: '50%',
+            objectFit: 'cover',
+            marginBottom: '15px',                    // Layout tracking compact kiya
+            border: '3px solid #00f2fe',
+            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+            display: 'inline-block'
+        }
+    }),
+    React.createElement('h2', {
+        style: { 
+            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Display grid font spacing compression code
+            fontWeight: '800', 
+            margin: '0 0 10px 0', 
+            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            lineHeight: '1.2'
+        }
+    }, 'Engr. Abdul Nafay'),
+    React.createElement('p', { 
+        style: { 
+            color: '#00f2fe', 
+            fontWeight: '700', 
+            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title string scale logic mapping
+            letterSpacing: '0.5px',                  // Clean multi-device text rendering optimization
+            margin: '0 0 15px 0' 
+        } 
+    }, 'Lead Wordpress Developer'),
+    React.createElement('p', { 
+        style: { 
+            maxWidth: '650px', 
+            margin: '0 auto', 
+            color: 'rgba(255,255,255,0.7)', 
+            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio description layout text viewport fluid
+            lineHeight: '1.5',
+            padding: '0 10px'                        // Edge alignment safe space protection filter
+        } 
+    }, 'Specializing in dynamic WordPress scaling, automated REST/GraphQL API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures, decoupled (headless) solutions, and custom plugin architectures that optimize processing speeds and modern web utility.')
+),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -4855,29 +4966,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { style: { ...portfolioInputStyle, textAlign: 'center', background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', border: '1px solid rgba(0, 242, 254, 0.15)' } },
-                    React.createElement('img', {
-                        src: 'abrar.jpeg',
-                        alt: 'Abrar Jamshed',
-                        style: {
-                            width: '130px',
-                            height: '130px',
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            marginBottom: '20px',
-                            border: '3px solid #00f2fe',
-                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-                            display: 'inline-block'
-                        }
-                    }),
-                    React.createElement('h2', {
-                        style: { fontSize: '2.8rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
-                    }, 'Engr. Abrar Jamshed'), //
-                    React.createElement('p', { style: { color: '#00f2fe', fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', margin: '0 0 15px 0' } }, 'Lead Software Engineer & Full-Stack Developer'), //
-                    React.createElement('p', { style: { maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem' } },
-                        'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.' //
-                    )
-                ),
+                React.createElement('div', { 
+    style: { 
+        ...portfolioInputStyle, 
+        display: 'flex',                             // Block chain se pure flexbox par shift kiya vertical architecture ke liye
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center', 
+        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
+        border: '1px solid rgba(0, 242, 254, 0.15)',
+        padding: '30px 20px',                        // Layout cushioning takay mobile display tight na ho
+        maxWidth: '95%',                             // Card browser grid ke mutabiq screen borders me compress ho sakega
+        margin: '0 auto',
+        boxSizing: 'border-box'
+    } 
+},
+    React.createElement('img', {
+        src: 'abrar.jpeg',                           // Abrar Bhai ka profile image mapping path
+        alt: 'Abrar Jamshed',
+        style: {
+            width: 'clamp(100px, 25vw, 130px)',      // Small screens par automatic downscale tracking matrix
+            height: 'clamp(100px, 25vw, 130px)',     // Circle alignment ratio square to round safe zone
+            borderRadius: '50%',
+            objectFit: 'cover',
+            marginBottom: '15px',                    // Bottom spacing text compression layout optimal kiya
+            border: '3px solid #00f2fe',
+            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+            display: 'inline-block'
+        }
+    }),
+    React.createElement('h2', {
+        style: { 
+            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport variable mapping taaki name string screen width ke sath wrap ho
+            fontWeight: '800', 
+            margin: '0 0 10px 0', 
+            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            lineHeight: '1.2'
+        }
+    }, 'Engr. Abrar Jamshed'),
+    React.createElement('p', { 
+        style: { 
+            color: '#00f2fe', 
+            fontWeight: '700', 
+            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title string scales optimized for compact display tracking
+            letterSpacing: '0.5px',                  // Clean multi-device layout tracking
+            margin: '0 0 15px 0' 
+        } 
+    }, 'Lead Software Engineer & Full-Stack Developer'),
+    React.createElement('p', { 
+        style: { 
+            maxWidth: '650px', 
+            margin: '0 auto', 
+            color: 'rgba(255,255,255,0.7)', 
+            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Paragraph description text adaptive typography tracking
+            lineHeight: '1.5',
+            padding: '0 10px'                        // Border bleeding margin safety layer
+        } 
+    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -5097,29 +5245,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { style: { ...portfolioInputStyle, textAlign: 'center', background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', border: '1px solid rgba(0, 242, 254, 0.15)' } },
-                    React.createElement('img', {
-                        src: 'hamza.jpeg',
-                        alt: 'Hamza',
-                        style: {
-                            width: '130px',
-                            height: '130px',
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            marginBottom: '20px',
-                            border: '3px solid #00f2fe',
-                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-                            display: 'inline-block'
-                        }
-                    }),
-                    React.createElement('h2', {
-                        style: { fontSize: '2.8rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
-                    }, 'Engr. Hamza'), //
-                    React.createElement('p', { style: { color: '#00f2fe', fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', margin: '0 0 15px 0' } }, 'Lead Software Engineer & Full-Stack Developer'), //
-                    React.createElement('p', { style: { maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem' } },
-                        'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.' //
-                    )
-                ),
+                React.createElement('div', { 
+    style: { 
+        ...portfolioInputStyle, 
+        display: 'flex',                             // Layout chain ko flexbox matrix me migrate kiya
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center', 
+        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
+        border: '1px solid rgba(0, 242, 254, 0.15)',
+        padding: '30px 20px',                        // Responsive padding structural tracking
+        maxWidth: '95%',                             // Card outer boundary layout control
+        margin: '0 auto',
+        boxSizing: 'border-box'
+    } 
+},
+    React.createElement('img', {
+        src: 'hamza.jpeg',                           // Asset path update ho gaya hai
+        alt: 'Hamza',
+        style: {
+            width: 'clamp(100px, 25vw, 130px)',      // Small viewports par fluid responsive downscaling
+            height: 'clamp(100px, 25vw, 130px)',     // Circle frame ratio constant lock
+            borderRadius: '50%',
+            objectFit: 'cover',
+            marginBottom: '15px',                    // Bottom gap spacing criteria optimal kiya
+            border: '3px solid #00f2fe',
+            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+            display: 'inline-block'
+        }
+    }),
+    React.createElement('h2', {
+        style: { 
+            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport variable mapping taaki name mobile par single line me safely compact ho sake
+            fontWeight: '800', 
+            margin: '0 0 10px 0', 
+            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            lineHeight: '1.2'
+        }
+    }, 'Engr. Hamza'),
+    React.createElement('p', { 
+        style: { 
+            color: '#00f2fe', 
+            fontWeight: '700', 
+            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Designation text dynamic compression track
+            letterSpacing: '0.5px',                  // Crisp screen rendering criteria
+            margin: '0 0 15px 0' 
+        } 
+    }, 'Lead Software Engineer & Full-Stack Developer'),
+    React.createElement('p', { 
+        style: { 
+            maxWidth: '650px', 
+            margin: '0 auto', 
+            color: 'rgba(255,255,255,0.7)', 
+            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Adaptive reading bio setup
+            lineHeight: '1.5',
+            padding: '0 10px'                        // Screen corner bleeding protective system
+        } 
+    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -5338,29 +5523,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { style: { ...portfolioInputStyle, textAlign: 'center', background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', border: '1px solid rgba(0, 242, 254, 0.15)' } },
-                    React.createElement('img', {
-                        src: 'ali.jpeg',
-                        alt: 'Ali',
-                        style: {
-                            width: '130px',
-                            height: '130px',
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            marginBottom: '20px',
-                            border: '3px solid #00f2fe',
-                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-                            display: 'inline-block'
-                        }
-                    }),
-                    React.createElement('h2', {
-                        style: { fontSize: '2.8rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
-                    }, 'Mr. Ali'), //
-                    React.createElement('p', { style: { color: '#00f2fe', fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', margin: '0 0 15px 0' } }, 'Lead Software Tester'), //
-                    React.createElement('p', { style: { maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem' } },
-                        'Specializing in automated test architecture, performance scaling validation, and enterprise cloud deployment testing. Passionate about verifying intelligent core logic structures to optimize processing speeds and ensure flawless web utility.' //
-                    )
-                ),
+                React.createElement('div', { 
+    style: { 
+        ...portfolioInputStyle, 
+        display: 'flex',                             // Layout chain ko standard flexbox mein migrate kiya
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center', 
+        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
+        border: '1px solid rgba(0, 242, 254, 0.15)',
+        padding: '30px 20px',                        // Layout cushioning taaki edges tight na laghein
+        maxWidth: '95%',                             // Card outer boundary screen layout control
+        margin: '0 auto',
+        boxSizing: 'border-box'
+    } 
+},
+    React.createElement('img', {
+        src: 'ali.jpeg',                             // Asset path yahan map ho gaya hai
+        alt: 'Ali',
+        style: {
+            width: 'clamp(100px, 25vw, 130px)',      // Small viewports par automatic fluid downscaling
+            height: 'clamp(100px, 25vw, 130px)',     // Circle frame ratio tight lock
+            borderRadius: '50%',
+            objectFit: 'cover',
+            marginBottom: '15px',                    // Spacing matrix mobile ke liye adjust kiya
+            border: '3px solid #00f2fe',
+            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+            display: 'inline-block'
+        }
+    }),
+    React.createElement('h2', {
+        style: { 
+            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Name text mobile scales par bina line wrap hue set rahega
+            fontWeight: '800', 
+            margin: '0 0 10px 0', 
+            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            lineHeight: '1.2'
+        }
+    }, 'Mr. Ali'),
+    React.createElement('p', { 
+        style: { 
+            color: '#00f2fe', 
+            fontWeight: '700', 
+            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title text dynamic screens ko trace karega
+            letterSpacing: '0.5px',                  // Clean line rendering compression filter
+            margin: '0 0 15px 0' 
+        } 
+    }, 'Lead Software Tester'),
+    React.createElement('p', { 
+        style: { 
+            maxWidth: '650px', 
+            margin: '0 auto', 
+            color: 'rgba(255,255,255,0.7)', 
+            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio paragraph block layout responsive adjustment
+            lineHeight: '1.5',
+            padding: '0 10px'                        // Screen corner bleeding protective framework
+        } 
+    }, 'Specializing in automated test architecture, performance scaling validation, and enterprise cloud deployment testing. Passionate about verifying intelligent core logic structures to optimize processing speeds and ensure flawless web utility.')
+),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
@@ -5516,29 +5738,66 @@ React.createElement('p', {
                 style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
             },
                 // Header Intro Section
-                React.createElement('div', { style: { ...portfolioInputStyle, textAlign: 'center', background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', border: '1px solid rgba(0, 242, 254, 0.15)' } },
-                    React.createElement('img', {
-                        src: 'usman.jpeg',
-                        alt: 'Usman Nadeem',
-                        style: {
-                            width: '130px',
-                            height: '130px',
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            marginBottom: '20px',
-                            border: '3px solid #00f2fe',
-                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-                            display: 'inline-block'
-                        }
-                    }),
-                    React.createElement('h2', {
-                        style: { fontSize: '2.8rem', fontWeight: '800', margin: '0 0 10px 0', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
-                    }, 'Engr. Usman Nadeem'), //
-                    React.createElement('p', { style: { color: '#00f2fe', fontWeight: '700', fontSize: '1.2rem', letterSpacing: '1px', margin: '0 0 15px 0' } }, 'Lead Software Engineer & Full-Stack Developer'), //
-                    React.createElement('p', { style: { maxWidth: '700px', margin: '0 auto', color: 'rgba(255,255,255,0.7)', fontSize: '1.05rem' } },
-                        'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.' //
-                    )
-                ),
+                React.createElement('div', { 
+    style: { 
+        ...portfolioInputStyle, 
+        display: 'flex',                             // Block se flexbox select kiya vertical layout manage karne ke liye
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center', 
+        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))', 
+        border: '1px solid rgba(0, 242, 254, 0.15)',
+        padding: '30px 20px',                        // Mobile spacing adjust ki takay edges tight na laghein
+        maxWidth: '95%',                             // Card browser width ke mutabiq compact ho jayega
+        margin: '0 auto',
+        boxSizing: 'border-box'
+    } 
+},
+    React.createElement('img', {
+        src: 'usman.jpeg',                           // Aapka image path update kar diya hai
+        alt: 'Usman Nadeem',
+        style: {
+            width: 'clamp(100px, 25vw, 130px)',      // Mobile par auto downscale hokar adjust ho jayegi
+            height: 'clamp(100px, 25vw, 130px)',     // Circle ratio perfect match rahega
+            borderRadius: '50%',
+            objectFit: 'cover',
+            marginBottom: '15px',                    // Vertical distance compact kiya
+            border: '3px solid #00f2fe',
+            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
+            display: 'inline-block'
+        }
+    }),
+    React.createElement('h2', {
+        style: { 
+            fontSize: 'clamp(1.8rem, 6vw, 2.8rem)',  // Mobile screen par layout break nahi hoga aur font size perfect compress hoga
+            fontWeight: '800', 
+            margin: '0 0 10px 0', 
+            background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
+            WebkitBackgroundClip: 'text', 
+            WebkitTextFillColor: 'transparent',
+            lineHeight: '1.2'
+        }
+    }, 'Engr. Usman Nadeem'),
+    React.createElement('p', { 
+        style: { 
+            color: '#00f2fe', 
+            fontWeight: '700', 
+            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Title dynamic viewports ko track karega
+            letterSpacing: '0.5px',                  // Overlapping issues se bachane ke liye optimal text tracking
+            margin: '0 0 15px 0' 
+        } 
+    }, 'Lead Software Engineer & Full-Stack Developer'),
+    React.createElement('p', { 
+        style: { 
+            maxWidth: '650px', 
+            margin: '0 auto', 
+            color: 'rgba(255,255,255,0.7)', 
+            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio layout reading block responsive setup
+            lineHeight: '1.5',
+            padding: '0 10px'                        // Border bleeding filter lagaya
+        } 
+    }, 'Specializing in dynamic web scaling, automated API architecture, and enterprise cloud deployments. Passionate about building intelligent core logic structures that optimize processing speeds and modern web utility.')
+),
 
                 // Two Column Breakdown: Core Experience & Technical Expertise
                 React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
