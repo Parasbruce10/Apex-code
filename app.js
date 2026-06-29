@@ -1186,34 +1186,51 @@ React.createElement('p', {
             // Headings
             // 👑 PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-                style: {
-                    display: 'table', margin: '0 auto 10px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)', WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '24px',
-                    padding: '12px 32px',
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                }
-            },
-                React.createElement('h2', {
-                    style: {
-                        display: 'inline-block',
-                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        color: 'transparent',
-                        WebkitTextFillColor: 'transparent',
-                        margin: '0',
-                        fontSize: '2.5rem',
-                        fontWeight: '800',
-                        textAlign: 'center',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Website Development Plans')
-            ),
-            React.createElement('p', {
-                style: { textAlign: 'center', color: 'rgba(255,255,255,0.6)', marginBottom: '50px', fontSize: '1.1rem' }
-            }, 'Choose the best plan that fits your business needs.'),
+    style: {
+        display: 'flex',                             // 'table' se 'flex' kiya takay screen size ke mutabiq adapt ho sake
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 15px',                       // Margin-bottom thoda adjust kiya mobile spacing ke liye
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)', 
+        WebkitBackdropFilter: 'blur(15px)',
+        border: '1px solid rgba(255, 255, 255, 0.12)', 
+        borderRadius: '24px', 
+        padding: '12px 24px',                        // Padding mobile ke liye thodi kam ki
+        width: 'fit-content',
+        maxWidth: '92%',                             // Card ko mobile screen ke andar wrap rakhega
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        style: {
+            display: 'inline-block',
+            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+            margin: '0',
+            fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Mobile par automatically responsive scale down hoga
+            fontWeight: '800',
+            textAlign: 'center',
+            whiteSpace: 'nowrap',                    // Text ko force karega ke ek hi line me clean dikhay
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'Website Development Plans')
+),
+React.createElement('p', {
+    style: { 
+        textAlign: 'center', 
+        color: 'rgba(255,255,255,0.6)', 
+        marginBottom: '30px',                        // Mobile par gap 50px se kam kar ke 30px kiya takay scroll lamba na ho
+        fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka size bhi mobile par automatic adjust hoga
+        padding: '0 15px',                           // Sides se safe padding di hai
+        maxWidth: '500px',
+        margin: '0 auto 30px'
+    }
+}, 'Choose the best plan that fits your business needs.'),
 
             // Grid Container
             React.createElement('div', {
@@ -1480,34 +1497,50 @@ React.createElement('p', {
             // Headings
             // 👑 PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-                style: {
-                    display: 'table', margin: '0 auto 10px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)', WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '24px',
-                    padding: '12px 32px',
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                }
-            },
-                React.createElement('h2', {
-                    style: {
-                        display: 'inline-block',
-                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        color: 'transparent',
-                        WebkitTextFillColor: 'transparent',
-                        margin: '0',
-                        fontSize: '2.5rem',
-                        fontWeight: '800',
-                        textAlign: 'center',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Wordpress Development Plans')
-            ),
-            React.createElement('p', {
-                style: { textAlign: 'center', color: 'rgba(255,255,255,0.6)', marginBottom: '50px', fontSize: '1.1rem' }
-            }, 'Choose the perfect WordPress package for your business.'),
+    style: {
+        display: 'flex',                             // 'table' se 'flex' kiya takay layout responsive handle ho sake
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 15px',                       // Mobile spacing ke liye margin-bottom adjust kiya
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)', 
+        WebkitBackdropFilter: 'blur(15px)',
+        border: '1px solid rgba(255, 255, 255, 0.12)', 
+        borderRadius: '24px', 
+        padding: '12px 24px',                        // Padding sides se thodi kam ki mobile screen ke liye
+        width: 'fit-content',
+        maxWidth: '92%',                             // Container mobile screen edges ke andar hi rahega
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        style: {
+            display: 'inline-block',
+            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+            margin: '0',
+            fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Viewport width ke sath auto-scale down ho jayega
+            fontWeight: '800',
+            textAlign: 'center',
+            whiteSpace: 'nowrap',                    // Heading text hamesha single line me safe rahega
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'Wordpress Development Plans')
+),
+React.createElement('p', {
+    style: { 
+        textAlign: 'center', 
+        color: 'rgba(255,255,255,0.6)', 
+        fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka size bhi devices ke mutabiq fluid kiya
+        padding: '0 15px',                           // Taki corners se text bilkul chipkay na
+        maxWidth: '500px',
+        margin: '0 auto 30px'                        // Bottom margin 50px se kam kar ke 30px kiya responsive height optimization ke liye
+    }
+}, 'Choose the perfect WordPress package for your business.'),
 
             // Grid Container
             React.createElement('div', {
