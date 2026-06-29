@@ -2346,37 +2346,43 @@ React.createElement('p', {
 
             // 👑 ULTRA-PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-                style: {
-                    display: 'table',
-                    margin: '0 auto 35px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)',
-                    WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '24px',
-                    padding: '12px 32px',
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                }
-            },
-                React.createElement('h2', {
-                    className: 'section-heading',
-                    style: {
-                        fontSize: '2.3rem',
-                        fontWeight: '800',
-                        letterSpacing: '1.5px',
-                        textAlign: 'center',
-                        margin: '0',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        WebkitTextStroke: '1px rgba(255, 255, 255, 0.08)',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Our Team Members Portfolio')
-            ),
+    style: {
+        display: 'flex',                             // 'table' se 'flex' kiya taaki card fluidly behave kare
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 20px',                       // Margin thoda kam kiya mobile spacing ke liye
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)',
+        WebkitBackdropFilter: 'blur(15px)',
+        border: '1px solid rgba(255, 255, 255, 0.12)',
+        borderRadius: '24px',
+        padding: '12px 20px',                        // Side padding mobile ke liye thodi kam ki
+        width: 'fit-content',
+        maxWidth: '92%',                             // Mobile screen se bahar nikalne se rokega
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        className: 'section-heading',
+        style: {
+            fontSize: 'clamp(1.2rem, 4.6vw, 2.3rem)', // Text lamba hone ki wajah se smooth flexible size lagaya
+            fontWeight: '800',
+            letterSpacing: '0.5px',                  // Letters ko tight space mein overlap hone se bachayega
+            textAlign: 'center',
+            margin: '0',
+            display: 'inline-flex',                  // inline-flex kiya taaki layout elements wrap na hon
+            alignItems: 'center',
+            gap: '8px',
+            whiteSpace: 'nowrap',                    // Kisi bhi haal mein text ko tootne nahi dega, hamesha ek line me rakhega
+            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            WebkitTextStroke: '1px rgba(255, 255, 255, 0.08)',
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'Our Team Members Portfolio')
+),
 
             React.createElement('p', {
                 className: 'portfolio-sub-text',
