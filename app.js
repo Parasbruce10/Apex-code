@@ -6277,22 +6277,38 @@ React.createElement('p', {
         mainElement = React.createElement('main', { className: 'services-page' },
             // HEADING BADGE
             React.createElement('div', {
-                style: {
-                    display: 'table', margin: '0 auto 20px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)', WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '24px', padding: '12px 32px',
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                }
-            },
-                React.createElement('h2', {
-                    style: {
-                        fontSize: '2.3rem', fontWeight: '800', letterSpacing: '1.5px', textAlign: 'center', margin: '0',
-                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Available Jobs 💼')
-            ),
+    style: {
+        display: 'flex',                             // 'table' se 'flex' kiya takay elements automatically fit ho sakein
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 20px',
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)',
+        WebkitBackdropFilter: 'blur(15px)',
+        border: '1px solid rgba(255, 255, 255, 0.12)',
+        borderRadius: '24px',
+        padding: '12px 24px',                        // Mobile spacing ke liye padding adjust ki
+        width: 'fit-content',
+        maxWidth: '90%',                             // Card ko mobile screen se bahar nikalne se rokega
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        style: {
+            fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',  // Mobile screens par font size automatic chota ho jayega
+            fontWeight: '800',
+            letterSpacing: '0.5px',                  // Squeeze hone se bachane ke liye spacing thodi kam ki
+            textAlign: 'center',
+            margin: '0',
+            whiteSpace: 'nowrap',                    // Text aur emoji hamesha single line mein lock rahenge
+            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'Available Jobs 💼')
+),
 
             React.createElement('p', {
                 style: { color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.95rem', textAlign: 'center', marginBottom: '40px', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto', lineHeight: '1.6' }
