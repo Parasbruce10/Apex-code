@@ -1800,34 +1800,50 @@ React.createElement('p', {
             // Headings
             // 👑 PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-                style: {
-                    display: 'table', margin: '0 auto 10px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)', WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '24px',
-                    padding: '12px 32px',
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                }
-            },
-                React.createElement('h2', {
-                    style: {
-                        display: 'inline-block',
-                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        color: 'transparent',
-                        WebkitTextFillColor: 'transparent',
-                        margin: '0',
-                        fontSize: '2.5rem',
-                        fontWeight: '800',
-                        textAlign: 'center',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'SEO Optimization Plans')
-            ),
-            React.createElement('p', {
-                style: { textAlign: 'center', color: 'rgba(255,255,255,0.6)', marginBottom: '50px', fontSize: '1.1rem' }
-            }, 'Choose the best SEO package to grow your online presence.'),
+    style: {
+        display: 'flex',                             // 'table' se 'flex' kiya takay layout wrap aur shrink ho sake
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 15px',                       // Mobile spacing ke mutabiq bottom margin adjust kiya
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)', 
+        WebkitBackdropFilter: 'blur(15px)',
+        border: '1px solid rgba(255, 255, 255, 0.12)', 
+        borderRadius: '24px', 
+        padding: '12px 24px',                        // Side padding mobile screen ke liye thodi optimal ki
+        width: 'fit-content',
+        maxWidth: '92%',                             // Container ko mobile screen ke edges ke andar secure rakhega
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        style: {
+            display: 'inline-block',
+            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+            margin: '0',
+            fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Viewport width ke mutabiq font auto-scale down hoga
+            fontWeight: '800',
+            textAlign: 'center',
+            whiteSpace: 'nowrap',                    // Heading text break nahi hoga, hamesha ek line me rahega
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'SEO Optimization Plans')
+),
+React.createElement('p', {
+    style: { 
+        textAlign: 'center', 
+        color: 'rgba(255,255,255,0.6)', 
+        fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka font size bhi modern fluid scale par chalega
+        padding: '0 15px',                           // Taki small viewports par text side walls se touch na kare
+        maxWidth: '500px',
+        margin: '0 auto 30px'                        // Space adjust ki takay mobile par faltu blank scrolling na ho
+    }
+}, 'Choose the best SEO package to grow your online presence.'),
 
             // Grid Container
             React.createElement('div', {
@@ -2086,35 +2102,51 @@ React.createElement('p', {
 
             // Headings
             // 👑 PREMIUM BORDERED HEADING BADGE
-            React.createElement('div', {
-                style: {
-                    display: 'table', margin: '0 auto 10px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)', WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '24px',
-                    padding: '12px 32px',
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                }
-            },
-                React.createElement('h2', {
-                    style: {
-                        display: 'inline-block',
-                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        color: 'transparent',
-                        WebkitTextFillColor: 'transparent',
-                        margin: '0',
-                        fontSize: '2.5rem',
-                        fontWeight: '800',
-                        textAlign: 'center',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Ads Placement Plans')
-            ),
-            React.createElement('p', {
-                style: { textAlign: 'center', color: 'rgba(255,255,255,0.6)', marginBottom: '50px', fontSize: '1.1rem' }
-            }, 'Monetize your website traffic with the right ads package.'),
+           React.createElement('div', {
+    style: {
+        display: 'flex',                             // 'table' se 'flex' kiya takay container responsive auto-fit ho ske
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 15px',                       // Margin-bottom mobile viewport ke hissab se optimize kiya
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)', 
+        WebkitBackdropFilter: 'blur(15px)',
+        border: '1px solid rgba(255, 255, 255, 0.12)', 
+        borderRadius: '24px', 
+        padding: '12px 24px',                        // Sides padding thodi responsive ki
+        width: 'fit-content',
+        maxWidth: '92%',                             // Container mobile boundaries ke andar hi lock rahega
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        style: {
+            display: 'inline-block',
+            background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            color: 'transparent',
+            WebkitTextFillColor: 'transparent',
+            margin: '0',
+            fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Fluid pricing heading size, mobile par perfect scale down hoga
+            fontWeight: '800',
+            textAlign: 'center',
+            whiteSpace: 'nowrap',                    // Heading text line split hokar tootega nahi
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'Ads Placement Plans')
+),
+React.createElement('p', {
+    style: { 
+        textAlign: 'center', 
+        color: 'rgba(255,255,255,0.6)', 
+        fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Paragraph text size dynamic screen tracking ke mutabiq
+        padding: '0 15px',                           // Text edge bleeding rokne ke liye left/right padding
+        maxWidth: '500px',
+        margin: '0 auto 30px'                        // Space down scaling takay responsive flow seamless lagay
+    }
+}, 'Monetize your website traffic with the right ads package.'),
 
             // Grid Container
             React.createElement('div', {
