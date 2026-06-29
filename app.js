@@ -7210,32 +7210,38 @@ const QuickKitApp = () => {
         mainElement = React.createElement('main', { className: 'services-page' },
             // 1️⃣ 👑 ULTRA-PREMIUM BORDERED HEADING BADGE (Exact Jobs Style)
             React.createElement('div', {
-                style: {
-                    display: 'table',
-                    margin: '0 auto 20px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)',
-                    WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '24px',
-                    padding: '12px 32px',
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                }
-            },
-                React.createElement('h2', {
-                    style: {
-                        fontSize: '2.3rem',
-                        fontWeight: '800',
-                        letterSpacing: '1.5px',
-                        textAlign: 'center',
-                        margin: '0',
-                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Websites For Sale 🌐')
-            ),
+    style: {
+        display: 'flex',                             // 'table' se 'flex' change kiya takay responsive ho sake
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 20px',
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)',
+        WebkitBackdropFilter: 'blur(15px)',
+        border: '1px solid rgba(255, 255, 255, 0.12)',
+        borderRadius: '24px',
+        padding: '12px 24px',                        // Mobile ke liye padding thodi side se kam ki (32px se 24px)
+        width: 'fit-content',                        // Content ke mutabiq width adjust hogi
+        maxWidth: '90%',                             // Mobile screen ke corners se chipkay na
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        style: {
+            fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',  // Mobile par khud chota ho jayega, desktop par full 2.3rem rahega
+            fontWeight: '800',
+            letterSpacing: '0.5px',                  // Mobile par letters ko overlap hone se bachaane ke liye thoda kam kiya
+            textAlign: 'center',
+            margin: '0',
+            whiteSpace: 'nowrap',                    // Text aur emoji ko hamesha ek line me lock rakhega
+            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'Websites For Sale 🌐')
+),
 
             // 2️⃣ RELATED DESCRIPTION LINE
             React.createElement('p', {
