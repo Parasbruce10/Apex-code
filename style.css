@@ -766,3 +766,71 @@
         background: #00d8e4;
     }
 }
+/* --- Core Section Responsiveness --- */
+.apex-ultraluxe-section {
+    padding: 40px 20px; /* Mobile par padding thodi kam takay screen space bache */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* --- Ambient Light Engine (Mobile size optimize) --- */
+.apex-eclipse-core {
+    width: 250px;
+    height: 250px;
+    max-width: 80vw; /* Mobile screen se bahar na nikalay */
+    filter: blur(80px);
+}
+
+/* --- Technical Status Line (Forced on One Line) --- */
+.apex-status-line {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    white-space: nowrap; /* Mobile par content break ho kar niche nahi aayega */
+    margin-bottom: 16px;
+}
+
+/* --- Cosmic Heading (Fluid Font Size) --- */
+.apex-cosmic-heading {
+    font-size: 2.2rem; /* Desktop size fallback */
+    font-size: clamp(1.8rem, 5vw, 2.5rem); /* Mobile par auto-scale hoga */
+    line-height: 1.2;
+    margin-bottom: 16px;
+    word-break: keep-all; /* Unnecessary breaks ko rokega */
+}
+
+/* --- Luxury Description (Balanced Mobile Wrap) --- */
+.apex-luxury-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 500px; /* Text mobile par zyada lamba stretch nahi hoga */
+    width: 100%;
+    margin: 0 auto 24px auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+/* --- Interactive Capsule Button (Clickable & Stack-Proof) --- */
+.apex-capsule-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 28px;
+    font-size: 0.95rem;
+    white-space: nowrap; /* Button ka text aur arrow hamesha ek line me rahenge */
+    cursor: pointer;
+    touch-action: manipulation; /* Mobile touch delay ko khatam karne ke liye */
+}
+
+.apex-arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
