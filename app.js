@@ -570,39 +570,54 @@ const QuickKitApp = () => {
         mainElement = React.createElement('main', { className: 'services-page' },
             // 1️⃣ 👑 ULTRA-PREMIUM BORDERED HEADING BADGE
             React.createElement('div', {
-                style: {
-                    display: 'table',
-                    margin: '0 auto 35px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)',
-                    WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '24px',
-                    padding: '12px 32px',
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                }
-            },
-                React.createElement('h2', {
-                    className: 'section-heading',
-                    style: {
-                        fontSize: '2.3rem',
-                        fontWeight: '800',
-                        letterSpacing: '1.5px',
-                        textAlign: 'center',
-                        margin: '0',
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '12px',
-                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        WebkitTextStroke: '1px rgba(255, 255, 255, 0.08)',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'The Services We Provide')
-            ),
-            React.createElement('p', { className: 'services-sub-text' }, 'We craft high-performance digital experiences tailored to your needs.'),
-
+    style: {
+        display: 'flex',                             // 'table' se 'flex' kiya takay layout wrap ho sake
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: '0 auto 20px',                       // Margin-bottom thoda kam kiya mobile space ke liye
+        background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+        backdropFilter: 'blur(15px)',
+        WebkitBackdropFilter: 'blur(15px)',
+        border: '1px solid rgba(255, 255, 255, 0.12)',
+        borderRadius: '24px',
+        padding: '12px 20px',                        // Padding mobile ke liye adjust ki
+        width: 'fit-content',
+        maxWidth: '92%',                             // Screen ke dono side se safe gap rakhega
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        boxSizing: 'border-box'
+    }
+},
+    React.createElement('h2', {
+        className: 'section-heading',
+        style: {
+            fontSize: 'clamp(1.25rem, 4.8vw, 2.3rem)', // Text lamba hai isliye mobile par thoda aur scale-down hoga
+            fontWeight: '800',
+            letterSpacing: '0.5px',                  // Overlap se bachane ke liye mobile friendly spacing
+            textAlign: 'center',
+            margin: '0',
+            display: 'inline-flex',                  // flex se inline-flex kiya tight mapping ke liye
+            alignItems: 'center',
+            gap: '8px',
+            whiteSpace: 'nowrap',                    // Kisi bhi haal mein text ko single line mein lock rakhega
+            background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            WebkitTextStroke: '1px rgba(255, 255, 255, 0.08)',
+            filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+        }
+    }, 'The Services We Provide')
+),
+React.createElement('p', { 
+    className: 'services-sub-text',
+    style: {
+        fontSize: 'clamp(0.9rem, 3.5vw, 1.1rem)',    // Sub-text bhi mobile screen ke mutabiq scale ho jayegi
+        textAlign: 'center',
+        padding: '0 15px',                           // Taki sides se responsive text safe rahe
+        margin: '0 auto',
+        maxWidth: '600px',
+        lineHeight: '1.5'
+    }
+}, 'We craft high-performance digital experiences tailored to your needs.'),
             // Container jo saaray rows ko hold karega
             React.createElement('div', {
                 style: {
