@@ -9830,7 +9830,7 @@ React.createElement('div', {
                                 )
                             ),
                             React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                                React.createElement('span', { style: { color: '#00f2fe', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'PRIMARY CTA // 01'),
+                                React.createElement('span', { style: { color: '#00f2fe', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'PRIMARY CTA'),
                                 React.createElement('div', { className: 'badge-glow-cyan', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00f2fe' } })
                             ),
                             React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Explore Services'),
@@ -9863,7 +9863,7 @@ React.createElement('div', {
                                 )
                             ),
                             React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                                React.createElement('span', { style: { color: '#ff0080', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'SECONDARY CTA // 02'),
+                                React.createElement('span', { style: { color: '#ff0080', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'SECONDARY CTA'),
                                 React.createElement('div', { className: 'badge-glow-pink', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ff0080' } })
                             ),
                             React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'View Portfolio'),
@@ -9893,7 +9893,7 @@ React.createElement('div', {
                                 )
                             ),
                             React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                                React.createElement('span', { style: { color: '#00e28c', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'COMMERCE BRIDGE // 03'),
+                                React.createElement('span', { style: { color: '#00e28c', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'COMMERCE BRIDGE'),
                                 React.createElement('div', { className: 'badge-glow-emerald', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00e28c' } })
                             ),
                             React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Marketplace Hub'),
@@ -9925,7 +9925,7 @@ React.createElement('div', {
                                 )
                             ),
                             React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                                React.createElement('span', { style: { color: '#ffbd2e', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'TALENT CORRIDOR // 04'),
+                                React.createElement('span', { style: { color: '#ffbd2e', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'TALENT CORRIDOR'),
                                 React.createElement('div', { className: 'badge-glow-amber', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' } })
                             ),
                             React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Career Hub'),
