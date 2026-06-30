@@ -9109,52 +9109,109 @@ const QuickKitApp = () => {
                 }),
 
                 // 🌐 UI GRID CONTAINER
-                React.createElement('div', { className: 'premium-stats-bar' },
+                React.createElement('div', { className: 'premium-stats-bar', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', padding: '30px 10px', gap: '20px' } },
 
-                    // Stat 1: Projects Completed
-                    React.createElement('div', { className: 'stat-box' },
-                        React.createElement('div', {
-                            className: 'stat-number',
-                            style: { background: 'linear-gradient(90deg, #00f2fe, #4facfe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 242, 254, 0.25))' }
-                        },
-                            React.createElement(AnimatedCounter, { end: 50, suffix: '+' })
-                        ),
-                        React.createElement('div', { className: 'stat-label' }, 'Projects Completed')
-                    ),
+    // Stat 1: Projects Completed
+    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
+        // Premium Floating SVG Icon (Briefcase)
+        React.createElement('svg', {
+            className: 'animated-icon float-icon',
+            viewBox: '0 0 24 24',
+            fill: 'none',
+            stroke: '#00f2fe',
+            strokeWidth: '2',
+            strokeLinecap: 'round',
+            strokeLinejoin: 'round',
+            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.35))', background: 'transparent' }
+        },
+            React.createElement('path', { d: 'M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z' }),
+            React.createElement('path', { d: 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16' })
+        ),
+        React.createElement('div', {
+            className: 'stat-number',
+            style: { background: 'linear-gradient(90deg, #00f2fe, #4facfe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 242, 254, 0.25))' }
+        },
+            React.createElement(AnimatedCounter, { end: 50, suffix: '+' })
+        ),
+        React.createElement('div', { className: 'stat-label' }, 'Projects Completed')
+    ),
 
-                    // Stat 2: Expert Members
-                    React.createElement('div', { className: 'stat-box' },
-                        React.createElement('div', {
-                            className: 'stat-number',
-                            style: { background: 'linear-gradient(90deg, #ff0080, #ff8c00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 0, 128, 0.25))' }
-                        },
-                            React.createElement(AnimatedCounter, { end: 10, suffix: '+' })
-                        ),
-                        React.createElement('div', { className: 'stat-label' }, 'Expert Members')
-                    ),
+    // Stat 2: Expert Members
+    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
+        // Premium Pulsing SVG Icon (Users)
+        React.createElement('svg', {
+            className: 'animated-icon pulse-icon',
+            viewBox: '0 0 24 24',
+            fill: 'none',
+            stroke: '#ff0080',
+            strokeWidth: '2',
+            strokeLinecap: 'round',
+            strokeLinejoin: 'round',
+            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(255, 0, 128, 0.35))', background: 'transparent' }
+        },
+            React.createElement('path', { d: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2' }),
+            React.createElement('circle', { cx: '9', cy: '7', r: '4' }),
+            React.createElement('path', { d: 'M23 21v-2a4 4 0 0 0-3-3.87' }),
+            React.createElement('path', { d: 'M16 3.13a4 4 0 0 1 0 7.75' })
+        ),
+        React.createElement('div', {
+            className: 'stat-number',
+            style: { background: 'linear-gradient(90deg, #ff0080, #ff8c00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 0, 128, 0.25))' }
+        },
+            React.createElement(AnimatedCounter, { end: 10, suffix: '+' })
+        ),
+        React.createElement('div', { className: 'stat-label' }, 'Expert Members')
+    ),
 
-                    // Stat 3: Satisfied Clients
-                    React.createElement('div', { className: 'stat-box' },
-                        React.createElement('div', {
-                            className: 'stat-number',
-                            style: { background: 'linear-gradient(90deg, #00e28c, #00f2fe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 224, 140, 0.25))' }
-                        },
-                            React.createElement(AnimatedCounter, { end: 20, suffix: '+' })
-                        ),
-                        React.createElement('div', { className: 'stat-label' }, 'Satisfied Clients')
-                    ),
+    // Stat 3: Satisfied Clients
+    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
+        // Premium Heartbeat SVG Icon (Heart)
+        React.createElement('svg', {
+            className: 'animated-icon heartbeat-icon',
+            viewBox: '0 0 24 24',
+            fill: 'none',
+            stroke: '#00e28c',
+            strokeWidth: '2',
+            strokeLinecap: 'round',
+            strokeLinejoin: 'round',
+            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(0, 224, 140, 0.35))', background: 'transparent' }
+        },
+            React.createElement('path', { d: 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z' })
+        ),
+        React.createElement('div', {
+            className: 'stat-number',
+            style: { background: 'linear-gradient(90deg, #00e28c, #00f2fe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 224, 140, 0.25))' }
+        },
+            React.createElement(AnimatedCounter, { end: 20, suffix: '+' })
+        ),
+        React.createElement('div', { className: 'stat-label' }, 'Satisfied Clients')
+    ),
 
-                    // Stat 4: Years Experience
-                    React.createElement('div', { className: 'stat-box' },
-                        React.createElement('div', {
-                            className: 'stat-number',
-                            style: { background: 'linear-gradient(90deg, #ffbd2e, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 189, 46, 0.25))' }
-                        },
-                            React.createElement(AnimatedCounter, { end: 2, suffix: '+' })
-                        ),
-                        React.createElement('div', { className: 'stat-label' }, 'Years Experience')
-                    )
-                )
+    // Stat 4: Years Experience
+    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
+        // Premium Swing SVG Icon (Award/Star)
+        React.createElement('svg', {
+            className: 'animated-icon swing-icon',
+            viewBox: '0 0 24 24',
+            fill: 'none',
+            stroke: '#ffbd2e',
+            strokeWidth: '2',
+            strokeLinecap: 'round',
+            strokeLinejoin: 'round',
+            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(255, 189, 46, 0.35))', background: 'transparent' }
+        },
+            React.createElement('circle', { cx: '12', cy: '8', r: '7' }),
+            React.createElement('polyline', { points: '8.21 13.89 7 23 12 20 17 23 15.79 13.88' })
+        ),
+        React.createElement('div', {
+            className: 'stat-number',
+            style: { background: 'linear-gradient(90deg, #ffbd2e, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 189, 46, 0.25))' }
+        },
+            React.createElement(AnimatedCounter, { end: 2, suffix: '+' })
+        ),
+        React.createElement('div', { className: 'stat-label' }, 'Years Experience')
+    )
+)
             ),
 
             // 💎 1. KHOOBSURAT HIGHLIGHT CARDS GRID

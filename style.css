@@ -834,3 +834,86 @@
     display: inline-block;
     transition: transform 0.2s ease;
 }
+/* Container rules to align properly */
+.premium-stats-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap; /* Yeh important hai taake elements niche wrap hon */
+    background: transparent;
+    padding: 30px 10px;
+    gap: 20px;
+    width: 100%;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 150px; /* Mobile par har box ko minimum space milegi */
+}
+
+/* Stat Text Styles - Ensure it stays on one line */
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    white-space: nowrap; /* Kisi bhi haal mein number aur plus toote ga nahi */
+}
+
+.stat-label {
+    white-space: nowrap; /* Mobile par label text bhi ek line mein rahega */
+    font-size: 1rem;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE MEDIA QUERY (Screen < 768px)
+   ========================================== */
+@media (max-width: 768px) {
+    .premium-stats-bar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Mobile par 2x2 ka clean grid ban jayega */
+        gap: 25px 15px;
+        padding: 20px 5px;
+    }
+
+    .stat-number {
+        font-size: 2rem; /* Choti screen par size thoda chota taake screen se bahar na nikle */
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+    }
+    
+    /* Agar screen bohot hi choti ho (like 360px), to icons ka size automatic adjust ho */
+    .animated-icon {
+        width: 38px !important;
+        height: 38px !important;
+    }
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+.float-icon { animation: float 3s ease-in-out infinite; }
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.06); opacity: 0.85; }
+}
+.pulse-icon { animation: pulse 2.5s ease-in-out infinite; }
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    20% { transform: scale(1.1); }
+    40% { transform: scale(1); }
+}
+.heartbeat-icon { animation: heartbeat 2s ease-in-out infinite; }
+
+@keyframes swing {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(8deg); }
+}
+.swing-icon { animation: swing 3.5s ease-in-out infinite; }
