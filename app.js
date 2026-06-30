@@ -428,6 +428,7 @@ const renderAvailableJobsBlocks = () => {
         )
     );
 };
+
 // Yahan se aapka original code shuru ho raha hai
 // const QuickKitApp = () => { ...
 // JavaScript logic aur React dynamic element creation ek sath
@@ -9558,210 +9559,397 @@ const QuickKitApp = () => {
                     )
                 ),
                 // 🎛️ 5. ULTRA-PREMIUM ECOSYSTEM ACTION DIRECTORY (WITH EMBEDDED IMAGE MOCKUPS)
-                React.createElement('div', {
-                    style: {
-                        width: '100%',
-                        maxWidth: '1140px',
-                        marginTop: '90px',
-                        padding: '60px 30px',
-                        borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-                        position: 'relative',
-                        textAlign: 'left'
-                    }
-                },
-                    // Injecting Hyper-Premium Glassmorphism Glow States & Button Mechanics
-                    React.createElement('style', null, `
-                    .action-directory-grid {
-                        display: grid;
-                        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-                        gap: 25px;
-                        width: 100%;
-                        margin-top: 40px;
-                    }
-                    .action-detail-card {
-                        background: rgba(255, 255, 255, 0.01);
-                        border: 1px solid rgba(255, 255, 255, 0.04);
-                        border-radius: 24px;
-                        padding: 25px;
-                        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-                        position: relative;
-                        overflow: hidden;
-                        backdrop-filter: blur(20px);
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                    }
-                    .action-detail-card:hover {
-                        transform: translateY(-6px);
-                        background: rgba(255, 255, 255, 0.02);
-                    }
-                    
-                    /* Dynamic Indicator Badges */
-                    .badge-glow-cyan { box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
-                    .badge-glow-pink { box-shadow: 0 0 15px rgba(255, 0, 128, 0.3); }
-                    .badge-glow-emerald { box-shadow: 0 0 15px rgba(0, 224, 140, 0.3); }
-                    .badge-glow-amber { box-shadow: 0 0 15px rgba(255, 189, 46, 0.3); }
+                // 🎛️ 5. ULTRA-PREMIUM ECOSYSTEM ACTION DIRECTORY (CAROUSEL - AUTO-START + INFINITE LOOP)
+React.createElement('div', {
+    style: {
+        width: '100%',
+        maxWidth: '1140px',
+        marginTop: '90px',
+        padding: '60px 30px',
+        borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+        position: 'relative',
+        textAlign: 'left'
+    }
+},
+    React.createElement('style', null, `
+    .action-carousel-wrapper {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        margin-top: 40px;
+        padding: 0 60px;
+    }
+    .action-carousel-track {
+        display: flex;
+        transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        gap: 25px;
+        will-change: transform;
+    }
+    .action-carousel-slide {
+        flex: 0 0 calc((100% - 50px) / 3);
+        min-width: 0;
+    }
+    .action-detail-card {
+        background: rgba(255, 255, 255, 0.01);
+        border: 1px solid rgba(255, 255, 255, 0.04);
+        border-radius: 24px;
+        padding: 25px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .action-detail-card:hover {
+        transform: translateY(-6px);
+        background: rgba(255, 255, 255, 0.02);
+    }
+    
+    .badge-glow-cyan { box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
+    .badge-glow-pink { box-shadow: 0 0 15px rgba(255, 0, 128, 0.3); }
+    .badge-glow-emerald { box-shadow: 0 0 15px rgba(0, 224, 140, 0.3); }
+    .badge-glow-amber { box-shadow: 0 0 15px rgba(255, 189, 46, 0.3); }
 
-                    /* Inline Core Buttons Micro-interactions */
-                    .inline-action-btn {
-                        transition: all 0.3s ease;
-                        cursor: pointer;
-                        margin-top: 15px;
-                    }
-                    .inline-action-btn:hover {
-                        letter-spacing: 0.5px;
-                        opacity: 0.9;
-                    }
-                    
-                    /* Premium Visual Mockup (Image Representation Layer) */
-                    .card-image-mockup {
-                        width: 100%;
-                        height: 130px;
-                        border-radius: 14px;
-                        margin-bottom: 20px;
-                        position: relative;
-                        overflow: hidden;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        border: 1px solid rgba(255, 255, 255, 0.05);
-                    }
-                `),
+    .inline-action-btn {
+        transition: all 0.3s ease;
+        cursor: pointer;
+        margin-top: 15px;
+    }
+    .inline-action-btn:hover {
+        letter-spacing: 0.5px;
+        opacity: 0.9;
+    }
+    
+    .card-image-mockup {
+        width: 100%;
+        height: 130px;
+        border-radius: 14px;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+    }
 
-                    // Section Header Typography
-                    React.createElement('div', { style: { maxWidth: '700px' } },
-                        React.createElement('span', { style: { color: '#ff0080', fontSize: '0.85rem', fontWeight: '800', letterSpacing: '2px', display: 'block', marginBottom: '12px' } }, 'SYSTEM ARCHITECTURE MAP'),
-                        React.createElement('h2', { style: { color: '#fff', fontSize: '2.4rem', fontWeight: '900', margin: '0 0 15px 0', letterSpacing: '-0.5px' } }, 'Command Center & Navigation Directory'),
-                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.45)', fontSize: '1.05rem', lineHeight: '1.6', margin: '0' } }, 'A complete architectural breakdown of the key operational buttons, action parameters, and target systems configured across the Apex Code ecosystem.')
-                    ),
+    .carousel-arrow-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 30;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: rgba(10, 10, 20, 0.9);
+        border: 2px solid rgba(0, 242, 254, 0.6);
+        color: #00f2fe;
+        font-size: 1.6rem;
+        font-weight: 900;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 242, 254, 0.15);
+        text-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+    }
+    .carousel-arrow-btn:hover {
+        background: rgba(0, 242, 254, 0.2);
+        border-color: #00f2fe;
+        transform: translateY(-50%) scale(1.12);
+        box-shadow: 0 8px 50px rgba(0, 242, 254, 0.4), 0 0 60px rgba(0, 242, 254, 0.15);
+        color: #fff;
+    }
+    .carousel-arrow-btn.left { left: 0px; }
+    .carousel-arrow-btn.right { right: 0px; }
 
-                    // 4-Column Interactive Action Grid
-                    React.createElement('div', { className: 'action-directory-grid' },
+    /* 📱 RESPONSIVE - Mobile par 1 card visible */
+    @media (max-width: 600px) {
+        .action-carousel-wrapper { padding: 0 35px; }
+        .action-carousel-slide {
+            flex: 0 0 100%;
+        }
+        .carousel-arrow-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        .carousel-arrow-btn.left { left: 0px; }
+        .carousel-arrow-btn.right { right: 0px; }
+    }
+    @media (min-width: 601px) and (max-width: 1024px) {
+        .action-carousel-wrapper { padding: 0 45px; }
+        .action-carousel-slide {
+            flex: 0 0 calc((100% - 25px) / 2);
+        }
+        .carousel-arrow-btn {
+            width: 46px;
+            height: 46px;
+            font-size: 1.3rem;
+        }
+        .carousel-arrow-btn.left { left: 0px; }
+        .carousel-arrow-btn.right { right: 0px; }
+    }
+`),
 
-                        // 🗺️ Card 1: Services Button Details
-                        React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(0, 242, 254, 0.1)' } },
-                            React.createElement('div', null,
-                                // 🖼️ IMAGE MOCKUP: Services Feature Layout
-                                React.createElement('div', {
-                                    className: 'card-image-mockup',
-                                    style: { background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(0,0,0,0.4))' }
-                                },
-                                    React.createElement('div', { style: { width: '85%', height: '60%', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(0, 242, 254, 0.2)' } },
-                                        React.createElement('div', { style: { display: 'flex', gap: '8px', flexWrap: 'wrap' } },
-                                            React.createElement('div', { style: { width: '40%', height: '12px', background: '#00f2fe', borderRadius: '3px' } }),
-                                            React.createElement('div', { style: { width: '30%', height: '12px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px' } }),
-                                            React.createElement('div', { style: { width: '20%', height: '12px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px' } })
-                                        ),
-                                        React.createElement('div', { style: { width: '100%', height: '4px', background: 'rgba(255,255,255,0.1)', marginTop: '12px', borderRadius: '2px' } }),
-                                        React.createElement('div', { style: { width: '70%', height: '4px', background: 'rgba(255,255,255,0.1)', marginTop: '6px', borderRadius: '2px' } })
-                                    )
-                                ),
-                                React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                                    React.createElement('span', { style: { color: '#00f2fe', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'PRIMARY CTA // 01'),
-                                    React.createElement('div', { className: 'badge-glow-cyan', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00f2fe' } })
-                                ),
-                                React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Explore Services'),
-                                React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Triggers the main services array. Routes users to premium development architectures, automated layout indexing packages, and custom script configuration models.')
-                            ),
+    React.createElement('div', { style: { maxWidth: '700px' } },
+        React.createElement('span', { style: { color: '#ff0080', fontSize: '0.85rem', fontWeight: '800', letterSpacing: '2px', display: 'block', marginBottom: '12px' } }, 'SYSTEM ARCHITECTURE MAP'),
+        React.createElement('h2', { style: { color: '#fff', fontSize: '2.4rem', fontWeight: '900', margin: '0 0 15px 0', letterSpacing: '-0.5px' } }, 'Command Center & Navigation Directory'),
+        React.createElement('p', { style: { color: 'rgba(255,255,255,0.45)', fontSize: '1.05rem', lineHeight: '1.6', margin: '0' } }, 'A complete architectural breakdown of the key operational buttons, action parameters, and target systems configured across the Apex Code ecosystem.')
+    ),
+
+    // 🎯 CAROUSEL COMPONENT WITH AUTO-SLIDE
+    (function() {
+        // React state for carousel
+        const [currentIndex, setCurrentIndex] = React.useState(0);
+        const trackRef = React.useRef(null);
+        const totalSlides = 4;
+        const gap = 25;
+        
+        // 📱 GET VISIBLE SLIDES BASED ON SCREEN WIDTH
+        const getVisibleSlides = () => {
+            const width = window.innerWidth;
+            if (width <= 600) return 1;      // Mobile: 1 card
+            if (width <= 1024) return 2;     // Tablet: 2 cards
+            return 3;                        // Desktop: 3 cards
+        };
+        
+        // Function to slide
+        const slideTo = (index) => {
+            const track = trackRef.current;
+            if (!track) return;
+            const slides = track.querySelectorAll('.action-carousel-slide');
+            if (!slides.length) return;
+            const slideWidth = slides[0]?.offsetWidth || 0;
+            const visible = getVisibleSlides();
+            const maxIndex = Math.max(0, totalSlides - visible);
+            // Ensure index is within bounds
+            const safeIndex = Math.max(0, Math.min(maxIndex, index));
+            track.style.transform = `translateX(-${safeIndex * (slideWidth + gap)}px)`;
+            track.dataset.index = safeIndex;
+            setCurrentIndex(safeIndex);
+        };
+        
+        // Next slide function
+        const nextSlide = () => {
+            const visible = getVisibleSlides();
+            const maxIndex = Math.max(0, totalSlides - visible);
+            setCurrentIndex(prev => {
+                const next = prev < maxIndex ? prev + 1 : 0;
+                setTimeout(() => slideTo(next), 50);
+                return next;
+            });
+        };
+        
+        // Previous slide function
+        const prevSlide = () => {
+            const visible = getVisibleSlides();
+            const maxIndex = Math.max(0, totalSlides - visible);
+            setCurrentIndex(prev => {
+                const next = prev > 0 ? prev - 1 : maxIndex;
+                setTimeout(() => slideTo(next), 50);
+                return next;
+            });
+        };
+        
+        // Auto-slide effect
+        React.useEffect(() => {
+            // Initial position
+            setTimeout(() => slideTo(0), 100);
+            
+            // Auto-slide interval - har 4 seconds
+            const interval = setInterval(nextSlide, 4000);
+            
+            // Cleanup
+            return () => clearInterval(interval);
+        }, []);
+        
+        // Handle window resize
+        React.useEffect(() => {
+            const handleResize = () => {
+                const track = trackRef.current;
+                if (!track) return;
+                const slides = track.querySelectorAll('.action-carousel-slide');
+                if (!slides.length) return;
+                const slideWidth = slides[0]?.offsetWidth || 0;
+                const visible = getVisibleSlides();
+                const maxIndex = Math.max(0, totalSlides - visible);
+                let current = parseInt(track.dataset.index || '0');
+                if (current > maxIndex) {
+                    current = maxIndex;
+                    track.dataset.index = current;
+                    setCurrentIndex(current);
+                }
+                track.style.transform = `translateX(-${current * (slideWidth + gap)}px)`;
+            };
+            
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }, []);
+        
+        return React.createElement('div', { className: 'action-carousel-wrapper' },
+            
+            // LEFT ARROW
+            React.createElement('button', {
+                className: 'carousel-arrow-btn left',
+                onClick: (e) => {
+                    e.stopPropagation();
+                    prevSlide();
+                }
+            }, '‹'),
+            
+            // TRACK
+            React.createElement('div', {
+                ref: trackRef,
+                className: 'action-carousel-track',
+                'data-index': '0',
+                style: { display: 'flex', gap: '25px' }
+            },
+                // Card 1: Services
+                React.createElement('div', { className: 'action-carousel-slide' },
+                    React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(0, 242, 254, 0.1)' } },
+                        React.createElement('div', null,
                             React.createElement('div', {
-                                onClick: toServices, className: 'inline-action-btn',
-                                style: { color: '#00f2fe', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
-                            }, 'Execute Pathway toServices() →')
+                                className: 'card-image-mockup',
+                                style: { background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(0,0,0,0.4))' }
+                            },
+                                React.createElement('div', { style: { width: '85%', height: '60%', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(0, 242, 254, 0.2)' } },
+                                    React.createElement('div', { style: { display: 'flex', gap: '8px', flexWrap: 'wrap' } },
+                                        React.createElement('div', { style: { width: '40%', height: '12px', background: '#00f2fe', borderRadius: '3px' } }),
+                                        React.createElement('div', { style: { width: '30%', height: '12px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px' } }),
+                                        React.createElement('div', { style: { width: '20%', height: '12px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px' } })
+                                    ),
+                                    React.createElement('div', { style: { width: '100%', height: '4px', background: 'rgba(255,255,255,0.1)', marginTop: '12px', borderRadius: '2px' } }),
+                                    React.createElement('div', { style: { width: '70%', height: '4px', background: 'rgba(255,255,255,0.1)', marginTop: '6px', borderRadius: '2px' } })
+                                )
+                            ),
+                            React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
+                                React.createElement('span', { style: { color: '#00f2fe', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'PRIMARY CTA // 01'),
+                                React.createElement('div', { className: 'badge-glow-cyan', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00f2fe' } })
+                            ),
+                            React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Explore Services'),
+                            React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Triggers the main services array. Routes users to premium development architectures.')
                         ),
-
-                        // 🗺️ Card 2: Portfolio Button Details
-                        React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(255, 0, 128, 0.1)' } },
-                            React.createElement('div', null,
-                                // 🖼️ IMAGE MOCKUP: Portfolio Production Cases Grid
-                                React.createElement('div', {
-                                    className: 'card-image-mockup',
-                                    style: { background: 'linear-gradient(135deg, rgba(255, 0, 128, 0.15), rgba(0,0,0,0.4))' }
-                                },
-                                    React.createElement('div', { style: { display: 'flex', gap: '8px', width: '85%' } },
-                                        React.createElement('div', { style: { flex: '1', height: '55px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 0, 128, 0.2)', padding: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' } },
-                                            React.createElement('div', { style: { width: '100%', height: '20px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px' } }),
-                                            React.createElement('div', { style: { width: '50%', height: '6px', background: '#ff0080', borderRadius: '2px' } })
-                                        ),
-                                        React.createElement('div', { style: { flex: '1', height: '55px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)', padding: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' } },
-                                            React.createElement('div', { style: { width: '100%', height: '20px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px' } }),
-                                            React.createElement('div', { style: { width: '50%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
-                                        )
-                                    )
-                                ),
-                                React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                                    React.createElement('span', { style: { color: '#ff0080', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'SECONDARY CTA // 02'),
-                                    React.createElement('div', { className: 'badge-glow-pink', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ff0080' } })
-                                ),
-                                React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'View Portfolio'),
-                                React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Initializes the live builds matrix. Grants stakeholders immediate analytical access to production case studies, interface configurations, and engineering systems.')
-                            ),
-                            React.createElement('div', {
-                                onClick: toPortfolio, className: 'inline-action-btn',
-                                style: { color: '#ff0080', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
-                            }, 'Execute Pathway toPortfolio() →')
-                        ),
-
-                        // 🗺️ Card 3: Marketplace Button Details
-                        React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(0, 224, 140, 0.1)' } },
-                            React.createElement('div', null,
-                                // 🖼️ IMAGE MOCKUP: Marketplace Commercial Cards
-                                React.createElement('div', {
-                                    className: 'card-image-mockup',
-                                    style: { background: 'linear-gradient(135deg, rgba(0, 224, 140, 0.15), rgba(0,0,0,0.4))' }
-                                },
-                                    React.createElement('div', { style: { width: '85%', height: '60%', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(0, 224, 140, 0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
-                                        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px', width: '60%' } },
-                                            React.createElement('div', { style: { width: '100%', height: '8px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } }),
-                                            React.createElement('div', { style: { width: '70%', height: '6px', background: '#00e28c', borderRadius: '2px' } })
-                                        ),
-                                        React.createElement('div', { style: { width: '30px', height: '20px', background: 'rgba(0, 224, 140, 0.2)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', color: '#00e28c', fontWeight: 'bold' } }, '$')
-                                    )
-                                ),
-                                React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                                    React.createElement('span', { style: { color: '#00e28c', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'COMMERCE BRIDGE // 03'),
-                                    React.createElement('div', { className: 'badge-glow-emerald', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00e28c' } })
-                                ),
-                                React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Marketplace Hub'),
-                                React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Establishes direct link-state parameters with the active acquisition marketplace. Pulls available responsive templates and monetization assets ready for transfer.')
-                            ),
-                            React.createElement('div', {
-                                onClick: toWebsitesForSale, className: 'inline-action-btn',
-                                style: { color: '#00e28c', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
-                            }, 'Execute Pathway toWebsitesForSale() →')
-                        ),
-
-                        // 🗺️ Card 4: Jobs Button Details
-                        React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(255, 189, 46, 0.1)' } },
-                            React.createElement('div', null,
-                                // 🖼️ IMAGE MOCKUP: Career Pipeline Dashboard
-                                React.createElement('div', {
-                                    className: 'card-image-mockup',
-                                    style: { background: 'linear-gradient(135deg, rgba(255, 189, 46, 0.15), rgba(0,0,0,0.4))' }
-                                },
-                                    React.createElement('div', { style: { width: '85%', height: '65%', padding: '8px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 189, 46, 0.2)', display: 'flex', flexDirection: 'column', gap: '8px' } },
-                                        React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
-                                            React.createElement('div', { style: { width: '50%', height: '8px', background: '#ffbd2e', borderRadius: '2px' } }),
-                                            React.createElement('div', { style: { width: '15%', height: '8px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
-                                        ),
-                                        React.createElement('div', { style: { width: '100%', height: '2px', background: 'rgba(255,255,255,0.08)' } }),
-                                        React.createElement('div', { style: { width: '80%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } }),
-                                        React.createElement('div', { style: { width: '90%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
-                                    )
-                                ),
-                                React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                                    React.createElement('span', { style: { color: '#ffbd2e', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'TALENT CORRIDOR // 04'),
-                                    React.createElement('div', { className: 'badge-glow-amber', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' } })
-                                ),
-                                React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Career Hub'),
-                                React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Modifies the root UI state variables to mount the available job pipelines. Connects engineering candidates and internship applications directly to internal nodes.')
-                            ),
-                            React.createElement('div', {
-                                onClick: () => setCurrentPage('available-jobs'), className: 'inline-action-btn',
-                                style: { color: '#ffbd2e', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
-                            }, 'Execute State modification →')
-                        )
+                        React.createElement('div', {
+                            onClick: toServices, className: 'inline-action-btn',
+                            style: { color: '#00f2fe', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
+                        }, 'Execute Pathway toServices() →')
                     )
                 ),
+                
+                // Card 2: Portfolio
+                React.createElement('div', { className: 'action-carousel-slide' },
+                    React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(255, 0, 128, 0.1)' } },
+                        React.createElement('div', null,
+                            React.createElement('div', {
+                                className: 'card-image-mockup',
+                                style: { background: 'linear-gradient(135deg, rgba(255, 0, 128, 0.15), rgba(0,0,0,0.4))' }
+                            },
+                                React.createElement('div', { style: { display: 'flex', gap: '8px', width: '85%' } },
+                                    React.createElement('div', { style: { flex: '1', height: '55px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 0, 128, 0.2)', padding: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' } },
+                                        React.createElement('div', { style: { width: '100%', height: '20px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px' } }),
+                                        React.createElement('div', { style: { width: '50%', height: '6px', background: '#ff0080', borderRadius: '2px' } })
+                                    ),
+                                    React.createElement('div', { style: { flex: '1', height: '55px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)', padding: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' } },
+                                        React.createElement('div', { style: { width: '100%', height: '20px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px' } }),
+                                        React.createElement('div', { style: { width: '50%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
+                                    )
+                                )
+                            ),
+                            React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
+                                React.createElement('span', { style: { color: '#ff0080', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'SECONDARY CTA // 02'),
+                                React.createElement('div', { className: 'badge-glow-pink', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ff0080' } })
+                            ),
+                            React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'View Portfolio'),
+                            React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Initializes the live builds matrix. Grants immediate analytical access to production case studies.')
+                        ),
+                        React.createElement('div', {
+                            onClick: toPortfolio, className: 'inline-action-btn',
+                            style: { color: '#ff0080', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
+                        }, 'Execute Pathway toPortfolio() →')
+                    )
+                ),
+                
+                // Card 3: Marketplace
+                React.createElement('div', { className: 'action-carousel-slide' },
+                    React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(0, 224, 140, 0.1)' } },
+                        React.createElement('div', null,
+                            React.createElement('div', {
+                                className: 'card-image-mockup',
+                                style: { background: 'linear-gradient(135deg, rgba(0, 224, 140, 0.15), rgba(0,0,0,0.4))' }
+                            },
+                                React.createElement('div', { style: { width: '85%', height: '60%', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(0, 224, 140, 0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                                    React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px', width: '60%' } },
+                                        React.createElement('div', { style: { width: '100%', height: '8px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } }),
+                                        React.createElement('div', { style: { width: '70%', height: '6px', background: '#00e28c', borderRadius: '2px' } })
+                                    ),
+                                    React.createElement('div', { style: { width: '30px', height: '20px', background: 'rgba(0, 224, 140, 0.2)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', color: '#00e28c', fontWeight: 'bold' } }, '$')
+                                )
+                            ),
+                            React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
+                                React.createElement('span', { style: { color: '#00e28c', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'COMMERCE BRIDGE // 03'),
+                                React.createElement('div', { className: 'badge-glow-emerald', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00e28c' } })
+                            ),
+                            React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Marketplace Hub'),
+                            React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Establishes direct link-state parameters with the active acquisition marketplace.')
+                        ),
+                        React.createElement('div', {
+                            onClick: toWebsitesForSale, className: 'inline-action-btn',
+                            style: { color: '#00e28c', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
+                        }, 'Execute Pathway toWebsitesForSale() →')
+                    )
+                ),
+                
+                // Card 4: Jobs
+                React.createElement('div', { className: 'action-carousel-slide' },
+                    React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(255, 189, 46, 0.1)' } },
+                        React.createElement('div', null,
+                            React.createElement('div', {
+                                className: 'card-image-mockup',
+                                style: { background: 'linear-gradient(135deg, rgba(255, 189, 46, 0.15), rgba(0,0,0,0.4))' }
+                            },
+                                React.createElement('div', { style: { width: '85%', height: '65%', padding: '8px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 189, 46, 0.2)', display: 'flex', flexDirection: 'column', gap: '8px' } },
+                                    React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                                        React.createElement('div', { style: { width: '50%', height: '8px', background: '#ffbd2e', borderRadius: '2px' } }),
+                                        React.createElement('div', { style: { width: '15%', height: '8px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
+                                    ),
+                                    React.createElement('div', { style: { width: '100%', height: '2px', background: 'rgba(255,255,255,0.08)' } }),
+                                    React.createElement('div', { style: { width: '80%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } }),
+                                    React.createElement('div', { style: { width: '90%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
+                                )
+                            ),
+                            React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
+                                React.createElement('span', { style: { color: '#ffbd2e', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'TALENT CORRIDOR // 04'),
+                                React.createElement('div', { className: 'badge-glow-amber', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' } })
+                            ),
+                            React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Career Hub'),
+                            React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Modifies the root UI state variables to mount the available job pipelines.')
+                        ),
+                        React.createElement('div', {
+                            onClick: () => setCurrentPage('available-jobs'), className: 'inline-action-btn',
+                            style: { color: '#ffbd2e', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
+                        }, 'Execute State modification →')
+                    )
+                )
+            ),
+            
+            // RIGHT ARROW
+            React.createElement('button', {
+                className: 'carousel-arrow-btn right',
+                onClick: (e) => {
+                    e.stopPropagation();
+                    nextSlide();
+                }
+            }, '›')
+        );
+    })()
+),
                 // 🏷️ 6. APEX CODE COMPREHENSIVE TIER CATALOG (Ultra-Premium Redesign)
                 React.createElement('div', {
                     style: {
