@@ -429,13 +429,80 @@ const renderAvailableJobsBlocks = () => {
     );
 };
 
+
+// NEW — isse pehle yeh poora block insert karo:
+
+// 🔗 currentPage <-> URL helpers (Googlebot ko har page ka apna crawlable URL dene ke liye)
+const pageToPath = (page) => (page === 'home' || page === '' ? '/' : '/' + page);
+const pathToPage = (pathname) => {
+    const clean = pathname.replace(/^\/+|\/+$/g, '');
+    return clean === '' ? 'home' : clean;
+};
+
+// Sirf yeh pages Google ko index karne dena hai — baaki (admin, forms, thank-you) noindex rahenge
+const INDEXABLE_PAGES = [
+    'home', 'services', 'plans', 'wp-plans', 'seo-plans', 'ads-plans',
+    'portfolio', 'about-us', 'privacy-policy', 'terms-conditions',
+    'contact-us', 'websites-for-sale'
+];
+
+// Har indexable page ka apna title + description
+const PAGE_META = {
+    'home': { title: 'Apex Code | Custom Web Development, WordPress & SEO Agency', desc: 'Apex Code builds custom React/Flask websites, WordPress sites, technical SEO, and ad monetization setups for businesses worldwide.' },
+    'services': { title: 'Our Services | Apex Code', desc: 'Custom web development, WordPress design, SEO, and ad monetization services from Apex Code.' },
+    'plans': { title: 'Pricing Plans | Apex Code', desc: "Compare Apex Code's Basic, Standard, and Premium website development plans." },
+    'wp-plans': { title: 'WordPress Plans | Apex Code', desc: 'WordPress website design and development plans from Apex Code.' },
+    'seo-plans': { title: 'SEO Plans | Apex Code', desc: 'On-page and technical SEO optimization plans from Apex Code.' },
+    'ads-plans': { title: 'Ad Monetization Plans | Apex Code', desc: 'AdSense, Adsterra, and Monetag monetization setup plans from Apex Code.' },
+    'portfolio': { title: 'Portfolio | Apex Code', desc: 'Past projects and live work delivered by the Apex Code team.' },
+    'about-us': { title: 'About Us | Apex Code', desc: 'Apex Code is a digital service agency specializing in custom web development, WordPress design, and technical SEO.' },
+    'privacy-policy': { title: 'Privacy Policy | Apex Code', desc: 'How Apex Code collects, uses, and protects your data.' },
+    'terms-conditions': { title: 'Terms & Conditions | Apex Code', desc: "Terms and conditions for using Apex Code's services." },
+    'contact-us': { title: 'Contact Us | Apex Code', desc: 'Get in touch with Apex Code to discuss your project.' },
+    'websites-for-sale': { title: 'Websites For Sale | Apex Code', desc: 'Buy ready-made premium website templates and live web projects.' },
+};
+
 // Yahan se aapka original code shuru ho raha hai
 // const QuickKitApp = () => { ...
 // JavaScript logic aur React dynamic element creation ek sath
 
 const QuickKitApp = () => {
     const currentYear = 2026;
-    const [currentPage, setCurrentPage] = React.useState('home');
+    const [currentPage, setCurrentPage] = React.useState(() => pathToPage(window.location.pathname));
+
+    // 🔗 currentPage badalte hi URL + <title> + <meta description> + <meta robots> sync
+    React.useEffect(() => {
+        const path = pageToPath(currentPage);
+        if (window.location.pathname !== path) {
+            window.history.pushState({ page: currentPage }, '', path);
+        }
+
+        const meta = PAGE_META[currentPage] || PAGE_META['home'];
+        document.title = meta.title;
+
+        let metaDesc = document.querySelector('meta[name="description"]');
+        if (!metaDesc) {
+            metaDesc = document.createElement('meta');
+            metaDesc.setAttribute('name', 'description');
+            document.head.appendChild(metaDesc);
+        }
+        metaDesc.setAttribute('content', meta.desc);
+
+        let metaRobots = document.querySelector('meta[name="robots"]');
+        if (!metaRobots) {
+            metaRobots = document.createElement('meta');
+            metaRobots.setAttribute('name', 'robots');
+            document.head.appendChild(metaRobots);
+        }
+        metaRobots.setAttribute('content', INDEXABLE_PAGES.includes(currentPage) ? 'index, follow' : 'noindex, nofollow');
+    }, [currentPage]);
+
+    // ⬅️➡️ Browser Back/Forward button pe bhi sahi page khule
+    React.useEffect(() => {
+        const handlePopState = () => setCurrentPage(pathToPage(window.location.pathname));
+        window.addEventListener('popstate', handlePopState);
+        return () => window.removeEventListener('popstate', handlePopState);
+    }, []);
     const [openFaqIndex, setOpenFaqIndex] = React.useState(null);
     const toContactUs = (e) => { e.preventDefault(); setCurrentPage('contact-us'); };
     const toComplain = (e) => { e.preventDefault(); setCurrentPage('complain-form'); };

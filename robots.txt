@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /admin-login
+Disallow: /admin-panel
 
-Sitemap: https://www.bookapexcode.store//sitemap.xml
+Sitemap: https://bookapexcode.store/sitemap.xml
