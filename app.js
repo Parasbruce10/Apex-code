@@ -7201,10 +7201,9 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
     } else if (currentPage === 'available-jobs') {
         mainElement = React.createElement('main', { className: 'services-page' },
             // HEADING BADGE
-
             React.createElement('div', {
                 style: {
-                    display: 'flex',                             // 'table' se 'flex' kiya takay elements automatically fit ho sakein
+                    display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
                     margin: '0 auto 20px',
@@ -7213,21 +7212,21 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                     WebkitBackdropFilter: 'blur(15px)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
                     borderRadius: '24px',
-                    padding: '12px 24px',                        // Mobile spacing ke liye padding adjust ki
+                    padding: '12px 24px',
                     width: 'fit-content',
-                    maxWidth: '90%',                             // Card ko mobile screen se bahar nikalne se rokega
+                    maxWidth: '90%',
                     boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
                     boxSizing: 'border-box'
                 }
             },
                 React.createElement('h2', {
                     style: {
-                        fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',  // Mobile screens par font size automatic chota ho jayega
+                        fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',
                         fontWeight: '800',
-                        letterSpacing: '0.5px',                  // Squeeze hone se bachane ke liye spacing thodi kam ki
+                        letterSpacing: '0.5px',
                         textAlign: 'center',
                         margin: '0',
-                        whiteSpace: 'nowrap',                    // Text aur emoji hamesha single line mein lock rahenge
+                        whiteSpace: 'nowrap',
                         background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
@@ -7252,41 +7251,163 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                         key: job.id,
                         className: 'card',
                         style: {
-                            background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02))',
-                            backdropFilter: 'blur(25px)', WebkitBackdropFilter: 'blur(25px)',
-                            border: '1px solid rgba(255, 255, 255, 0.16)', borderRadius: '32px', padding: '40px 30px',
-                            boxShadow: '0 30px 60px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.25)',
-                            textAlign: 'center', maxWidth: '340px', width: '100%'
+                            position: 'relative',
+                            background: '#0b0d14', // Exact Deep dark background
+                            borderRadius: '32px',
+                            padding: '32px 24px 24px 24px',
+                            boxShadow: '0 40px 80px rgba(0, 0, 0, 0.7)',
+                            border: '1px solid rgba(255, 255, 255, 0.04)',
+                            textAlign: 'left', // Professional Left alignment
+                            maxWidth: '340px',
+                            width: '100%',
+                            boxSizing: 'border-box',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '20px',
+                            overflow: 'hidden',
+                            transition: 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)'
+                        },
+                        onMouseEnter: (e) => {
+                            e.currentTarget.style.transform = 'translateY(-6px)';
+                        },
+                        onMouseLeave: (e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
                         }
                     },
+                        // 🌟 TOP NEON GRADIENT LINE
                         React.createElement('div', {
                             style: {
-                                width: '65px', height: '65px', borderRadius: '20px',
-                                background: 'linear-gradient(135deg, rgba(255, 0, 128, 0.35), rgba(0, 242, 254, 0.25))',
-                                border: '1px solid rgba(255, 255, 255, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                margin: '0 auto 20px', fontSize: '1.8rem', boxShadow: '0 12px 30px rgba(255, 0, 128, 0.45)'
+                                position: 'absolute',
+                                top: 0, left: 0, right: 0, height: '4px',
+                                background: 'linear-gradient(90deg, #00f2fe 0%, #ff007f 100%)'
                             }
-                        }, '💼'),
-                        React.createElement('h3', { style: { color: '#fff', fontSize: '1.3rem', fontWeight: '700', marginBottom: '8px' } }, job.title),
-                        React.createElement('p', { style: { color: '#00f2fe', fontSize: '0.9rem', fontWeight: '600', marginBottom: '24px' } }, job.salary || 'Salary: Negotiable'),
+                        }),
 
-                        React.createElement('div', { style: { display: 'flex', gap: '10px' } },
+                        // 👑 ROW: ICON & HOT JOB BADGE
+                        React.createElement('div', {
+                            style: {
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                width: '100%'
+                            }
+                        },
+                            React.createElement('div', {
+                                style: {
+                                    width: '58px', height: '58px', borderRadius: '18px',
+                                    background: 'rgba(0, 242, 254, 0.03)',
+                                    border: '1px solid rgba(0, 242, 254, 0.3)',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    fontSize: '1.5rem',
+                                    boxShadow: '0 0 20px rgba(0, 242, 254, 0.15)'
+                                }
+                            }, '💼'),
+
+                            // Magenta Pill Badge
+                            React.createElement('div', {
+                                style: {
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '6px',
+                                    background: 'rgba(255, 0, 127, 0.06)',
+                                    border: '1px solid rgba(255, 0, 127, 0.3)',
+                                    padding: '5px 12px',
+                                    borderRadius: '20px'
+                                }
+                            },
+                                React.createElement('span', {
+                                    style: {
+                                        width: '6px', height: '6px',
+                                        backgroundColor: '#ff007f',
+                                        borderRadius: '50%',
+                                        display: 'inline-block'
+                                    }
+                                }),
+                                React.createElement('span', {
+                                    style: {
+                                        color: '#ff007f',
+                                        fontSize: '0.65rem',
+                                        fontWeight: '700',
+                                        letterSpacing: '0.8px'
+                                    }
+                                }, 'NEW JOB')
+                            )
+                        ),
+
+                        // 📝 JOB TYPOGRAPHY BLOCK
+                        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
+                            React.createElement('h3', { 
+                                style: { 
+                                    color: '#ffffff', 
+                                    fontSize: '1.4rem', 
+                                    fontWeight: '700', 
+                                    margin: '0',
+                                    lineHeight: '1.3',
+                                    letterSpacing: '-0.2px'
+                                } 
+                            }, job.title),
+                            
+                            React.createElement('p', { 
+                                style: { 
+                                    color: '#a0aec0', 
+                                    fontSize: '0.95rem', 
+                                    margin: '0',
+                                    fontWeight: '500'
+                                } 
+                            }, [
+                                'Salary: ',
+                                React.createElement('span', { style: { color: '#00f2fe', fontWeight: '600' } }, job.salary || 'Negotiable')
+                            ])
+                        ),
+
+                        // 🛠️ ACTION BUTTONS PANEL
+                        React.createElement('div', { style: { display: 'flex', gap: '12px', width: '100%', marginTop: 'auto' } },
+                            // Ghost Style Details Button
                             React.createElement('button', {
                                 onClick: () => setSelectedJobDescription(job),
-                                style: { flex: '1', padding: '12px', borderRadius: '14px', background: 'rgba(255, 255, 255, 0.08)', color: '#fff', border: '1px solid rgba(255, 255, 255, 0.2)', fontSize: '0.85rem', fontWeight: '600', cursor: 'pointer' }
-                            }, 'Description 📄'),
+                                style: {
+                                    flex: '1',
+                                    padding: '14px 8px',
+                                    borderRadius: '24px',
+                                    background: 'transparent',
+                                    color: '#ffffff',
+                                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                                    fontSize: '0.85rem',
+                                    fontWeight: '600',
+                                    cursor: 'pointer',
+                                    transition: 'background 0.2s'
+                                },
+                                onMouseEnter: (e) => e.target.style.background = 'rgba(255, 255, 255, 0.05)',
+                                onMouseLeave: (e) => e.target.style.background = 'transparent'
+                            }, 'Description 📋'),
+
+                            // Solid White Apply Button
                             React.createElement('button', {
-                                onClick: toJobApplyForm(job),
-                                style: { flex: '1', padding: '12px', borderRadius: '14px', background: 'linear-gradient(90deg, #ff0080, #00f2fe)', color: '#fff', border: 'none', fontSize: '0.85rem', fontWeight: '700', cursor: 'pointer', boxShadow: '0 0 18px rgba(255, 0, 128, 0.4)' }
+                                onClick: () => toJobApplyForm(job),
+                                style: {
+                                    flex: '1.3',
+                                    padding: '14px 8px',
+                                    borderRadius: '24px',
+                                    background: '#ffffff',
+                                    color: '#0b0d14',
+                                    border: 'none',
+                                    fontSize: '0.85rem',
+                                    fontWeight: '700',
+                                    cursor: 'pointer',
+                                    boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1)',
+                                    transition: 'opacity 0.2s'
+                                },
+                                onMouseEnter: (e) => e.target.style.opacity = '0.9',
+                                onMouseLeave: (e) => e.target.style.opacity = '1'
                             }, 'Apply 🚀')
                         )
                     ))
                 ),
 
-            // 2. YEH WALA BLOCK HAMESHA SHOW HOGA (jobs posted hon ya na hon)
+            // 2. YEH WALA BLOCK HAMESHA SHOW HOGA
             renderAvailableJobsBlocks(),
 
-            // DESCRIPTION MODAL (Description button click karne par khulega)
+            // DESCRIPTION MODAL
             selectedJobDescription ? React.createElement('div', {
                 onClick: () => setSelectedJobDescription(null),
                 style: {
@@ -7307,15 +7428,13 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                     React.createElement('button', {
                         onClick: () => setSelectedJobDescription(null),
                         style: { position: 'absolute', top: '14px', right: '18px', background: 'none', border: 'none', color: 'rgba(255,255,255,0.6)', fontSize: '1.4rem', cursor: 'pointer' }
-                    }, '✕'),
+                    }, '✖'),
                     React.createElement('h3', { style: { color: '#00f2fe', fontSize: '1.4rem', fontWeight: '700', marginBottom: '6px' } }, selectedJobDescription.title),
                     React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', marginBottom: '18px' } }, selectedJobDescription.salary || 'Salary: Negotiable'),
                     React.createElement('p', { style: { color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: '1.7', whiteSpace: 'pre-wrap' } }, selectedJobDescription.description)
                 )
             ) : null
         );
-
-        // 1️⃣ PEHLE YEH PAGE KHULEGA (CONTACT US CARD)
     } else if (currentPage === 'job-apply-form' && selectedJobForApply) {
         const handleApplySubmit = (e) => {
             e.preventDefault();
