@@ -9281,19 +9281,59 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
     } else if (currentPage === 'home' || currentPage === '') {
 
         // 🌌 Home Page Premium Glassmorphism UI
-        mainElement = React.createElement('main', {
-            className: 'home-page',
-            style: {
-                padding: '60px 20px',
-                minHeight: '85vh',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                fontFamily: 'system-ui, -apple-system, sans-serif',
-                overflow: 'hidden',
-                background: 'transparent'
+        // ====================== HOME PAGE MAIN ELEMENT ======================
+mainElement = React.createElement('main', {
+    className: 'home-page',
+    style: {
+        padding: '60px 20px',
+        minHeight: '85vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+        overflow: 'hidden',
+        background: 'transparent'
+    }
+},
+
+    
+
+    // 2. SCROLLING SERVICE BANNER
+    React.createElement('div', {
+        style: {
+            width: '100%',
+            maxWidth: '1200px',
+            background: 'rgba(10, 11, 18, 0.95)',
+            border: '1px solid rgba(0, 242, 254, 0.2)',
+            overflow: 'hidden',
+            padding: '18px 0',
+            borderRadius: '12px',
+            marginBottom: '50px'
+        }
+    },
+        React.createElement('style', null, `
+            @keyframes scrollLeft {
+                0% { transform: translateX(0); }
+                100% { transform: translateX(-50%); }
             }
+            .scroll-track {
+                display: inline-flex;
+                white-space: nowrap;
+                animation: scrollLeft 30s linear infinite;
+                font-weight: 700;
+                font-size: 1.1rem;
+                letter-spacing: 2px;
+            }
+        `),
+        React.createElement('div', {
+            className: 'scroll-track',
+            style: { color: '#00f2fe', textShadow: '0 0 15px rgba(0, 242, 254, 0.6)' }
         },
+            "CODE BASE WEB DEVELOPMENT  -  WORDPRESS BASE WEB DEVELOPMENT  -  SEO OPTIMIZATION  -  PUTTING ADS ON WEBSITE  -  ".repeat(4)
+        )
+    ),
+
+  
             // 🎨 INJECTING PREMIUM ANIMATIONS & HOVER EFFECTS (CSS)
             React.createElement('style', null, `
                 @keyframes floatAnimation {
