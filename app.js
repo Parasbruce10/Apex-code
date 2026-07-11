@@ -11237,3 +11237,10 @@ React.createElement('div', {
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);
 root.render(React.createElement(QuickKitApp));
+
+// React mount hone ke baad skeleton hide karo
+const skeletonEl = document.getElementById('skeleton-loader');
+if (skeletonEl) {
+    skeletonEl.classList.add('skeleton-hide');
+    setTimeout(() => skeletonEl.remove(), 400);
+}
