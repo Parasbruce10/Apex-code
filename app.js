@@ -7383,7 +7383,7 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
 
                             // Solid White Apply Button
                             React.createElement('button', {
-                                onClick: () => toJobApplyForm(job),
+                                onClick: toJobApplyForm(job),
                                 style: {
                                     flex: '1.3',
                                     padding: '14px 8px',
@@ -8507,7 +8507,7 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
 
             // Right Button: Buy Now (Exact copy of the White "Get Started →" Button)
             React.createElement('button', {
-                onClick: () => toWebsiteOrderForm(web),
+                onClick: toWebsiteOrderForm(web),
                 style: {
                     flex: '1.4', // Slightly wider for prime focus
                     padding: '14px 8px',
