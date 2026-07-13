@@ -445,7 +445,11 @@ const INDEXABLE_PAGES = [
     'portfolio', 'about-us', 'privacy-policy', 'terms-conditions',
     'contact-us', 'websites-for-sale'
 ];
-
+// 🔒 Yeh pages sirf isAdminLoggedIn === true hone par hi khulni chahiye
+const ADMIN_ONLY_PAGES = [
+    'admin-panel', 'update-password', 'employee-list',
+    'upload-page', 'job-upload-form', 'website-upload-form'
+];
 // Har indexable page ka apna title + description
 const PAGE_META = {
     'home': { title: 'Apex Code | Custom Web Development, WordPress & SEO Agency', desc: 'Apex Code builds custom React/Flask websites, WordPress sites, technical SEO, and ad monetization setups for businesses worldwide.' },
@@ -468,8 +472,11 @@ const PAGE_META = {
 
 const QuickKitApp = () => {
     const currentYear = 2026;
-    const [currentPage, setCurrentPage] = React.useState(() => pathToPage(window.location.pathname));
-
+const [currentPage, setCurrentPage] = React.useState(() => {
+        const initialPage = pathToPage(window.location.pathname);
+        const alreadyLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';
+        return (ADMIN_ONLY_PAGES.includes(initialPage) && !alreadyLoggedIn) ? 'admin-login' : initialPage;
+    });
     // 🔗 currentPage badalte hi URL + <title> + <meta description> + <meta robots> sync
     React.useEffect(() => {
         const path = pageToPath(currentPage);
@@ -512,6 +519,12 @@ const QuickKitApp = () => {
     const [isAdminLoggedIn, setIsAdminLoggedIn] = React.useState(
         localStorage.getItem('isAdminLoggedIn') === 'true'
     );
+    // 🔒 SECURITY GUARD: Baad mein bhi (back/forward button, ya kisi aur tareeqay se) admin page na khule
+    React.useEffect(() => {
+        if (ADMIN_ONLY_PAGES.includes(currentPage) && !isAdminLoggedIn) {
+            setCurrentPage('admin-login');
+        }
+    }, [currentPage, isAdminLoggedIn]);
     const [adminPassword, setAdminPassword] = React.useState('1122'); // Default password
     // ✅ WEBSITES FOR SALE KE LIYE NAYE STATES
     const [websites, setWebsites] = React.useState([]);
@@ -774,11 +787,11 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
 
     // ✅ JOBS KE LIYE NAYE STATES
     const [jobs, setJobs] = React.useState([]);
-    // ✅ EMPLOYEES KE LIYE NAYE STATES
+    // ✅ EMPLOYEES KE LIYE STATES
     const [employees, setEmployees] = React.useState([]);
     const [employeeSearchQuery, setEmployeeSearchQuery] = React.useState('');
+    const [employeeToEdit, setEmployeeToEdit] = React.useState(null); // ✅ Edit State
 
-    // ✅ BACKEND SE EMPLOYEES FETCH KARNE WALA FUNCTION
     const fetchEmployees = () => {
         fetch('https://hamzaparas-apex-code.hf.space/api/employees')
             .then(res => res.json())
@@ -786,14 +799,14 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             .catch(err => console.log('Employees fetch error:', err));
     };
 
-    // Navigation function for Employee List
     const toEmployeeList = (e) => {
         if (e) e.preventDefault();
+        setEmployeeToEdit(null); // Page kholte hi form fresh ho
         fetchEmployees();
         setCurrentPage('employee-list');
     };
 
-    // Employee Form Submit Handler
+    // ✅ EMPLOYEE ADD & EDIT SUBMIT HANDLER
     const handleEmployeeSubmit = (e) => {
         e.preventDefault();
         const data = {
@@ -802,25 +815,51 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             position: e.target.position.value,
             email: e.target.email.value,
             contact: e.target.contact.value,
-            address: e.target.address.value
+            address: e.target.address.value,
+            date_of_join: e.target.date_of_join.value // ✅ Nayi Date Field
         };
 
-        fetch('https://hamzaparas-apex-code.hf.space/api/employees', {
-            method: 'POST',
+        const isEditing = employeeToEdit !== null;
+        const url = isEditing 
+            ? `https://hamzaparas-apex-code.hf.space/api/employees/${employeeToEdit.id}` 
+            : 'https://hamzaparas-apex-code.hf.space/api/employees';
+        const method = isEditing ? 'PUT' : 'POST';
+
+        fetch(url, {
+            method: method,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                alert('✅ Employee Added Successfully!');
-                e.target.reset();
-                fetchEmployees(); // List ko refresh karo
+                alert(isEditing ? '✅ Employee Updated!' : '✅ Employee Added!');
+                setEmployeeToEdit(null); // Reset form
+                fetchEmployees();
             } else {
                 alert('🚫 Error: ' + data.message);
             }
         })
         .catch(err => alert('🚫 Network Error!'));
+    };
+
+    // ✅ EMPLOYEE DELETE HANDLER
+    const handleEmployeeDelete = (empId) => {
+        if (!window.confirm('Pakka delete karna hai is employee ko?')) return;
+
+        fetch(`https://hamzaparas-apex-code.hf.space/api/employees/${empId}`, { method: 'DELETE' })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) fetchEmployees();
+                else alert('🚫 ' + data.message);
+            })
+            .catch(err => alert('🚫 Delete karne mein error aaya!'));
+    };
+    
+    // ✅ EDIT BUTTON CLICK HANDLER
+    const editEmployee = (emp) => {
+        setEmployeeToEdit(emp);
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Form pe wapas le jaye
     };
     const [jobToEdit, setJobToEdit] = React.useState(null); // null = Naya Job, value = Edit ho raha hai
     const [selectedJobDescription, setSelectedJobDescription] = React.useState(null); // Description Modal
@@ -7045,7 +7084,6 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             color: '#fff', fontSize: '0.95rem', outline: 'none', boxSizing: 'border-box'
         };
 
-        // Search logic filter
         const filteredEmployees = employees.filter(emp => 
             emp.name.toLowerCase().includes(employeeSearchQuery.toLowerCase()) || 
             emp.position.toLowerCase().includes(employeeSearchQuery.toLowerCase())
@@ -7056,32 +7094,47 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             
             React.createElement('h2', { style: { color: '#00e28c', fontSize: '2.2rem', marginBottom: '30px', textAlign: 'center' } }, 'Employee Management 👥'),
 
-            // 1. ADD NEW EMPLOYEE FORM
+            // 1. ADD / EDIT EMPLOYEE FORM
             React.createElement('form', { 
+                key: employeeToEdit ? `edit-${employeeToEdit.id}` : 'new-emp', // Key reset mechanism
                 onSubmit: handleEmployeeSubmit, 
                 style: { width: '100%', maxWidth: '600px', background: 'rgba(20, 20, 30, 0.75)', padding: '35px 30px', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '50px' } 
             },
-                React.createElement('h3', { style: { color: '#fff', marginBottom: '20px', textAlign: 'center' } }, 'Add New Employee'),
+                React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' } },
+                    React.createElement('h3', { style: { color: '#fff', margin: 0 } }, employeeToEdit ? 'Edit Employee ✏️' : 'Add New Employee ➕'),
+                    // Agar edit ho raha hai to Cancel edit ka button show karo
+                    employeeToEdit && React.createElement('button', { 
+                        type: 'button', 
+                        onClick: () => setEmployeeToEdit(null), 
+                        style: { background: 'none', border: 'none', color: '#ff3366', cursor: 'pointer', fontWeight: 'bold' } 
+                    }, 'Cancel Edit ✖')
+                ),
                 
                 React.createElement('div', { style: { display: 'flex', gap: '15px' } },
-                    React.createElement('input', { type: 'text', name: 'name', placeholder: 'Name', required: true, style: { ...empInputStyle, flex: 1 } }),
-                    React.createElement('input', { type: 'text', name: 'father_name', placeholder: "Father's Name", required: true, style: { ...empInputStyle, flex: 1 } })
+                    React.createElement('input', { type: 'text', name: 'name', placeholder: 'Name', defaultValue: employeeToEdit ? employeeToEdit.name : '', required: true, style: { ...empInputStyle, flex: 1 } }),
+                    React.createElement('input', { type: 'text', name: 'father_name', placeholder: "Father's Name", defaultValue: employeeToEdit ? employeeToEdit.father_name : '', required: true, style: { ...empInputStyle, flex: 1 } })
                 ),
                 React.createElement('div', { style: { display: 'flex', gap: '15px' } },
-                    React.createElement('input', { type: 'text', name: 'position', placeholder: 'Position (e.g. React Developer)', required: true, style: { ...empInputStyle, flex: 1 } }),
-                    React.createElement('input', { type: 'text', name: 'contact', placeholder: 'Contact Number', required: true, style: { ...empInputStyle, flex: 1 } })
+                    React.createElement('input', { type: 'text', name: 'position', placeholder: 'Position (e.g. React Developer)', defaultValue: employeeToEdit ? employeeToEdit.position : '', required: true, style: { ...empInputStyle, flex: 1 } }),
+                    React.createElement('input', { type: 'text', name: 'contact', placeholder: 'Contact Number', defaultValue: employeeToEdit ? employeeToEdit.contact : '', required: true, style: { ...empInputStyle, flex: 1 } })
                 ),
-                React.createElement('input', { type: 'email', name: 'email', placeholder: 'Email Address', required: true, style: empInputStyle }),
-                React.createElement('textarea', { name: 'address', placeholder: 'Home Address', required: true, rows: 2, style: { ...empInputStyle, resize: 'none' } }),
+                React.createElement('div', { style: { display: 'flex', gap: '15px' } },
+                    React.createElement('input', { type: 'email', name: 'email', placeholder: 'Email Address', defaultValue: employeeToEdit ? employeeToEdit.email : '', required: true, style: { ...empInputStyle, flex: 1 } }),
+                    // ✅ Nayi Date Field Input
+                    React.createElement('input', { type: 'date', name: 'date_of_join', defaultValue: employeeToEdit ? employeeToEdit.date_of_join : '', required: true, style: { ...empInputStyle, flex: 1, color: 'rgba(255,255,255,0.7)' } })
+                ),
+                React.createElement('textarea', { name: 'address', placeholder: 'Home Address', defaultValue: employeeToEdit ? employeeToEdit.address : '', required: true, rows: 2, style: { ...empInputStyle, resize: 'none' } }),
                 
-                React.createElement('button', { type: 'submit', className: 'card-btn', style: { width: '100%', background: 'linear-gradient(90deg, #00e28c, #00f2fe)', color: '#000', fontWeight: 'bold', border: 'none', padding: '14px', borderRadius: '10px' } }, 'Add Employee ➕')
+                React.createElement('button', { 
+                    type: 'submit', className: 'card-btn', 
+                    style: { width: '100%', background: 'linear-gradient(90deg, #00e28c, #00f2fe)', color: '#000', fontWeight: 'bold', border: 'none', padding: '14px', borderRadius: '10px' } 
+                }, employeeToEdit ? 'Update Employee ✅' : 'Save Employee 💾')
             ),
 
             // 2. SEARCH & LIST EMPLOYEES
             React.createElement('div', { style: { width: '100%', maxWidth: '800px' } },
                 React.createElement('h3', { style: { color: '#fff', marginBottom: '15px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' } }, 'Staff Directory'),
                 
-                // Search Bar
                 React.createElement('input', { 
                     type: 'text', 
                     placeholder: '🔍 Search by Name or Position...', 
@@ -7090,7 +7143,6 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                     style: { ...empInputStyle, background: 'rgba(0,0,0,0.3)', border: '1px solid #00e28c', marginBottom: '25px' } 
                 }),
 
-                // Employee Cards Grid
                 React.createElement('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' } },
                     filteredEmployees.length === 0 ? 
                         React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)' } }, 'No employees found.') :
@@ -7098,10 +7150,23 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                             key: emp.id,
                             style: { background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '20px', position: 'relative' }
                         },
-                            React.createElement('h4', { style: { color: '#00e28c', margin: '0 0 5px 0', fontSize: '1.2rem' } }, emp.name),
+                            // Edit & Delete Action Buttons (Top Right)
+                            React.createElement('div', { style: { position: 'absolute', top: '15px', right: '15px', display: 'flex', gap: '8px' } },
+                                React.createElement('button', { 
+                                    onClick: () => editEmployee(emp), 
+                                    style: { padding: '5px 10px', fontSize: '0.75rem', fontWeight: '600', color: '#00f2fe', background: 'rgba(0, 242, 254, 0.1)', border: '1px solid rgba(0, 242, 254, 0.35)', borderRadius: '6px', cursor: 'pointer' } 
+                                }, 'Edit ✏️'),
+                                React.createElement('button', { 
+                                    onClick: () => handleEmployeeDelete(emp.id), 
+                                    style: { padding: '5px 10px', fontSize: '0.75rem', fontWeight: '600', color: '#ff3366', background: 'rgba(255, 51, 102, 0.1)', border: '1px solid rgba(255, 51, 102, 0.35)', borderRadius: '6px', cursor: 'pointer' } 
+                                }, 'Del 🗑️')
+                            ),
+
+                            React.createElement('h4', { style: { color: '#00e28c', margin: '0 0 5px 0', fontSize: '1.2rem', paddingRight: '100px' } }, emp.name),
                             React.createElement('p', { style: { margin: '0 0 15px 0', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' } }, emp.position),
                             
                             React.createElement('div', { style: { fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' } },
+                                React.createElement('div', null, React.createElement('strong', {style:{color:'#00f2fe'}}, 'Joined: '), emp.date_of_join || 'N/A'), // ✅ Date of Join yahan display hogi
                                 React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Father: '), emp.father_name),
                                 React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Email: '), emp.email),
                                 React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Phone: '), emp.contact),
