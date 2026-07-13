@@ -774,6 +774,54 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
 
     // ✅ JOBS KE LIYE NAYE STATES
     const [jobs, setJobs] = React.useState([]);
+    // ✅ EMPLOYEES KE LIYE NAYE STATES
+    const [employees, setEmployees] = React.useState([]);
+    const [employeeSearchQuery, setEmployeeSearchQuery] = React.useState('');
+
+    // ✅ BACKEND SE EMPLOYEES FETCH KARNE WALA FUNCTION
+    const fetchEmployees = () => {
+        fetch('https://hamzaparas-apex-code.hf.space/api/employees')
+            .then(res => res.json())
+            .then(data => { if (data.success) setEmployees(data.employees); })
+            .catch(err => console.log('Employees fetch error:', err));
+    };
+
+    // Navigation function for Employee List
+    const toEmployeeList = (e) => {
+        if (e) e.preventDefault();
+        fetchEmployees();
+        setCurrentPage('employee-list');
+    };
+
+    // Employee Form Submit Handler
+    const handleEmployeeSubmit = (e) => {
+        e.preventDefault();
+        const data = {
+            name: e.target.name.value,
+            father_name: e.target.father_name.value,
+            position: e.target.position.value,
+            email: e.target.email.value,
+            contact: e.target.contact.value,
+            address: e.target.address.value
+        };
+
+        fetch('https://hamzaparas-apex-code.hf.space/api/employees', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                alert('✅ Employee Added Successfully!');
+                e.target.reset();
+                fetchEmployees(); // List ko refresh karo
+            } else {
+                alert('🚫 Error: ' + data.message);
+            }
+        })
+        .catch(err => alert('🚫 Network Error!'));
+    };
     const [jobToEdit, setJobToEdit] = React.useState(null); // null = Naya Job, value = Edit ho raha hai
     const [selectedJobDescription, setSelectedJobDescription] = React.useState(null); // Description Modal
     const [selectedJobForApply, setSelectedJobForApply] = React.useState(null); // Apply Form ke liye job
@@ -6990,7 +7038,79 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                 React.createElement('button', { type: 'button', onClick: toAdminPanel, className: 'card-btn', style: { width: '100%', marginTop: '15px', background: 'transparent', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '10px', padding: '10px', cursor: 'pointer' } }, 'Cancel') //
             )
         );
-    } else if (currentPage === 'upload-page') {
+    } else if (currentPage === 'employee-list') {
+        const empInputStyle = {
+            width: '100%', padding: '12px 18px', margin: '0 0 15px 0', borderRadius: '10px',
+            border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(255, 255, 255, 0.05)',
+            color: '#fff', fontSize: '0.95rem', outline: 'none', boxSizing: 'border-box'
+        };
+
+        // Search logic filter
+        const filteredEmployees = employees.filter(emp => 
+            emp.name.toLowerCase().includes(employeeSearchQuery.toLowerCase()) || 
+            emp.position.toLowerCase().includes(employeeSearchQuery.toLowerCase())
+        );
+
+        mainElement = React.createElement('main', { className: 'services-page', style: { padding: '40px 20px', minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center' } },
+            React.createElement('button', { className: 'card-btn', style: { marginBottom: '20px', borderColor: 'rgba(255,255,255,0.3)' }, onClick: toAdminPanel }, '← Back to Admin Dashboard'),
+            
+            React.createElement('h2', { style: { color: '#00e28c', fontSize: '2.2rem', marginBottom: '30px', textAlign: 'center' } }, 'Employee Management 👥'),
+
+            // 1. ADD NEW EMPLOYEE FORM
+            React.createElement('form', { 
+                onSubmit: handleEmployeeSubmit, 
+                style: { width: '100%', maxWidth: '600px', background: 'rgba(20, 20, 30, 0.75)', padding: '35px 30px', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '50px' } 
+            },
+                React.createElement('h3', { style: { color: '#fff', marginBottom: '20px', textAlign: 'center' } }, 'Add New Employee'),
+                
+                React.createElement('div', { style: { display: 'flex', gap: '15px' } },
+                    React.createElement('input', { type: 'text', name: 'name', placeholder: 'Name', required: true, style: { ...empInputStyle, flex: 1 } }),
+                    React.createElement('input', { type: 'text', name: 'father_name', placeholder: "Father's Name", required: true, style: { ...empInputStyle, flex: 1 } })
+                ),
+                React.createElement('div', { style: { display: 'flex', gap: '15px' } },
+                    React.createElement('input', { type: 'text', name: 'position', placeholder: 'Position (e.g. React Developer)', required: true, style: { ...empInputStyle, flex: 1 } }),
+                    React.createElement('input', { type: 'text', name: 'contact', placeholder: 'Contact Number', required: true, style: { ...empInputStyle, flex: 1 } })
+                ),
+                React.createElement('input', { type: 'email', name: 'email', placeholder: 'Email Address', required: true, style: empInputStyle }),
+                React.createElement('textarea', { name: 'address', placeholder: 'Home Address', required: true, rows: 2, style: { ...empInputStyle, resize: 'none' } }),
+                
+                React.createElement('button', { type: 'submit', className: 'card-btn', style: { width: '100%', background: 'linear-gradient(90deg, #00e28c, #00f2fe)', color: '#000', fontWeight: 'bold', border: 'none', padding: '14px', borderRadius: '10px' } }, 'Add Employee ➕')
+            ),
+
+            // 2. SEARCH & LIST EMPLOYEES
+            React.createElement('div', { style: { width: '100%', maxWidth: '800px' } },
+                React.createElement('h3', { style: { color: '#fff', marginBottom: '15px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' } }, 'Staff Directory'),
+                
+                // Search Bar
+                React.createElement('input', { 
+                    type: 'text', 
+                    placeholder: '🔍 Search by Name or Position...', 
+                    value: employeeSearchQuery,
+                    onChange: (e) => setEmployeeSearchQuery(e.target.value),
+                    style: { ...empInputStyle, background: 'rgba(0,0,0,0.3)', border: '1px solid #00e28c', marginBottom: '25px' } 
+                }),
+
+                // Employee Cards Grid
+                React.createElement('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' } },
+                    filteredEmployees.length === 0 ? 
+                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)' } }, 'No employees found.') :
+                        filteredEmployees.map(emp => React.createElement('div', {
+                            key: emp.id,
+                            style: { background: 'rgba(255, 255, 255, 0.03)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '20px', position: 'relative' }
+                        },
+                            React.createElement('h4', { style: { color: '#00e28c', margin: '0 0 5px 0', fontSize: '1.2rem' } }, emp.name),
+                            React.createElement('p', { style: { margin: '0 0 15px 0', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' } }, emp.position),
+                            
+                            React.createElement('div', { style: { fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' } },
+                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Father: '), emp.father_name),
+                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Email: '), emp.email),
+                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Phone: '), emp.contact),
+                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Address: '), emp.address)
+                            )
+                        ))
+                )
+            )
+        );} else if (currentPage === 'upload-page') {
         mainElement = React.createElement('main', {
             className: 'main-content',
             style: {
@@ -11056,7 +11176,18 @@ React.createElement('div', {
                             boxShadow: '0 4px 20px rgba(255, 0, 128, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
                         }
                     }, 'Update Password 🔑'),
-
+// 👥 EMPLOYEE LIST BUTTON (NEW)
+                    React.createElement('button', {
+                        onClick: toEmployeeList,
+                        className: 'card-btn',
+                        style: {
+                            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                            width: '100%', marginBottom: '14px', padding: '12px', fontSize: '0.9rem', fontWeight: '600',
+                            color: '#00e28c', background: 'linear-gradient(90deg, rgba(0, 224, 140, 0.12), rgba(0, 224, 140, 0.02))',
+                            border: '1px solid rgba(0, 224, 140, 0.35)', borderRadius: '14px', cursor: 'pointer',
+                            boxShadow: '0 4px 20px rgba(0, 224, 140, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+                        }
+                    }, 'Employee List 👥'),
                     // 3️⃣ LOGOUT BUTTON
                     React.createElement('button', {
                         onClick: handleLogout,
