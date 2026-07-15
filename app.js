@@ -816,7 +816,12 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             email: e.target.email.value,
             contact: e.target.contact.value,
             address: e.target.address.value,
-            date_of_join: e.target.date_of_join.value // ✅ Nayi Date Field
+            date_of_join: e.target.date_of_join.value,
+            serial_no: e.target.serial_no.value,          // 👈 Naya data collect kiya
+            cnic: e.target.cnic.value,                    // 👈 Naya data collect kiya
+            date_of_resign: e.target.date_of_resign.value, // 👈 Naya data collect kiya
+            status: e.target.status.value    ,
+            address: e.target.address.value             // 👈 Naya data collect kiya
         };
 
         const isEditing = employeeToEdit !== null;
@@ -7110,19 +7115,47 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                     }, 'Cancel Edit ✖')
                 ),
                 
+               // --- Row 1: Serial No & CNIC ---
+                React.createElement('div', { style: { display: 'flex', gap: '15px' } },
+                    React.createElement('input', { type: 'text', name: 'serial_no', placeholder: 'Serial No (e.g. EMP-01)', defaultValue: employeeToEdit ? employeeToEdit.serial_no : '', required: true, style: { ...empInputStyle, flex: 1 } }),
+                    React.createElement('input', { type: 'text', name: 'cnic', placeholder: 'CNIC Number (e.g. 42101-XXXXXXX-X)', defaultValue: employeeToEdit ? employeeToEdit.cnic : '', required: true, style: { ...empInputStyle, flex: 1 } })
+                ),
+
+                // --- Row 2: Name & Father Name ---
                 React.createElement('div', { style: { display: 'flex', gap: '15px' } },
                     React.createElement('input', { type: 'text', name: 'name', placeholder: 'Name', defaultValue: employeeToEdit ? employeeToEdit.name : '', required: true, style: { ...empInputStyle, flex: 1 } }),
                     React.createElement('input', { type: 'text', name: 'father_name', placeholder: "Father's Name", defaultValue: employeeToEdit ? employeeToEdit.father_name : '', required: true, style: { ...empInputStyle, flex: 1 } })
                 ),
+
+                // --- Row 3: Position & Contact ---
                 React.createElement('div', { style: { display: 'flex', gap: '15px' } },
-                    React.createElement('input', { type: 'text', name: 'position', placeholder: 'Position (e.g. React Developer)', defaultValue: employeeToEdit ? employeeToEdit.position : '', required: true, style: { ...empInputStyle, flex: 1 } }),
+                    React.createElement('input', { type: 'text', name: 'position', placeholder: 'Position', defaultValue: employeeToEdit ? employeeToEdit.position : '', required: true, style: { ...empInputStyle, flex: 1 } }),
                     React.createElement('input', { type: 'text', name: 'contact', placeholder: 'Contact Number', defaultValue: employeeToEdit ? employeeToEdit.contact : '', required: true, style: { ...empInputStyle, flex: 1 } })
                 ),
-                React.createElement('div', { style: { display: 'flex', gap: '15px' } },
-                    React.createElement('input', { type: 'email', name: 'email', placeholder: 'Email Address', defaultValue: employeeToEdit ? employeeToEdit.email : '', required: true, style: { ...empInputStyle, flex: 1 } }),
-                    // ✅ Nayi Date Field Input
-                    React.createElement('input', { type: 'date', name: 'date_of_join', defaultValue: employeeToEdit ? employeeToEdit.date_of_join : '', required: true, style: { ...empInputStyle, flex: 1, color: 'rgba(255,255,255,0.7)' } })
+
+                // --- Row 4: Date of Join & Date of Resign ---
+                React.createElement('div', { style: { display: 'flex', gap: '15px', alignItems: 'center' } },
+                    React.createElement('div', { style: { flex: 1 } },
+                        React.createElement('label', { style: { color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', display: 'block', marginBottom: '4px' } }, 'Date of Join:'),
+                        React.createElement('input', { type: 'date', name: 'date_of_join', defaultValue: employeeToEdit ? employeeToEdit.date_of_join : '', required: true, style: { ...empInputStyle, color: '#fff' } })
+                    ),
+                    React.createElement('div', { style: { flex: 1 } },
+                        React.createElement('label', { style: { color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', display: 'block', marginBottom: '4px' } }, 'Date of Resign (Type Date or Present):'),
+                        React.createElement('input', { type: 'text', name: 'date_of_resign', placeholder: 'Present or YYYY-MM-DD', defaultValue: employeeToEdit ? employeeToEdit.date_of_resign : 'Present', required: true, style: empInputStyle })
+                    )
                 ),
+
+                // --- Row 5: Email & Status Dropdown ---
+                React.createElement('div', { style: { display: 'flex', gap: '15px', alignItems: 'center' } },
+                    React.createElement('input', { type: 'email', name: 'email', placeholder: 'Email Address', defaultValue: employeeToEdit ? employeeToEdit.email : '', required: true, style: { ...empInputStyle, flex: 1, margin: 0 } }),
+                    React.createElement('select', { name: 'status', defaultValue: employeeToEdit ? employeeToEdit.status : 'Active', style: { ...empInputStyle, flex: 1, margin: 0, background: '#1a1a26', color: '#fff' } },
+                        React.createElement('option', { value: 'Active', style: { background: '#14141e' } }, 'Active 🟢'),
+                        React.createElement('option', { value: 'Resigned', style: { background: '#14141e' } }, 'Resigned 🔴')
+                    )
+                ),
+                
+                // Gap adjustment for Textarea
+                React.createElement('div', { style: { marginTop: '15px' } }),
                 React.createElement('textarea', { name: 'address', placeholder: 'Home Address', defaultValue: employeeToEdit ? employeeToEdit.address : '', required: true, rows: 2, style: { ...empInputStyle, resize: 'none' } }),
                 
                 React.createElement('button', { 
@@ -7162,15 +7195,31 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                                 }, 'Del 🗑️')
                             ),
 
-                            React.createElement('h4', { style: { color: '#00e28c', margin: '0 0 5px 0', fontSize: '1.2rem', paddingRight: '100px' } }, emp.name),
+                            // Employee Title with Serial No
+                            React.createElement('h4', { style: { color: '#00e28c', margin: '0 0 5px 0', fontSize: '1.2rem', paddingRight: '100px' } }, 
+                                `${emp.serial_no ? '[' + emp.serial_no + '] ' : ''}${emp.name}`
+                            ),
                             React.createElement('p', { style: { margin: '0 0 15px 0', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' } }, emp.position),
                             
                             React.createElement('div', { style: { fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' } },
-                                React.createElement('div', null, React.createElement('strong', {style:{color:'#00f2fe'}}, 'Joined: '), emp.date_of_join || 'N/A'), // ✅ Date of Join yahan display hogi
+                                // Status Badge
+                                React.createElement('div', { style: { marginBottom: '8px' } }, 
+                                    React.createElement('span', { 
+                                        style: { 
+                                            padding: '3px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 'bold',
+                                            background: emp.status === 'Resigned' ? 'rgba(255,51,102,0.15)' : 'rgba(0,226,140,0.15)',
+                                            color: emp.status === 'Resigned' ? '#ff3366' : '#00e28c',
+                                            border: `1px solid ${emp.status === 'Resigned' ? 'rgba(255,51,102,0.3)' : 'rgba(0,226,140,0.3)'}`
+                                        } 
+                                    }, emp.status === 'Resigned' ? 'Resigned 🔴' : 'Active 🟢')
+                                ),
+                                React.createElement('div', null, React.createElement('strong', {style:{color:'#00f2fe'}}, 'CNIC: '), emp.cnic || 'N/A'),
+                                React.createElement('div', null, React.createElement('strong', {style:{color:'#00f2fe'}}, 'Joined: '), emp.date_of_join || 'N/A'),
+                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff3366'}}, 'Resigned: '), emp.date_of_resign || 'Present'), // 👈 Resign info display
                                 React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Father: '), emp.father_name),
                                 React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Email: '), emp.email),
                                 React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Phone: '), emp.contact),
-                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Address: '), emp.address)
+                                React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Address: '), emp.address || 'N/A')
                             )
                         ))
                 )
