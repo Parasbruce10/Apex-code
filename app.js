@@ -7211,7 +7211,7 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                                             color: emp.status === 'Resigned' ? '#ff3366' : '#00e28c',
                                             border: `1px solid ${emp.status === 'Resigned' ? 'rgba(255,51,102,0.3)' : 'rgba(0,226,140,0.3)'}`
                                         } 
-                                    }, emp.status === 'Resigned' ? 'Resigned 🔴' : 'Active 🟢')
+                                    }, emp.status === 'Resigned' ? 'Resigned' : 'Active')
                                 ),
                                 React.createElement('div', null, React.createElement('strong', {style:{color:'#00f2fe'}}, 'CNIC: '), emp.cnic || 'N/A'),
                                 React.createElement('div', null, React.createElement('strong', {style:{color:'#00f2fe'}}, 'Joined: '), emp.date_of_join || 'N/A'),
