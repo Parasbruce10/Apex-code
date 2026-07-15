@@ -7149,8 +7149,8 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                 React.createElement('div', { style: { display: 'flex', gap: '15px', alignItems: 'center' } },
                     React.createElement('input', { type: 'email', name: 'email', placeholder: 'Email Address', defaultValue: employeeToEdit ? employeeToEdit.email : '', required: true, style: { ...empInputStyle, flex: 1, margin: 0 } }),
                     React.createElement('select', { name: 'status', defaultValue: employeeToEdit ? employeeToEdit.status : 'Active', style: { ...empInputStyle, flex: 1, margin: 0, background: '#1a1a26', color: '#fff' } },
-                        React.createElement('option', { value: 'Active', style: { background: '#14141e' } }, 'Active 🟢'),
-                        React.createElement('option', { value: 'Resigned', style: { background: '#14141e' } }, 'Resigned 🔴')
+                        React.createElement('option', { value: 'Active', style: { background: '#14141e' } }, 'Active'),
+                        React.createElement('option', { value: 'Resigned', style: { background: '#14141e' } }, 'Resigned')
                     )
                 ),
                 
