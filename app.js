@@ -469,15 +469,37 @@ const PAGE_META = {
 // Floating Contact Widget for WhatsApp & Email
 // Upgraded Floating Contact Widget for WhatsApp & Email
 // Premium Floating Contact Widget
+// Dynamic Collapsible Floating Contact Widget
+// Dynamic Collapsible Floating Contact Widget (Paras Special)
 const FloatingContactWidget = () => {
-    return React.createElement('div', { className: 'floating-contact-sidebar' }, [
-        // 1. WhatsApp Button
+    // State to toggle the contact menu open/closed
+    const [isOpen, setIsOpen] = React.useState(false);
+
+    return React.createElement('div', { 
+        className: `floating-contact-sidebar ${isOpen ? 'active' : ''}` 
+    }, [
+        // 1. MAIN TRIGGER BUTTON (Yeh dabba sab se niche show hoga)
+        React.createElement('button', {
+            key: 'toggle-btn',
+            onClick: () => setIsOpen(!isOpen),
+            className: `floating-contact-trigger ${isOpen ? 'open' : ''}`,
+            title: 'Contact Menu'
+        }, 
+            React.createElement('img', {
+                src: isOpen 
+                    ? 'https://cdn-icons-png.flaticon.com/512/2997/2997911.png'  // Cross (X) Close Icon
+                    : 'https://cdn-icons-png.flaticon.com/512/9374/9374944.png', // Premium 3D Chat Icon (Dabba)
+                alt: 'Toggle Contact'
+            })
+        ),
+
+        // 2. WhatsApp Button (Menu Item - Slide up default)
         React.createElement('a', {
             key: 'whatsapp-btn',
             href: 'https://wa.me/923421287734',
             target: '_blank',
             rel: 'noopener noreferrer',
-            className: 'floating-contact-btn whatsapp',
+            className: 'floating-contact-btn whatsapp menu-item',
             title: 'Chat on WhatsApp'
         }, 
             React.createElement('img', {
@@ -486,13 +508,13 @@ const FloatingContactWidget = () => {
             })
         ),
 
-        // 2. Email Button
+        // 3. Email Button (Menu Item - Slide up default)
         React.createElement('a', {
             key: 'email-btn',
             href: 'mailto:book.apexcode@gmail.com',
             target: '_blank',
             rel: 'noopener noreferrer',
-            className: 'floating-contact-btn email',
+            className: 'floating-contact-btn email menu-item',
             title: 'Send an Email'
         }, 
             React.createElement('img', {

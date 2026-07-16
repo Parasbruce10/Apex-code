@@ -981,93 +981,143 @@
     0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); } /* Do baar duplicated text lagane se breaks nahi aate */
 }
-/* Ultra Premium Floating Sidebar Container */
+/* Container at Right Side - Column-Reverse matches bottom-to-top opening */
+/* Container at Bottom-Right Corner */
 .floating-contact-sidebar {
     position: fixed;
-    right: 25px; /* Screen ke edge se gap */
-    top: 50%;
-    transform: translateY(-50%);
+    right: 25px;
+    bottom: 25px; /* Screen ke bilkul bottom right pe lock kar diya */
     display: flex;
-    flex-direction: column;
-    gap: 18px; /* Buttons ke darmiyan gap */
+    flex-direction: column; /* Is se order sequence bilkul line me chalega */
+    gap: 14px;
     z-index: 999999;
     pointer-events: auto;
 }
 
-/* Core Button Design: Dark Glassmorphism */
-.floating-contact-btn {
+/* Base Styles for WhatsApp & Email Buttons (Hidden State) */
+.floating-contact-btn.menu-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 56px; /* Perfect circular size */
-    height: 56px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
-    background: rgba(15, 15, 25, 0.7); /* Deep premium dark translucent back */
-    backdrop-filter: blur(12px); /* Glass blur effect */
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Minimal soft border */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.15);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring transition */
+    background: rgba(15, 15, 25, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    
+    /* Pehle se chupi hui position (Dabbe ke peeche/niche) */
+    opacity: 0;
+    transform: translateY(30px) scale(0.5); /* Niche dabi rahegi default me */
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Icons Size & Shadow Control */
+/* Jab click karein (ACTIVE State) to upar slide ho kar show ho */
+.floating-contact-sidebar.active .floating-contact-btn.menu-item {
+    opacity: 1;
+    transform: translateY(0) scale(1); /* Smoothly upar aakar size default ho jayega */
+    pointer-events: auto;
+}
+
+/* --- Main Trigger Button Style (Dabba) --- */
+.floating-contact-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); /* Neon Blue Gradient */
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.5), 0 8px 32px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    order: 3; /* CSS Order dynamic lock taake trigger hamesha bottom me rahe */
+}
+
+/* Individual order locking for menu items */
+.whatsapp {
+    order: 2; /* WhatsApp dabbe ke just upar show hoga */
+}
+.email {
+    order: 1; /* Email sabse top par show hoga */
+}
+
+/* Cascading ( बारी बारी ) pop-out animation delay */
+.floating-contact-sidebar.active .whatsapp {
+    transition-delay: 0.05s;
+}
+.floating-contact-sidebar.active .email {
+    transition-delay: 0.12s;
+}
+
+.floating-contact-trigger img {
+    width: 28px !important;
+    height: 28px !important;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+/* Trigger Hover Effect */
+.floating-contact-trigger:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(79, 172, 254, 0.8);
+}
+
+/* Active Open (Close Icon State) */
+.floating-contact-trigger.open {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%); /* Glowing red for close */
+    box-shadow: 0 0 20px rgba(255, 75, 43, 0.5);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg); /* Rotation animation on click */
+}
+
 .floating-contact-btn img {
     width: 26px !important;
     height: 26px !important;
     object-fit: contain;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    transition: transform 0.3s ease;
 }
 
-/* Global Hover interaction (Pops out & shifts left slightly) */
-.floating-contact-btn:hover {
-    transform: scale(1.18) translateX(-6px);
-}
-
-/* 🟢 WhatsApp Glowing Glass Effect */
-.floating-contact-btn.whatsapp {
-    border-color: rgba(37, 211, 102, 0.25);
-}
+/* Icons Hover Animations */
 .floating-contact-btn.whatsapp:hover {
-    background: rgba(37, 211, 102, 0.2); /* Light WhatsApp tint */
-    border-color: rgba(37, 211, 102, 0.6);
-    /* Dual Layer Neon Glow Shadow */
-    box-shadow: 0 0 25px rgba(37, 211, 102, 0.5), 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    background: rgba(37, 211, 102, 0.25);
+    border-color: rgba(37, 211, 102, 0.8);
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
 }
 .floating-contact-btn.whatsapp:hover img {
-    transform: rotate(15deg) scale(1.12); /* Dynamic angle rotation on hover */
-    filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.8)); /* Icon glows */
+    transform: rotate(15deg) scale(1.15);
 }
 
-/* 🔴 Gmail/Email Glowing Glass Effect */
-.floating-contact-btn.email {
-    border-color: rgba(234, 67, 53, 0.25);
-}
 .floating-contact-btn.email:hover {
-    background: rgba(234, 67, 53, 0.2); /* Light Gmail tint */
-    border-color: rgba(234, 67, 53, 0.6);
-    /* Dual Layer Neon Glow Shadow */
-    box-shadow: 0 0 25px rgba(234, 67, 53, 0.5), 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+    background: rgba(234, 67, 53, 0.25);
+    border-color: rgba(234, 67, 53, 0.8);
+    box-shadow: 0 0 25px rgba(234, 67, 53, 0.6);
 }
 .floating-contact-btn.email:hover img {
-    transform: translateY(-3px) scale(1.12); /* Moves slightly up on hover */
-    filter: drop-shadow(0 0 8px rgba(234, 67, 53, 0.8)); /* Icon glows */
+    transform: translateY(-3px) scale(1.1);
 }
 
-/* Responsive Scaling for Mobile Screens */
+/* Mobile responsive settings */
 @media (max-width: 768px) {
     .floating-contact-sidebar {
         right: 15px;
-        gap: 14px;
+        bottom: 15px;
+        gap: 12px;
     }
-    .floating-contact-btn {
-        width: 48px;
-        height: 48px;
+    .floating-contact-trigger {
+        width: 50px;
+        height: 50px;
     }
-    .floating-contact-btn img {
+    .floating-contact-btn.menu-item {
+        width: 44px;
+        height: 44px;
+    }
+    .floating-contact-trigger img, .floating-contact-btn img {
         width: 22px !important;
         height: 22px !important;
     }
