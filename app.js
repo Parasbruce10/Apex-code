@@ -2151,216 +2151,222 @@ const QuickKitApp = () => {
                 // 🖥️ FIXED RESPONSIVE WIDE LAYOUT (100% ERROR FREE)
                 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-                React.createElement('div', {
-                    style: {
-                        width: '100%',
-                        margin: '60px 0',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '40px',
-                        boxSizing: 'border-box'
-                    },
-                    className: 'premium-showcase-container'
-                },
-
-                    // 🌐 Yahan humne dynamic responsive CSS inject kar di hai (Koi extra file/import ki zaroorat nahi)
-                    React.createElement('style', null, `
+                React.createElement('div', { 
+    style: {
+        width: '100%',
+        margin: '60px 0',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '40px',
+        boxSizing: 'border-box'
+    }, 
+    className: 'premium-showcase-container' 
+},
+    
+    // 🌐 Dynamic responsive CSS
+    React.createElement('style', null, `
         @media (max-width: 968px) {
             .res-card {
                 flex-direction: column !important;
+                align-items: flex-start !important; /* Card content starts from left */
                 padding: 24px !important;
                 gap: 24px !important;
             }
             .res-img-wrap {
                 flex: none !important;
                 width: 100% !important;
+                display: flex !important;
+                justify-content: center !important; /* 🎯 Image centered */
             }
             .res-img {
                 height: 220px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                object-fit: cover !important;
             }
             .res-content {
                 flex: none !important;
                 width: 100% !important;
-                text-align: center !important;
+                text-align: left !important; /* ✍️ Text aligned to start/left */
             }
         }
     `),
 
-                    // 🏷️ CARD 1: Robust Architecture
-                    React.createElement('div', {
-                        className: 'res-card',
-                        style: {
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            gap: '5%',
-                            width: '100%',
-                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
-                            border: '1px solid rgba(255, 255, 255, 0.05)',
-                            borderRadius: '24px',
-                            padding: '40px',
-                            boxSizing: 'border-box',
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-                            transition: 'all 0.3s ease'
-                        }
-                    },
-                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
-                            React.createElement('img', {
-                                src: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=600&auto=format&fit=crop',
-                                alt: 'Software Engineering',
-                                className: 'res-img',
-                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
-                            })
-                        ),
-                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
-                            React.createElement('h4', { style: { color: '#00f2fe', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '01 / Robust Architecture & Deep Engineering'),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Beyond raw aesthetics, true digital transformation rests upon the framework of modern software infrastructure. Our dedicated code architectures are planned with utmost algorithmic precision, deploying decoupled microservices, secure containerization, and advanced asynchronous database pipelines.'),
-                            React.createElement('button', {
-                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #00f2fe', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' }
-                            }, 'Explore Architecture')
-                        )
-                    ),
+    // 🏷️ CARD 1: Robust Architecture
+    React.createElement('div', { 
+        className: 'res-card',
+        style: { 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between', 
+            gap: '5%', 
+            width: '100%',
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            borderRadius: '24px',
+            padding: '40px',
+            boxSizing: 'border-box',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+            transition: 'all 0.3s ease'
+        } 
+    },
+        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+            React.createElement('img', { 
+                src: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=600&auto=format&fit=crop', 
+                alt: 'Software Engineering', 
+                className: 'res-img',
+                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' } 
+            })
+        ),
+        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+            React.createElement('h4', { style: { color: '#00f2fe', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '01 / Robust Architecture & Deep Engineering'),
+            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Beyond raw aesthetics, true digital transformation rests upon the framework of modern software infrastructure. Our dedicated code architectures are planned with utmost algorithmic precision, deploying decoupled microservices, secure containerization, and advanced asynchronous database pipelines.'),
+            React.createElement('button', { 
+                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #00f2fe', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' } 
+            }, 'Explore Architecture')
+        )
+    ),
 
-                    // 🏷️ CARD 2: Next-Gen UI/UX
-                    React.createElement('div', {
-                        className: 'res-card',
-                        style: {
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            gap: '5%',
-                            width: '100%',
-                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
-                            border: '1px solid rgba(255, 255, 255, 0.05)',
-                            borderRadius: '24px',
-                            padding: '40px',
-                            boxSizing: 'border-box',
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-                            transition: 'all 0.3s ease'
-                        }
-                    },
-                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
-                            React.createElement('img', {
-                                src: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=600&auto=format&fit=crop',
-                                alt: 'UI/UX Interactive Design',
-                                className: 'res-img',
-                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
-                            })
-                        ),
-                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
-                            React.createElement('h4', { style: { color: '#ff0080', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '02 / Next-Gen UI/UX & High-Fidelity Frameworks'),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'An interface must seamlessly translate brand values into immersive emotional touchpoints. We deploy professional-grade design research, user path telemetry, and intuitive behavioral mapping to compose visually breathtaking, high-fidelity interfaces.'),
-                            React.createElement('button', {
-                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #ff0080', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(255, 0, 128, 0.2)' }
-                            }, 'View Interface Solutions')
-                        )
-                    ),
+    // 🏷️ CARD 2: Next-Gen UI/UX
+    React.createElement('div', { 
+        className: 'res-card',
+        style: { 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between', 
+            gap: '5%', 
+            width: '100%',
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            borderRadius: '24px',
+            padding: '40px',
+            boxSizing: 'border-box',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+            transition: 'all 0.3s ease'
+        } 
+    },
+        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+            React.createElement('img', { 
+                src: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=600&auto=format&fit=crop', 
+                alt: 'UI/UX Interactive Design', 
+                className: 'res-img',
+                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' } 
+            })
+        ),
+        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+            React.createElement('h4', { style: { color: '#ff0080', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '02 / Next-Gen UI/UX & High-Fidelity Frameworks'),
+            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'An interface must seamlessly translate brand values into immersive emotional touchpoints. We deploy professional-grade design research, user path telemetry, and intuitive behavioral mapping to compose visually breathtaking, high-fidelity interfaces.'),
+            React.createElement('button', { 
+                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #ff0080', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(255, 0, 128, 0.2)' } 
+            }, 'View Interface Solutions')
+        )
+    ),
 
-                    // 🏷️ CARD 3: SEO Dominance
-                    React.createElement('div', {
-                        className: 'res-card',
-                        style: {
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            gap: '5%',
-                            width: '100%',
-                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
-                            border: '1px solid rgba(255, 255, 255, 0.05)',
-                            borderRadius: '24px',
-                            padding: '40px',
-                            boxSizing: 'border-box',
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-                            transition: 'all 0.3s ease'
-                        }
-                    },
-                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
-                            React.createElement('img', {
-                                src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop',
-                                alt: 'SEO Analytics',
-                                className: 'res-img',
-                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
-                            })
-                        ),
-                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
-                            React.createElement('h4', { style: { color: '#10b981', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '03 / Data-Driven SEO Optimization Engines'),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Digital relevance demands absolute structural synchronicity with Search Engine algorithms. Our core optimizations run deep, engineering structural schema-markups, comprehensive semantical search structures, and highly advanced crawling protocols.'),
-                            React.createElement('button', {
-                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #10b981', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(16, 185, 129, 0.2)' }
-                            }, 'Optimize Domain')
-                        )
-                    ),
+    // 🏷️ CARD 3: SEO Dominance
+    React.createElement('div', { 
+        className: 'res-card',
+        style: { 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between', 
+            gap: '5%', 
+            width: '100%',
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            borderRadius: '24px',
+            padding: '40px',
+            boxSizing: 'border-box',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+            transition: 'all 0.3s ease'
+        } 
+    },
+        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+            React.createElement('img', { 
+                src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop', 
+                alt: 'SEO Analytics', 
+                className: 'res-img',
+                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' } 
+            })
+        ),
+        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+            React.createElement('h4', { style: { color: '#10b981', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '03 / Data-Driven SEO Optimization Engines'),
+            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Digital relevance demands absolute structural synchronicity with Search Engine algorithms. Our core optimizations run deep, engineering structural schema-markups, comprehensive semantical search structures, and highly advanced crawling protocols.'),
+            React.createElement('button', { 
+                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #10b981', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(16, 185, 129, 0.2)' } 
+            }, 'Optimize Domain')
+        )
+    ),
 
-                    // 🏷️ CARD 4: Programmatic Ads
-                    React.createElement('div', {
-                        className: 'res-card',
-                        style: {
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            gap: '5%',
-                            width: '100%',
-                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
-                            border: '1px solid rgba(255, 255, 255, 0.05)',
-                            borderRadius: '24px',
-                            padding: '40px',
-                            boxSizing: 'border-box',
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-                            transition: 'all 0.3s ease'
-                        }
-                    },
-                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
-                            React.createElement('img', {
-                                src: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop',
-                                alt: 'Ad Integration Strategy',
-                                className: 'res-img',
-                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
-                            })
-                        ),
-                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
-                            React.createElement('h4', { style: { color: '#eab308', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '04 / Programmatic Ad Integration & Monetization'),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Transform your massive visitor pools into continuous streams of predictable digital capital. We specialize in automated, programmatic ad infrastructure deployments, engineering advanced layout matrices for premium networks.'),
-                            React.createElement('button', {
-                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #eab308', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(234, 179, 8, 0.2)' }
-                            }, 'Maximize Yield')
-                        )
-                    ),
+    // 🏷️ CARD 4: Programmatic Ads
+    React.createElement('div', { 
+        className: 'res-card',
+        style: { 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between', 
+            gap: '5%', 
+            width: '100%',
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            borderRadius: '24px',
+            padding: '40px',
+            boxSizing: 'border-box',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+            transition: 'all 0.3s ease'
+        } 
+    },
+        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+            React.createElement('img', { 
+                src: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop', 
+                alt: 'Ad Integration Strategy', 
+                className: 'res-img',
+                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' } 
+            })
+        ),
+        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+            React.createElement('h4', { style: { color: '#eab308', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '04 / Programmatic Ad Integration & Monetization'),
+            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Transform your massive visitor pools into continuous streams of predictable digital capital. We specialize in automated, programmatic ad infrastructure deployments, engineering advanced layout matrices for premium networks.'),
+            React.createElement('button', { 
+                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #eab308', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(234, 179, 8, 0.2)' } 
+            }, 'Maximize Yield')
+        )
+    ),
 
-                    // 🏷️ CARD 5: Continuous DevOps
-                    React.createElement('div', {
-                        className: 'res-card',
-                        style: {
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            gap: '5%',
-                            width: '100%',
-                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
-                            border: '1px solid rgba(255, 255, 255, 0.05)',
-                            borderRadius: '24px',
-                            padding: '40px',
-                            boxSizing: 'border-box',
-                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
-                            transition: 'all 0.3s ease'
-                        }
-                    },
-                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
-                            React.createElement('img', {
-                                src: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop',
-                                alt: 'DevOps & Security',
-                                className: 'res-img',
-                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
-                            })
-                        ),
-                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
-                            React.createElement('h4', { style: { color: '#a855f7', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '05 / Continuous DevOps Operations & Auditing'),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Launching your platform is merely the initial phase of long-term commercial digital success. We provide comprehensive DevOps deployment pipelines, complete with automatic threat monitoring and cloud safety systems.'),
-                            React.createElement('button', {
-                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #a855f7', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(168, 85, 247, 0.2)' }
-                            }, 'Deploy DevOps')
-                        )
-                    )
-                )
+    // 🏷️ CARD 5: Continuous DevOps
+    React.createElement('div', { 
+        className: 'res-card',
+        style: { 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'space-between', 
+            gap: '5%', 
+            width: '100%',
+            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            borderRadius: '24px',
+            padding: '40px',
+            boxSizing: 'border-box',
+            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+            transition: 'all 0.3s ease'
+        } 
+    },
+        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+            React.createElement('img', { 
+                src: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop', 
+                alt: 'DevOps & Security', 
+                className: 'res-img',
+                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' } 
+            })
+        ),
+        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+            React.createElement('h4', { style: { color: '#a855f7', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '05 / Continuous DevOps Operations & Auditing'),
+            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Launching your platform is merely the initial phase of long-term commercial digital success. We provide comprehensive DevOps deployment pipelines, complete with automatic threat monitoring and cloud safety systems.'),
+            React.createElement('button', { 
+                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #a855f7', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(168, 85, 247, 0.2)' } 
+            }, 'Deploy DevOps')
+        )
+    )
+)
             )
 
         );
