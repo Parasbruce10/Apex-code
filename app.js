@@ -161,13 +161,13 @@ const TopFAQSection = () => {
         { question: "Can you help monetize my website with ads?", answer: "Yes, we set up AdSense, Adsterra, or Monetag ad placements designed for strong revenue without hurting your site's user experience or load speed." },
         { question: "What payment methods do you accept?", answer: "We support Sadapay, Raqami, Jazzcash, HBL Bank, UBL Bank, Meezan Bank, NayaPay, Easypaisa, and standard corporate bank transfers for project payments." },
         { question: "How long does a project take to complete?", answer: "It depends on the plan. Basic builds have a quick turnaround, while Standard and Premium plans with database integration or enterprise architecture take longer based on scope." },
-        { 
-            question: "What happens if my website crashes after launch?", 
-            answer: "We provide 6 months of free technical support and crash warranty. If any technical issue, bug, or website crash occurs within this period, our team will fix it immediately at no extra cost." 
+        {
+            question: "What happens if my website crashes after launch?",
+            answer: "We provide 6 months of free technical support and crash warranty. If any technical issue, bug, or website crash occurs within this period, our team will fix it immediately at no extra cost."
         },
-        { 
-            question: "Do you require an advance payment to start the project?", 
-            answer: "Yes, we require a 50% advance payment to initiate the project. The remaining 50% is payable once the project is fully completed, tested, and approved by you before launch." 
+        {
+            question: "Do you require an advance payment to start the project?",
+            answer: "Yes, we require a 50% advance payment to initiate the project. The remaining 50% is payable once the project is fully completed, tested, and approved by you before launch."
         },
         { question: "Who owns the website once it's finished?", answer: "Full ownership transfers to you once payment is completed. Reusing or redistributing our proprietary framework themes without authorization is not permitted." },
         { question: "Do you offer revisions or support after launch?", answer: "Custom development revisions follow the written scope agreed at project start. Pre-built website-for-sale purchases are final, so we recommend reviewing the live preview carefully before booking." }
@@ -482,7 +482,7 @@ const PAGE_META = {
 const FloatingContactWidget = () => {
     // Contact list open/close state
     const [isOpen, setIsOpen] = React.useState(false);
-    
+
     // Chatbox open/close and messages states
     const [isChatOpen, setIsChatOpen] = React.useState(false);
     const [messages, setMessages] = React.useState([
@@ -502,14 +502,14 @@ const FloatingContactWidget = () => {
     // Enhanced English Smart Bot Logic
     const generateBotResponse = (userText) => {
         const text = userText.toLowerCase().trim();
-        
+
         // 1. Greetings & Salutations
         if (
-            text.includes('hi') || 
-            text.includes('hello') || 
-            text.includes('hey') || 
-            text.includes('aoa') || 
-            text.includes('salam') || 
+            text.includes('hi') ||
+            text.includes('hello') ||
+            text.includes('hey') ||
+            text.includes('aoa') ||
+            text.includes('salam') ||
             text.includes('helo') ||
             text.includes('greetings')
         ) {
@@ -518,13 +518,13 @@ const FloatingContactWidget = () => {
 
         // 2. Pricing, Cost, & Budget Queries
         if (
-            text.includes('price') || 
-            text.includes('pricing') || 
-            text.includes('rate') || 
-            text.includes('cost') || 
-            text.includes('pkr') || 
-            text.includes('charges') || 
-            text.includes('plan') || 
+            text.includes('price') ||
+            text.includes('pricing') ||
+            text.includes('rate') ||
+            text.includes('cost') ||
+            text.includes('pkr') ||
+            text.includes('charges') ||
+            text.includes('plan') ||
             text.includes('fee') ||
             text.includes('budget') ||
             text.includes('how much') ||
@@ -532,23 +532,23 @@ const FloatingContactWidget = () => {
             text.includes('expensive')
         ) {
             return "At Apex Code, we offer premium, budget-friendly web solutions tailored to scale your business:\n\n" +
-                   "• 💻 **Starter Package (from 15k PKR):** Perfect for essential business setups, single landing pages, and sleek portfolios.\n" +
-                   "• 🚀 **Standard Custom Site (15,000 to 50,000 PKR):** High-performance, fully custom multi-page React applications with tailored backend integrations.\n" +
-                   "• 📝 **WordPress & CMS Plans:** Easily manageable templates optimized for e-commerce, blogs, and fast turnarounds.\n" +
-                   "• 📈 **SEO & Ads Optimization:** Professional ad setup (AdSense, Monetag, Adsterra) & technical SEO audits to drive organic monetization.\n\n" +
-                   "Would you like us to draft a custom proposal and quote for your project?";
+                "• 💻 **Starter Package (from 15k PKR):** Perfect for essential business setups, single landing pages, and sleek portfolios.\n" +
+                "• 🚀 **Standard Custom Site (15,000 to 50,000 PKR):** High-performance, fully custom multi-page React applications with tailored backend integrations.\n" +
+                "• 📝 **WordPress & CMS Plans:** Easily manageable templates optimized for e-commerce, blogs, and fast turnarounds.\n" +
+                "• 📈 **SEO & Ads Optimization:** Professional ad setup (AdSense, Monetag, Adsterra) & technical SEO audits to drive organic monetization.\n\n" +
+                "Would you like us to draft a custom proposal and quote for your project?";
         }
-        
+
         // 3. Services, Capabilities & Tech Stack Queries
         if (
-            text.includes('service') || 
-            text.includes('build') || 
-            text.includes('develop') || 
-            text.includes('website') || 
-            text.includes('wordpress') || 
-            text.includes('seo') || 
-            text.includes('ads') || 
-            text.includes('kaam') || 
+            text.includes('service') ||
+            text.includes('build') ||
+            text.includes('develop') ||
+            text.includes('website') ||
+            text.includes('wordpress') ||
+            text.includes('seo') ||
+            text.includes('ads') ||
+            text.includes('kaam') ||
             text.includes('work') ||
             text.includes('react') ||
             text.includes('flask') ||
@@ -556,11 +556,11 @@ const FloatingContactWidget = () => {
             text.includes('coder')
         ) {
             return "Apex Code delivers premium development and optimization services designed for growth:\n\n" +
-                   "1. **Custom Web Development:** Custom React frontend + Python/Flask backend apps tailored for high speeds and immersive UX.\n" +
-                   "2. **CMS (WordPress) Development:** Speed-optimized WordPress builds suited for portfolios, business blogs, or active e-commerce shops.\n" +
-                   "3. **Technical SEO Audits:** On-page structure optimization to guarantee indexability and ranking improvements on Google.\n" +
-                   "4. **Monetization Setup:** Expert configuration of high-conversion monetization strategies (Google AdSense, Adsterra, Monetag) without sacrificing site performance.\n\n" +
-                   "Which service aligns with your project goals?";
+                "1. **Custom Web Development:** Custom React frontend + Python/Flask backend apps tailored for high speeds and immersive UX.\n" +
+                "2. **CMS (WordPress) Development:** Speed-optimized WordPress builds suited for portfolios, business blogs, or active e-commerce shops.\n" +
+                "3. **Technical SEO Audits:** On-page structure optimization to guarantee indexability and ranking improvements on Google.\n" +
+                "4. **Monetization Setup:** Expert configuration of high-conversion monetization strategies (Google AdSense, Adsterra, Monetag) without sacrificing site performance.\n\n" +
+                "Which service aligns with your project goals?";
         }
 
         // 4. Team, Owner, & Company Info (Enhances trust!)
@@ -578,12 +578,12 @@ const FloatingContactWidget = () => {
 
         // 5. Contact, Ordering, & Booking Queries
         if (
-            text.includes('order') || 
-            text.includes('book') || 
-            text.includes('buy') || 
-            text.includes('hire') || 
-            text.includes('project') || 
-            text.includes('contact') || 
+            text.includes('order') ||
+            text.includes('book') ||
+            text.includes('buy') ||
+            text.includes('hire') ||
+            text.includes('project') ||
+            text.includes('contact') ||
             text.includes('rabta') ||
             text.includes('whatsapp') ||
             text.includes('email') ||
@@ -591,16 +591,16 @@ const FloatingContactWidget = () => {
             text.includes('phone')
         ) {
             return "Let's turn your vision into code! 🚀 You can reach out directly via our verified official channels:\n\n" +
-                   "💬 **WhatsApp Chat:** +92 342 1287734\n" +
-                   "📧 **Email:** book.apexcode@gmail.com\n\n" +
-                   "Alternatively, close this chat and use the WhatsApp/Email icons in the contact menu, or submit our contact form above, and our development team will connect with you within 24 hours!";
+                "💬 **WhatsApp Chat:** +92 342 1287734\n" +
+                "📧 **Email:** book.apexcode@gmail.com\n\n" +
+                "Alternatively, close this chat and use the WhatsApp/Email icons in the contact menu, or submit our contact form above, and our development team will connect with you within 24 hours!";
         }
 
         // 6. Default Fallback
         return "I apologize, I didn't quite catch that details. For custom quotes, technical queries, or to discuss your specific requirements, please connect with us directly:\n\n" +
-               "📞 **WhatsApp/Call:** 03421287734\n" +
-               "📧 **Email:** book.apexcode@gmail.com\n\n" +
-               "Our team will be delighted to guide you further!";
+            "📞 **WhatsApp/Call:** 03421287734\n" +
+            "📧 **Email:** book.apexcode@gmail.com\n\n" +
+            "Our team will be delighted to guide you further!";
     };
 
     const handleSend = (e) => {
@@ -686,7 +686,7 @@ const FloatingContactWidget = () => {
                 background: 'rgba(255, 255, 255, 0.02)'
             }
         }, [
-            messages.map((msg, index) => 
+            messages.map((msg, index) =>
                 React.createElement('div', {
                     key: index,
                     style: {
@@ -751,9 +751,9 @@ const FloatingContactWidget = () => {
     ]) : null;
 
     return React.createElement(React.Fragment, null, [
-        React.createElement('div', { 
+        React.createElement('div', {
             key: 'contact-sidebar',
-            className: `floating-contact-sidebar ${isOpen ? 'active' : ''}` 
+            className: `floating-contact-sidebar ${isOpen ? 'active' : ''}`
         }, [
             // 1. MAIN TRIGGER BUTTON
             React.createElement('button', {
@@ -761,9 +761,9 @@ const FloatingContactWidget = () => {
                 onClick: () => setIsOpen(!isOpen),
                 className: `floating-contact-trigger ${isOpen ? 'open' : ''}`,
                 title: 'Contact Menu'
-            }, 
+            },
                 React.createElement('img', {
-                    src: isOpen 
+                    src: isOpen
                         ? 'https://cdn-icons-png.flaticon.com/512/2997/2997911.png'  // Close Icon
                         : 'https://cdn-icons-png.flaticon.com/512/9374/9374944.png', // Premium 3D Chat Icon
                     alt: 'Toggle Contact'
@@ -778,7 +778,7 @@ const FloatingContactWidget = () => {
                 rel: 'noopener noreferrer',
                 className: 'floating-contact-btn whatsapp menu-item',
                 title: 'Chat on WhatsApp'
-            }, 
+            },
                 React.createElement('img', {
                     src: 'https://cdn-icons-png.flaticon.com/512/5968/5968841.png',
                     alt: 'WhatsApp'
@@ -790,7 +790,7 @@ const FloatingContactWidget = () => {
                 key: 'chatbot-trigger-btn',
                 onClick: () => {
                     setIsChatOpen(!isChatOpen);
-                    setIsOpen(false); 
+                    setIsOpen(false);
                 },
                 className: 'floating-contact-btn chatbot menu-item',
                 title: 'Apex ChatBot',
@@ -805,7 +805,7 @@ const FloatingContactWidget = () => {
                     padding: '8px',
                     boxShadow: '0 4px 15px rgba(121, 40, 202, 0.4)'
                 }
-            }, 
+            },
                 React.createElement('img', {
                     src: 'https://cdn-icons-png.flaticon.com/512/4712/4712038.png', // Robot AI icon
                     alt: 'Chatbot',
@@ -821,7 +821,7 @@ const FloatingContactWidget = () => {
                 rel: 'noopener noreferrer',
                 className: 'floating-contact-btn email menu-item',
                 title: 'Send an Email'
-            }, 
+            },
                 React.createElement('img', {
                     src: 'https://cdn-icons-png.flaticon.com/512/732/732200.png',
                     alt: 'Email'
@@ -838,7 +838,7 @@ const FloatingContactWidget = () => {
 
 const QuickKitApp = () => {
     const currentYear = 2026;
-const [currentPage, setCurrentPage] = React.useState(() => {
+    const [currentPage, setCurrentPage] = React.useState(() => {
         const initialPage = pathToPage(window.location.pathname);
         const alreadyLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';
         return (ADMIN_ONLY_PAGES.includes(initialPage) && !alreadyLoggedIn) ? 'admin-login' : initialPage;
@@ -898,67 +898,22 @@ const [currentPage, setCurrentPage] = React.useState(() => {
     const [selectedWebsiteDesc, setSelectedWebsiteDesc] = React.useState(null);
     const [selectedWebsiteForOrder, setSelectedWebsiteForOrder] = React.useState(null);
     // 🎯 CAROUSEL COMPONENT - QuickKitApp ke ANDAR define karein
-const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurrentPage }) => {
-    const [currentIndex, setCurrentIndex] = React.useState(0);
-    const trackRef = React.useRef(null);
-    const totalSlides = 4;
-    const gap = 25;
-    
-    // 📱 GET VISIBLE SLIDES BASED ON SCREEN WIDTH
-    const getVisibleSlides = () => {
-        const width = window.innerWidth;
-        if (width <= 600) return 1;
-        if (width <= 1024) return 2;
-        return 3;
-    };
-    
-    // Function to slide
-    const slideTo = (index) => {
-        const track = trackRef.current;
-        if (!track) return;
-        const slides = track.querySelectorAll('.action-carousel-slide');
-        if (!slides.length) return;
-        const slideWidth = slides[0]?.offsetWidth || 0;
-        const visible = getVisibleSlides();
-        const maxIndex = Math.max(0, totalSlides - visible);
-        const safeIndex = Math.max(0, Math.min(maxIndex, index));
-        track.style.transform = `translateX(-${safeIndex * (slideWidth + gap)}px)`;
-        track.dataset.index = safeIndex;
-        setCurrentIndex(safeIndex);
-    };
-    
-    // Next slide function
-    const nextSlide = () => {
-        const visible = getVisibleSlides();
-        const maxIndex = Math.max(0, totalSlides - visible);
-        setCurrentIndex(prev => {
-            const next = prev < maxIndex ? prev + 1 : 0;
-            setTimeout(() => slideTo(next), 50);
-            return next;
-        });
-    };
-    
-    // Previous slide function
-    const prevSlide = () => {
-        const visible = getVisibleSlides();
-        const maxIndex = Math.max(0, totalSlides - visible);
-        setCurrentIndex(prev => {
-            const next = prev > 0 ? prev - 1 : maxIndex;
-            setTimeout(() => slideTo(next), 50);
-            return next;
-        });
-    };
-    
-    // Auto-slide effect
-    React.useEffect(() => {
-        setTimeout(() => slideTo(0), 100);
-        const interval = setInterval(nextSlide, 4000);
-        return () => clearInterval(interval);
-    }, []);
-    
-    // Handle window resize
-    React.useEffect(() => {
-        const handleResize = () => {
+    const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurrentPage }) => {
+        const [currentIndex, setCurrentIndex] = React.useState(0);
+        const trackRef = React.useRef(null);
+        const totalSlides = 4;
+        const gap = 25;
+
+        // 📱 GET VISIBLE SLIDES BASED ON SCREEN WIDTH
+        const getVisibleSlides = () => {
+            const width = window.innerWidth;
+            if (width <= 600) return 1;
+            if (width <= 1024) return 2;
+            return 3;
+        };
+
+        // Function to slide
+        const slideTo = (index) => {
             const track = trackRef.current;
             if (!track) return;
             const slides = track.querySelectorAll('.action-carousel-slide');
@@ -966,175 +921,220 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             const slideWidth = slides[0]?.offsetWidth || 0;
             const visible = getVisibleSlides();
             const maxIndex = Math.max(0, totalSlides - visible);
-            let current = parseInt(track.dataset.index || '0');
-            if (current > maxIndex) {
-                current = maxIndex;
-                track.dataset.index = current;
-                setCurrentIndex(current);
-            }
-            track.style.transform = `translateX(-${current * (slideWidth + gap)}px)`;
+            const safeIndex = Math.max(0, Math.min(maxIndex, index));
+            track.style.transform = `translateX(-${safeIndex * (slideWidth + gap)}px)`;
+            track.dataset.index = safeIndex;
+            setCurrentIndex(safeIndex);
         };
-        
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
-    
-    return React.createElement('div', { className: 'action-carousel-wrapper' },
-        
-        // LEFT ARROW
-        React.createElement('button', {
-            className: 'carousel-arrow-btn left',
-            onClick: (e) => {
-                e.stopPropagation();
-                prevSlide();
-            }
-        }, '‹'),
-        
-        // TRACK
-        React.createElement('div', {
-            ref: trackRef,
-            className: 'action-carousel-track',
-            'data-index': '0',
-            style: { display: 'flex', gap: '25px' }
-        },
-            // Card 1: Services
-            React.createElement('div', { className: 'action-carousel-slide' },
-                React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(0, 242, 254, 0.1)' } },
-                    React.createElement('div', null,
-                        React.createElement('div', {
-                            className: 'card-image-mockup',
-                            style: { background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(0,0,0,0.4))' }
-                        },
-                            React.createElement('div', { style: { width: '85%', height: '60%', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(0, 242, 254, 0.2)' } },
-                                React.createElement('div', { style: { display: 'flex', gap: '8px', flexWrap: 'wrap' } },
-                                    React.createElement('div', { style: { width: '40%', height: '12px', background: '#00f2fe', borderRadius: '3px' } }),
-                                    React.createElement('div', { style: { width: '30%', height: '12px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px' } }),
-                                    React.createElement('div', { style: { width: '20%', height: '12px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px' } })
-                                ),
-                                React.createElement('div', { style: { width: '100%', height: '4px', background: 'rgba(255,255,255,0.1)', marginTop: '12px', borderRadius: '2px' } }),
-                                React.createElement('div', { style: { width: '70%', height: '4px', background: 'rgba(255,255,255,0.1)', marginTop: '6px', borderRadius: '2px' } })
-                            )
-                        ),
-                        React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                            React.createElement('span', { style: { color: '#00f2fe', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'PRIMARY CTA'),
-                            React.createElement('div', { className: 'badge-glow-cyan', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00f2fe' } })
-                        ),
-                        React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Explore Services'),
-                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Triggers the main services array. Routes users to premium development architectures.')
-                    ),
-                    React.createElement('div', {
-                        onClick: toServices, className: 'inline-action-btn',
-                        style: { color: '#00f2fe', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
-                    }, 'Execute Pathway toServices() →')
-                )
-            ),
-            
-            // Card 2: Portfolio
-            React.createElement('div', { className: 'action-carousel-slide' },
-                React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(255, 0, 128, 0.1)' } },
-                    React.createElement('div', null,
-                        React.createElement('div', {
-                            className: 'card-image-mockup',
-                            style: { background: 'linear-gradient(135deg, rgba(255, 0, 128, 0.15), rgba(0,0,0,0.4))' }
-                        },
-                            React.createElement('div', { style: { display: 'flex', gap: '8px', width: '85%' } },
-                                React.createElement('div', { style: { flex: '1', height: '55px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 0, 128, 0.2)', padding: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' } },
-                                    React.createElement('div', { style: { width: '100%', height: '20px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px' } }),
-                                    React.createElement('div', { style: { width: '50%', height: '6px', background: '#ff0080', borderRadius: '2px' } })
-                                ),
-                                React.createElement('div', { style: { flex: '1', height: '55px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)', padding: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' } },
-                                    React.createElement('div', { style: { width: '100%', height: '20px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px' } }),
-                                    React.createElement('div', { style: { width: '50%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
+
+        // Next slide function
+        const nextSlide = () => {
+            const visible = getVisibleSlides();
+            const maxIndex = Math.max(0, totalSlides - visible);
+            setCurrentIndex(prev => {
+                const next = prev < maxIndex ? prev + 1 : 0;
+                setTimeout(() => slideTo(next), 50);
+                return next;
+            });
+        };
+
+        // Previous slide function
+        const prevSlide = () => {
+            const visible = getVisibleSlides();
+            const maxIndex = Math.max(0, totalSlides - visible);
+            setCurrentIndex(prev => {
+                const next = prev > 0 ? prev - 1 : maxIndex;
+                setTimeout(() => slideTo(next), 50);
+                return next;
+            });
+        };
+
+        // Auto-slide effect
+        React.useEffect(() => {
+            setTimeout(() => slideTo(0), 100);
+            const interval = setInterval(nextSlide, 4000);
+            return () => clearInterval(interval);
+        }, []);
+
+        // Handle window resize
+        React.useEffect(() => {
+            const handleResize = () => {
+                const track = trackRef.current;
+                if (!track) return;
+                const slides = track.querySelectorAll('.action-carousel-slide');
+                if (!slides.length) return;
+                const slideWidth = slides[0]?.offsetWidth || 0;
+                const visible = getVisibleSlides();
+                const maxIndex = Math.max(0, totalSlides - visible);
+                let current = parseInt(track.dataset.index || '0');
+                if (current > maxIndex) {
+                    current = maxIndex;
+                    track.dataset.index = current;
+                    setCurrentIndex(current);
+                }
+                track.style.transform = `translateX(-${current * (slideWidth + gap)}px)`;
+            };
+
+            window.addEventListener('resize', handleResize);
+            return () => window.removeEventListener('resize', handleResize);
+        }, []);
+
+        return React.createElement('div', { className: 'action-carousel-wrapper' },
+
+            // LEFT ARROW
+            React.createElement('button', {
+                className: 'carousel-arrow-btn left',
+                onClick: (e) => {
+                    e.stopPropagation();
+                    prevSlide();
+                }
+            }, '‹'),
+
+            // TRACK
+            React.createElement('div', {
+                ref: trackRef,
+                className: 'action-carousel-track',
+                'data-index': '0',
+                style: { display: 'flex', gap: '25px' }
+            },
+                // Card 1: Services
+                React.createElement('div', { className: 'action-carousel-slide' },
+                    React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(0, 242, 254, 0.1)' } },
+                        React.createElement('div', null,
+                            React.createElement('div', {
+                                className: 'card-image-mockup',
+                                style: { background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.15), rgba(0,0,0,0.4))' }
+                            },
+                                React.createElement('div', { style: { width: '85%', height: '60%', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(0, 242, 254, 0.2)' } },
+                                    React.createElement('div', { style: { display: 'flex', gap: '8px', flexWrap: 'wrap' } },
+                                        React.createElement('div', { style: { width: '40%', height: '12px', background: '#00f2fe', borderRadius: '3px' } }),
+                                        React.createElement('div', { style: { width: '30%', height: '12px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px' } }),
+                                        React.createElement('div', { style: { width: '20%', height: '12px', background: 'rgba(255,255,255,0.2)', borderRadius: '3px' } })
+                                    ),
+                                    React.createElement('div', { style: { width: '100%', height: '4px', background: 'rgba(255,255,255,0.1)', marginTop: '12px', borderRadius: '2px' } }),
+                                    React.createElement('div', { style: { width: '70%', height: '4px', background: 'rgba(255,255,255,0.1)', marginTop: '6px', borderRadius: '2px' } })
                                 )
-                            )
+                            ),
+                            React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
+                                React.createElement('span', { style: { color: '#00f2fe', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'PRIMARY CTA'),
+                                React.createElement('div', { className: 'badge-glow-cyan', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00f2fe' } })
+                            ),
+                            React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Explore Services'),
+                            React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Triggers the main services array. Routes users to premium development architectures.')
                         ),
-                        React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                            React.createElement('span', { style: { color: '#ff0080', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'SECONDARY CTA'),
-                            React.createElement('div', { className: 'badge-glow-pink', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ff0080' } })
+                        React.createElement('div', {
+                            onClick: toServices, className: 'inline-action-btn',
+                            style: { color: '#00f2fe', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
+                        }, 'Execute Pathway toServices() →')
+                    )
+                ),
+
+                // Card 2: Portfolio
+                React.createElement('div', { className: 'action-carousel-slide' },
+                    React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(255, 0, 128, 0.1)' } },
+                        React.createElement('div', null,
+                            React.createElement('div', {
+                                className: 'card-image-mockup',
+                                style: { background: 'linear-gradient(135deg, rgba(255, 0, 128, 0.15), rgba(0,0,0,0.4))' }
+                            },
+                                React.createElement('div', { style: { display: 'flex', gap: '8px', width: '85%' } },
+                                    React.createElement('div', { style: { flex: '1', height: '55px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 0, 128, 0.2)', padding: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' } },
+                                        React.createElement('div', { style: { width: '100%', height: '20px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px' } }),
+                                        React.createElement('div', { style: { width: '50%', height: '6px', background: '#ff0080', borderRadius: '2px' } })
+                                    ),
+                                    React.createElement('div', { style: { flex: '1', height: '55px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)', padding: '6px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' } },
+                                        React.createElement('div', { style: { width: '100%', height: '20px', background: 'rgba(255,255,255,0.05)', borderRadius: '4px' } }),
+                                        React.createElement('div', { style: { width: '50%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
+                                    )
+                                )
+                            ),
+                            React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
+                                React.createElement('span', { style: { color: '#ff0080', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'SECONDARY CTA'),
+                                React.createElement('div', { className: 'badge-glow-pink', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ff0080' } })
+                            ),
+                            React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'View Portfolio'),
+                            React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Initializes the live builds matrix. Grants immediate analytical access to production case studies.')
                         ),
-                        React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'View Portfolio'),
-                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Initializes the live builds matrix. Grants immediate analytical access to production case studies.')
-                    ),
-                    React.createElement('div', {
-                        onClick: toPortfolio, className: 'inline-action-btn',
-                        style: { color: '#ff0080', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
-                    }, 'Execute Pathway toPortfolio() →')
+                        React.createElement('div', {
+                            onClick: toPortfolio, className: 'inline-action-btn',
+                            style: { color: '#ff0080', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
+                        }, 'Execute Pathway toPortfolio() →')
+                    )
+                ),
+
+                // Card 3: Marketplace
+                React.createElement('div', { className: 'action-carousel-slide' },
+                    React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(0, 224, 140, 0.1)' } },
+                        React.createElement('div', null,
+                            React.createElement('div', {
+                                className: 'card-image-mockup',
+                                style: { background: 'linear-gradient(135deg, rgba(0, 224, 140, 0.15), rgba(0,0,0,0.4))' }
+                            },
+                                React.createElement('div', { style: { width: '85%', height: '60%', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(0, 224, 140, 0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                                    React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px', width: '60%' } },
+                                        React.createElement('div', { style: { width: '100%', height: '8px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } }),
+                                        React.createElement('div', { style: { width: '70%', height: '6px', background: '#00e28c', borderRadius: '2px' } })
+                                    ),
+                                    React.createElement('div', { style: { width: '30px', height: '20px', background: 'rgba(0, 224, 140, 0.2)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', color: '#00e28c', fontWeight: 'bold' } }, '$')
+                                )
+                            ),
+                            React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
+                                React.createElement('span', { style: { color: '#00e28c', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'COMMERCE BRIDGE'),
+                                React.createElement('div', { className: 'badge-glow-emerald', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00e28c' } })
+                            ),
+                            React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Marketplace Hub'),
+                            React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Establishes direct link-state parameters with the active acquisition marketplace.')
+                        ),
+                        React.createElement('div', {
+                            onClick: toWebsitesForSale, className: 'inline-action-btn',
+                            style: { color: '#00e28c', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
+                        }, 'Execute Pathway toWebsitesForSale() →')
+                    )
+                ),
+
+                // Card 4: Jobs
+                React.createElement('div', { className: 'action-carousel-slide' },
+                    React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(255, 189, 46, 0.1)' } },
+                        React.createElement('div', null,
+                            React.createElement('div', {
+                                className: 'card-image-mockup',
+                                style: { background: 'linear-gradient(135deg, rgba(255, 189, 46, 0.15), rgba(0,0,0,0.4))' }
+                            },
+                                React.createElement('div', { style: { width: '85%', height: '65%', padding: '8px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 189, 46, 0.2)', display: 'flex', flexDirection: 'column', gap: '8px' } },
+                                    React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                                        React.createElement('div', { style: { width: '50%', height: '8px', background: '#ffbd2e', borderRadius: '2px' } }),
+                                        React.createElement('div', { style: { width: '15%', height: '8px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
+                                    ),
+                                    React.createElement('div', { style: { width: '100%', height: '2px', background: 'rgba(255,255,255,0.08)' } }),
+                                    React.createElement('div', { style: { width: '80%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } }),
+                                    React.createElement('div', { style: { width: '90%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
+                                )
+                            ),
+                            React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
+                                React.createElement('span', { style: { color: '#ffbd2e', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'TALENT CORRIDOR'),
+                                React.createElement('div', { className: 'badge-glow-amber', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' } })
+                            ),
+                            React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Career Hub'),
+                            React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Modifies the root UI state variables to mount the available job pipelines.')
+                        ),
+                        React.createElement('div', {
+                            onClick: () => setCurrentPage('available-jobs'), className: 'inline-action-btn',
+                            style: { color: '#ffbd2e', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
+                        }, 'Execute State modification →')
+                    )
                 )
             ),
-            
-            // Card 3: Marketplace
-            React.createElement('div', { className: 'action-carousel-slide' },
-                React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(0, 224, 140, 0.1)' } },
-                    React.createElement('div', null,
-                        React.createElement('div', {
-                            className: 'card-image-mockup',
-                            style: { background: 'linear-gradient(135deg, rgba(0, 224, 140, 0.15), rgba(0,0,0,0.4))' }
-                        },
-                            React.createElement('div', { style: { width: '85%', height: '60%', padding: '10px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(0, 224, 140, 0.2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
-                                React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px', width: '60%' } },
-                                    React.createElement('div', { style: { width: '100%', height: '8px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } }),
-                                    React.createElement('div', { style: { width: '70%', height: '6px', background: '#00e28c', borderRadius: '2px' } })
-                                ),
-                                React.createElement('div', { style: { width: '30px', height: '20px', background: 'rgba(0, 224, 140, 0.2)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.65rem', color: '#00e28c', fontWeight: 'bold' } }, '$')
-                            )
-                        ),
-                        React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                            React.createElement('span', { style: { color: '#00e28c', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'COMMERCE BRIDGE'),
-                            React.createElement('div', { className: 'badge-glow-emerald', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#00e28c' } })
-                        ),
-                        React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Marketplace Hub'),
-                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Establishes direct link-state parameters with the active acquisition marketplace.')
-                    ),
-                    React.createElement('div', {
-                        onClick: toWebsitesForSale, className: 'inline-action-btn',
-                        style: { color: '#00e28c', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
-                    }, 'Execute Pathway toWebsitesForSale() →')
-                )
-            ),
-            
-            // Card 4: Jobs
-            React.createElement('div', { className: 'action-carousel-slide' },
-                React.createElement('div', { className: 'action-detail-card', style: { border: '1px solid rgba(255, 189, 46, 0.1)' } },
-                    React.createElement('div', null,
-                        React.createElement('div', {
-                            className: 'card-image-mockup',
-                            style: { background: 'linear-gradient(135deg, rgba(255, 189, 46, 0.15), rgba(0,0,0,0.4))' }
-                        },
-                            React.createElement('div', { style: { width: '85%', height: '65%', padding: '8px', background: 'rgba(255,255,255,0.03)', borderRadius: '8px', border: '1px solid rgba(255, 189, 46, 0.2)', display: 'flex', flexDirection: 'column', gap: '8px' } },
-                                React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
-                                    React.createElement('div', { style: { width: '50%', height: '8px', background: '#ffbd2e', borderRadius: '2px' } }),
-                                    React.createElement('div', { style: { width: '15%', height: '8px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
-                                ),
-                                React.createElement('div', { style: { width: '100%', height: '2px', background: 'rgba(255,255,255,0.08)' } }),
-                                React.createElement('div', { style: { width: '80%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } }),
-                                React.createElement('div', { style: { width: '90%', height: '6px', background: 'rgba(255,255,255,0.2)', borderRadius: '2px' } })
-                            )
-                        ),
-                        React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' } },
-                            React.createElement('span', { style: { color: '#ffbd2e', fontFamily: 'monospace', fontSize: '0.8rem', fontWeight: '700' } }, 'TALENT CORRIDOR'),
-                            React.createElement('div', { className: 'badge-glow-amber', style: { width: '10px', height: '10px', borderRadius: '50%', background: '#ffbd2e' } })
-                        ),
-                        React.createElement('h3', { style: { color: '#fff', fontSize: '1.25rem', fontWeight: '700', margin: '0 0 10px 0' } }, 'Career Hub'),
-                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.88rem', lineHeight: '1.6', margin: '0' } }, 'Modifies the root UI state variables to mount the available job pipelines.')
-                    ),
-                    React.createElement('div', {
-                        onClick: () => setCurrentPage('available-jobs'), className: 'inline-action-btn',
-                        style: { color: '#ffbd2e', fontSize: '0.85rem', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '6px' }
-                    }, 'Execute State modification →')
-                )
-            )
-        ),
-        
-        // RIGHT ARROW
-        React.createElement('button', {
-            className: 'carousel-arrow-btn right',
-            onClick: (e) => {
-                e.stopPropagation();
-                nextSlide();
-            }
-        }, '›')
-    );
-};
+
+            // RIGHT ARROW
+            React.createElement('button', {
+                className: 'carousel-arrow-btn right',
+                onClick: (e) => {
+                    e.stopPropagation();
+                    nextSlide();
+                }
+            }, '›')
+        );
+    };
 
     // ✅ BACKEND SE SAARI WEBSITES FETCH KARNE WALA FUNCTION
     const fetchWebsites = () => {
@@ -1186,13 +1186,13 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             serial_no: e.target.serial_no.value,          // 👈 Naya data collect kiya
             cnic: e.target.cnic.value,                    // 👈 Naya data collect kiya
             date_of_resign: e.target.date_of_resign.value, // 👈 Naya data collect kiya
-            status: e.target.status.value    ,
+            status: e.target.status.value,
             address: e.target.address.value             // 👈 Naya data collect kiya
         };
 
         const isEditing = employeeToEdit !== null;
-        const url = isEditing 
-            ? `https://hamzaparas-apex-code.hf.space/api/employees/${employeeToEdit.id}` 
+        const url = isEditing
+            ? `https://hamzaparas-apex-code.hf.space/api/employees/${employeeToEdit.id}`
             : 'https://hamzaparas-apex-code.hf.space/api/employees';
         const method = isEditing ? 'PUT' : 'POST';
 
@@ -1201,17 +1201,17 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(data => {
-            if (data.success) {
-                alert(isEditing ? '✅ Employee Updated!' : '✅ Employee Added!');
-                setEmployeeToEdit(null); // Reset form
-                fetchEmployees();
-            } else {
-                alert('🚫 Error: ' + data.message);
-            }
-        })
-        .catch(err => alert('🚫 Network Error!'));
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    alert(isEditing ? '✅ Employee Updated!' : '✅ Employee Added!');
+                    setEmployeeToEdit(null); // Reset form
+                    fetchEmployees();
+                } else {
+                    alert('🚫 Error: ' + data.message);
+                }
+            })
+            .catch(err => alert('🚫 Network Error!'));
     };
 
     // ✅ EMPLOYEE DELETE HANDLER
@@ -1226,7 +1226,7 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             })
             .catch(err => alert('🚫 Delete karne mein error aaya!'));
     };
-    
+
     // ✅ EDIT BUTTON CLICK HANDLER
     const editEmployee = (emp) => {
         setEmployeeToEdit(emp);
@@ -2145,8 +2145,224 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
 
                         'Transform your daily website traffic into a consistent and highly lucrative revenue stream. We expertly manage the integration and optimization of top-tier ad networks such as Google AdSense, Adsterra, Advertica, and Monetag. Our strategic ad placements are meticulously designed to maximize your Click-Through Rates (CTR) and overall revenue, all while maintaining a clean, uninterrupted user experience that keeps your visitors engaged and your page loading speeds lightning fast.'
                     )
+
+                ),
+                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                // 🖥️ FIXED RESPONSIVE WIDE LAYOUT (100% ERROR FREE)
+                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+                React.createElement('div', {
+                    style: {
+                        width: '100%',
+                        margin: '60px 0',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '40px',
+                        boxSizing: 'border-box'
+                    },
+                    className: 'premium-showcase-container'
+                },
+
+                    // 🌐 Yahan humne dynamic responsive CSS inject kar di hai (Koi extra file/import ki zaroorat nahi)
+                    React.createElement('style', null, `
+        @media (max-width: 968px) {
+            .res-card {
+                flex-direction: column !important;
+                padding: 24px !important;
+                gap: 24px !important;
+            }
+            .res-img-wrap {
+                flex: none !important;
+                width: 100% !important;
+            }
+            .res-img {
+                height: 220px !important;
+            }
+            .res-content {
+                flex: none !important;
+                width: 100% !important;
+                text-align: center !important;
+            }
+        }
+    `),
+
+                    // 🏷️ CARD 1: Robust Architecture
+                    React.createElement('div', {
+                        className: 'res-card',
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '5%',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+                            border: '1px solid rgba(255, 255, 255, 0.05)',
+                            borderRadius: '24px',
+                            padding: '40px',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                            transition: 'all 0.3s ease'
+                        }
+                    },
+                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=600&auto=format&fit=crop',
+                                alt: 'Software Engineering',
+                                className: 'res-img',
+                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
+                            })
+                        ),
+                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#00f2fe', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '01 / Robust Architecture & Deep Engineering'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Beyond raw aesthetics, true digital transformation rests upon the framework of modern software infrastructure. Our dedicated code architectures are planned with utmost algorithmic precision, deploying decoupled microservices, secure containerization, and advanced asynchronous database pipelines.'),
+                            React.createElement('button', {
+                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #00f2fe', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(0, 242, 254, 0.2)' }
+                            }, 'Explore Architecture')
+                        )
+                    ),
+
+                    // 🏷️ CARD 2: Next-Gen UI/UX
+                    React.createElement('div', {
+                        className: 'res-card',
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '5%',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+                            border: '1px solid rgba(255, 255, 255, 0.05)',
+                            borderRadius: '24px',
+                            padding: '40px',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                            transition: 'all 0.3s ease'
+                        }
+                    },
+                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?q=80&w=600&auto=format&fit=crop',
+                                alt: 'UI/UX Interactive Design',
+                                className: 'res-img',
+                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
+                            })
+                        ),
+                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#ff0080', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '02 / Next-Gen UI/UX & High-Fidelity Frameworks'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'An interface must seamlessly translate brand values into immersive emotional touchpoints. We deploy professional-grade design research, user path telemetry, and intuitive behavioral mapping to compose visually breathtaking, high-fidelity interfaces.'),
+                            React.createElement('button', {
+                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #ff0080', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(255, 0, 128, 0.2)' }
+                            }, 'View Interface Solutions')
+                        )
+                    ),
+
+                    // 🏷️ CARD 3: SEO Dominance
+                    React.createElement('div', {
+                        className: 'res-card',
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '5%',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+                            border: '1px solid rgba(255, 255, 255, 0.05)',
+                            borderRadius: '24px',
+                            padding: '40px',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                            transition: 'all 0.3s ease'
+                        }
+                    },
+                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop',
+                                alt: 'SEO Analytics',
+                                className: 'res-img',
+                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
+                            })
+                        ),
+                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#10b981', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '03 / Data-Driven SEO Optimization Engines'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Digital relevance demands absolute structural synchronicity with Search Engine algorithms. Our core optimizations run deep, engineering structural schema-markups, comprehensive semantical search structures, and highly advanced crawling protocols.'),
+                            React.createElement('button', {
+                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #10b981', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(16, 185, 129, 0.2)' }
+                            }, 'Optimize Domain')
+                        )
+                    ),
+
+                    // 🏷️ CARD 4: Programmatic Ads
+                    React.createElement('div', {
+                        className: 'res-card',
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '5%',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+                            border: '1px solid rgba(255, 255, 255, 0.05)',
+                            borderRadius: '24px',
+                            padding: '40px',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                            transition: 'all 0.3s ease'
+                        }
+                    },
+                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop',
+                                alt: 'Ad Integration Strategy',
+                                className: 'res-img',
+                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
+                            })
+                        ),
+                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#eab308', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '04 / Programmatic Ad Integration & Monetization'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Transform your massive visitor pools into continuous streams of predictable digital capital. We specialize in automated, programmatic ad infrastructure deployments, engineering advanced layout matrices for premium networks.'),
+                            React.createElement('button', {
+                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #eab308', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(234, 179, 8, 0.2)' }
+                            }, 'Maximize Yield')
+                        )
+                    ),
+
+                    // 🏷️ CARD 5: Continuous DevOps
+                    React.createElement('div', {
+                        className: 'res-card',
+                        style: {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '5%',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.45) 0%, rgba(30, 41, 59, 0.3) 100%)',
+                            border: '1px solid rgba(255, 255, 255, 0.05)',
+                            borderRadius: '24px',
+                            padding: '40px',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                            transition: 'all 0.3s ease'
+                        }
+                    },
+                        React.createElement('div', { className: 'res-img-wrap', style: { flex: '1.2', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=600&auto=format&fit=crop',
+                                alt: 'DevOps & Security',
+                                className: 'res-img',
+                                style: { width: '100%', height: '320px', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.95)' }
+                            })
+                        ),
+                        React.createElement('div', { className: 'res-content', style: { flex: '1.5', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#a855f7', fontSize: '1.6rem', fontWeight: '700', marginBottom: '18px', letterSpacing: '0.5px' } }, '05 / Continuous DevOps Operations & Auditing'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '1.02rem', marginBottom: '25px' } }, 'Launching your platform is merely the initial phase of long-term commercial digital success. We provide comprehensive DevOps deployment pipelines, complete with automatic threat monitoring and cloud safety systems.'),
+                            React.createElement('button', {
+                                style: { padding: '10px 24px', background: 'transparent', color: '#fff', border: '1px solid #a855f7', borderRadius: '30px', fontSize: '0.9rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(168, 85, 247, 0.2)' }
+                            }, 'Deploy DevOps')
+                        )
+                    )
                 )
             )
+
         );
     } else if (currentPage === 'plans') {
         // ✨ NEW DESIGN: Modern Grid Pricing Table (Inspired by image_db1ba2.png)
@@ -4523,7 +4739,244 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
 
                         'Ali acts as the quality shield for Apex Code, maintaining absolute defense against system instabilities or interface flaws. He orchestrates manual inspection routines, designs comprehensive regression protocols, and validates script outputs against intensive performance parameters. His strict inspection pipeline ensures that deployments arrive perfectly secure, zero-bug, and ready for high-volume enterprise production.'
                     )
-                )))
+                ),
+                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                // 👥 PREMIUM TEAM SHOWCASE BLOCK (UPDATED IMAGES)
+                // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+                React.createElement('div', {
+                    style: {
+                        width: '100%',
+                        margin: '60px 0',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: '40px',
+                        boxSizing: 'border-box',
+                        padding: '0 clamp(15px, 3vw, 40px)'
+                    },
+                    className: 'premium-team-wrapper'
+                },
+
+                    // 🌟 PREMIUM TOP GRADIENT BORDER LINE ABOVE HEADING
+                    React.createElement('div', {
+                        style: {
+                            width: '60%',
+                            height: '2px',
+                            background: 'linear-gradient(90deg, transparent 0%, #00f2fe 50%, transparent 100%)',
+                            margin: '0 auto 30px auto',
+                            opacity: '0.6'
+                        }
+                    }),
+
+                    // 🌟 MAIN SECTION HEADING
+                    React.createElement('div', {
+                        style: {
+                            width: '100%',
+                            textAlign: 'center',
+                            marginBottom: '30px'
+                        }
+                    },
+                        React.createElement('h2', {
+                            style: {
+                                fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
+                                fontWeight: '800',
+                                color: '#ffffff',
+                                letterSpacing: '1px',
+                                margin: '0 0 15px 0',
+                                background: 'linear-gradient(90deg, #ffffff 0%, #00f2fe 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent'
+                            }
+                        }, 'Meet Our Elite Engineering Minds'),
+                        React.createElement('p', {
+                            style: {
+                                fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
+                                color: 'rgba(255, 255, 255, 0.5)',
+                                maxWidth: '600px',
+                                margin: '0 auto',
+                                lineHeight: '1.6'
+                            }
+                        }, 'The world-class developers, creative architects, and systems engineers dedicating absolute precision to building your digital reality.')
+                    ),
+
+                    // 👥 MEMBER 1: Lead Software Architect
+                    React.createElement('div', {
+                        style: {
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '30px',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.55) 0%, rgba(30, 41, 59, 0.35) 100%)',
+                            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderRadius: '24px',
+                            padding: 'clamp(30px, 5vw, 50px) clamp(20px, 5vw, 60px)',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 40px 100px rgba(0, 0, 0, 0.7)'
+                        }
+                    },
+                        React.createElement('div', { style: { flex: '1 1 350px', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop', // Working Corporate Tech Portrait
+                                alt: 'Lead Software Engineer',
+                                style: { width: '100%', height: 'clamp(250px, 30vw, 360px)', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.9)' }
+                            })
+                        ),
+                        React.createElement('div', { style: { flex: '1.5 1 400px', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#00f2fe', fontSize: 'clamp(1.4rem, 2vw, 1.85rem)', fontWeight: '700', marginBottom: '5px', letterSpacing: '0.5px' } }, '01 / Senior Systems & Full-Stack Architect'),
+                            React.createElement('div', { style: { color: 'rgba(0, 242, 254, 0.85)', fontSize: '0.9rem', fontWeight: '700', textTransform: 'uppercase', marginBottom: '15px', letterSpacing: '1px' } }, 'Engineering Department'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: 'clamp(0.95rem, 1.1vw, 1.08rem)', marginBottom: '25px' } }, 'Specializing in complex algorithmic structures and heavy-load distributed backends. This engineering powerhouse translates primitive ideas into ultra-scalable enterprise systems, seamlessly managing clean data synchronization pipelines and high-concurrency microservices.'),
+                            React.createElement('button', {
+                                style: { padding: '12px 28px', background: 'transparent', color: '#fff', border: '1px solid #00f2fe', borderRadius: '30px', fontSize: '0.95rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(0, 242, 254, 0.15)' }
+                            }, 'View Technical Portfolio')
+                        )
+                    ),
+
+                    // 👥 MEMBER 2: Creative Director
+                    React.createElement('div', {
+                        style: {
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '30px',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.55) 0%, rgba(30, 41, 59, 0.35) 100%)',
+                            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderRadius: '24px',
+                            padding: 'clamp(30px, 5vw, 50px) clamp(20px, 5vw, 60px)',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 40px 100px rgba(0, 0, 0, 0.7)'
+                        }
+                    },
+                        React.createElement('div', { style: { flex: '1 1 350px', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop', // Working Design Lead Portrait
+                                alt: 'UI/UX Experience Lead',
+                                style: { width: '100%', height: 'clamp(250px, 30vw, 360px)', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.9)' }
+                            })
+                        ),
+                        React.createElement('div', { style: { flex: '1.5 1 400px', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#ff0080', fontSize: 'clamp(1.4rem, 2vw, 1.85rem)', fontWeight: '700', marginBottom: '5px', letterSpacing: '0.5px' } }, '02 / Principal Experience Designer & Brand Strategist'),
+                            React.createElement('div', { style: { color: '#ff0080', fontSize: '0.9rem', fontWeight: '700', textTransform: 'uppercase', marginBottom: '15px', letterSpacing: '1px' } }, 'Creative Direction'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: 'clamp(0.95rem, 1.1vw, 1.08rem)', marginBottom: '25px' } }, 'Fusing emotional behavioral design with extreme user empathy. Our design chief builds hyper-immersive user interfaces that transform simple browsing into memorable brand encounters, utilizing rigorous prototyping, interactive motion systems, and meticulous responsive layout design.'),
+                            React.createElement('button', {
+                                style: { padding: '12px 28px', background: 'transparent', color: '#fff', border: '1px solid #ff0080', borderRadius: '30px', fontSize: '0.95rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(255, 0, 128, 0.15)' }
+                            }, 'Explore Design Case Studies')
+                        )
+                    ),
+
+                    // 👥 MEMBER 3: SEO Lead
+                    React.createElement('div', {
+                        style: {
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '30px',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.55) 0%, rgba(30, 41, 59, 0.3) 100%)',
+                            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderRadius: '24px',
+                            padding: 'clamp(30px, 5vw, 50px) clamp(20px, 5vw, 60px)',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 40px 100px rgba(0, 0, 0, 0.7)'
+                        }
+                    },
+                        React.createElement('div', { style: { flex: '1 1 350px', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=600&auto=format&fit=crop', // Working SEO Analyst Portrait
+                                alt: 'SEO Growth Manager',
+                                style: { width: '100%', height: 'clamp(250px, 30vw, 360px)', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.9)' }
+                            })
+                        ),
+                        React.createElement('div', { style: { flex: '1.5 1 400px', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#10b981', fontSize: 'clamp(1.4rem, 2vw, 1.85rem)', fontWeight: '700', marginBottom: '5px', letterSpacing: '0.5px' } }, '03 / Global Search Optimization & Growth Specialist'),
+                            React.createElement('div', { style: { color: '#10b981', fontSize: '0.9rem', fontWeight: '700', textTransform: 'uppercase', marginBottom: '15px', letterSpacing: '1px' } }, 'Growth & Analytics'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: 'clamp(0.95rem, 1.1vw, 1.08rem)', marginBottom: '25px' } }, 'Our analytical data master maps deep search-engine algorithms to guarantee absolute organic domination. Through high-tier schematic setups, deep keyword taxonomy, and advanced search console performance auditing, domains are engineered to claim top rankings.'),
+                            React.createElement('button', {
+                                style: { padding: '12px 28px', background: 'transparent', color: '#fff', border: '1px solid #10b981', borderRadius: '30px', fontSize: '0.95rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(16, 185, 129, 0.15)' }
+                            }, 'Review Ranking Metrics')
+                        )
+                    ),
+
+                    // 👥 MEMBER 4: Ad-Tech Engineer
+                    React.createElement('div', {
+                        style: {
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '30px',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.55) 0%, rgba(30, 41, 59, 0.35) 100%)',
+                            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderRadius: '24px',
+                            padding: 'clamp(30px, 5vw, 50px) clamp(20px, 5vw, 60px)',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 40px 100px rgba(0, 0, 0, 0.7)'
+                        }
+                    },
+                        React.createElement('div', { style: { flex: '1 1 350px', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=600&auto=format&fit=crop', // High Quality Professional Portrait
+                                alt: 'Ad Integration Strategist',
+                                style: { width: '100%', height: 'clamp(250px, 30vw, 360px)', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.9)' }
+                            })
+                        ),
+                        React.createElement('div', { style: { flex: '1.5 1 400px', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#eab308', fontSize: 'clamp(1.4rem, 2vw, 1.85rem)', fontWeight: '700', marginBottom: '5px', letterSpacing: '0.5px' } }, '04 / Ad-Tech Infrastructure & Revenue Engineer'),
+                            React.createElement('div', { style: { color: '#eab308', fontSize: '0.9rem', fontWeight: '700', textTransform: 'uppercase', marginBottom: '15px', letterSpacing: '1px' } }, 'Monetization Department'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: 'clamp(0.95rem, 1.1vw, 1.08rem)', marginBottom: '25px' } }, 'Maximizing yield optimization with flawless execution. This specialist deploys custom header-bidding scripts, handles direct programmatic server-side pipelines, and perfectly structures high-value ad placements without breaking layout stability or user engagement metrics.'),
+                            React.createElement('button', {
+                                style: { padding: '12px 28px', background: 'transparent', color: '#fff', border: '1px solid #eab308', borderRadius: '30px', fontSize: '0.95rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(234, 179, 8, 0.15)' }
+                            }, 'See Revenue Case Studies')
+                        )
+                    ),
+
+                    // 👥 MEMBER 5: Cloud Security Expert
+                    React.createElement('div', {
+                        style: {
+                            display: 'flex',
+                            flexWrap: 'wrap',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            gap: '30px',
+                            width: '100%',
+                            background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.55) 0%, rgba(30, 41, 59, 0.35) 100%)',
+                            borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                            borderRadius: '24px',
+                            padding: 'clamp(30px, 5vw, 50px) clamp(20px, 5vw, 60px)',
+                            boxSizing: 'border-box',
+                            boxShadow: '0 40px 100px rgba(0, 0, 0, 0.7)'
+                        }
+                    },
+                        React.createElement('div', { style: { flex: '1 1 350px', display: 'flex', justifyContent: 'center' } },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600&auto=format&fit=crop', // Secure Server Expert Portrait
+                                alt: 'DevOps Security Specialist',
+                                style: { width: '100%', height: 'clamp(250px, 30vw, 360px)', objectFit: 'cover', borderRadius: '16px', filter: 'brightness(0.9)' }
+                            })
+                        ),
+                        React.createElement('div', { style: { flex: '1.5 1 400px', color: 'rgba(255, 255, 255, 0.9)', textAlign: 'left' } },
+                            React.createElement('h4', { style: { color: '#a855f7', fontSize: 'clamp(1.4rem, 2vw, 1.85rem)', fontWeight: '700', marginBottom: '5px', letterSpacing: '0.5px' } }, '05 / Principal DevOps Engineer & Cyber Security Lead'),
+                            React.createElement('div', { style: { color: '#a855f7', fontSize: '0.9rem', fontWeight: '700', textTransform: 'uppercase', marginBottom: '15px', letterSpacing: '1px' } }, 'Cloud Operations'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: 'clamp(0.95rem, 1.1vw, 1.08rem)', marginBottom: '25px' } }, 'The digital guardian safeguarding server-side data infrastructure. Controlling strict CI/CD zero-downtime integration pipelines, cloud firewalls, and active multi-threat system monitoring to guarantee total network isolation and bulletproof platform safety.'),
+                            React.createElement('button', {
+                                style: { padding: '12px 28px', background: 'transparent', color: '#fff', border: '1px solid #a855f7', borderRadius: '30px', fontSize: '0.95rem', fontWeight: '600', cursor: 'pointer', boxShadow: '0 0 15px rgba(168, 85, 247, 0.15)' }
+                            }, 'Audit Infrastructure Safety')
+                        )
+                    )
+                )
+            )
+        )
 
 
     } else if (currentPage === 'contact-form') {
@@ -7455,33 +7908,33 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
             color: '#fff', fontSize: '0.95rem', outline: 'none', boxSizing: 'border-box'
         };
 
-        const filteredEmployees = employees.filter(emp => 
-            emp.name.toLowerCase().includes(employeeSearchQuery.toLowerCase()) || 
+        const filteredEmployees = employees.filter(emp =>
+            emp.name.toLowerCase().includes(employeeSearchQuery.toLowerCase()) ||
             emp.position.toLowerCase().includes(employeeSearchQuery.toLowerCase())
         );
 
         mainElement = React.createElement('main', { className: 'services-page', style: { padding: '40px 20px', minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center' } },
             React.createElement('button', { className: 'card-btn', style: { marginBottom: '20px', borderColor: 'rgba(255,255,255,0.3)' }, onClick: toAdminPanel }, '← Back to Admin Dashboard'),
-            
+
             React.createElement('h2', { style: { color: '#00e28c', fontSize: '2.2rem', marginBottom: '30px', textAlign: 'center' } }, 'Employee Management 👥'),
 
             // 1. ADD / EDIT EMPLOYEE FORM
-            React.createElement('form', { 
+            React.createElement('form', {
                 key: employeeToEdit ? `edit-${employeeToEdit.id}` : 'new-emp', // Key reset mechanism
-                onSubmit: handleEmployeeSubmit, 
-                style: { width: '100%', maxWidth: '600px', background: 'rgba(20, 20, 30, 0.75)', padding: '35px 30px', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '50px' } 
+                onSubmit: handleEmployeeSubmit,
+                style: { width: '100%', maxWidth: '600px', background: 'rgba(20, 20, 30, 0.75)', padding: '35px 30px', borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.1)', marginBottom: '50px' }
             },
                 React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' } },
                     React.createElement('h3', { style: { color: '#fff', margin: 0 } }, employeeToEdit ? 'Edit Employee ✏️' : 'Add New Employee ➕'),
                     // Agar edit ho raha hai to Cancel edit ka button show karo
-                    employeeToEdit && React.createElement('button', { 
-                        type: 'button', 
-                        onClick: () => setEmployeeToEdit(null), 
-                        style: { background: 'none', border: 'none', color: '#ff3366', cursor: 'pointer', fontWeight: 'bold' } 
+                    employeeToEdit && React.createElement('button', {
+                        type: 'button',
+                        onClick: () => setEmployeeToEdit(null),
+                        style: { background: 'none', border: 'none', color: '#ff3366', cursor: 'pointer', fontWeight: 'bold' }
                     }, 'Cancel Edit ✖')
                 ),
-                
-               // --- Row 1: Serial No & CNIC ---
+
+                // --- Row 1: Serial No & CNIC ---
                 React.createElement('div', { style: { display: 'flex', gap: '15px' } },
                     React.createElement('input', { type: 'text', name: 'serial_no', placeholder: 'Serial No (e.g. EMP-01)', defaultValue: employeeToEdit ? employeeToEdit.serial_no : '', required: true, style: { ...empInputStyle, flex: 1 } }),
                     React.createElement('input', { type: 'text', name: 'cnic', placeholder: 'CNIC Number (e.g. 42101-XXXXXXX-X)', defaultValue: employeeToEdit ? employeeToEdit.cnic : '', required: true, style: { ...empInputStyle, flex: 1 } })
@@ -7519,31 +7972,31 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                         React.createElement('option', { value: 'Resigned', style: { background: '#14141e' } }, 'Resigned')
                     )
                 ),
-                
+
                 // Gap adjustment for Textarea
                 React.createElement('div', { style: { marginTop: '15px' } }),
                 React.createElement('textarea', { name: 'address', placeholder: 'Home Address', defaultValue: employeeToEdit ? employeeToEdit.address : '', required: true, rows: 2, style: { ...empInputStyle, resize: 'none' } }),
-                
-                React.createElement('button', { 
-                    type: 'submit', className: 'card-btn', 
-                    style: { width: '100%', background: 'linear-gradient(90deg, #00e28c, #00f2fe)', color: '#000', fontWeight: 'bold', border: 'none', padding: '14px', borderRadius: '10px' } 
+
+                React.createElement('button', {
+                    type: 'submit', className: 'card-btn',
+                    style: { width: '100%', background: 'linear-gradient(90deg, #00e28c, #00f2fe)', color: '#000', fontWeight: 'bold', border: 'none', padding: '14px', borderRadius: '10px' }
                 }, employeeToEdit ? 'Update Employee ✅' : 'Save Employee 💾')
             ),
 
             // 2. SEARCH & LIST EMPLOYEES
             React.createElement('div', { style: { width: '100%', maxWidth: '800px' } },
                 React.createElement('h3', { style: { color: '#fff', marginBottom: '15px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' } }, 'Staff Directory'),
-                
-                React.createElement('input', { 
-                    type: 'text', 
-                    placeholder: '🔍 Search by Name or Position...', 
+
+                React.createElement('input', {
+                    type: 'text',
+                    placeholder: '🔍 Search by Name or Position...',
                     value: employeeSearchQuery,
                     onChange: (e) => setEmployeeSearchQuery(e.target.value),
-                    style: { ...empInputStyle, background: 'rgba(0,0,0,0.3)', border: '1px solid #00e28c', marginBottom: '25px' } 
+                    style: { ...empInputStyle, background: 'rgba(0,0,0,0.3)', border: '1px solid #00e28c', marginBottom: '25px' }
                 }),
 
                 React.createElement('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px' } },
-                    filteredEmployees.length === 0 ? 
+                    filteredEmployees.length === 0 ?
                         React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)' } }, 'No employees found.') :
                         filteredEmployees.map(emp => React.createElement('div', {
                             key: emp.id,
@@ -7551,46 +8004,47 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                         },
                             // Edit & Delete Action Buttons (Top Right)
                             React.createElement('div', { style: { position: 'absolute', top: '15px', right: '15px', display: 'flex', gap: '8px' } },
-                                React.createElement('button', { 
-                                    onClick: () => editEmployee(emp), 
-                                    style: { padding: '5px 10px', fontSize: '0.75rem', fontWeight: '600', color: '#00f2fe', background: 'rgba(0, 242, 254, 0.1)', border: '1px solid rgba(0, 242, 254, 0.35)', borderRadius: '6px', cursor: 'pointer' } 
+                                React.createElement('button', {
+                                    onClick: () => editEmployee(emp),
+                                    style: { padding: '5px 10px', fontSize: '0.75rem', fontWeight: '600', color: '#00f2fe', background: 'rgba(0, 242, 254, 0.1)', border: '1px solid rgba(0, 242, 254, 0.35)', borderRadius: '6px', cursor: 'pointer' }
                                 }, 'Edit ✏️'),
-                                React.createElement('button', { 
-                                    onClick: () => handleEmployeeDelete(emp.id), 
-                                    style: { padding: '5px 10px', fontSize: '0.75rem', fontWeight: '600', color: '#ff3366', background: 'rgba(255, 51, 102, 0.1)', border: '1px solid rgba(255, 51, 102, 0.35)', borderRadius: '6px', cursor: 'pointer' } 
+                                React.createElement('button', {
+                                    onClick: () => handleEmployeeDelete(emp.id),
+                                    style: { padding: '5px 10px', fontSize: '0.75rem', fontWeight: '600', color: '#ff3366', background: 'rgba(255, 51, 102, 0.1)', border: '1px solid rgba(255, 51, 102, 0.35)', borderRadius: '6px', cursor: 'pointer' }
                                 }, 'Del 🗑️')
                             ),
 
                             // Employee Title with Serial No
-                            React.createElement('h4', { style: { color: '#00e28c', margin: '0 0 5px 0', fontSize: '1.2rem', paddingRight: '100px' } }, 
+                            React.createElement('h4', { style: { color: '#00e28c', margin: '0 0 5px 0', fontSize: '1.2rem', paddingRight: '100px' } },
                                 `${emp.serial_no ? '[' + emp.serial_no + '] ' : ''}${emp.name}`
                             ),
                             React.createElement('p', { style: { margin: '0 0 15px 0', color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem' } }, emp.position),
-                            
+
                             React.createElement('div', { style: { fontSize: '0.85rem', color: 'rgba(255,255,255,0.8)', lineHeight: '1.6' } },
                                 // Status Badge
-                                React.createElement('div', { style: { marginBottom: '8px' } }, 
-                                    React.createElement('span', { 
-                                        style: { 
+                                React.createElement('div', { style: { marginBottom: '8px' } },
+                                    React.createElement('span', {
+                                        style: {
                                             padding: '3px 8px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: 'bold',
                                             background: emp.status === 'Resigned' ? 'rgba(255,51,102,0.15)' : 'rgba(0,226,140,0.15)',
                                             color: emp.status === 'Resigned' ? '#ff3366' : '#00e28c',
                                             border: `1px solid ${emp.status === 'Resigned' ? 'rgba(255,51,102,0.3)' : 'rgba(0,226,140,0.3)'}`
-                                        } 
+                                        }
                                     }, emp.status === 'Resigned' ? 'Resigned' : 'Active')
                                 ),
-                                React.createElement('div', null, React.createElement('strong', {style:{color:'#00f2fe'}}, 'CNIC: '), emp.cnic || 'N/A'),
-                                React.createElement('div', null, React.createElement('strong', {style:{color:'#00f2fe'}}, 'Joined: '), emp.date_of_join || 'N/A'),
-                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff3366'}}, 'Resigned: '), emp.date_of_resign || 'Present'), // 👈 Resign info display
-                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Father: '), emp.father_name),
-                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Email: '), emp.email),
-                                React.createElement('div', null, React.createElement('strong', {style:{color:'#ff0080'}}, 'Phone: '), emp.contact),
+                                React.createElement('div', null, React.createElement('strong', { style: { color: '#00f2fe' } }, 'CNIC: '), emp.cnic || 'N/A'),
+                                React.createElement('div', null, React.createElement('strong', { style: { color: '#00f2fe' } }, 'Joined: '), emp.date_of_join || 'N/A'),
+                                React.createElement('div', null, React.createElement('strong', { style: { color: '#ff3366' } }, 'Resigned: '), emp.date_of_resign || 'Present'), // 👈 Resign info display
+                                React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Father: '), emp.father_name),
+                                React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Email: '), emp.email),
+                                React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Phone: '), emp.contact),
                                 React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Address: '), emp.address || 'N/A')
                             )
                         ))
                 )
             )
-        );} else if (currentPage === 'upload-page') {
+        );
+    } else if (currentPage === 'upload-page') {
         mainElement = React.createElement('main', {
             className: 'main-content',
             style: {
@@ -7936,24 +8390,24 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
 
                         // 📝 JOB TYPOGRAPHY BLOCK
                         React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
-                            React.createElement('h3', { 
-                                style: { 
-                                    color: '#ffffff', 
-                                    fontSize: '1.4rem', 
-                                    fontWeight: '700', 
+                            React.createElement('h3', {
+                                style: {
+                                    color: '#ffffff',
+                                    fontSize: '1.4rem',
+                                    fontWeight: '700',
                                     margin: '0',
                                     lineHeight: '1.3',
                                     letterSpacing: '-0.2px'
-                                } 
+                                }
                             }, job.title),
-                            
-                            React.createElement('p', { 
-                                style: { 
-                                    color: '#a0aec0', 
-                                    fontSize: '0.95rem', 
+
+                            React.createElement('p', {
+                                style: {
+                                    color: '#a0aec0',
+                                    fontSize: '0.95rem',
                                     margin: '0',
                                     fontWeight: '500'
-                                } 
+                                }
                             }, [
                                 'Salary: ',
                                 React.createElement('span', { style: { color: '#00f2fe', fontWeight: '600' } }, job.salary || 'Negotiable')
@@ -8959,173 +9413,173 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
                         const adminImgSrc = web.imageLink || web.image || web.imageUrl;
 
                         return React.createElement('div', {
-        key: web.id,
-        className: 'card',
-        style: {
-            position: 'relative', // Top neon border line ke liye zaroori hai
-            background: '#0b0d14', // Exact image wala deep dark background
-            borderRadius: '32px', // Smooth round corners as seen in image
-            padding: '32px 24px 24px 24px', // Spacious premium padding
-            boxShadow: '0 40px 80px rgba(0, 0, 0, 0.7)',
-            border: '1px solid rgba(255, 255, 255, 0.04)', // Ultra thin subtle edge
-            textAlign: 'left', // Left-aligned typography like the image
-            maxWidth: '350px',
-            width: '100%',
-            boxSizing: 'border-box', // Full mobile responsive safety
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '20px',
-            overflow: 'hidden', // Neon line ko corners par trim rakhne ke liye
-            transition: 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)'
-        },
-        // Desktop Hover Animation
-        onMouseEnter: (e) => {
-            e.currentTarget.style.transform = 'translateY(-6px)';
-        },
-        onMouseLeave: (e) => {
-            e.currentTarget.style.transform = 'translateY(0)';
-        }
-    },
-        // 🌟 THE HEADER NEON GRADIENT LINE (Exact Image Copy)
-        React.createElement('div', {
-            style: {
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                height: '4px',
-                background: 'linear-gradient(90deg, #00f2fe 0%, #ff007f 100%)'
-            }
-        }),
+                            key: web.id,
+                            className: 'card',
+                            style: {
+                                position: 'relative', // Top neon border line ke liye zaroori hai
+                                background: '#0b0d14', // Exact image wala deep dark background
+                                borderRadius: '32px', // Smooth round corners as seen in image
+                                padding: '32px 24px 24px 24px', // Spacious premium padding
+                                boxShadow: '0 40px 80px rgba(0, 0, 0, 0.7)',
+                                border: '1px solid rgba(255, 255, 255, 0.04)', // Ultra thin subtle edge
+                                textAlign: 'left', // Left-aligned typography like the image
+                                maxWidth: '350px',
+                                width: '100%',
+                                boxSizing: 'border-box', // Full mobile responsive safety
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '20px',
+                                overflow: 'hidden', // Neon line ko corners par trim rakhne ke liye
+                                transition: 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)'
+                            },
+                            // Desktop Hover Animation
+                            onMouseEnter: (e) => {
+                                e.currentTarget.style.transform = 'translateY(-6px)';
+                            },
+                            onMouseLeave: (e) => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                            }
+                        },
+                            // 🌟 THE HEADER NEON GRADIENT LINE (Exact Image Copy)
+                            React.createElement('div', {
+                                style: {
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    height: '4px',
+                                    background: 'linear-gradient(90deg, #00f2fe 0%, #ff007f 100%)'
+                                }
+                            }),
 
-        // 📸 IMAGE CONTAINER BLOCK
-        React.createElement('div', {
-            style: {
-                width: '100%',
-                height: '160px',
-                borderRadius: '20px',
-                overflow: 'hidden',
-                background: 'rgba(255, 255, 255, 0.02)',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
-                position: 'relative'
-            }
-        },
-            adminImgSrc && React.createElement('img', {
-                src: adminImgSrc,
-                alt: web.name,
-                style: {
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover'
-                }
-            }),
+                            // 📸 IMAGE CONTAINER BLOCK
+                            React.createElement('div', {
+                                style: {
+                                    width: '100%',
+                                    height: '160px',
+                                    borderRadius: '20px',
+                                    overflow: 'hidden',
+                                    background: 'rgba(255, 255, 255, 0.02)',
+                                    border: '1px solid rgba(255, 255, 255, 0.06)',
+                                    position: 'relative'
+                                }
+                            },
+                                adminImgSrc && React.createElement('img', {
+                                    src: adminImgSrc,
+                                    alt: web.name,
+                                    style: {
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover'
+                                    }
+                                }),
 
-            // Floating Premium Badge Overlay (Styled exactly like the image's "POPULAR" badge)
-            React.createElement('div', {
-                style: {
-                    position: 'absolute',
-                    top: '12px',
-                    right: '12px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    background: 'rgba(255, 0, 127, 0.06)',
-                    border: '1px solid rgba(255, 0, 127, 0.3)',
-                    padding: '5px 12px',
-                    borderRadius: '20px',
-                }
-            },
-                // Little glowing dot inside badge
-                React.createElement('span', {
-                    style: {
-                        width: '6px',
-                        height: '6px',
-                        backgroundColor: '#ff007f',
-                        borderRadius: '50%',
-                        display: 'inline-block'
-                    }
-                }),
-                React.createElement('span', {
-                    style: {
-                        color: '#ff007f',
-                        fontSize: '0.65rem',
-                        fontWeight: '700',
-                        letterSpacing: '0.8px'
-                    }
-                }, 'Website For Sale')
-            )
-        ),
+                                // Floating Premium Badge Overlay (Styled exactly like the image's "POPULAR" badge)
+                                React.createElement('div', {
+                                    style: {
+                                        position: 'absolute',
+                                        top: '12px',
+                                        right: '12px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        gap: '6px',
+                                        background: 'rgba(255, 0, 127, 0.06)',
+                                        border: '1px solid rgba(255, 0, 127, 0.3)',
+                                        padding: '5px 12px',
+                                        borderRadius: '20px',
+                                    }
+                                },
+                                    // Little glowing dot inside badge
+                                    React.createElement('span', {
+                                        style: {
+                                            width: '6px',
+                                            height: '6px',
+                                            backgroundColor: '#ff007f',
+                                            borderRadius: '50%',
+                                            display: 'inline-block'
+                                        }
+                                    }),
+                                    React.createElement('span', {
+                                        style: {
+                                            color: '#ff007f',
+                                            fontSize: '0.65rem',
+                                            fontWeight: '700',
+                                            letterSpacing: '0.8px'
+                                        }
+                                    }, 'Website For Sale')
+                                )
+                            ),
 
-        // 📝 TYPOGRAPHY BLOCK (Clean and Crisp)
-        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
-            // Title (Matches the clean layout of "Code Base Website...")
-            React.createElement('h3', { 
-                style: { 
-                    color: '#ffffff', 
-                    fontSize: '1.45rem', 
-                    fontWeight: '700', 
-                    margin: '0',
-                    lineHeight: '1.25',
-                    letterSpacing: '-0.2px'
-                } 
-            }, web.name),
+                            // 📝 TYPOGRAPHY BLOCK (Clean and Crisp)
+                            React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
+                                // Title (Matches the clean layout of "Code Base Website...")
+                                React.createElement('h3', {
+                                    style: {
+                                        color: '#ffffff',
+                                        fontSize: '1.45rem',
+                                        fontWeight: '700',
+                                        margin: '0',
+                                        lineHeight: '1.25',
+                                        letterSpacing: '-0.2px'
+                                    }
+                                }, web.name),
 
-            // Price Accent
-            React.createElement('p', { 
-                style: { 
-                    color: '#a0aec0', // Muted gray description color
-                    fontSize: '0.95rem', 
-                    margin: '0',
-                    fontWeight: '500'
-                } 
-            }, [
-                'Price: ',
-                React.createElement('span', { style: { color: '#00f2fe', fontWeight: '600' } }, web.price || 'Negotiable')
-            ])
-        ),
+                                // Price Accent
+                                React.createElement('p', {
+                                    style: {
+                                        color: '#a0aec0', // Muted gray description color
+                                        fontSize: '0.95rem',
+                                        margin: '0',
+                                        fontWeight: '500'
+                                    }
+                                }, [
+                                    'Price: ',
+                                    React.createElement('span', { style: { color: '#00f2fe', fontWeight: '600' } }, web.price || 'Negotiable')
+                                ])
+                            ),
 
-        // 🛠️ BUTTONS PANEL (High-Contrast "Get Started" Pill Vibe)
-        React.createElement('div', { style: { display: 'flex', gap: '12px', width: '100%', marginTop: '8px' } },
-            // Left Button: Details (Sleek Ghost Style)
-            React.createElement('button', {
-                onClick: () => setSelectedWebsiteDesc(web),
-                style: {
-                    flex: '1',
-                    padding: '14px 8px',
-                    borderRadius: '24px', // Pill shape
-                    background: 'transparent',
-                    color: '#ffffff',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    fontSize: '0.85rem',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    transition: 'background 0.2s'
-                },
-                onMouseEnter: (e) => e.target.style.background = 'rgba(255, 255, 255, 0.05)',
-                onMouseLeave: (e) => e.target.style.background = 'transparent'
-            }, 'Details 📋'),
+                            // 🛠️ BUTTONS PANEL (High-Contrast "Get Started" Pill Vibe)
+                            React.createElement('div', { style: { display: 'flex', gap: '12px', width: '100%', marginTop: '8px' } },
+                                // Left Button: Details (Sleek Ghost Style)
+                                React.createElement('button', {
+                                    onClick: () => setSelectedWebsiteDesc(web),
+                                    style: {
+                                        flex: '1',
+                                        padding: '14px 8px',
+                                        borderRadius: '24px', // Pill shape
+                                        background: 'transparent',
+                                        color: '#ffffff',
+                                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                                        fontSize: '0.85rem',
+                                        fontWeight: '600',
+                                        cursor: 'pointer',
+                                        transition: 'background 0.2s'
+                                    },
+                                    onMouseEnter: (e) => e.target.style.background = 'rgba(255, 255, 255, 0.05)',
+                                    onMouseLeave: (e) => e.target.style.background = 'transparent'
+                                }, 'Details 📋'),
 
-            // Right Button: Buy Now (Exact copy of the White "Get Started →" Button)
-            React.createElement('button', {
-                onClick: toWebsiteOrderForm(web),
-                style: {
-                    flex: '1.4', // Slightly wider for prime focus
-                    padding: '14px 8px',
-                    borderRadius: '24px', // Perfect pill shape
-                    background: '#ffffff', // High contrast white
-                    color: '#0b0d14', // Jet black text
-                    border: 'none',
-                    fontSize: '0.85rem',
-                    fontWeight: '700',
-                    cursor: 'pointer',
-                    boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1)',
-                    transition: 'transform 0.1s step-end, opacity 0.2s'
-                },
-                onMouseEnter: (e) => e.target.style.opacity = '0.9',
-                onMouseLeave: (e) => e.target.style.opacity = '1'
-            }, 'Buy Now 🚀')
-        )
-);
+                                // Right Button: Buy Now (Exact copy of the White "Get Started →" Button)
+                                React.createElement('button', {
+                                    onClick: toWebsiteOrderForm(web),
+                                    style: {
+                                        flex: '1.4', // Slightly wider for prime focus
+                                        padding: '14px 8px',
+                                        borderRadius: '24px', // Perfect pill shape
+                                        background: '#ffffff', // High contrast white
+                                        color: '#0b0d14', // Jet black text
+                                        border: 'none',
+                                        fontSize: '0.85rem',
+                                        fontWeight: '700',
+                                        cursor: 'pointer',
+                                        boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1)',
+                                        transition: 'transform 0.1s step-end, opacity 0.2s'
+                                    },
+                                    onMouseEnter: (e) => e.target.style.opacity = '0.9',
+                                    onMouseLeave: (e) => e.target.style.opacity = '1'
+                                }, 'Buy Now 🚀')
+                            )
+                        );
 
                     }),
                     renderSaleDetailsBlocks()
@@ -9882,36 +10336,36 @@ const CarouselComponent = ({ toServices, toPortfolio, toWebsitesForSale, setCurr
 
         // 🌌 Home Page Premium Glassmorphism UI
         // ====================== HOME PAGE MAIN ELEMENT ======================
-mainElement = React.createElement('main', {
-    className: 'home-page',
-    style: {
-        padding: '60px 20px',
-        minHeight: '85vh',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        fontFamily: 'system-ui, -apple-system, sans-serif',
-        overflow: 'hidden',
-        background: 'transparent'
-    }
-},
+        mainElement = React.createElement('main', {
+            className: 'home-page',
+            style: {
+                padding: '60px 20px',
+                minHeight: '85vh',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                fontFamily: 'system-ui, -apple-system, sans-serif',
+                overflow: 'hidden',
+                background: 'transparent'
+            }
+        },
 
-    
 
-    // 2. SCROLLING SERVICE BANNER
-    React.createElement('div', {
-        style: {
-            width: '100%',
-            maxWidth: '1200px',
-            background: 'rgba(10, 11, 18, 0.95)',
-            border: '1px solid rgba(0, 242, 254, 0.2)',
-            overflow: 'hidden',
-            padding: '18px 0',
-            borderRadius: '12px',
-            marginBottom: '50px'
-        }
-    },
-        React.createElement('style', null, `
+
+            // 2. SCROLLING SERVICE BANNER
+            React.createElement('div', {
+                style: {
+                    width: '100%',
+                    maxWidth: '1200px',
+                    background: 'rgba(10, 11, 18, 0.95)',
+                    border: '1px solid rgba(0, 242, 254, 0.2)',
+                    overflow: 'hidden',
+                    padding: '18px 0',
+                    borderRadius: '12px',
+                    marginBottom: '50px'
+                }
+            },
+                React.createElement('style', null, `
             @keyframes scrollLeft {
                 0% { transform: translateX(0); }
                 100% { transform: translateX(-50%); }
@@ -9925,15 +10379,15 @@ mainElement = React.createElement('main', {
                 letter-spacing: 2px;
             }
         `),
-        React.createElement('div', {
-            className: 'scroll-track',
-            style: { color: '#00f2fe', textShadow: '0 0 15px rgba(0, 242, 254, 0.6)' }
-        },
-            "CODE BASE WEB DEVELOPMENT  -  WORDPRESS BASE WEB DEVELOPMENT  -  SEO OPTIMIZATION  -  PUTTING ADS ON WEBSITE  -  ".repeat(4)
-        )
-    ),
+                React.createElement('div', {
+                    className: 'scroll-track',
+                    style: { color: '#00f2fe', textShadow: '0 0 15px rgba(0, 242, 254, 0.6)' }
+                },
+                    "CODE BASE WEB DEVELOPMENT  -  WORDPRESS BASE WEB DEVELOPMENT  -  SEO OPTIMIZATION  -  PUTTING ADS ON WEBSITE  -  ".repeat(4)
+                )
+            ),
 
-  
+
             // 🎨 INJECTING PREMIUM ANIMATIONS & HOVER EFFECTS (CSS)
             React.createElement('style', null, `
                 @keyframes floatAnimation {
@@ -10238,107 +10692,107 @@ mainElement = React.createElement('main', {
                 // 🌐 UI GRID CONTAINER
                 React.createElement('div', { className: 'premium-stats-bar', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', padding: '30px 10px', gap: '20px' } },
 
-    // Stat 1: Projects Completed
-    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
-        // Premium Floating SVG Icon (Briefcase)
-        React.createElement('svg', {
-            className: 'animated-icon float-icon',
-            viewBox: '0 0 24 24',
-            fill: 'none',
-            stroke: '#00f2fe',
-            strokeWidth: '2',
-            strokeLinecap: 'round',
-            strokeLinejoin: 'round',
-            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.35))', background: 'transparent' }
-        },
-            React.createElement('path', { d: 'M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z' }),
-            React.createElement('path', { d: 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16' })
-        ),
-        React.createElement('div', {
-            className: 'stat-number',
-            style: { background: 'linear-gradient(90deg, #00f2fe, #4facfe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 242, 254, 0.25))' }
-        },
-            React.createElement(AnimatedCounter, { end: 50, suffix: '+' })
-        ),
-        React.createElement('div', { className: 'stat-label' }, 'Projects Completed')
-    ),
+                    // Stat 1: Projects Completed
+                    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
+                        // Premium Floating SVG Icon (Briefcase)
+                        React.createElement('svg', {
+                            className: 'animated-icon float-icon',
+                            viewBox: '0 0 24 24',
+                            fill: 'none',
+                            stroke: '#00f2fe',
+                            strokeWidth: '2',
+                            strokeLinecap: 'round',
+                            strokeLinejoin: 'round',
+                            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.35))', background: 'transparent' }
+                        },
+                            React.createElement('path', { d: 'M20 7h-4V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z' }),
+                            React.createElement('path', { d: 'M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16' })
+                        ),
+                        React.createElement('div', {
+                            className: 'stat-number',
+                            style: { background: 'linear-gradient(90deg, #00f2fe, #4facfe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 242, 254, 0.25))' }
+                        },
+                            React.createElement(AnimatedCounter, { end: 50, suffix: '+' })
+                        ),
+                        React.createElement('div', { className: 'stat-label' }, 'Projects Completed')
+                    ),
 
-    // Stat 2: Expert Members
-    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
-        // Premium Pulsing SVG Icon (Users)
-        React.createElement('svg', {
-            className: 'animated-icon pulse-icon',
-            viewBox: '0 0 24 24',
-            fill: 'none',
-            stroke: '#ff0080',
-            strokeWidth: '2',
-            strokeLinecap: 'round',
-            strokeLinejoin: 'round',
-            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(255, 0, 128, 0.35))', background: 'transparent' }
-        },
-            React.createElement('path', { d: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2' }),
-            React.createElement('circle', { cx: '9', cy: '7', r: '4' }),
-            React.createElement('path', { d: 'M23 21v-2a4 4 0 0 0-3-3.87' }),
-            React.createElement('path', { d: 'M16 3.13a4 4 0 0 1 0 7.75' })
-        ),
-        React.createElement('div', {
-            className: 'stat-number',
-            style: { background: 'linear-gradient(90deg, #ff0080, #ff8c00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 0, 128, 0.25))' }
-        },
-            React.createElement(AnimatedCounter, { end: 10, suffix: '+' })
-        ),
-        React.createElement('div', { className: 'stat-label' }, 'Expert Members')
-    ),
+                    // Stat 2: Expert Members
+                    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
+                        // Premium Pulsing SVG Icon (Users)
+                        React.createElement('svg', {
+                            className: 'animated-icon pulse-icon',
+                            viewBox: '0 0 24 24',
+                            fill: 'none',
+                            stroke: '#ff0080',
+                            strokeWidth: '2',
+                            strokeLinecap: 'round',
+                            strokeLinejoin: 'round',
+                            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(255, 0, 128, 0.35))', background: 'transparent' }
+                        },
+                            React.createElement('path', { d: 'M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2' }),
+                            React.createElement('circle', { cx: '9', cy: '7', r: '4' }),
+                            React.createElement('path', { d: 'M23 21v-2a4 4 0 0 0-3-3.87' }),
+                            React.createElement('path', { d: 'M16 3.13a4 4 0 0 1 0 7.75' })
+                        ),
+                        React.createElement('div', {
+                            className: 'stat-number',
+                            style: { background: 'linear-gradient(90deg, #ff0080, #ff8c00)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 0, 128, 0.25))' }
+                        },
+                            React.createElement(AnimatedCounter, { end: 10, suffix: '+' })
+                        ),
+                        React.createElement('div', { className: 'stat-label' }, 'Expert Members')
+                    ),
 
-    // Stat 3: Satisfied Clients
-    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
-        // Premium Heartbeat SVG Icon (Heart)
-        React.createElement('svg', {
-            className: 'animated-icon heartbeat-icon',
-            viewBox: '0 0 24 24',
-            fill: 'none',
-            stroke: '#00e28c',
-            strokeWidth: '2',
-            strokeLinecap: 'round',
-            strokeLinejoin: 'round',
-            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(0, 224, 140, 0.35))', background: 'transparent' }
-        },
-            React.createElement('path', { d: 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z' })
-        ),
-        React.createElement('div', {
-            className: 'stat-number',
-            style: { background: 'linear-gradient(90deg, #00e28c, #00f2fe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 224, 140, 0.25))' }
-        },
-            React.createElement(AnimatedCounter, { end: 20, suffix: '+' })
-        ),
-        React.createElement('div', { className: 'stat-label' }, 'Satisfied Clients')
-    ),
+                    // Stat 3: Satisfied Clients
+                    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
+                        // Premium Heartbeat SVG Icon (Heart)
+                        React.createElement('svg', {
+                            className: 'animated-icon heartbeat-icon',
+                            viewBox: '0 0 24 24',
+                            fill: 'none',
+                            stroke: '#00e28c',
+                            strokeWidth: '2',
+                            strokeLinecap: 'round',
+                            strokeLinejoin: 'round',
+                            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(0, 224, 140, 0.35))', background: 'transparent' }
+                        },
+                            React.createElement('path', { d: 'M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z' })
+                        ),
+                        React.createElement('div', {
+                            className: 'stat-number',
+                            style: { background: 'linear-gradient(90deg, #00e28c, #00f2fe)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(0, 224, 140, 0.25))' }
+                        },
+                            React.createElement(AnimatedCounter, { end: 20, suffix: '+' })
+                        ),
+                        React.createElement('div', { className: 'stat-label' }, 'Satisfied Clients')
+                    ),
 
-    // Stat 4: Years Experience
-    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
-        // Premium Swing SVG Icon (Award/Star)
-        React.createElement('svg', {
-            className: 'animated-icon swing-icon',
-            viewBox: '0 0 24 24',
-            fill: 'none',
-            stroke: '#ffbd2e',
-            strokeWidth: '2',
-            strokeLinecap: 'round',
-            strokeLinejoin: 'round',
-            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(255, 189, 46, 0.35))', background: 'transparent' }
-        },
-            React.createElement('circle', { cx: '12', cy: '8', r: '7' }),
-            React.createElement('polyline', { points: '8.21 13.89 7 23 12 20 17 23 15.79 13.88' })
-        ),
-        React.createElement('div', {
-            className: 'stat-number',
-            style: { background: 'linear-gradient(90deg, #ffbd2e, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 189, 46, 0.25))' }
-        },
-            React.createElement(AnimatedCounter, { end: 2, suffix: '+' })
-        ),
-        React.createElement('div', { className: 'stat-label' }, 'Years Experience')
-    )
-)
+                    // Stat 4: Years Experience
+                    React.createElement('div', { className: 'stat-box', style: { background: 'transparent', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' } },
+                        // Premium Swing SVG Icon (Award/Star)
+                        React.createElement('svg', {
+                            className: 'animated-icon swing-icon',
+                            viewBox: '0 0 24 24',
+                            fill: 'none',
+                            stroke: '#ffbd2e',
+                            strokeWidth: '2',
+                            strokeLinecap: 'round',
+                            strokeLinejoin: 'round',
+                            style: { width: '45px', height: '45px', marginBottom: '12px', filter: 'drop-shadow(0 4px 10px rgba(255, 189, 46, 0.35))', background: 'transparent' }
+                        },
+                            React.createElement('circle', { cx: '12', cy: '8', r: '7' }),
+                            React.createElement('polyline', { points: '8.21 13.89 7 23 12 20 17 23 15.79 13.88' })
+                        ),
+                        React.createElement('div', {
+                            className: 'stat-number',
+                            style: { background: 'linear-gradient(90deg, #ffbd2e, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 6px 15px rgba(255, 189, 46, 0.25))' }
+                        },
+                            React.createElement(AnimatedCounter, { end: 2, suffix: '+' })
+                        ),
+                        React.createElement('div', { className: 'stat-label' }, 'Years Experience')
+                    )
+                )
             ),
 
             // 💎 1. KHOOBSURAT HIGHLIGHT CARDS GRID
@@ -10686,19 +11140,19 @@ mainElement = React.createElement('main', {
                 ),
                 // 🎛️ 5. ULTRA-PREMIUM ECOSYSTEM ACTION DIRECTORY (WITH EMBEDDED IMAGE MOCKUPS)
                 // 🎛️ 5. ULTRA-PREMIUM ECOSYSTEM ACTION DIRECTORY (CAROUSEL - AUTO-START + INFINITE LOOP)
-// 🎛️ 5. ULTRA-PREMIUM ECOSYSTEM ACTION DIRECTORY (CAROUSEL - FIXED VERSION)
-React.createElement('div', {
-    style: {
-        width: '100%',
-        maxWidth: '1140px',
-        marginTop: '90px',
-        padding: '60px 30px',
-        borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-        position: 'relative',
-        textAlign: 'left'
-    }
-},
-    React.createElement('style', null, `
+                // 🎛️ 5. ULTRA-PREMIUM ECOSYSTEM ACTION DIRECTORY (CAROUSEL - FIXED VERSION)
+                React.createElement('div', {
+                    style: {
+                        width: '100%',
+                        maxWidth: '1140px',
+                        marginTop: '90px',
+                        padding: '60px 30px',
+                        borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                        position: 'relative',
+                        textAlign: 'left'
+                    }
+                },
+                    React.createElement('style', null, `
     .action-carousel-wrapper {
         position: relative;
         overflow: hidden;
@@ -10824,20 +11278,20 @@ React.createElement('div', {
     }
 `),
 
-    React.createElement('div', { style: { maxWidth: '700px' } },
-        React.createElement('span', { style: { color: '#ff0080', fontSize: '0.85rem', fontWeight: '800', letterSpacing: '2px', display: 'block', marginBottom: '12px' } }, 'SYSTEM ARCHITECTURE MAP'),
-        React.createElement('h2', { style: { color: '#fff', fontSize: '2.4rem', fontWeight: '900', margin: '0 0 15px 0', letterSpacing: '-0.5px' } }, 'Command Center & Navigation Directory'),
-        React.createElement('p', { style: { color: 'rgba(255,255,255,0.45)', fontSize: '1.05rem', lineHeight: '1.6', margin: '0' } }, 'A complete architectural breakdown of the key operational buttons, action parameters, and target systems configured across the Apex Code ecosystem.')
-    ),
+                    React.createElement('div', { style: { maxWidth: '700px' } },
+                        React.createElement('span', { style: { color: '#ff0080', fontSize: '0.85rem', fontWeight: '800', letterSpacing: '2px', display: 'block', marginBottom: '12px' } }, 'SYSTEM ARCHITECTURE MAP'),
+                        React.createElement('h2', { style: { color: '#fff', fontSize: '2.4rem', fontWeight: '900', margin: '0 0 15px 0', letterSpacing: '-0.5px' } }, 'Command Center & Navigation Directory'),
+                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.45)', fontSize: '1.05rem', lineHeight: '1.6', margin: '0' } }, 'A complete architectural breakdown of the key operational buttons, action parameters, and target systems configured across the Apex Code ecosystem.')
+                    ),
 
-    // 🎯 CAROUSEL COMPONENT - Proper React Component
-    React.createElement(CarouselComponent, { 
-        toServices: toServices,
-        toPortfolio: toPortfolio,
-        toWebsitesForSale: toWebsitesForSale,
-        setCurrentPage: setCurrentPage
-    })
-),
+                    // 🎯 CAROUSEL COMPONENT - Proper React Component
+                    React.createElement(CarouselComponent, {
+                        toServices: toServices,
+                        toPortfolio: toPortfolio,
+                        toWebsitesForSale: toWebsitesForSale,
+                        setCurrentPage: setCurrentPage
+                    })
+                ),
                 // 🏷️ 6. APEX CODE COMPREHENSIVE TIER CATALOG (Ultra-Premium Redesign)
                 React.createElement('div', {
                     style: {
@@ -11656,7 +12110,7 @@ React.createElement('div', {
                             boxShadow: '0 4px 20px rgba(255, 0, 128, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
                         }
                     }, 'Update Password 🔑'),
-// 👥 EMPLOYEE LIST BUTTON (NEW)
+                    // 👥 EMPLOYEE LIST BUTTON (NEW)
                     React.createElement('button', {
                         onClick: toEmployeeList,
                         className: 'card-btn',
