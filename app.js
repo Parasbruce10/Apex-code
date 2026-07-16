@@ -472,58 +472,357 @@ const PAGE_META = {
 // Dynamic Collapsible Floating Contact Widget
 // Dynamic Collapsible Floating Contact Widget (Paras Special)
 const FloatingContactWidget = () => {
-    // State to toggle the contact menu open/closed
+    // Contact list open/close state
     const [isOpen, setIsOpen] = React.useState(false);
-
-    return React.createElement('div', { 
-        className: `floating-contact-sidebar ${isOpen ? 'active' : ''}` 
-    }, [
-        // 1. MAIN TRIGGER BUTTON (Yeh dabba sab se niche show hoga)
-        React.createElement('button', {
-            key: 'toggle-btn',
-            onClick: () => setIsOpen(!isOpen),
-            className: `floating-contact-trigger ${isOpen ? 'open' : ''}`,
-            title: 'Contact Menu'
-        }, 
-            React.createElement('img', {
-                src: isOpen 
-                    ? 'https://cdn-icons-png.flaticon.com/512/2997/2997911.png'  // Cross (X) Close Icon
-                    : 'https://cdn-icons-png.flaticon.com/512/9374/9374944.png', // Premium 3D Chat Icon (Dabba)
-                alt: 'Toggle Contact'
-            })
-        ),
-
-        // 2. WhatsApp Button (Menu Item - Slide up default)
-        React.createElement('a', {
-            key: 'whatsapp-btn',
-            href: 'https://wa.me/923421287734',
-            target: '_blank',
-            rel: 'noopener noreferrer',
-            className: 'floating-contact-btn whatsapp menu-item',
-            title: 'Chat on WhatsApp'
-        }, 
-            React.createElement('img', {
-                src: 'https://cdn-icons-png.flaticon.com/512/5968/5968841.png',
-                alt: 'WhatsApp'
-            })
-        ),
-
-        // 3. Email Button (Menu Item - Slide up default)
-        React.createElement('a', {
-            key: 'email-btn',
-            href: 'mailto:book.apexcode@gmail.com',
-            target: '_blank',
-            rel: 'noopener noreferrer',
-            className: 'floating-contact-btn email menu-item',
-            title: 'Send an Email'
-        }, 
-            React.createElement('img', {
-                src: 'https://cdn-icons-png.flaticon.com/512/732/732200.png',
-                alt: 'Email'
-            })
-        )
+    
+    // Chatbox open/close and messages states
+    const [isChatOpen, setIsChatOpen] = React.useState(false);
+    const [messages, setMessages] = React.useState([
+        { sender: 'bot', text: 'Hello! I am your Apex Code Assistant. How can I help you today? Feel free to ask me about our custom website pricing, professional services, or direct bookings!' }
     ]);
-}; 
+    const [input, setInput] = React.useState('');
+
+    // Chat auto-scroll reference
+    const chatEndRef = React.useRef(null);
+
+    React.useEffect(() => {
+        if (chatEndRef.current) {
+            chatEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [messages]);
+
+    // Enhanced English Smart Bot Logic
+    const generateBotResponse = (userText) => {
+        const text = userText.toLowerCase().trim();
+        
+        // 1. Greetings & Salutations
+        if (
+            text.includes('hi') || 
+            text.includes('hello') || 
+            text.includes('hey') || 
+            text.includes('aoa') || 
+            text.includes('salam') || 
+            text.includes('helo') ||
+            text.includes('greetings')
+        ) {
+            return "Hello and welcome to Apex Code! 👋 I am here to assist you. Ask me about our premium web development services, package pricing, or how to get started on your project!";
+        }
+
+        // 2. Pricing, Cost, & Budget Queries
+        if (
+            text.includes('price') || 
+            text.includes('pricing') || 
+            text.includes('rate') || 
+            text.includes('cost') || 
+            text.includes('pkr') || 
+            text.includes('charges') || 
+            text.includes('plan') || 
+            text.includes('fee') ||
+            text.includes('budget') ||
+            text.includes('how much') ||
+            text.includes('cheap') ||
+            text.includes('expensive')
+        ) {
+            return "At Apex Code, we offer premium, budget-friendly web solutions tailored to scale your business:\n\n" +
+                   "• 💻 **Starter Package (from 15k PKR):** Perfect for essential business setups, single landing pages, and sleek portfolios.\n" +
+                   "• 🚀 **Standard Custom Site (15,000 to 50,000 PKR):** High-performance, fully custom multi-page React applications with tailored backend integrations.\n" +
+                   "• 📝 **WordPress & CMS Plans:** Easily manageable templates optimized for e-commerce, blogs, and fast turnarounds.\n" +
+                   "• 📈 **SEO & Ads Optimization:** Professional ad setup (AdSense, Monetag, Adsterra) & technical SEO audits to drive organic monetization.\n\n" +
+                   "Would you like us to draft a custom proposal and quote for your project?";
+        }
+        
+        // 3. Services, Capabilities & Tech Stack Queries
+        if (
+            text.includes('service') || 
+            text.includes('build') || 
+            text.includes('develop') || 
+            text.includes('website') || 
+            text.includes('wordpress') || 
+            text.includes('seo') || 
+            text.includes('ads') || 
+            text.includes('kaam') || 
+            text.includes('work') ||
+            text.includes('react') ||
+            text.includes('flask') ||
+            text.includes('app') ||
+            text.includes('coder')
+        ) {
+            return "Apex Code delivers premium development and optimization services designed for growth:\n\n" +
+                   "1. **Custom Web Development:** Custom React frontend + Python/Flask backend apps tailored for high speeds and immersive UX.\n" +
+                   "2. **CMS (WordPress) Development:** Speed-optimized WordPress builds suited for portfolios, business blogs, or active e-commerce shops.\n" +
+                   "3. **Technical SEO Audits:** On-page structure optimization to guarantee indexability and ranking improvements on Google.\n" +
+                   "4. **Monetization Setup:** Expert configuration of high-conversion monetization strategies (Google AdSense, Adsterra, Monetag) without sacrificing site performance.\n\n" +
+                   "Which service aligns with your project goals?";
+        }
+
+        // 4. Team, Owner, & Company Info (Enhances trust!)
+        if (
+            text.includes('who are you') ||
+            text.includes('owner') ||
+            text.includes('founder') ||
+            text.includes('ceo') ||
+            text.includes('paras') ||
+            text.includes('team') ||
+            text.includes('company')
+        ) {
+            return "Apex Code is an elite digital development agency led by our Founder & CEO, Paras. We are a dedicated team of software engineers, UI/UX designers, and SEO experts passionate about turning complex ideas into high-converting digital products.";
+        }
+
+        // 5. Contact, Ordering, & Booking Queries
+        if (
+            text.includes('order') || 
+            text.includes('book') || 
+            text.includes('buy') || 
+            text.includes('hire') || 
+            text.includes('project') || 
+            text.includes('contact') || 
+            text.includes('rabta') ||
+            text.includes('whatsapp') ||
+            text.includes('email') ||
+            text.includes('call') ||
+            text.includes('phone')
+        ) {
+            return "Let's turn your vision into code! 🚀 You can reach out directly via our verified official channels:\n\n" +
+                   "💬 **WhatsApp Chat:** +92 342 1287734\n" +
+                   "📧 **Email:** book.apexcode@gmail.com\n\n" +
+                   "Alternatively, close this chat and use the WhatsApp/Email icons in the contact menu, or submit our contact form above, and our development team will connect with you within 24 hours!";
+        }
+
+        // 6. Default Fallback
+        return "I apologize, I didn't quite catch that details. For custom quotes, technical queries, or to discuss your specific requirements, please connect with us directly:\n\n" +
+               "📞 **WhatsApp/Call:** 03421287734\n" +
+               "📧 **Email:** book.apexcode@gmail.com\n\n" +
+               "Our team will be delighted to guide you further!";
+    };
+
+    const handleSend = (e) => {
+        if (e) e.preventDefault();
+        if (!input.trim()) return;
+
+        const userMsg = input;
+        setMessages((prev) => [...prev, { sender: 'user', text: userMsg }]);
+        setInput('');
+
+        // Simulated chatbot response delay
+        setTimeout(() => {
+            const reply = generateBotResponse(userMsg);
+            setMessages((prev) => [...prev, { sender: 'bot', text: reply }]);
+        }, 500);
+    };
+
+    // Chatbox modal structure
+    const chatBoxElement = isChatOpen ? React.createElement('div', {
+        key: 'chat-box',
+        style: {
+            position: 'fixed',
+            bottom: '100px',
+            right: '30px',
+            width: '320px',
+            height: '420px',
+            background: 'rgba(15, 11, 28, 0.95)',
+            border: '1px solid rgba(121, 40, 202, 0.4)',
+            borderRadius: '16px',
+            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(121, 40, 202, 0.2)',
+            display: 'flex',
+            flexDirection: 'column',
+            zIndex: 10000,
+            fontFamily: "'Inter', sans-serif",
+            overflow: 'hidden',
+            backdropFilter: 'blur(10px)',
+            WebkitBackdropFilter: 'blur(10px)'
+        }
+    }, [
+        // Chat Header
+        React.createElement('div', {
+            key: 'chat-header',
+            style: {
+                background: 'linear-gradient(135deg, #7928ca, #00f2fe)',
+                padding: '12px 16px',
+                color: '#fff',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                fontWeight: 'bold',
+                fontSize: '0.95rem'
+            }
+        }, [
+            React.createElement('span', { key: 'title', style: { display: 'flex', alignItems: 'center', gap: '8px' } }, [
+                React.createElement('span', { key: 'dot', style: { width: '8px', height: '8px', background: '#00ffcc', borderRadius: '50%' } }),
+                'Apex Chat Assistant'
+            ]),
+            React.createElement('button', {
+                key: 'close-btn',
+                onClick: () => setIsChatOpen(false),
+                style: {
+                    background: 'none',
+                    border: 'none',
+                    color: '#fff',
+                    cursor: 'pointer',
+                    fontSize: '1.4rem',
+                    padding: '0',
+                    lineHeight: '1'
+                }
+            }, '×')
+        ]),
+
+        // Message List Container
+        React.createElement('div', {
+            key: 'chat-messages',
+            style: {
+                flex: '1',
+                padding: '12px',
+                overflowY: 'auto',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '10px',
+                background: 'rgba(255, 255, 255, 0.02)'
+            }
+        }, [
+            messages.map((msg, index) => 
+                React.createElement('div', {
+                    key: index,
+                    style: {
+                        alignSelf: msg.sender === 'user' ? 'flex-end' : 'flex-start',
+                        background: msg.sender === 'user' ? 'rgba(0, 242, 254, 0.15)' : 'rgba(121, 40, 202, 0.1)',
+                        border: msg.sender === 'user' ? '1px solid rgba(0, 242, 254, 0.3)' : '1px solid rgba(121, 40, 202, 0.2)',
+                        color: msg.sender === 'user' ? '#fff' : '#e0e0e0',
+                        padding: '8px 12px',
+                        borderRadius: msg.sender === 'user' ? '12px 12px 2px 12px' : '12px 12px 12px 2px',
+                        maxWidth: '85%',
+                        fontSize: '0.85rem',
+                        lineHeight: '1.4',
+                        whiteSpace: 'pre-line',
+                        wordBreak: 'break-word'
+                    }
+                }, msg.text)
+            ),
+            React.createElement('div', { key: 'scroll-anchor', ref: chatEndRef })
+        ]),
+
+        // Send Input Form
+        React.createElement('form', {
+            key: 'chat-form',
+            onSubmit: handleSend,
+            style: {
+                display: 'flex',
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                background: 'rgba(0, 0, 0, 0.3)',
+                padding: '8px'
+            }
+        }, [
+            React.createElement('input', {
+                key: 'chat-input',
+                value: input,
+                onChange: (e) => setInput(e.target.value),
+                placeholder: 'Type your message...',
+                style: {
+                    flex: '1',
+                    background: 'rgba(255,255,255,0.05)',
+                    border: '1px solid rgba(255,255,255,0.1)',
+                    borderRadius: '20px',
+                    color: '#fff',
+                    padding: '8px 14px',
+                    fontSize: '0.85rem',
+                    outline: 'none'
+                }
+            }),
+            React.createElement('button', {
+                key: 'send-btn',
+                type: 'submit',
+                style: {
+                    background: 'none',
+                    border: 'none',
+                    color: '#00f2fe',
+                    fontWeight: 'bold',
+                    padding: '0 10px 0 14px',
+                    cursor: 'pointer',
+                    fontSize: '0.85rem'
+                }
+            }, 'Send')
+        ])
+    ]) : null;
+
+    return React.createElement(React.Fragment, null, [
+        React.createElement('div', { 
+            key: 'contact-sidebar',
+            className: `floating-contact-sidebar ${isOpen ? 'active' : ''}` 
+        }, [
+            // 1. MAIN TRIGGER BUTTON
+            React.createElement('button', {
+                key: 'toggle-btn',
+                onClick: () => setIsOpen(!isOpen),
+                className: `floating-contact-trigger ${isOpen ? 'open' : ''}`,
+                title: 'Contact Menu'
+            }, 
+                React.createElement('img', {
+                    src: isOpen 
+                        ? 'https://cdn-icons-png.flaticon.com/512/2997/2997911.png'  // Close Icon
+                        : 'https://cdn-icons-png.flaticon.com/512/9374/9374944.png', // Premium 3D Chat Icon
+                    alt: 'Toggle Contact'
+                })
+            ),
+
+            // 2. WhatsApp Button
+            React.createElement('a', {
+                key: 'whatsapp-btn',
+                href: 'https://wa.me/923421287734',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+                className: 'floating-contact-btn whatsapp menu-item',
+                title: 'Chat on WhatsApp'
+            }, 
+                React.createElement('img', {
+                    src: 'https://cdn-icons-png.flaticon.com/512/5968/5968841.png',
+                    alt: 'WhatsApp'
+                })
+            ),
+
+            // 3. ✨ NEW CHATBOT BUTTON
+            React.createElement('button', {
+                key: 'chatbot-trigger-btn',
+                onClick: () => {
+                    setIsChatOpen(!isChatOpen);
+                    setIsOpen(false); 
+                },
+                className: 'floating-contact-btn chatbot menu-item',
+                title: 'Apex ChatBot',
+                style: {
+                    background: 'linear-gradient(135deg, #7928ca, #00f2fe)',
+                    border: 'none',
+                    borderRadius: '50%',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '8px',
+                    boxShadow: '0 4px 15px rgba(121, 40, 202, 0.4)'
+                }
+            }, 
+                React.createElement('img', {
+                    src: 'https://cdn-icons-png.flaticon.com/512/4712/4712038.png', // Robot AI icon
+                    alt: 'Chatbot',
+                    style: { width: '100%', height: '100%' }
+                })
+            ),
+
+            // 4. Email Button
+            React.createElement('a', {
+                key: 'email-btn',
+                href: 'mailto:book.apexcode@gmail.com',
+                target: '_blank',
+                rel: 'noopener noreferrer',
+                className: 'floating-contact-btn email menu-item',
+                title: 'Send an Email'
+            }, 
+                React.createElement('img', {
+                    src: 'https://cdn-icons-png.flaticon.com/512/732/732200.png',
+                    alt: 'Email'
+                })
+            )
+        ]),
+        chatBoxElement
+    ]);
+};
 
 // Yahan se aapka original code shuru ho raha hai
 // const QuickKitApp = () => { ...
