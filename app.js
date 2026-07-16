@@ -161,6 +161,14 @@ const TopFAQSection = () => {
         { question: "Can you help monetize my website with ads?", answer: "Yes, we set up AdSense, Adsterra, or Monetag ad placements designed for strong revenue without hurting your site's user experience or load speed." },
         { question: "What payment methods do you accept?", answer: "We support Sadapay, Raqami, Jazzcash, HBL Bank, UBL Bank, Meezan Bank, NayaPay, Easypaisa, and standard corporate bank transfers for project payments." },
         { question: "How long does a project take to complete?", answer: "It depends on the plan. Basic builds have a quick turnaround, while Standard and Premium plans with database integration or enterprise architecture take longer based on scope." },
+        { 
+            question: "What happens if my website crashes after launch?", 
+            answer: "We provide 6 months of free technical support and crash warranty. If any technical issue, bug, or website crash occurs within this period, our team will fix it immediately at no extra cost." 
+        },
+        { 
+            question: "Do you require an advance payment to start the project?", 
+            answer: "Yes, we require a 50% advance payment to initiate the project. The remaining 50% is payable once the project is fully completed, tested, and approved by you before launch." 
+        },
         { question: "Who owns the website once it's finished?", answer: "Full ownership transfers to you once payment is completed. Reusing or redistributing our proprietary framework themes without authorization is not permitted." },
         { question: "Do you offer revisions or support after launch?", answer: "Custom development revisions follow the written scope agreed at project start. Pre-built website-for-sale purchases are final, so we recommend reviewing the live preview carefully before booking." }
     ];
