@@ -523,7 +523,7 @@ const FloatingContactWidget = () => {
             })
         )
     ]);
-};
+}; 
 
 // Yahan se aapka original code shuru ho raha hai
 // const QuickKitApp = () => { ...
