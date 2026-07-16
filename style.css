@@ -981,3 +981,94 @@
     0% { transform: translateX(0%); }
     100% { transform: translateX(-50%); } /* Do baar duplicated text lagane se breaks nahi aate */
 }
+/* Ultra Premium Floating Sidebar Container */
+.floating-contact-sidebar {
+    position: fixed;
+    right: 25px; /* Screen ke edge se gap */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Buttons ke darmiyan gap */
+    z-index: 999999;
+    pointer-events: auto;
+}
+
+/* Core Button Design: Dark Glassmorphism */
+.floating-contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px; /* Perfect circular size */
+    height: 56px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    background: rgba(15, 15, 25, 0.7); /* Deep premium dark translucent back */
+    backdrop-filter: blur(12px); /* Glass blur effect */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Minimal soft border */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring transition */
+}
+
+/* Icons Size & Shadow Control */
+.floating-contact-btn img {
+    width: 26px !important;
+    height: 26px !important;
+    object-fit: contain;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* Global Hover interaction (Pops out & shifts left slightly) */
+.floating-contact-btn:hover {
+    transform: scale(1.18) translateX(-6px);
+}
+
+/* 🟢 WhatsApp Glowing Glass Effect */
+.floating-contact-btn.whatsapp {
+    border-color: rgba(37, 211, 102, 0.25);
+}
+.floating-contact-btn.whatsapp:hover {
+    background: rgba(37, 211, 102, 0.2); /* Light WhatsApp tint */
+    border-color: rgba(37, 211, 102, 0.6);
+    /* Dual Layer Neon Glow Shadow */
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.5), 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+.floating-contact-btn.whatsapp:hover img {
+    transform: rotate(15deg) scale(1.12); /* Dynamic angle rotation on hover */
+    filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.8)); /* Icon glows */
+}
+
+/* 🔴 Gmail/Email Glowing Glass Effect */
+.floating-contact-btn.email {
+    border-color: rgba(234, 67, 53, 0.25);
+}
+.floating-contact-btn.email:hover {
+    background: rgba(234, 67, 53, 0.2); /* Light Gmail tint */
+    border-color: rgba(234, 67, 53, 0.6);
+    /* Dual Layer Neon Glow Shadow */
+    box-shadow: 0 0 25px rgba(234, 67, 53, 0.5), 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+.floating-contact-btn.email:hover img {
+    transform: translateY(-3px) scale(1.12); /* Moves slightly up on hover */
+    filter: drop-shadow(0 0 8px rgba(234, 67, 53, 0.8)); /* Icon glows */
+}
+
+/* Responsive Scaling for Mobile Screens */
+@media (max-width: 768px) {
+    .floating-contact-sidebar {
+        right: 15px;
+        gap: 14px;
+    }
+    .floating-contact-btn {
+        width: 48px;
+        height: 48px;
+    }
+    .floating-contact-btn img {
+        width: 22px !important;
+        height: 22px !important;
+    }
+}

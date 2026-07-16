@@ -466,6 +466,43 @@ const PAGE_META = {
     'websites-for-sale': { title: 'Websites For Sale | Apex Code', desc: 'Buy ready-made premium website templates and live web projects.' },
 };
 
+// Floating Contact Widget for WhatsApp & Email
+// Upgraded Floating Contact Widget for WhatsApp & Email
+// Premium Floating Contact Widget
+const FloatingContactWidget = () => {
+    return React.createElement('div', { className: 'floating-contact-sidebar' }, [
+        // 1. WhatsApp Button
+        React.createElement('a', {
+            key: 'whatsapp-btn',
+            href: 'https://wa.me/923421287734',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            className: 'floating-contact-btn whatsapp',
+            title: 'Chat on WhatsApp'
+        }, 
+            React.createElement('img', {
+                src: 'https://cdn-icons-png.flaticon.com/512/5968/5968841.png',
+                alt: 'WhatsApp'
+            })
+        ),
+
+        // 2. Email Button
+        React.createElement('a', {
+            key: 'email-btn',
+            href: 'mailto:book.apexcode@gmail.com',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            className: 'floating-contact-btn email',
+            title: 'Send an Email'
+        }, 
+            React.createElement('img', {
+                src: 'https://cdn-icons-png.flaticon.com/512/732/732200.png',
+                alt: 'Email'
+            })
+        )
+    ]);
+};
+
 // Yahan se aapka original code shuru ho raha hai
 // const QuickKitApp = () => { ...
 // JavaScript logic aur React dynamic element creation ek sath
@@ -11505,6 +11542,7 @@ React.createElement('div', {
         { className: 'container' },
         headerElement,
         mainElement,
+        React.createElement(FloatingContactWidget, { key: 'floating-widget' }),
         backToHomeBtn,  // 🔥 Glowing button footer se bilkul pehle load ho raha hai
         footerElement
     );
