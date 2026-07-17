@@ -3898,8 +3898,8 @@ const QuickKitApp = () => {
                                 }
                             },
                                 React.createElement('img', {
-                                    src: 'usman.jpeg',
-                                    alt: 'Usman Nadeem',
+                                    src: 'alibhai.jpeg',
+                                    alt: 'Alamdar Ahmed Khan',
                                     style: {
                                         width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover',
                                         display: 'block', background: '#0a0b12'
@@ -3910,11 +3910,11 @@ const QuickKitApp = () => {
                             // IDENTITY & TYPOGRAPHY
                             React.createElement('h3', {
                                 style: { color: '#fff', fontSize: '1.65rem', fontWeight: '900', letterSpacing: '-0.3px', marginBottom: '6px', marginTop: '0' }
-                            }, 'Engr. Usman Nadeem'),
+                            }, 'Engr. Alamdar Ahmed Khan'),
 
                             React.createElement('p', {
                                 style: { color: '#ff0080', fontWeight: '700', fontSize: '0.85rem', letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '25px', opacity: '0.9' }
-                            }, 'Frontend + WordPress Developer')
+                            }, 'FULL STACK DEVELOPER + SEO SPECIALIST')
                         ),
 
                         // CORE CTAs (Solid Action + Frosted Hybrid Ecosystem)
@@ -3977,163 +3977,12 @@ const QuickKitApp = () => {
                             }
                         }),
 
-                        'Usman transforms complex digital logic into visually stunning, pixel-perfect user interfaces. His advanced grasp of adaptive styling protocols ensures that layouts transition smoothly across all modern screen resolutions. Leveraging high-level custom WordPress orchestration alongside core frontend libraries, he designs tailored web dashboards and content structures that prioritize dynamic client interaction and high brand-conversion metrics.'
+                        'Alamdar Ahmed Khan approaches software engineering with a strategic data-driven growth mindset. He focuses closely on aligning complex full-stack web architectures with advanced indexability paradigms. By deploying clean schematic structures, precise server configurations, and targeted algorithmic keyword mappings, he bridges the technical divide between robust script deployments and high search ranking sustainability.'
                     )
                 ),
 
                 // ✨ ROW 3: Software Engineer Saif Ur Rehman
-                React.createElement('div', {
-                    style: {
-                        ...groupStyle,
-                        display: 'flex',
-                        flexWrap: 'wrap',
-                        gap: '30px',
-                        alignItems: 'stretch', // Left aur right segments ki vertical bounds perfect level par balance rahengi
-                        width: '100%',
-                        maxWidth: '900px',
-                        marginTop: '30px',
-                        marginBottom: '30px'
-                    },
-                    className: 'team-row-group'
-                },
-                    // LEFT CARD: FRONTEND DEV LEAD PROFILE
-                    React.createElement('div', {
-                        className: 'service-card hyper-premium-card lead-profile-card',
-                        style: {
-                            background: 'rgba(10, 11, 18, 0.85)',
-                            border: '1px solid rgba(255, 255, 255, 0.07)',
-                            boxShadow: '0 30px 70px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 50px rgba(0, 242, 254, 0.02)',
-                            backdropFilter: 'blur(30px)',
-                            WebkitBackdropFilter: 'blur(30px)',
-                            padding: '40px 30px',
-                            borderRadius: '32px',
-                            textAlign: 'center',
-                            flex: '0 0 350px',
-                            position: 'relative',
-                            overflow: 'hidden',
-                            display: 'flex',
-                            flexDirection: 'column',
-                            justifyContent: 'space-between' // Fixed: Yahan split error tha, ab bilkul theek hy
-                        }
-                    },
-                        // 1. TOP HARDWARE ACCENT BAR (Electric Cyan to Fluid Blue Neon Streak)
-                        React.createElement('div', {
-                            style: {
-                                position: 'absolute', top: '0', left: '40px', right: '40px', height: '3px',
-                                background: 'linear-gradient(90deg, transparent, #00f2fe, #4facfe, transparent)',
-                                filter: 'drop-shadow(0 2px 8px rgba(0, 242, 254, 0.8))'
-                            }
-                        }),
-
-                        React.createElement('div', null,
-                            // HIGH-END MULTI-BADGE BLOCK ROW
-                            React.createElement('div', { style: { display: 'flex', justifyContent: 'center', gap: '8px', marginBottom: '25px', flexWrap: 'wrap' } },
-                                // Badge 1: Frontend Dev (Cyan/Blue Hue)
-
-
-                                // Badge 2: Lead Developer (Deep Tech Royal Shade)
-                                React.createElement('div', {
-                                    className: 'card-badge dev-badge',
-                                    style: {
-                                        background: 'rgba(121, 40, 202, 0.08)',
-                                        color: '#a855f7',
-                                        padding: '5px 12px', borderRadius: '10px', fontSize: '0.65rem', fontWeight: '800',
-                                        letterSpacing: '0.8px', textTransform: 'uppercase', border: '1px solid rgba(121, 40, 202, 0.25)'
-                                    }
-                                }, 'CEO OF Zarvix & Companies Partner')
-                            ),
-
-                            // HOLOGRAPHIC GEOMETRIC CYBER RING
-                            React.createElement('div', {
-                                style: {
-                                    position: 'relative', width: '100px', height: '100px', margin: '0 auto 20px',
-                                    borderRadius: '50%', padding: '3px', background: 'linear-gradient(135deg, #00f2fe, #4facfe)',
-                                    boxShadow: '0 10px 25px rgba(0, 242, 254, 0.25)'
-                                }
-                            },
-                                React.createElement('img', {
-                                    src: 'rana.jpeg',
-                                    alt: 'Saif Ur Rahman',
-                                    style: {
-                                        width: '100%', height: '100%', borderRadius: '50%', objectFit: 'cover',
-                                        display: 'block', background: '#0a0b12'
-                                    }
-                                })
-                            ),
-
-                            // TYPOGRAPHY CORE SYSTEM
-                            React.createElement('h3', {
-                                style: { color: '#fff', fontSize: '1.65rem', fontWeight: '900', letterSpacing: '-0.3px', marginBottom: '6px', marginTop: '0' }
-                            }, 'Engr. Saif Ur Rehman'),
-
-                            React.createElement('p', {
-                                style: { color: '#00f2fe', fontWeight: '700', fontSize: '0.85rem', letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '25px', opacity: '0.9' }
-                            }, 'Frontend Developer')
-                        ),
-
-                        // ENTERPRISE ACTION GROUP (Solid Contrast Primary + Ultra-Frosted Secondary)
-                        React.createElement('div', { style: { display: 'flex', gap: '12px', width: '100%' } },
-                            // Visit Profile: Solid High-Contrast White Engine
-                            React.createElement('button', {
-                                className: 'card-btn enterprise-action',
-                                onClick: toSaifPortfolio,
-                                style: {
-                                    flex: '1', padding: '12px',
-                                    background: '#fff', color: '#0a0b12',
-                                    border: '1px solid #fff', borderRadius: '12px',
-                                    fontSize: '0.9rem', fontWeight: '800', cursor: 'pointer',
-                                    boxShadow: '0 8px 20px rgba(255, 255, 255, 0.05)',
-                                    transition: 'all 0.2s ease'
-                                }
-                            }, 'Visit Profile'),
-
-                            // Contact: Translucent Architectural Node
-                            React.createElement('a', {
-                                href: 'mailto:book.apexcode@gmail.com',
-                                className: 'card-btn secondary-frosted-action',
-                                style: {
-                                    flex: '1', padding: '12px', fontSize: '0.9rem', fontWeight: '800',
-                                    color: '#fff', background: 'rgba(255, 255, 255, 0.03)',
-                                    border: '1px solid rgba(255, 255, 255, 0.12)', borderRadius: '12px',
-                                    textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    transition: 'all 0.2s ease', cursor: 'pointer'
-                                }
-                            }, 'Contact')
-                        )
-                    ),
-
-                    // RIGHT DETAIL BOX: THE CORE FRAMEWORK PORTAL
-                    React.createElement('div', {
-                        style: {
-                            ...detailBoxStyle,
-                            flex: '1 1 450px',
-                            background: 'rgba(15, 17, 26, 0.5)',
-                            border: '1px solid rgba(255, 255, 255, 0.05)',
-                            borderRadius: '32px',
-                            padding: '40px 35px',
-                            color: 'rgba(255, 255, 255, 0.75)',
-                            fontSize: '1rem',
-                            lineHeight: '1.75',
-                            backdropFilter: 'blur(20px)',
-                            WebkitBackdropFilter: 'blur(20px)',
-                            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
-                            display: 'flex',
-                            alignItems: 'center',
-                            textAlign: 'left',
-                            position: 'relative'
-                        }
-                    },
-                        // Fluid Cyan architectural vertical bar inside the description area
-                        React.createElement('div', {
-                            style: {
-                                position: 'absolute', left: '0', top: '40px', bottom: '40px', width: '2px',
-                                background: 'linear-gradient(to bottom, #00f2fe, transparent)'
-                            }
-                        }),
-
-                        'Saif brings websites to life by crafting immersive, fluid interactive layers. His execution focuses heavily on modern user journeys, utilizing optimized rendering engines and modular components to maintain flawless system runtimes. By implementing micro-interactions, custom script animations, and asynchronous UI features, he delivers unmatched aesthetics that naturally elevate user retention periods.'
-                    )
-                ),
+                
 
                 // 🚀 ROW 4: Software Engineer Abdul Nafay
                 React.createElement('div', {
@@ -4654,7 +4503,7 @@ const QuickKitApp = () => {
                                         padding: '5px 12px', borderRadius: '10px', fontSize: '0.65rem', fontWeight: '800',
                                         letterSpacing: '0.8px', textTransform: 'uppercase', border: '1px solid rgba(121, 40, 202, 0.25)'
                                     }
-                                }, 'Internship')
+                                }, 'EMPLOYED')
                             ),
 
                             // DYNAMIC CYBER RING
@@ -5651,215 +5500,6 @@ const QuickKitApp = () => {
 
             )
         );
-    } else if (currentPage === 'saif-portfolio') {
-        const portfolioInputStyle = {
-            background: 'linear-gradient(135deg, rgba(20, 20, 30, 0.8), rgba(20, 20, 30, 0.5))',
-            padding: '35px',
-            borderRadius: '24px',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            color: 'rgba(255, 255, 255, 0.85)',
-            lineHeight: '1.8',
-            backdropFilter: 'blur(15px)',
-            WebkitBackdropFilter: 'blur(15px)',
-            boxShadow: '0 20px 45px rgba(0,0,0,0.4)',
-            width: '100%',
-            boxSizing: 'border-box'
-        };
-
-        const projectCardStyle = {
-            background: 'rgba(255, 255, 255, 0.03)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            borderRadius: '16px',
-            padding: '24px',
-            marginBottom: '20px',
-            transition: 'all 0.4s cubic-bezier(0.25, 1, 0.5, 1)'
-        };
-
-        mainElement = React.createElement('main', {
-            style: { padding: '40px 20px', minHeight: '85vh', display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', boxSizing: 'border-box' }
-        },
-            React.createElement('button', {
-                className: 'card-btn',
-                onClick: toPortfolio,
-                onMouseEnter: (e) => {
-                    e.target.style.background = 'rgba(255,255,255,0.05)';
-                    e.target.style.transform = 'translateX(-3px)';
-                },
-                onMouseLeave: (e) => {
-                    e.target.style.background = 'transparent';
-                    e.target.style.transform = 'translateX(0)';
-                },
-                style: { marginBottom: '30px', alignSelf: 'center', borderColor: 'rgba(255,255,255,0.2)', transition: 'all 0.3s ease', cursor: 'pointer' }
-            }, '← Back to Team Portfolios'),
-
-            React.createElement('div', {
-                style: { width: '100%', maxWidth: '950px', display: 'flex', flexDirection: 'column', gap: '35px' }
-            },
-                // Header
-                React.createElement('div', {
-                    style: {
-                        ...portfolioInputStyle,
-                        display: 'flex',                             // Block configuration se flexbox par shift kiya vertical layout ke liye
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        textAlign: 'center',
-                        background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(255, 0, 128, 0.05))',
-                        border: '1px solid rgba(0, 242, 254, 0.15)',
-                        padding: '30px 20px',                        // Layout margins ko padding cushioning di takay corners tight na laghein
-                        maxWidth: '95%',                             // Card container auto-adjust hokar screen boundaries ke andar rahega
-                        margin: '0 auto',
-                        boxSizing: 'border-box'
-                    }
-                },
-                    React.createElement('img', {
-                        src: 'rana.jpeg',                            // Saif Bhai ka image asset source yahan map ho gaya hai
-                        alt: 'Saif Ur Rehman',
-                        style: {
-                            width: 'clamp(100px, 25vw, 130px)',      // Mobile screen sizes par fluid size optimization
-                            height: 'clamp(100px, 25vw, 130px)',     // Border radius display ratio square to circle tight lock
-                            borderRadius: '50%',
-                            objectFit: 'cover',
-                            marginBottom: '15px',                    // Bottom spacer layout compact kiya
-                            border: '3px solid #00f2fe',
-                            boxShadow: '0 0 25px rgba(0, 242, 254, 0.5)',
-                            display: 'inline-block'
-                        }
-                    }),
-                    React.createElement('h2', {
-                        style: {
-                            fontSize: 'clamp(1.7rem, 5.8vw, 2.8rem)', // Viewport width tracking responsive text sizing mechanism
-                            fontWeight: '800',
-                            margin: '0 0 10px 0',
-                            background: 'linear-gradient(90deg, #00f2fe, #ff0080)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            lineHeight: '1.2'
-                        }
-                    }, 'Engr. Saif Ur Rehman'),
-                    React.createElement('p', {
-                        style: {
-                            color: '#00f2fe',
-                            fontWeight: '700',
-                            fontSize: 'clamp(1rem, 4vw, 1.2rem)',    // Mobile resolutions par single line execution control karega
-                            letterSpacing: '0.5px',                  // Clean line tracking compression matrix
-                            margin: '0 0 15px 0'
-                        }
-                    }, 'Front End Developer & CEO of Zarvex'),
-                    React.createElement('p', {
-                        style: {
-                            maxWidth: '650px',
-                            margin: '0 auto',
-                            color: 'rgba(255,255,255,0.7)',
-                            fontSize: 'clamp(0.95rem, 3.5vw, 1.05rem)', // Bio descriptions paragraphs standard responsive grid setup
-                            lineHeight: '1.5',
-                            padding: '0 10px'                        // Low-res mobile displays edge bleeding filtering override
-                        }
-                    }, 'A results-driven Front End Developer and entrepreneur specializing in crafting high-performance, visually immersive web experiences. Passionate about scalable UI architectures, seamless user interactions, and modern web interfaces that deliver real business impact.')
-                ),
-
-                // Two Column
-                React.createElement('div', { style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', gap: '30px', width: '100%' } },
-
-                    // Technical Matrix
-                    React.createElement('div', { style: { ...portfolioInputStyle, flex: '1 1 400px' } },
-                        React.createElement('h3', { style: { color: '#00f2fe', fontSize: '1.4rem', marginTop: '0', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' } }, 'Technical Matrix'),
-                        React.createElement('ul', { style: { paddingLeft: '20px', margin: '15px 0 0 0' } },
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'UI/UX Engineering: '), 'Designing pixel-perfect, responsive interfaces using modern CSS layout systems, Flexbox, Grid, and fluid micro-animations for exceptional user experiences.'),
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Component Architecture: '), 'Building modular, reusable React.js component systems and interactive real-time user interfaces optimized for scalability and maintainability.'),
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Performance Optimization: '), 'Enhancing Core Web Vitals, load speeds, and rendering efficiency to deliver lightning-fast experiences across all device types and screen sizes.'),
-                            React.createElement('li', { style: { marginBottom: '0px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Cross-Browser Compatibility: '), 'Ensuring consistent, seamless front-end experiences across all major browsers, platforms, and resolutions with rigorous testing standards.')
-                        ),
-                    ),
-
-                    // Social Profiles
-                    React.createElement('div', { style: { ...portfolioInputStyle, flex: '1 1 400px' } },
-                        React.createElement('h3', { style: { color: '#00f2fe', fontSize: '1.4rem', marginTop: '0', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', letterSpacing: '1px' } }, 'Social Profiles'),
-                        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '12px', marginTop: '20px' } },
-
-                            React.createElement('a', {
-                                href: 'https://www.instagram.com/rana_saif_rs?utm_source=qr&igsh=b2tsempydWp1MGE4',
-                                target: '_blank',
-                                rel: 'noopener noreferrer',
-                                style: { display: 'block', padding: '14px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)', textDecoration: 'none', color: '#fff', fontSize: '1.05rem', cursor: 'pointer' }
-                            },
-                                React.createElement('strong', { style: { color: '#f77737' } }, '📸 Instagram: '), 'Follow on Instagram'
-                            ),
-
-                            React.createElement('a', {
-                                href: 'https://www.facebook.com/share/18gmTE9e1k/',
-                                target: '_blank',
-                                rel: 'noopener noreferrer',
-                                style: { display: 'block', padding: '14px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)', textDecoration: 'none', color: '#fff', fontSize: '1.05rem', cursor: 'pointer' }
-                            },
-                                React.createElement('strong', { style: { color: '#1877f2' } }, '🔵 Facebook: '), 'Connect on Facebook'
-                            ),
-
-                            React.createElement('a', {
-                                href: '#',
-                                style: { display: 'block', padding: '14px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)', textDecoration: 'none', color: 'rgba(255,255,255,0.35)', fontSize: '1.05rem', cursor: 'default' }
-                            },
-                                React.createElement('strong', { style: { color: 'rgba(255,255,255,0.35)' } }, '🧵 Threads: '), 'Not Available'
-                            ),
-
-                            React.createElement('a', {
-                                href: 'https://www.linkedin.com/in/saif-ur-rehman-5a9856213?utm_source=share_via&utm_content=profile&utm_medium=member_android',
-                                target: '_blank',
-                                rel: 'noopener noreferrer',
-                                style: { display: 'block', padding: '14px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)', textDecoration: 'none', color: '#fff', fontSize: '1.05rem', cursor: 'pointer' }
-                            },
-                                React.createElement('strong', { style: { color: '#0077b5' } }, '💼 LinkedIn: '), 'Connect on LinkedIn'
-                            )
-                        )
-                    ),
-
-                    // Skills + Academic
-                    React.createElement('div', { style: { ...portfolioInputStyle, flex: '1 1 400px' } },
-                        React.createElement('h3', { style: { color: '#ff0080', fontSize: '1.4rem', marginTop: '0', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' } }, 'Skills'),
-                        React.createElement('ul', { style: { paddingLeft: '20px', margin: '15px 0 0 0', listStyleType: 'square' } },
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'HTML5: '), 'Proficient in writing semantic, SEO-optimized, and fully accessible web structures ensuring cross-browser compatibility and clean code standards.'),
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'CSS3: '), 'Experienced in crafting highly responsive, pixel-perfect interfaces using Flexbox, Grid, animations, and modern design principles.'),
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'JavaScript: '), 'Strong command over dynamic client-side logic, asynchronous operations, and high-performance DOM manipulation.'),
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'React.js: '), 'Advanced capability in building modular, reusable component systems and interactive real-time user interfaces with state management.'),
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Figma & UI Design: '), 'Skilled in translating high-fidelity design mockups into production-ready, visually accurate front-end code.'),
-                            React.createElement('li', { style: { marginBottom: '20px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Microsoft Office: '), 'Competent in professional documentation, data management, and structured business reporting.'),
-
-                            React.createElement('li', { style: { listStyleType: 'none', marginLeft: '-20px', marginBottom: '12px', color: '#ff0080', fontWeight: '700', fontSize: '1.1rem' } }, '🎓 Academic Journey'),
-
-
-                            React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Graduation: '), 'Ilma University (2022 – 2026)'
-                            ),
-                            React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Intermediate: '), 'Punjab Group Of Colleges (2019 – 2021)'
-                            ),
-                            React.createElement('li', { style: { marginBottom: '0px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Matric: '), 'Afaq Board (2018 – 2019)'
-                            )
-                        )
-                    ),
-
-                    // Companies & Experience
-                    React.createElement('div', { style: { ...portfolioInputStyle, flex: '1 1 400px' } },
-                        React.createElement('h3', { style: { color: '#ff0080', fontSize: '1.4rem', marginTop: '0', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' } }, 'Companies'),
-                        React.createElement('ul', { style: { paddingLeft: '20px', margin: '15px 0 0 0', listStyleType: 'square' } },
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Zarvex: '), 'Serving as CEO and Co-Founder of Zarvex, leading the company\'s strategic vision while actively contributing as a Front End Developer — building scalable, high-performance digital products and managing end-to-end client solutions.'),
-                            React.createElement('li', { style: { marginBottom: '20px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Apex Code: '), 'Partnered with Apex Code as a Front End Developer, collaborating on enterprise-grade web projects and delivering cutting-edge digital solutions across multiple client platforms.'),
-
-                            React.createElement('li', { style: { listStyleType: 'none', marginLeft: '-20px', marginBottom: '12px', color: '#ff0080', fontWeight: '700', fontSize: '1.1rem' } }, 'Experience'),
-
-                            React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'CEO & Front End Developer: '), 'Zarvex (01-April-2026 – Present)'
-                            ),
-                            React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Front End Developer: '), 'Apex Code (20-June-2026 – Present)'
-                            ),
-                        )
-                    ),
-                ),
-
-                // Project cards — unchanged, paste your existing project nodes here
-            )
-        );
     } else if (currentPage === 'usman-portfolio') {
 
         const portfolioInputStyle = {
@@ -5924,8 +5564,8 @@ const QuickKitApp = () => {
                     }
                 },
                     React.createElement('img', {
-                        src: 'usman.jpeg',
-                        alt: 'Usman Nadeem',
+                        src: 'alibhai.jpeg',
+                        alt: 'Alamdar Ahmed Khan',
                         style: {
                             width: 'clamp(90px, 22vw, 130px)',      // Mobile par size thoda aur streamline kiya taaki space bache
                             height: 'clamp(90px, 22vw, 130px)',
@@ -5948,7 +5588,7 @@ const QuickKitApp = () => {
                             WebkitTextFillColor: 'transparent',
                             lineHeight: '1.2'
                         }
-                    }, 'Engr. Usman Nadeem'),
+                    }, 'Engr. Alamdar Ahmed Khan'),
                     React.createElement('p', {
                         style: {
                             color: '#00f2fe',
@@ -5989,7 +5629,7 @@ const QuickKitApp = () => {
 
                             // Instagram Link
                             React.createElement('a', {
-                                href: 'https://www.instagram.com/usman_qureshi2002?igsh=MWVnMTZtOXJjOHppcQ==',
+                                href: 'https://www.instagram.com/alamdarkhann?igsh=MTBnN3UyZTA0d2U3Yw==',
                                 target: '_blank',
                                 rel: 'noopener noreferrer',
                                 style: { display: 'block', padding: '14px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)', textDecoration: 'none', color: '#fff', fontSize: '1.05rem', cursor: 'pointer' }
@@ -5999,7 +5639,7 @@ const QuickKitApp = () => {
 
                             // Facebook Link
                             React.createElement('a', {
-                                href: 'https://www.facebook.com/share/1D1QBJQtTa/',
+                                href: 'https://www.facebook.com/share/1GzEbdq5fr/',
                                 target: '_blank',
                                 rel: 'noopener noreferrer',
                                 style: { display: 'block', padding: '14px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)', textDecoration: 'none', color: '#fff', fontSize: '1.05rem', cursor: 'pointer' }
@@ -6019,7 +5659,7 @@ const QuickKitApp = () => {
 
                             // LinkedIn Link
                             React.createElement('a', {
-                                href: 'https://www.linkedin.com/in/usman-qureshi-a09662402?utm_source=share_via&utm_content=profile&utm_medium=member_android',
+                                href: '#',
                                 target: '_blank',
                                 rel: 'noopener noreferrer',
                                 style: { display: 'block', padding: '14px', background: 'rgba(255, 255, 255, 0.03)', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.08)', textDecoration: 'none', color: '#fff', fontSize: '1.05rem', cursor: 'pointer' }
@@ -6034,22 +5674,23 @@ const QuickKitApp = () => {
                         React.createElement('ul', { style: { paddingLeft: '20px', margin: '15px 0 0 0', listStyleType: 'square' } },
                             React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'HTML: '), 'Proficient in architecting clean, semantic, and SEO-friendly web structures to ensure absolute cross-browser accessibility.'),
                             React.createElement('li', { style: { marginBottom: '20px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'CSS: '), 'Experienced in crafting highly responsive, pixel-perfect interfaces using modern design principles, layouts, and smooth transition animations.'),
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Javascript: '), 'Strong expertise in implementing complex, declarative client-side logic and managing high-performance asynchronous state operations.'),
-                            React.createElement('li', { style: { marginBottom: '20px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'React.JS: '), 'Advanced capability in building modular, reusable component systems and interactive, real-time user interfaces.'),
-                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Wordpress: '), 'Specialized in custom WordPress development and high-speed frontend solutions. Lets start your project.'),
+                            React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Laravel: '), 'Strong expertise in architecting complex, scalable enterprise applications with Laravel, optimizing Eloquent ORM queries, and implementing high-performance asynchronous state operations via queues, redis caching, and background workers.'),
+                            React.createElement('li', { style: { marginBottom: '20px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'PHP: '), 'Proactive in writing secure, highly optimized PHP logic, implementing complex business workflows, and integrating seamless third-party APIs for enterprise-grade solutions.'),       
                             React.createElement('li', { style: { marginBottom: '20px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Microsoft Office: '), 'Competent in managing professional documentation, advanced data sorting, and structuring clean business operational reports.'),
 
                             // Custom Sub-heading for Academic Timeline
                             React.createElement('li', { style: { listStyleType: 'none', marginLeft: '-20px', marginBottom: '12px', color: '#ff0080', fontWeight: '700', fontSize: '1.1rem' } }, '🎓 Academic Journey'),
-
-                            React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Graduation: '), 'Ilma University (2022 - 2026)'
+React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
+                                React.createElement('strong', { style: { color: '#fff' } }, 'Masters: '), 'Karachi University (2020 - 2022)'
                             ),
                             React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Intermediate: '), 'Army Public School & College (2020 - 2022)'
+                                React.createElement('strong', { style: { color: '#fff' } }, 'Graduation: '), 'Karachi University (2017 - 2019)'
+                            ),
+                            React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
+                                React.createElement('strong', { style: { color: '#fff' } }, 'Intermediate: '), 'Sindh Board (2014 - 2016)'
                             ),
                             React.createElement('li', { style: { marginBottom: '0px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Matric : '), 'Iqra Huffaz Boys Secondary School (2019 - 2020)'
+                                React.createElement('strong', { style: { color: '#fff' } }, 'Matric : '), 'Sindh Board (2012 - 2014)'
                             )
                         )
                     ),
@@ -6058,16 +5699,16 @@ const QuickKitApp = () => {
                         React.createElement('h3', { style: { color: '#ff0080', fontSize: '1.4rem', marginTop: '0', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px' } }, 'Companies Which I Work For'),
                         React.createElement('ul', { style: { paddingLeft: '20px', margin: '15px 0 0 0', listStyleType: 'square' } },
                             React.createElement('li', { style: { marginBottom: '12px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Apex Code: '), 'As A Cheif Operating Officer of Apex Code, I drive the companys strategic vision while actively architecting core platforms.'),
-                            React.createElement('li', { style: { marginBottom: '20px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Research Teq: '), 'Previously worked as a Wordpress Developer at Research Teq, handling end-to-end wordpress development and engineering scalable digital solutions. .'),
+                            React.createElement('li', { style: { marginBottom: '20px' } }, React.createElement('strong', { style: { color: '#fff' } }, 'Vision Tech: '), 'Previously worked as a Full Stack Developer at Vision Tech, handling end-to-end web development and engineering scalable digital solutions.'),
 
                             // Custom Sub-heading for Academic Timeline
                             React.createElement('li', { style: { listStyleType: 'none', marginLeft: '-20px', marginBottom: '12px', color: '#ff0080', fontWeight: '700', fontSize: '1.1rem' } }, 'Experience'),
 
                             React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Wordpress + Frontend Developer: '), 'Apex Code (30-April-2025 - Present)'
+                                React.createElement('strong', { style: { color: '#fff' } }, 'Full-Stack Developer:'), 'Apex Code (30-June-2026 - Present)'
                             ),
                             React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Wordpress Developer: '), 'Research Teq (01-Nov-2023 - 05-Nov-2024)'
+                                React.createElement('strong', { style: { color: '#fff' } }, 'Full-Stack Developer:'), 'Visio Tech (01-Nov-2017 - 05-Nov-2019)'
                             ),
                         )
                     ),
@@ -6092,24 +5733,27 @@ const QuickKitApp = () => {
 
                     // Title Row
                     React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' } },
-                        React.createElement('h4', { style: { color: '#fff', fontSize: '1.35rem', margin: '0', fontWeight: '700' } }, '"Healthy Habits Hub" – For A Better Lifestyle'),
+                        React.createElement('h4', { style: { color: '#fff', fontSize: '1.35rem', margin: '0', fontWeight: '700' } }, 'Optico4u — Premium Eyewear in Pakistan'),
                         React.createElement('span', { style: { background: 'rgba(255, 0, 128, 0.1)', color: '#ff0080', padding: '4px 12px', borderRadius: '12px', fontSize: '0.8rem', fontWeight: 'bold' } }, 'Active Service')
                     ),
 
                     // Detailed Breakdown Info Hub
                     React.createElement('div', { style: { color: 'rgba(255,255,255,0.72)', fontSize: '0.95rem', marginBottom: '20px', display: 'flex', flexDirection: 'column', gap: '10px', lineHeight: '1.6' } },
                         React.createElement('p', { style: { margin: '0' } },
-                            React.createElement('strong', { style: { color: '#ff0080' } }, 'Mental & Emotional Clarity: '), 'True wellness goes beyond the physical. Discover mindfulness routines, stress-management frameworks, and deep cognitive balance.'
+                            React.createElement('strong', { style: { color: '#ff0080' } }, 'AI Face Shape Detector: '), 'A smart visual utility that maps facial ratios in seconds to instantly identify face shapes and recommend the most flattering frame styles.'
                         ),
                         React.createElement('p', { style: { margin: '0' } },
-                            React.createElement('strong', { style: { color: '#ff0080' } }, 'Sustainable Fitness: '), 'UMove with purpose. Explore practical workout strategies and habit-stacking methods tailored for busy modern routines.'
+                            React.createElement('strong', { style: { color: '#ff0080' } }, 'Virtual Try-On Layer: '), 'A browser-based interactive canvas allowing users to preview frames instantly on a live layout before purchase.'
                         ),
 
                         React.createElement('p', { style: { margin: '0' } },
-                            React.createElement('strong', { style: { color: '#ff0080' } }, 'Mindful Nutrition: '), 'Learn to fuel your mind and body with wholesome, nutrient-dense foods without feeling restricted by extreme diets.'
+                            React.createElement('strong', { style: { color: '#ff0080' } }, 'Prescription Lens Builder: '), 'A streamlined configuration interface for inputting optical data, uploading prescriptions, and selecting specialized coatings (Blue-Cut, Anti-Glare).'
                         ),
                         React.createElement('p', { style: { margin: '0' } },
-                            React.createElement('strong', { style: { color: '#ff0080' } }, 'About Us: '), 'Welcome to HealthyHabitsHubb – Your ultimate destination for holistic and sustainable wellness. We firmly believe that true transformation doesn’t happen through radical overhauls, but through the micro-habits we practice every single day. Our mission is to filter out the noise and provide you with actionable, realistic guidance across nutrition, mental clarity, and physical fitness. We are here to support you in bridging the gap between where you are and where you want to be.'
+                            React.createElement('strong', { style: { color: '#ff0080' } }, 'Geometric Style Catalog: '), 'A structured product architecture that filters premium, high-durability eyewear by precise shapes (Aviator, Cat-Eye, Square).'
+                        ),
+                        React.createElement('p', { style: { margin: '0' } },
+                            React.createElement('strong', { style: { color: '#ff0080' } }, 'Risk-Free Buying Warranty: '), 'A built-in customer protection ecosystem offering a 6-month product warranty, 7-day easy returns, and live shipment tracking.'
                         )
                     ),
 
@@ -6119,7 +5763,7 @@ const QuickKitApp = () => {
 
                         // Interactive Link Button
                         React.createElement('a', {
-                            href: 'https://healthyhabitshubb.com/',
+                            href: 'https://optico4u.pk/',
                             target: '_blank',
                             rel: 'noopener noreferrer',
                             style: {
@@ -7258,8 +6902,8 @@ const QuickKitApp = () => {
 
                     // Image
                     React.createElement('img', {
-                        src: 'usman.jpeg',
-                        alt: 'Usman Nadeem',
+                        src: 'alibhai.jpeg',
+                        alt: 'Alamdar Ahmed khan',
                         style: {
                             width: 'clamp(80px, 18vw, 120px)',
                             height: 'clamp(80px, 18vw, 120px)',
@@ -7285,7 +6929,7 @@ const QuickKitApp = () => {
                             display: 'block',
                             width: '100%',
                         }
-                    }, 'Engr. Usman Nadeem'),
+                    }, 'Engr. Alamdar Ahmed Khan'),
 
                     // Title
                     React.createElement('p', {
