@@ -5759,7 +5759,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
 
                     // Footer Container: Tech Stack & Live Link
                     React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '15px', paddingTop: '12px', borderTop: '1px solid rgba(255,255,255,0.08)' } },
-                        React.createElement('span', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' } }, 'Tech Stack: Wordpress Development'),
+                        React.createElement('span', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '0.85rem' } }, 'Tech Stack: Code-Base Development'),
 
                         // Interactive Link Button
                         React.createElement('a', {
