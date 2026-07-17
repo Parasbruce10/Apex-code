@@ -5705,10 +5705,10 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                             React.createElement('li', { style: { listStyleType: 'none', marginLeft: '-20px', marginBottom: '12px', color: '#ff0080', fontWeight: '700', fontSize: '1.1rem' } }, 'Experience'),
 
                             React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Full-Stack Developer:'), 'Apex Code (30-June-2026 - Present)'
+                                React.createElement('strong', { style: { color: '#fff' } }, 'Full-Stack Developer: '), 'Apex Code (30-June-2026 - Present)'
                             ),
                             React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Full-Stack Developer:'), 'Visio Tech (01-Nov-2017 - 05-Nov-2019)'
+                                React.createElement('strong', { style: { color: '#fff' } }, 'Full-Stack Developer: '), 'Visio Tech (01-Nov-2017 - 05-Nov-2019)'
                             ),
                         )
                     ),
