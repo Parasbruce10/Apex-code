@@ -7552,175 +7552,169 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
             )
         );
     }else if (currentPage === 'employee-list') {
-        const empInputStyle = {
-            width: '100%', padding: '12px 18px', margin: '0 0 15px 0', borderRadius: '10px',
-            border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(255, 255, 255, 0.05)',
-            color: '#fff', fontSize: '0.95rem', outline: 'none', boxSizing: 'border-box',
-            transition: 'border-color 0.3s ease'
-        };
+    const empInputStyle = {
+        width: '100%', padding: '12px 18px', margin: '0 0 15px 0', borderRadius: '10px',
+        border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(255, 255, 255, 0.05)',
+        color: '#fff', fontSize: '0.95rem', outline: 'none', boxSizing: 'border-box',
+        transition: 'border-color 0.3s ease'
+    };
 
-        // Yahan par Pehle Search filter lagaya hai, aur phir Serial Number ke hisaab se Sort (tarteeb) kiya hai
-        const sortedAndFilteredEmployees = employees
-            .filter(emp =>
-                emp.name.toLowerCase().includes(employeeSearchQuery.toLowerCase()) ||
-                emp.position.toLowerCase().includes(employeeSearchQuery.toLowerCase())
-            )
-            .sort((a, b) => {
-                const serialA = a.serial_no || '';
-                const serialB = b.serial_no || '';
-                // numeric: true ka matlab hai ke EMP-2 pehle aayega aur EMP-10 baad mein.
-                return serialA.localeCompare(serialB, undefined, { numeric: true, sensitivity: 'base' });
-            });
+    const sortedAndFilteredEmployees = employees
+        .filter(emp =>
+            emp.name.toLowerCase().includes(employeeSearchQuery.toLowerCase()) ||
+            emp.position.toLowerCase().includes(employeeSearchQuery.toLowerCase())
+        )
+        .sort((a, b) => {
+            const serialA = a.serial_no || '';
+            const serialB = b.serial_no || '';
+            return serialA.localeCompare(serialB, undefined, { numeric: true, sensitivity: 'base' });
+        });
 
-        mainElement = React.createElement('main', { className: 'services-page', style: { padding: '40px 20px', minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center' } },
-            React.createElement('button', { className: 'card-btn', style: { marginBottom: '20px', borderColor: 'rgba(255,255,255,0.3)', padding: '10px 20px', borderRadius: '8px' }, onClick: toAdminPanel }, '← Back to Admin Dashboard'),
+    mainElement = React.createElement('main', { className: 'services-page', style: { padding: 'clamp(20px, 5vw, 40px) 15px', minHeight: '80vh', display: 'flex', flexDirection: 'column', alignItems: 'center' } },
+        React.createElement('button', { className: 'card-btn', style: { marginBottom: '20px', borderColor: 'rgba(255,255,255,0.3)', padding: '10px 20px', borderRadius: '8px' }, onClick: toAdminPanel }, '← Back to Admin Dashboard'),
 
-            React.createElement('h2', { style: { color: '#00e28c', fontSize: '2.2rem', marginBottom: '30px', textAlign: 'center', textShadow: '0 2px 10px rgba(0,226,140,0.2)' } }, 'Employee Management 👥'),
+        React.createElement('h2', { style: { color: '#00e28c', fontSize: 'clamp(1.5rem, 5vw, 2.2rem)', marginBottom: '30px', textAlign: 'center', textShadow: '0 2px 10px rgba(0,226,140,0.2)' } }, 'Employee Management 👥'),
 
-            // 1. ADD / EDIT EMPLOYEE FORM
-            React.createElement('form', {
-                key: employeeToEdit ? `edit-${employeeToEdit.id}` : 'new-emp', 
-                onSubmit: handleEmployeeSubmit,
-                style: { width: '100%', maxWidth: '700px', background: 'rgba(20, 20, 30, 0.85)', padding: '40px', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.08)', marginBottom: '50px', boxShadow: '0 15px 35px rgba(0,0,0,0.2)' }
-            },
-                React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '25px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '15px' } },
-                    React.createElement('h3', { style: { color: '#fff', margin: 0, fontSize: '1.4rem' } }, employeeToEdit ? 'Edit Employee ✏️' : 'Add New Employee ➕'),
-                    employeeToEdit && React.createElement('button', {
-                        type: 'button',
-                        onClick: () => setEmployeeToEdit(null),
-                        style: { background: 'rgba(255, 51, 102, 0.1)', border: '1px solid rgba(255, 51, 102, 0.4)', color: '#ff3366', cursor: 'pointer', fontWeight: 'bold', padding: '6px 12px', borderRadius: '6px' }
-                    }, 'Cancel Edit ✖')
-                ),
-
-                // Form Rows (Same as before, with consistent styling)
-                React.createElement('div', { style: { display: 'flex', gap: '15px' } },
-                    React.createElement('input', { type: 'text', name: 'serial_no', placeholder: 'Serial No (e.g. EMP-001)', defaultValue: employeeToEdit ? employeeToEdit.serial_no : '', required: true, style: { ...empInputStyle, flex: 1 } }),
-                    React.createElement('input', { type: 'text', name: 'cnic', placeholder: 'CNIC Number', defaultValue: employeeToEdit ? employeeToEdit.cnic : '', required: true, style: { ...empInputStyle, flex: 1 } })
-                ),
-
-                React.createElement('div', { style: { display: 'flex', gap: '15px' } },
-                    React.createElement('input', { type: 'text', name: 'name', placeholder: 'Name', defaultValue: employeeToEdit ? employeeToEdit.name : '', required: true, style: { ...empInputStyle, flex: 1 } }),
-                    React.createElement('input', { type: 'text', name: 'father_name', placeholder: "Father's Name", defaultValue: employeeToEdit ? employeeToEdit.father_name : '', required: true, style: { ...empInputStyle, flex: 1 } })
-                ),
-
-                React.createElement('div', { style: { display: 'flex', gap: '15px' } },
-                    React.createElement('input', { type: 'text', name: 'position', placeholder: 'Position', defaultValue: employeeToEdit ? employeeToEdit.position : '', required: true, style: { ...empInputStyle, flex: 1 } }),
-                    React.createElement('input', { type: 'text', name: 'contact', placeholder: 'Contact Number', defaultValue: employeeToEdit ? employeeToEdit.contact : '', required: true, style: { ...empInputStyle, flex: 1 } })
-                ),
-
-                React.createElement('div', { style: { display: 'flex', gap: '15px', alignItems: 'center' } },
-                    React.createElement('div', { style: { flex: 1 } },
-                        React.createElement('label', { style: { color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', display: 'block', marginBottom: '6px' } }, 'Date of Join:'),
-                        React.createElement('input', { type: 'date', name: 'date_of_join', defaultValue: employeeToEdit ? employeeToEdit.date_of_join : '', required: true, style: { ...empInputStyle, color: '#fff' } })
-                    ),
-                    React.createElement('div', { style: { flex: 1 } },
-                        React.createElement('label', { style: { color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', display: 'block', marginBottom: '6px' } }, 'Date of Resign:'),
-                        React.createElement('input', { type: 'text', name: 'date_of_resign', placeholder: 'Present or YYYY-MM-DD', defaultValue: employeeToEdit ? employeeToEdit.date_of_resign : 'Present', required: true, style: empInputStyle })
-                    )
-                ),
-
-                React.createElement('div', { style: { display: 'flex', gap: '15px', alignItems: 'center' } },
-                    React.createElement('input', { type: 'email', name: 'email', placeholder: 'Email Address', defaultValue: employeeToEdit ? employeeToEdit.email : '', required: true, style: { ...empInputStyle, flex: 1, margin: 0 } }),
-                    React.createElement('select', { name: 'status', defaultValue: employeeToEdit ? employeeToEdit.status : 'Active', style: { ...empInputStyle, flex: 1, margin: 0, background: '#1a1a26', color: '#fff' } },
-                        React.createElement('option', { value: 'Active' }, 'Active'),
-                        React.createElement('option', { value: 'Resigned' }, 'Resigned')
-                    )
-                ),
-
-                React.createElement('div', { style: { marginTop: '15px' } }),
-                React.createElement('textarea', { name: 'address', placeholder: 'Home Address', defaultValue: employeeToEdit ? employeeToEdit.address : '', required: true, rows: 2, style: { ...empInputStyle, resize: 'none' } }),
-
-                React.createElement('button', {
-                    type: 'submit', className: 'card-btn',
-                    style: { width: '100%', background: 'linear-gradient(90deg, #00e28c, #00f2fe)', color: '#000', fontSize: '1.1rem', fontWeight: 'bold', border: 'none', padding: '16px', borderRadius: '12px', marginTop: '10px', boxShadow: '0 4px 15px rgba(0, 226, 140, 0.3)', cursor: 'pointer' }
-                }, employeeToEdit ? 'Update Employee ✔️' : 'Save Employee 💾')
+        // 1. ADD / EDIT EMPLOYEE FORM
+        React.createElement('form', {
+            key: employeeToEdit ? `edit-${employeeToEdit.id}` : 'new-emp', 
+            onSubmit: handleEmployeeSubmit,
+            style: { width: '100%', maxWidth: '700px', background: 'rgba(20, 20, 30, 0.85)', padding: 'clamp(20px, 5vw, 40px)', borderRadius: '20px', border: '1px solid rgba(255, 255, 255, 0.08)', marginBottom: '50px', boxShadow: '0 15px 35px rgba(0,0,0,0.2)' }
+        },
+            React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', marginBottom: '25px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '15px', gap: '10px' } },
+                React.createElement('h3', { style: { color: '#fff', margin: 0, fontSize: '1.4rem' } }, employeeToEdit ? 'Edit Employee ✏️' : 'Add New Employee ➕'),
+                employeeToEdit && React.createElement('button', {
+                    type: 'button',
+                    onClick: () => setEmployeeToEdit(null),
+                    style: { background: 'rgba(255, 51, 102, 0.1)', border: '1px solid rgba(255, 51, 102, 0.4)', color: '#ff3366', cursor: 'pointer', fontWeight: 'bold', padding: '6px 12px', borderRadius: '6px' }
+                }, 'Cancel Edit ✖')
             ),
 
-            // 2. SEARCH & LIST EMPLOYEES
-            React.createElement('div', { style: { width: '100%', maxWidth: '700px' } },
-                React.createElement('h3', { style: { color: '#fff', marginBottom: '15px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', fontSize: '1.5rem' } }, 'Staff Directory'),
+            // Responsive Form Rows (flexWrap & flexBasis added)
+            React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '15px' } },
+                React.createElement('input', { type: 'text', name: 'serial_no', placeholder: 'Serial No (e.g. EMP-001)', defaultValue: employeeToEdit ? employeeToEdit.serial_no : '', required: true, style: { ...empInputStyle, flex: '1 1 250px' } }),
+                React.createElement('input', { type: 'text', name: 'cnic', placeholder: 'CNIC Number', defaultValue: employeeToEdit ? employeeToEdit.cnic : '', required: true, style: { ...empInputStyle, flex: '1 1 250px' } })
+            ),
 
-                React.createElement('input', {
-                    type: 'text',
-                    placeholder: '🔍 Search by Name or Position...',
-                    value: employeeSearchQuery,
-                    onChange: (e) => setEmployeeSearchQuery(e.target.value),
-                    style: { ...empInputStyle, background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0, 226, 140, 0.5)', marginBottom: '30px', padding: '15px 20px', borderRadius: '30px' }
-                }),
+            React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '15px' } },
+                React.createElement('input', { type: 'text', name: 'name', placeholder: 'Name', defaultValue: employeeToEdit ? employeeToEdit.name : '', required: true, style: { ...empInputStyle, flex: '1 1 250px' } }),
+                React.createElement('input', { type: 'text', name: 'father_name', placeholder: "Father's Name", defaultValue: employeeToEdit ? employeeToEdit.father_name : '', required: true, style: { ...empInputStyle, flex: '1 1 250px' } })
+            ),
 
-                // Yahan GRID ki jagah 'flex' aur 'column' use kiya hai (Ek ke neechay ek aayega)
-                React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '20px' } },
-                    sortedAndFilteredEmployees.length === 0 ?
-                        React.createElement('div', { style: { textAlign: 'center', padding: '40px', background: 'rgba(255,255,255,0.02)', borderRadius: '15px' } }, 
-                            React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1.1rem' } }, 'No employees found.')
-                        ) :
-                        // Array ko map kar rahe hain (Jo ke ab sorted hai)
-                        sortedAndFilteredEmployees.map(emp => React.createElement('div', {
-                            key: emp.id,
-                            style: { 
-                                // Beautiful Card Styling
-                                background: 'linear-gradient(145deg, rgba(30, 30, 45, 0.7), rgba(20, 20, 30, 0.9))', 
-                                border: '1px solid rgba(255,255,255,0.05)', 
-                                borderLeft: `5px solid ${emp.status === 'Resigned' ? '#ff3366' : '#00e28c'}`, // Status ke hisaab se left border color
-                                borderRadius: '16px', 
-                                padding: '25px', 
-                                position: 'relative',
-                                display: 'flex',
-                                flexDirection: 'column',
-                                boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
-                            }
-                        },
-                            // Top Header of Card: Serial, Name & Badges
-                            React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '15px', marginBottom: '15px' } },
-                                React.createElement('div', null,
-                                    React.createElement('div', { style: { display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '5px' } },
-                                        React.createElement('span', { style: { background: 'rgba(255,255,255,0.1)', color: '#fff', padding: '4px 10px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 'bold' } }, emp.serial_no || 'N/A'),
-                                        React.createElement('h4', { style: { color: '#00e28c', margin: 0, fontSize: '1.4rem' } }, emp.name)
-                                    ),
-                                    React.createElement('p', { style: { margin: '0', color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' } }, emp.position)
-                                ),
-                                // Edit & Delete Action Buttons
-                                React.createElement('div', { style: { display: 'flex', gap: '10px' } },
-                                    React.createElement('button', {
-                                        onClick: () => editEmployee(emp),
-                                        style: { padding: '8px 12px', fontSize: '0.85rem', fontWeight: '600', color: '#00f2fe', background: 'rgba(0, 242, 254, 0.1)', border: '1px solid rgba(0, 242, 254, 0.35)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.3s' }
-                                    }, 'Edit ✏️'),
-                                    React.createElement('button', {
-                                        onClick: () => handleEmployeeDelete(emp.id),
-                                        style: { padding: '8px 12px', fontSize: '0.85rem', fontWeight: '600', color: '#ff3366', background: 'rgba(255, 51, 102, 0.1)', border: '1px solid rgba(255, 51, 102, 0.35)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.3s' }
-                                    }, 'Del 🗑️')
-                                )
-                            ),
+            React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '15px' } },
+                React.createElement('input', { type: 'text', name: 'position', placeholder: 'Position', defaultValue: employeeToEdit ? employeeToEdit.position : '', required: true, style: { ...empInputStyle, flex: '1 1 250px' } }),
+                React.createElement('input', { type: 'text', name: 'contact', placeholder: 'Contact Number', defaultValue: employeeToEdit ? employeeToEdit.contact : '', required: true, style: { ...empInputStyle, flex: '1 1 250px' } })
+            ),
 
-                            // Details Section inside Card
-                            React.createElement('div', { style: { display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', fontSize: '0.9rem', color: 'rgba(255,255,255,0.85)' } },
-                                React.createElement('div', null, React.createElement('strong', { style: { color: '#00f2fe' } }, 'CNIC: '), emp.cnic || 'N/A'),
-                                React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Father: '), emp.father_name),
-                                React.createElement('div', null, React.createElement('strong', { style: { color: '#00f2fe' } }, 'Joined: '), emp.date_of_join || 'N/A'),
-                                React.createElement('div', null, React.createElement('strong', { style: { color: '#ff3366' } }, 'Resigned: '), emp.date_of_resign || 'Present'),
-                                React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Phone: '), emp.contact),
-                                React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Email: '), emp.email)
-                            ),
-
-                            // Address and Status Row
-                            React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginTop: '15px', paddingTop: '12px', borderTop: '1px dashed rgba(255,255,255,0.05)' } },
-                                React.createElement('div', { style: { flex: 1, fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' } }, 
-                                    React.createElement('strong', { style: { color: '#ff0080' } }, 'Address: '), emp.address || 'N/A'
-                                ),
-                                React.createElement('span', {
-                                    style: {
-                                        padding: '5px 12px', borderRadius: '8px', fontSize: '0.8rem', fontWeight: 'bold', marginLeft: '15px',
-                                        background: emp.status === 'Resigned' ? 'rgba(255,51,102,0.15)' : 'rgba(0,226,140,0.15)',
-                                        color: emp.status === 'Resigned' ? '#ff3366' : '#00e28c',
-                                        border: `1px solid ${emp.status === 'Resigned' ? 'rgba(255,51,102,0.3)' : 'rgba(0,226,140,0.3)'}`
-                                    }
-                                }, emp.status === 'Resigned' ? 'Status: Resigned' : 'Status: Active')
-                            )
-                        ))
+            React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '15px', alignItems: 'flex-start' } },
+                React.createElement('div', { style: { flex: '1 1 250px' } },
+                    React.createElement('label', { style: { color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', display: 'block', marginBottom: '6px' } }, 'Date of Join:'),
+                    React.createElement('input', { type: 'date', name: 'date_of_join', defaultValue: employeeToEdit ? employeeToEdit.date_of_join : '', required: true, style: { ...empInputStyle, color: '#fff', marginBottom: 0 } })
+                ),
+                React.createElement('div', { style: { flex: '1 1 250px' } },
+                    React.createElement('label', { style: { color: 'rgba(255,255,255,0.6)', fontSize: '0.85rem', display: 'block', marginBottom: '6px' } }, 'Date of Resign:'),
+                    React.createElement('input', { type: 'text', name: 'date_of_resign', placeholder: 'Present or YYYY-MM-DD', defaultValue: employeeToEdit ? employeeToEdit.date_of_resign : 'Present', required: true, style: { ...empInputStyle, marginBottom: 0 } })
                 )
+            ),
+
+            React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '15px', alignItems: 'center', marginTop: '15px' } },
+                React.createElement('input', { type: 'email', name: 'email', placeholder: 'Email Address', defaultValue: employeeToEdit ? employeeToEdit.email : '', required: true, style: { ...empInputStyle, flex: '1 1 250px', margin: 0 } }),
+                React.createElement('select', { name: 'status', defaultValue: employeeToEdit ? employeeToEdit.status : 'Active', style: { ...empInputStyle, flex: '1 1 250px', margin: 0, background: '#1a1a26', color: '#fff' } },
+                    React.createElement('option', { value: 'Active' }, 'Active'),
+                    React.createElement('option', { value: 'Resigned' }, 'Resigned')
+                )
+            ),
+
+            React.createElement('div', { style: { marginTop: '15px' } }),
+            React.createElement('textarea', { name: 'address', placeholder: 'Home Address', defaultValue: employeeToEdit ? employeeToEdit.address : '', required: true, rows: 2, style: { ...empInputStyle, resize: 'none' } }),
+
+            React.createElement('button', {
+                type: 'submit', className: 'card-btn',
+                style: { width: '100%', background: 'linear-gradient(90deg, #00e28c, #00f2fe)', color: '#000', fontSize: '1.1rem', fontWeight: 'bold', border: 'none', padding: '16px', borderRadius: '12px', marginTop: '10px', boxShadow: '0 4px 15px rgba(0, 226, 140, 0.3)', cursor: 'pointer' }
+            }, employeeToEdit ? 'Update Employee ✔️' : 'Save Employee 💾')
+        ),
+
+        // 2. SEARCH & LIST EMPLOYEES
+        React.createElement('div', { style: { width: '100%', maxWidth: '700px' } },
+            React.createElement('h3', { style: { color: '#fff', marginBottom: '15px', borderBottom: '1px solid rgba(255,255,255,0.1)', paddingBottom: '10px', fontSize: '1.5rem' } }, 'Staff Directory'),
+
+            React.createElement('input', {
+                type: 'text',
+                placeholder: '🔍 Search by Name or Position...',
+                value: employeeSearchQuery,
+                onChange: (e) => setEmployeeSearchQuery(e.target.value),
+                style: { ...empInputStyle, background: 'rgba(0,0,0,0.4)', border: '1px solid rgba(0, 226, 140, 0.5)', marginBottom: '30px', padding: '15px 20px', borderRadius: '30px' }
+            }),
+
+            React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '20px' } },
+                sortedAndFilteredEmployees.length === 0 ?
+                    React.createElement('div', { style: { textAlign: 'center', padding: '40px', background: 'rgba(255,255,255,0.02)', borderRadius: '15px' } }, 
+                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1.1rem' } }, 'No employees found.')
+                    ) :
+                    sortedAndFilteredEmployees.map(emp => React.createElement('div', {
+                        key: emp.id,
+                        style: { 
+                            background: 'linear-gradient(145deg, rgba(30, 30, 45, 0.7), rgba(20, 20, 30, 0.9))', 
+                            border: '1px solid rgba(255,255,255,0.05)', 
+                            borderLeft: `5px solid ${emp.status === 'Resigned' ? '#ff3366' : '#00e28c'}`, 
+                            borderRadius: '16px', 
+                            padding: 'clamp(15px, 4vw, 25px)', 
+                            position: 'relative',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            boxShadow: '0 8px 25px rgba(0,0,0,0.15)'
+                        }
+                    },
+                        // Top Header of Card (flexWrap added for mobile)
+                        React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', borderBottom: '1px solid rgba(255,255,255,0.05)', paddingBottom: '15px', marginBottom: '15px', gap: '10px' } },
+                            React.createElement('div', null,
+                                React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '10px', marginBottom: '5px' } },
+                                    React.createElement('span', { style: { background: 'rgba(255,255,255,0.1)', color: '#fff', padding: '4px 10px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 'bold' } }, emp.serial_no || 'N/A'),
+                                    React.createElement('h4', { style: { color: '#00e28c', margin: 0, fontSize: '1.3rem' } }, emp.name)
+                                ),
+                                React.createElement('p', { style: { margin: '0', color: 'rgba(255,255,255,0.6)', fontSize: '0.95rem' } }, emp.position)
+                            ),
+                            React.createElement('div', { style: { display: 'flex', gap: '10px' } },
+                                React.createElement('button', {
+                                    onClick: () => editEmployee(emp),
+                                    style: { padding: '8px 12px', fontSize: '0.85rem', fontWeight: '600', color: '#00f2fe', background: 'rgba(0, 242, 254, 0.1)', border: '1px solid rgba(0, 242, 254, 0.35)', borderRadius: '8px', cursor: 'pointer' }
+                                }, 'Edit ✏️'),
+                                React.createElement('button', {
+                                    onClick: () => handleEmployeeDelete(emp.id),
+                                    style: { padding: '8px 12px', fontSize: '0.85rem', fontWeight: '600', color: '#ff3366', background: 'rgba(255, 51, 102, 0.1)', border: '1px solid rgba(255, 51, 102, 0.35)', borderRadius: '8px', cursor: 'pointer' }
+                                }, 'Del 🗑️')
+                            )
+                        ),
+
+                        // Details Section inside Card (Switched to auto-fit grid)
+                        React.createElement('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px', fontSize: '0.9rem', color: 'rgba(255,255,255,0.85)' } },
+                            React.createElement('div', { style: { wordBreak: 'break-all' } }, React.createElement('strong', { style: { color: '#00f2fe' } }, 'CNIC: '), emp.cnic || 'N/A'),
+                            React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Father: '), emp.father_name),
+                            React.createElement('div', null, React.createElement('strong', { style: { color: '#00f2fe' } }, 'Joined: '), emp.date_of_join || 'N/A'),
+                            React.createElement('div', null, React.createElement('strong', { style: { color: '#ff3366' } }, 'Resigned: '), emp.date_of_resign || 'Present'),
+                            React.createElement('div', null, React.createElement('strong', { style: { color: '#ff0080' } }, 'Phone: '), emp.contact),
+                            React.createElement('div', { style: { wordBreak: 'break-all' } }, React.createElement('strong', { style: { color: '#ff0080' } }, 'Email: '), emp.email)
+                        ),
+
+                        // Address and Status Row (flexWrap added)
+                        React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '15px', marginTop: '15px', paddingTop: '12px', borderTop: '1px dashed rgba(255,255,255,0.05)' } },
+                            React.createElement('div', { style: { flex: '1 1 200px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' } }, 
+                                React.createElement('strong', { style: { color: '#ff0080' } }, 'Address: '), emp.address || 'N/A'
+                            ),
+                            React.createElement('span', {
+                                style: {
+                                    padding: '5px 12px', borderRadius: '8px', fontSize: '0.8rem', fontWeight: 'bold',
+                                    background: emp.status === 'Resigned' ? 'rgba(255,51,102,0.15)' : 'rgba(0,226,140,0.15)',
+                                    color: emp.status === 'Resigned' ? '#ff3366' : '#00e28c',
+                                    border: `1px solid ${emp.status === 'Resigned' ? 'rgba(255,51,102,0.3)' : 'rgba(0,226,140,0.3)'}`
+                                }
+                            }, emp.status === 'Resigned' ? 'Status: Resigned' : 'Status: Active')
+                        )
+                    ))
             )
-        );
-    } else if (currentPage === 'upload-page') {
+        )
+    );
+} else if (currentPage === 'upload-page') {
         mainElement = React.createElement('main', {
             className: 'main-content',
             style: {
