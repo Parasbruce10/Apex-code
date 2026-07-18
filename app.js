@@ -4527,7 +4527,7 @@ const QuickKitApp = () => {
                             // TYPOGRAPHY
                             React.createElement('h3', {
                                 style: { color: '#fff', fontSize: '1.65rem', fontWeight: '900', letterSpacing: '-0.3px', marginBottom: '6px', marginTop: '0' }
-                            }, 'Mr. Ali'),
+                            }, 'Mr. Muhammad Ali'),
 
                             React.createElement('p', {
                                 style: { color: '#00f2fe', fontWeight: '700', fontSize: '0.85rem', letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '25px', opacity: '0.9' }
@@ -6706,7 +6706,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                             WebkitTextFillColor: 'transparent',
                             lineHeight: '1.2'
                         }
-                    }, 'Mr. Ali'),
+                    }, 'Mr. Muhammad Ali'),
                     React.createElement('p', {
                         style: {
                             color: '#00f2fe',
