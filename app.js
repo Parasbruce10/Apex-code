@@ -4531,7 +4531,7 @@ const QuickKitApp = () => {
 
                             React.createElement('p', {
                                 style: { color: '#00f2fe', fontWeight: '700', fontSize: '0.85rem', letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: '25px', opacity: '0.9' }
-                            }, 'Software Tester (QA)')
+                            }, 'Lead Software Tester + Frontend Developer')
                         ),
 
                         // BUTTONS
@@ -6715,7 +6715,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                             letterSpacing: '0.5px',                  // Clean line rendering compression filter
                             margin: '0 0 15px 0'
                         }
-                    }, 'Lead Software Tester'),
+                    }, 'Lead Software Tester + Frontend Developer'),
                     React.createElement('p', {
                         style: {
                             maxWidth: '650px',
@@ -6824,7 +6824,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                             React.createElement('li', { style: { listStyleType: 'none', marginLeft: '-20px', marginBottom: '12px', color: '#ff0080', fontWeight: '700', fontSize: '1.1rem' } }, 'Experience'),
 
                             React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' } },
-                                React.createElement('strong', { style: { color: '#fff' } }, 'Software Tester: '), 'Apex Code (20-June-2025 - Present)'
+                                React.createElement('strong', { style: { color: '#fff' } }, 'Software Tester + Frontend Developer: '), 'Apex Code (20-June-2025 - Present)'
                             ),
                         )
                     ),
