@@ -10024,38 +10024,119 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
 
             // 2. SCROLLING SERVICE BANNER
             React.createElement('div', {
-                style: {
-                    width: '100%',
-                    maxWidth: '1200px',
-                    background: 'rgba(10, 11, 18, 0.95)',
-                    border: '1px solid rgba(0, 242, 254, 0.2)',
-                    overflow: 'hidden',
-                    padding: '18px 0',
-                    borderRadius: '12px',
-                    marginBottom: '50px'
-                }
-            },
-                React.createElement('style', null, `
-            @keyframes scrollLeft {
-                0% { transform: translateX(0); }
-                100% { transform: translateX(-50%); }
-            }
-            .scroll-track {
-                display: inline-flex;
-                white-space: nowrap;
-                animation: scrollLeft 30s linear infinite;
-                font-weight: 700;
-                font-size: 1.1rem;
-                letter-spacing: 2px;
-            }
-        `),
-                React.createElement('div', {
-                    className: 'scroll-track',
-                    style: { color: '#00f2fe', textShadow: '0 0 15px rgba(0, 242, 254, 0.6)' }
-                },
-                    "CODE BASE WEB DEVELOPMENT  -  WORDPRESS BASE WEB DEVELOPMENT  -  SEO OPTIMIZATION  -  PUTTING ADS ON WEBSITE  -  ".repeat(4)
+    style: {
+        width: '100%',
+        maxWidth: '1200px',
+        margin: '0 auto 50px auto',
+        background: 'radial-gradient(ellipse at center, rgba(0, 242, 254, 0.05) 0%, rgba(8, 9, 15, 0.95) 80%)',
+        border: '1px solid rgba(0, 242, 254, 0.25)',
+        boxShadow: '0 15px 35px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 242, 254, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+        backdropFilter: 'blur(20px)',
+        borderRadius: '20px',
+        overflow: 'hidden',
+        padding: '14px 0',
+        position: 'relative',
+        // Edge Fading Mask (Smooth transitions on edges)
+        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
+        maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)'
+    }
+},
+    React.createElement('style', null, `
+        @keyframes scrollLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .scroll-track-v2 {
+            display: inline-flex;
+            align-items: center;
+            white-space: nowrap;
+            animation: scrollLeft 28s linear infinite;
+            will-change: transform;
+        }
+        
+        .scroll-track-v2:hover {
+            animation-play-state: paused;
+        }
+        
+        /* Glass Pill Card Styling */
+        .premium-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
+            margin: 0 8px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+        
+        /* Interactive Hover Effect */
+        .premium-pill:hover {
+            background: rgba(0, 242, 254, 0.12);
+            border-color: rgba(0, 242, 254, 0.5);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.3);
+            transform: translateY(-2px) scale(1.03);
+        }
+        
+        /* Glowing Micro Icon Container */
+        .pill-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(0, 242, 254, 0.15);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+            font-size: 0.85rem;
+        }
+        
+        /* Tri-Color Holographic Text */
+        .pill-text {
+            font-weight: 800;
+            font-size: 0.88rem;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ffffff 0%, #00f2fe 50%, #9b51e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .premium-pill:hover .pill-text {
+            filter: drop-shadow(0 0 8px rgba(0, 242, 254, 0.8));
+        }
+        
+        .pill-divider {
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 0.9rem;
+            margin: 0 4px;
+        }
+    `),
+    React.createElement('div', { className: 'scroll-track-v2' },
+        [1, 2, 3, 4].map((_, groupIdx) => 
+            React.createElement('div', { key: groupIdx, style: { display: 'inline-flex', alignItems: 'center' } },
+                [
+                    { text: "CODE BASE WEB DEVELOPMENT", icon: "⚡" },
+                    { text: "WORDPRESS BASE WEB DEVELOPMENT", icon: "💎" },
+                    { text: "SEO OPTIMIZATION", icon: "🚀" },
+                    { text: "PUTTING ADS ON WEBSITE", icon: "🎯" }
+                ].map((item, itemIdx) => 
+                    React.createElement(React.Fragment, { key: itemIdx },
+                        React.createElement('div', { className: 'premium-pill' },
+                            React.createElement('span', { className: 'pill-icon' }, item.icon),
+                            React.createElement('span', { className: 'pill-text' }, item.text)
+                        ),
+                        React.createElement('span', { className: 'pill-divider' }, "•")
+                    )
                 )
-            ),
+            )
+        )
+    )
+),
 
 
             // 🎨 INJECTING PREMIUM ANIMATIONS & HOVER EFFECTS (CSS)
