@@ -765,7 +765,7 @@ const FloatingContactWidget = () => {
                 React.createElement('img', {
                     src: isOpen
                         ? 'https://cdn-icons-png.flaticon.com/512/2997/2997911.png'  // Close Icon
-                        : 'https://cdn-icons-png.flaticon.com/512/9374/9374944.png', // Premium 3D Chat Icon
+                        : 'https://img.icons8.com/3d-fluency/512/headset.png', // Premium 3D Chat Icon
                     alt: 'Toggle Contact'
                 })
             ),
@@ -780,7 +780,7 @@ const FloatingContactWidget = () => {
                 title: 'Chat on WhatsApp'
             },
                 React.createElement('img', {
-                    src: 'https://cdn-icons-png.flaticon.com/512/5968/5968841.png',
+                    src: 'https://img.icons8.com/3d-fluency/512/whatsapp.png',
                     alt: 'WhatsApp'
                 })
             ),
@@ -807,7 +807,7 @@ const FloatingContactWidget = () => {
                 }
             },
                 React.createElement('img', {
-                    src: 'https://cdn-icons-png.flaticon.com/512/4712/4712038.png', // Robot AI icon
+                    src: 'https://api.dicebear.com/7.x/bottts/svg?seed=CyberMonkey', // Robot AI icon
                     alt: 'Chatbot',
                     style: { width: '100%', height: '100%' }
                 })
@@ -823,7 +823,7 @@ const FloatingContactWidget = () => {
                 title: 'Send an Email'
             },
                 React.createElement('img', {
-                    src: 'https://cdn-icons-png.flaticon.com/512/732/732200.png',
+                    src: 'https://img.icons8.com/3d-fluency/512/gmail.png',
                     alt: 'Email'
                 })
             )
