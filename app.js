@@ -1610,14 +1610,72 @@ const BannerHeaderSection = ({ banners }) => {
             transform: scale(1.05);
             filter: brightness(1.15) contrast(1.12) saturate(1.12) !important;
         }
+    
         .ultra-banner-card:hover .cta-button {
             background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%) !important;
             color: #000 !important;
             box-shadow: 0 0 20px rgba(0, 242, 254, 0.8) !important;
         }
+
+        @media (max-width: 768px) {
+            .banner-header-wrapper {
+                padding: 0 12px !important;
+                margin: 18px auto 28px auto !important;
+            }
+            .ultra-banner-card {
+                height: 180px !important;
+                border-radius: 18px !important;
+            }
+            .banner-badge {
+                top: 10px !important;
+                right: 10px !important;
+                padding: 5px 12px !important;
+                font-size: 0.6rem !important;
+                letter-spacing: 1px !important;
+            }
+            .banner-text-container {
+                bottom: 14px !important;
+                left: 14px !important;
+                right: 14px !important;
+            }
+            .banner-text-group {
+                max-width: 65% !important;
+                gap: 3px !important;
+            }
+            .banner-subtitle {
+                font-size: 0.6rem !important;
+                letter-spacing: 1px !important;
+            }
+            .banner-title {
+                font-size: 1rem !important;
+            }
+            .cta-button {
+                padding: 6px 12px !important;
+                font-size: 0.7rem !important;
+                border-radius: 10px !important;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .ultra-banner-card {
+                height: 150px !important;
+                border-radius: 14px !important;
+            }
+            .banner-title {
+                font-size: 0.85rem !important;
+            }
+            .banner-text-group {
+                max-width: 58% !important;
+            }
+            .cta-button {
+                padding: 5px 10px !important;
+                font-size: 0.62rem !important;
+            }
+        }
     `;
 
-    return React.createElement('div', {
+     return React.createElement('div', {
+        className: 'banner-header-wrapper',
         style: {
             width: '100%',
             maxWidth: '1350px', // 🚀 Max width Increased
@@ -1669,8 +1727,9 @@ const BannerHeaderSection = ({ banners }) => {
                 }),
 
                 // 2. 💎 GLASSMORPHISM FLOATING BADGE (TOP-RIGHT)
-                React.createElement('div', {
+                 React.createElement('div', {
                     key: 'glass-badge',
+                    className: 'banner-badge',
                     style: {
                         position: 'absolute',
                         top: '20px',
@@ -1721,8 +1780,9 @@ const BannerHeaderSection = ({ banners }) => {
                 }),
 
                 // 5. ✍️ PREMIUM TYPOGRAPHY + CALL TO ACTION
-                (banner.title || banner.subtitle) ? React.createElement('div', {
+                   (banner.title || banner.subtitle) ? React.createElement('div', {
                     key: 'text-container',
+                    className: 'banner-text-container',
                     style: {
                         position: 'absolute',
                         bottom: '24px',
@@ -1735,12 +1795,14 @@ const BannerHeaderSection = ({ banners }) => {
                     }
                 }, [
                     // Text details
-                    React.createElement('div', {
+                     React.createElement('div', {
                         key: 'text-group',
+                        className: 'banner-text-group',
                         style: { display: 'flex', flexDirection: 'column', gap: '6px', maxWidth: '75%' }
                     }, [
-                        banner.subtitle ? React.createElement('span', {
+                         banner.subtitle ? React.createElement('span', {
                             key: 'subtitle',
+                            className: 'banner-subtitle',
                             style: {
                                 color: '#00f2fe',
                                 fontSize: '0.8rem',
@@ -1751,8 +1813,9 @@ const BannerHeaderSection = ({ banners }) => {
                             }
                         }, banner.subtitle) : null,
                         
-                        banner.title ? React.createElement('h3', {
+                         banner.title ? React.createElement('h3', {
                             key: 'title',
+                            className: 'banner-title',
                             style: {
                                 margin: 0,
                                 color: '#ffffff',
