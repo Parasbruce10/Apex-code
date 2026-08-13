@@ -843,6 +843,65 @@ const QuickKitApp = () => {
         const alreadyLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';
         return (ADMIN_ONLY_PAGES.includes(initialPage) && !alreadyLoggedIn) ? 'admin-login' : initialPage;
     });
+    // A. State variables (Jo banners ka data store rakhenge)
+const [banners, setBanners] = React.useState([]);
+const [bannerToEdit, setBannerToEdit] = React.useState(null);
+
+// B. Server se Banners fetch karne ka function
+const fetchBanners = () => {
+    fetch('https://hamzaparas-apex-code.hf.space/api/banners')
+        .then(res => res.json())
+        .then(data => { if (data.success) setBanners(data.banners); });
+};
+
+// Application load hone par banners load hon
+React.useEffect(() => {
+    fetchBanners();
+}, []);
+
+// C. Banner submit (Create / Edit) ka logic
+const handleBannerFormSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('title', e.target.title.value);
+    
+    // Check karein file upload hui hai ya nahi
+    if (e.target.imageFile.files[0]) {
+        formData.append('image', e.target.imageFile.files[0]);
+    }
+
+    const isEditing = bannerToEdit !== null;
+    const url = isEditing
+        ? `https://hamzaparas-apex-code.hf.space/api/banners/${bannerToEdit.id}`
+        : 'https://hamzaparas-apex-code.hf.space/api/banners';
+
+    fetch(url, {
+        method: isEditing ? 'PUT' : 'POST',
+        body: formData // Note: Content-Type header mat lagayein, FormData khud handle karega
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            alert(isEditing ? 'Banner update ho gaya!' : 'Banner upload ho gaya!');
+            fetchBanners();
+            setBannerToEdit(null);
+        } else {
+            alert('Error: ' + data.message);
+        }
+    })
+    .catch(err => alert('Upload karne mein issue aaya!'));
+};
+
+// D. Banner Delete karne ka logic
+const handleBannerDelete = (id) => {
+    if (window.confirm('Kya aap is banner ko delete karna chahte hain?')) {
+        fetch(`https://hamzaparas-apex-code.hf.space/api/banners/${id}`, { method: 'DELETE' })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) fetchBanners();
+            });
+    }
+};
     // 🔗 currentPage badalte hi URL + <title> + <meta description> + <meta robots> sync
     React.useEffect(() => {
         const path = pageToPath(currentPage);
@@ -1528,6 +1587,208 @@ const QuickKitApp = () => {
             style: { cursor: 'pointer' } // Taake pata chale yeh clickable hai
         })
     );
+// Banners Display Component (Header ke neechay dikhane ke liye)
+// 🌟 Updated & Compact Banner Header Section
+// 🏆 Hyper-Luxury Cyber-Glass Banner (Wider + Interactive FX)
+const BannerHeaderSection = ({ banners }) => {
+    if (!banners || banners.length === 0) return null;
+
+    // Smooth hover effect styles
+    const cardHoverStyles = `
+        .ultra-banner-card {
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease !important;
+        }
+        .ultra-banner-card:hover {
+            transform: translateY(-6px) scale(1.01);
+            border-color: rgba(0, 242, 254, 0.6) !important;
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.95),
+                        0 0 50px rgba(0, 242, 254, 0.4),
+                        0 0 90px rgba(157, 78, 221, 0.3),
+                        inset 0 1px 3px rgba(255, 255, 255, 0.6) !important;
+        }
+        .ultra-banner-card:hover .banner-img-element {
+            transform: scale(1.05);
+            filter: brightness(1.15) contrast(1.12) saturate(1.12) !important;
+        }
+        .ultra-banner-card:hover .cta-button {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%) !important;
+            color: #000 !important;
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.8) !important;
+        }
+    `;
+
+    return React.createElement('div', {
+        style: {
+            width: '100%',
+            maxWidth: '1350px', // 🚀 Max width Increased
+            margin: '30px auto 45px auto',
+            padding: '0 20px',
+            boxSizing: 'border-box'
+        }
+    }, [
+        // Injecting hover animation CSS
+        React.createElement('style', { key: 'hover-styles' }, cardHoverStyles),
+
+        banners.map((banner, index) => 
+            React.createElement('div', { 
+                key: banner.id || index,
+                className: 'ultra-banner-card',
+                style: { 
+                    width: '100%',
+                    height: '250px', // Slightly taller for wide layout
+                    borderRadius: '28px',
+                    position: 'relative',
+                    overflow: 'hidden',
+                    background: 'linear-gradient(135deg, #0a0c14 0%, #121624 100%)',
+                    
+                    // 💎 HIGH-VOLTAGE MULTI-LAYER GLOW
+                    border: '1px solid rgba(255, 255, 255, 0.18)',
+                    boxShadow: `
+                        0 20px 45px -15px rgba(0, 0, 0, 0.9),
+                        0 0 35px rgba(0, 242, 254, 0.22),
+                        0 0 70px rgba(157, 78, 221, 0.18),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.4)
+                    `,
+                    marginBottom: '30px',
+                    cursor: 'pointer'
+                } 
+            }, [
+                // 1. 🌈 AURORA TOP NEON LIGHTBAR
+                React.createElement('div', {
+                    key: 'aurora-bar',
+                    style: {
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        height: '4px',
+                        background: 'linear-gradient(90deg, #00f2fe, #9d4edd, #ff007f, #00f2fe)',
+                        zIndex: 6,
+                        boxShadow: '0 0 15px #00f2fe'
+                    }
+                }),
+
+                // 2. 💎 GLASSMORPHISM FLOATING BADGE (TOP-RIGHT)
+                React.createElement('div', {
+                    key: 'glass-badge',
+                    style: {
+                        position: 'absolute',
+                        top: '20px',
+                        right: '20px',
+                        zIndex: 5,
+                        padding: '8px 18px',
+                        borderRadius: '30px',
+                        background: 'rgba(255, 255, 255, 0.07)',
+                        backdropFilter: 'blur(20px)',
+                        WebkitBackdropFilter: 'blur(20px)',
+                        border: '1px solid rgba(255, 255, 255, 0.25)',
+                        color: '#00f2fe',
+                        fontSize: '0.75rem',
+                        fontWeight: '800',
+                        letterSpacing: '1.5px',
+                        textTransform: 'uppercase',
+                        boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)'
+                    }
+                }, banner.tag || 'NEW OFFER'),
+
+                // 3. 🖼️ ULTRA HIGH-DEF IMAGE WITH ZOOM ANIMATION
+                React.createElement('img', {
+                    key: 'banner-img',
+                    className: 'banner-img-element',
+                    src: banner.image,
+                    alt: banner.title || 'Banner',
+                    style: {
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center',
+                        display: 'block',
+                        filter: 'brightness(1.06) contrast(1.1) saturate(1.05)',
+                        transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease'
+                    }
+                }),
+
+                // 4. 🌌 VIGNETTE & CINEMATIC GRADIENT OVERLAY
+                React.createElement('div', {
+                    key: 'cinematic-overlay',
+                    style: {
+                        position: 'absolute',
+                        inset: 0,
+                        background: 'radial-gradient(circle at top right, rgba(0,242,254,0.1) 0%, transparent 60%), linear-gradient(180deg, rgba(10, 12, 20, 0.15) 0%, rgba(10, 12, 20, 0.6) 55%, rgba(6, 7, 12, 0.95) 100%)',
+                        pointerEvents: 'none',
+                        zIndex: 2
+                    }
+                }),
+
+                // 5. ✍️ PREMIUM TYPOGRAPHY + CALL TO ACTION
+                (banner.title || banner.subtitle) ? React.createElement('div', {
+                    key: 'text-container',
+                    style: {
+                        position: 'absolute',
+                        bottom: '24px',
+                        left: '28px',
+                        right: '28px',
+                        zIndex: 4,
+                        display: 'flex',
+                        alignItems: 'flex-end',
+                        justifyContent: 'space-between'
+                    }
+                }, [
+                    // Text details
+                    React.createElement('div', {
+                        key: 'text-group',
+                        style: { display: 'flex', flexDirection: 'column', gap: '6px', maxWidth: '75%' }
+                    }, [
+                        banner.subtitle ? React.createElement('span', {
+                            key: 'subtitle',
+                            style: {
+                                color: '#00f2fe',
+                                fontSize: '0.8rem',
+                                fontWeight: '800',
+                                letterSpacing: '2px',
+                                textTransform: 'uppercase',
+                                textShadow: '0 0 12px rgba(0, 242, 254, 0.7)'
+                            }
+                        }, banner.subtitle) : null,
+                        
+                        banner.title ? React.createElement('h3', {
+                            key: 'title',
+                            style: {
+                                margin: 0,
+                                color: '#ffffff',
+                                fontSize: '1.55rem',
+                                fontWeight: '800',
+                                letterSpacing: '0.4px',
+                                textShadow: '0 3px 15px rgba(0, 0, 0, 0.95), 0 0 25px rgba(255, 255, 255, 0.25)',
+                                fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+                            }
+                        }, banner.title) : null
+                    ]),
+
+                    // Floating Glass Button (Interactive CTA)
+                    React.createElement('div', {
+                        key: 'cta-btn',
+                        className: 'cta-button',
+                        style: {
+                            padding: '10px 22px',
+                            borderRadius: '14px',
+                            background: 'rgba(255, 255, 255, 0.1)',
+                            backdropFilter: 'blur(12px)',
+                            WebkitBackdropFilter: 'blur(12px)',
+                            border: '1px solid rgba(255, 255, 255, 0.25)',
+                            color: '#fff',
+                            fontSize: '0.85rem',
+                            fontWeight: '700',
+                            letterSpacing: '0.5px',
+                            transition: 'all 0.3s ease',
+                            boxShadow: '0 8px 20px rgba(0,0,0,0.4)'
+                        }
+                    }, banner.btnText || 'Explore Now →')
+                ]) : null
+            ])
+        )
+    ]);
+};
 
     // 2. Main Content Element
     let mainElement;
@@ -7858,9 +8119,339 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                     React.createElement('button', { className: 'card-btn', style: { width: '100%', padding: '15px', borderRadius: '18px', background: 'linear-gradient(90deg, #00f2fe, #00e08c)', color: '#fff', border: 'none', fontSize: '1rem', fontWeight: '700', boxShadow: '0 0 25px rgba(0, 242, 254, 0.55)', cursor: 'pointer' }, onClick: toWebsiteUploadForm }, 'Manage Sales 💰')
                 )
             ),
+           React.createElement('div', {
+    className: 'admin-card deals-banner-card',
+    onClick: () => {
+        setBannerToEdit(null);
+        setCurrentPage('banner-upload-page');
+    },
+    style: {
+        background: 'linear-gradient(135deg, rgba(26, 26, 36, 0.95) 0%, rgba(10, 10, 15, 0.98) 100%)',
+        padding: '28px',
+        borderRadius: '20px',
+        border: '1px solid rgba(0, 242, 254, 0.25)',
+        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(10px)',
+        cursor: 'pointer',
+        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+        position: 'relative',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '20px'
+    },
+    onMouseEnter: (e) => {
+        e.currentTarget.style.transform = 'translateY(-6px) scale(1.02)';
+        e.currentTarget.style.borderColor = '#00f2fe';
+        e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 242, 254, 0.25), inset 0 0 15px rgba(0, 242, 254, 0.1)';
+    },
+    onMouseLeave: (e) => {
+        e.currentTarget.style.transform = 'translateY(0) scale(1)';
+        e.currentTarget.style.borderColor = 'rgba(0, 242, 254, 0.25)';
+        e.currentTarget.style.boxShadow = '0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 0 1px rgba(255, 255, 255, 0.05)';
+    }
+}, [
+    // 1. Left Side Icon Badge (Glowing Circle)
+    React.createElement('div', {
+        key: 'icon-badge',
+        style: {
+            width: '56px',
+            height: '56px',
+            borderRadius: '16px',
+            background: 'linear-gradient(135deg, rgba(0, 242, 254, 0.2) 0%, rgba(79, 172, 254, 0.05) 100%)',
+            border: '1px solid rgba(0, 242, 254, 0.4)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '24px',
+            flexShrink: 0
+        }
+    }, '🎯'),
+
+    // 2. Middle Text Area (Title + Subtitle)
+    React.createElement('div', { key: 'content', style: { flexGrow: 1 } }, [
+        React.createElement('h3', {
+            key: 'h3',
+            style: {
+                color: '#ffffff',
+                fontSize: '1.25rem',
+                fontWeight: '700',
+                margin: '0 0 6px 0',
+                letterSpacing: '0.5px'
+            }
+        }, 'Deals Banner Manager'),
+        React.createElement('p', {
+            key: 'p',
+            style: {
+                color: 'rgba(255, 255, 255, 0.65)',
+                fontSize: '0.88rem',
+                margin: 0,
+                lineHeight: '1.4'
+            }
+        }, 'Promotional banners upload, update aur delete karein.')
+    ]),
+
+    // 3. Right Side Arrow Indicator
+    React.createElement('div', {
+        key: 'arrow',
+        style: {
+            color: '#00f2fe',
+            fontSize: '20px',
+            fontWeight: 'bold',
+            opacity: 0.8
+        }
+    }, '➔')
+]),
 
         );
-    } else if (currentPage === 'job-upload-form') {
+    } else if (currentPage === 'banner-upload-page') {
+    mainElement = React.createElement('div', {
+        style: {
+            padding: '30px 20px',
+            maxWidth: '750px',
+            margin: '0 auto',
+            color: '#fff',
+            fontFamily: "'Segoe UI', Roboto, sans-serif"
+        }
+    }, [
+
+        // Top Navigation Bar
+        React.createElement('div', {
+            key: 'top-bar',
+            style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '30px' }
+        }, [
+            React.createElement('button', {
+                key: 'back-btn',
+                onClick: () => { setBannerToEdit(null); setCurrentPage('upload-page'); },
+                style: {
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    color: '#fff',
+                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                    padding: '10px 20px',
+                    borderRadius: '12px',
+                    cursor: 'pointer',
+                    fontWeight: '600',
+                    fontSize: '0.9rem',
+                    backdropFilter: 'blur(10px)',
+                    transition: 'all 0.3s ease'
+                }
+            }, '⬅ Back to Panel'),
+
+            React.createElement('span', {
+                key: 'tag',
+                style: {
+                    background: 'rgba(0, 242, 254, 0.15)',
+                    color: '#00f2fe',
+                    padding: '6px 14px',
+                    borderRadius: '20px',
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold',
+                    border: '1px solid rgba(0, 242, 254, 0.3)'
+                }
+            }, 'MEDIA MANAGER')
+        ]),
+
+        // Main Title Header
+        React.createElement('h2', {
+            key: 'title',
+            style: {
+                color: '#ffffff',
+                fontSize: '1.8rem',
+                fontWeight: '800',
+                marginBottom: '25px',
+                letterSpacing: '-0.5px'
+            }
+        }, bannerToEdit ? '✏️ Edit Banner Details' : '🖼️ Direct Image Upload Studio'),
+
+        // Upload Form Container
+        React.createElement('form', {
+            key: 'form',
+            onSubmit: handleBannerFormSubmit,
+            style: {
+                background: 'linear-gradient(145deg, rgba(20, 20, 30, 0.9) 0%, rgba(10, 10, 15, 0.95) 100%)',
+                border: '1px solid rgba(0, 242, 254, 0.3)',
+                padding: '30px',
+                borderRadius: '24px',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '20px',
+                boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 242, 254, 0.05)',
+                marginBottom: '45px'
+            }
+        }, [
+
+            // Text Input Field
+            React.createElement('div', { key: 'input-group-1', style: { display: 'flex', flexDirection: 'column', gap: '8px' } }, [
+                React.createElement('label', { key: 'lbl1', style: { color: 'rgba(255,255,255,0.8)', fontSize: '0.85rem', fontWeight: '600' } }, 'BANNER TITLE / PROMO NAME'),
+                React.createElement('input', {
+                    key: 'input-title',
+                    name: 'title',
+                    placeholder: 'Enter Title (e.g. Mega Discount Offer)',
+                    defaultValue: bannerToEdit ? bannerToEdit.title : '',
+                    required: true,
+                    style: {
+                        padding: '14px 18px',
+                        borderRadius: '12px',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        background: 'rgba(0, 0, 0, 0.5)',
+                        color: '#fff',
+                        fontSize: '0.95rem',
+                        outline: 'none'
+                    }
+                })
+            ]),
+
+            // Customized File Upload Box (Direct File Selector)
+            React.createElement('div', { key: 'input-group-2', style: { display: 'flex', flexDirection: 'column', gap: '8px' } }, [
+                React.createElement('label', { key: 'lbl2', style: { color: 'rgba(255,255,255,0.8)', fontSize: '0.85rem', fontWeight: '600' } }, 'SELECT IMAGE FILE'),
+                React.createElement('div', {
+                    key: 'file-dropzone',
+                    style: {
+                        border: '2px dashed rgba(0, 242, 254, 0.4)',
+                        borderRadius: '16px',
+                        padding: '30px 20px',
+                        textAlign: 'center',
+                        background: 'rgba(0, 242, 254, 0.02)',
+                        cursor: 'pointer',
+                        position: 'relative'
+                    }
+                }, [
+                    React.createElement('div', { key: 'icon', style: { fontSize: '32px', marginBottom: '10px' } }, '📁'),
+                    React.createElement('p', { key: 'p1', style: { color: '#fff', fontWeight: 'bold', margin: '0 0 4px 0' } }, 'Click here to choose an image'),
+                    React.createElement('p', { key: 'p2', style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', margin: 0 } }, 'Supports PNG, JPG, WEBP formats'),
+                    
+                    // Native File Input
+                    React.createElement('input', {
+                        key: 'input-file',
+                        name: 'imageFile',
+                        type: 'file',
+                        accept: 'image/*',
+                        required: bannerToEdit ? false : true,
+                        style: {
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            opacity: 0,
+                            cursor: 'pointer'
+                        }
+                    })
+                ])
+            ]),
+
+            // Submit Button
+            React.createElement('button', {
+                key: 'submit-btn',
+                type: 'submit',
+                style: {
+                    padding: '16px',
+                    borderRadius: '14px',
+                    background: 'linear-gradient(135deg, #00f2fe 0%, #4facfe 100%)',
+                    color: '#000',
+                    fontWeight: 'bold',
+                    fontSize: '1rem',
+                    cursor: 'pointer',
+                    border: 'none',
+                    marginTop: '10px',
+                    boxShadow: '0 8px 25px rgba(0, 242, 254, 0.35)',
+                    transition: 'all 0.3s ease'
+                }
+            }, bannerToEdit ? '💾 Save Changes' : '🚀 Upload Banner Now')
+        ]),
+
+        // Banners Preview Section
+        React.createElement('div', { key: 'list-section' }, [
+            React.createElement('h3', {
+                key: 'list-title',
+                style: { color: '#ffffff', fontSize: '1.3rem', fontWeight: '700', marginBottom: '20px' }
+            }, '⚡ Active Promotional Banners'),
+
+            banners.length === 0
+                ? React.createElement('div', {
+                    key: 'empty',
+                    style: { textAlign: 'center', padding: '40px', background: 'rgba(255, 255, 255, 0.02)', borderRadius: '16px', color: 'rgba(255, 255, 255, 0.4)' }
+                }, 'No active banners uploaded yet.')
+                : React.createElement('div', {
+                    key: 'banners-grid',
+                    style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '20px' }
+                },
+                    banners.map(banner =>
+                        React.createElement('div', {
+                            key: banner.id,
+                            style: {
+                                background: 'rgba(20, 20, 30, 0.7)',
+                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                borderRadius: '18px',
+                                overflow: 'hidden',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                boxShadow: '0 10px 25px rgba(0,0,0,0.3)'
+                            }
+                        }, [
+                            // Card Top Image Box
+                            React.createElement('div', {
+                                key: 'img-box',
+                                style: { width: '100%', height: '140px', overflow: 'hidden', background: '#000' }
+                            }, [
+                                React.createElement('img', {
+                                    key: 'img',
+                                     src: banner.image,
+                                    alt: banner.title,
+                                    style: { width: '100%', height: '100%', objectFit: 'cover' }
+                                })
+                            ]),
+
+                            // Card Bottom Details & Actions
+                            React.createElement('div', {
+                                key: 'details',
+                                style: { padding: '16px', display: 'flex', flexDirection: 'column', gap: '12px', flexGrow: 1, justifyContent: 'space-between' }
+                            }, [
+                                React.createElement('h4', {
+                                    key: 'banner-title',
+                                    style: { margin: 0, color: '#fff', fontSize: '1rem', fontWeight: '600' }
+                                }, banner.title),
+
+                                React.createElement('div', {
+                                    key: 'btn-actions',
+                                    style: { display: 'flex', gap: '10px' }
+                                }, [
+                                    React.createElement('button', {
+                                        key: 'edit',
+                                        onClick: () => setBannerToEdit(banner),
+                                        style: {
+                                            flex: 1,
+                                            padding: '8px',
+                                            background: 'rgba(255, 189, 46, 0.15)',
+                                            color: '#ffbd2e',
+                                            border: '1px solid rgba(255, 189, 46, 0.3)',
+                                            borderRadius: '8px',
+                                            cursor: 'pointer',
+                                            fontWeight: 'bold'
+                                        }
+                                    }, 'Edit'),
+                                    React.createElement('button', {
+                                        key: 'del',
+                                        onClick: () => handleBannerDelete(banner.id),
+                                        style: {
+                                            flex: 1,
+                                            padding: '8px',
+                                            background: 'rgba(255, 71, 87, 0.15)',
+                                            color: '#ff4757',
+                                            border: '1px solid rgba(255, 71, 87, 0.3)',
+                                            borderRadius: '8px',
+                                            cursor: 'pointer',
+                                            fontWeight: 'bold'
+                                        }
+                                    }, 'Delete')
+                                ])
+                            ])
+                        ])
+                    )
+                )
+        ])
+    ]);
+}else if (currentPage === 'job-upload-form') {
         const jobInputStyle = {
             width: '100%', padding: '14px 18px', margin: '0 0 18px 0', borderRadius: '12px',
             border: '1px solid rgba(255, 255, 255, 0.1)', background: 'rgba(255, 255, 255, 0.05)',
@@ -12075,6 +12666,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
         'div',
         { className: 'container' },
         headerElement,
+        React.createElement(BannerHeaderSection, { banners: banners }),
         mainElement,
         React.createElement(FloatingContactWidget, { key: 'floating-widget' }),
         backToHomeBtn,  // 🔥 Glowing button footer se bilkul pehle load ho raha hai
@@ -12085,6 +12677,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
         'div',
         { className: 'container' },
         headerElement,
+        React.createElement(BannerHeaderSection, { key: 'header-banner', banners: banners }),
         mainElement,
         footerElement
     );
