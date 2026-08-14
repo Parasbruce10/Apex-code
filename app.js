@@ -1591,8 +1591,8 @@ const handleBannerDelete = (id) => {
 // 🌟 Updated & Compact Banner Header Section
 // 🏆 Hyper-Luxury Cyber-Glass Banner (Wider + Interactive FX)
 const BannerHeaderSection = ({ banners }) => {
-    if (!banners || banners.length === 0) return null;
 
+    if (currentPage !== 'home' || !banners || banners.length === 0) return null;
     // Smooth hover effect styles
     const cardHoverStyles = `
         .ultra-banner-card {
