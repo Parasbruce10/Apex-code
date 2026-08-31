@@ -449,7 +449,7 @@ const pathToPage = (pathname) => {
 
 // Sirf yeh pages Google ko index karne dena hai — baaki (admin, forms, thank-you) noindex rahenge
 const INDEXABLE_PAGES = [
-    'home', 'services', 'plans', 'wp-plans', 'seo-plans', 'ads-plans',
+        'home', 'services', 'plans', 'wp-plans', 'seo-plans', 'ads-plans', 'portfolio-plans',
     'portfolio', 'about-us', 'privacy-policy', 'terms-conditions',
     'contact-us', 'websites-for-sale'
 ];
@@ -467,6 +467,7 @@ const PAGE_META = {
     'seo-plans': { title: 'SEO Plans | Apex Code', desc: 'On-page and technical SEO optimization plans from Apex Code.' },
     'ads-plans': { title: 'Ad Monetization Plans | Apex Code', desc: 'AdSense, Adsterra, and Monetag monetization setup plans from Apex Code.' },
     'portfolio': { title: 'Portfolio | Apex Code', desc: 'Past projects and live work delivered by the Apex Code team.' },
+        'portfolio-plans': { title: 'Portfolio Plans | Apex Code', desc: 'Portfolio and personal showcase website design plans from Apex Code.' },
     'about-us': { title: 'About Us | Apex Code', desc: 'Apex Code is a digital service agency specializing in custom web development, WordPress design, and technical SEO.' },
     'privacy-policy': { title: 'Privacy Policy | Apex Code', desc: 'How Apex Code collects, uses, and protects your data.' },
     'terms-conditions': { title: 'Terms & Conditions | Apex Code', desc: "Terms and conditions for using Apex Code's services." },
@@ -1554,6 +1555,7 @@ const handleBannerDelete = (id) => {
     const toAdminLogin = (e) => { e.preventDefault(); setCurrentPage('admin-login'); };
     const toParasPortfolio = (e) => { if (e) e.preventDefault(); setCurrentPage('paras-portfolio'); };
     const toUsmanPortfolio = (e) => { if (e) e.preventDefault(); setCurrentPage('usman-portfolio'); };
+        const toPortfolioPlans = (e) => { e.preventDefault(); setCurrentPage('portfolio-plans'); };
     const toSaifPortfolio = (e) => { if (e) e.preventDefault(); setCurrentPage('saif-portfolio'); };
     const toAbdulNafayPortfolio = (e) => { if (e) e.preventDefault(); setCurrentPage('abdulnafay-portfolio'); };
     const toAbrarPortfolio = (e) => { if (e) e.preventDefault(); setCurrentPage('abrar-portfolio'); };
@@ -2335,7 +2337,134 @@ const BannerHeaderSection = ({ banners }) => {
                         'A stunning website is only effective if your target audience can actually find it. Our comprehensive SEO strategies are strictly data-driven and results-oriented. We conduct deep technical SEO audits, extensive keyword research, strategic on-page optimization, and authoritative backlink building. Our primary goal is to rank your digital assets on the first page of Google, driving high-quality organic traffic, enhancing your brand\'s digital footprint, and significantly increasing your conversion rates.'
                     )
                 ),
+                
+// --- GROUP 3: PORTFOLIO & CUSTOM DESIGN SERVICES ---
+React.createElement('div', {
+    style: {
+        ...groupStyle,
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '30px',
+        alignItems: 'stretch',
+        width: '100%',
+        maxWidth: '900px',
+        marginTop: '30px',
+        marginBottom: '30px'
+    },
+    className: 'service-row-group'
+},
+    // LEFT CARD: PORTFOLIO SERVICES
+    React.createElement('div', {
+        className: 'service-card hyper-premium-card',
+        style: {
+            background: 'rgba(10, 11, 18, 0.85)',
+            border: '1px solid rgba(255, 255, 255, 0.07)',
+            boxShadow: '0 30px 70px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 0 50px rgba(157, 78, 221, 0.02)',
+            backdropFilter: 'blur(30px)',
+            WebkitBackdropFilter: 'blur(30px)',
+            padding: '40px 30px',
+            borderRadius: '32px',
+            textAlign: 'left',
+            flex: '0 0 350px',
+            position: 'relative',
+            overflow: 'hidden',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-between'
+        }
+    },
+        // Neon Bar
+        React.createElement('div', {
+            style: {
+                position: 'absolute', top: '0', left: '40px', right: '40px', height: '3px',
+                background: 'linear-gradient(90deg, transparent, #9d4edd, #00f2fe, transparent)',
+                filter: 'drop-shadow(0 2px 8px rgba(157, 78, 221, 0.8))'
+            }
+        }),
 
+        React.createElement('div', null,
+            // TOP BADGE & ICON
+            React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '25px' } },
+                React.createElement('div', {
+                    style: {
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                        width: '50px', height: '50px', borderRadius: '14px',
+                        background: 'linear-gradient(135deg, rgba(157, 78, 221, 0.15), rgba(255,255,255,0.01))',
+                        border: '1px solid rgba(157, 78, 221, 0.3)',
+                        color: '#9d4edd', fontSize: '1.4rem', fontWeight: '900'
+                    }
+                }, '🎨'),
+
+                React.createElement('div', {
+                    style: {
+                        display: 'inline-flex', alignItems: 'center', gap: '6px',
+                        background: 'rgba(157, 78, 221, 0.08)', border: '1px solid rgba(157, 78, 221, 0.2)',
+                        padding: '5px 12px', borderRadius: '12px'
+                    }
+                },
+                    React.createElement('span', { style: { color: '#9d4edd', fontSize: '0.65rem', fontWeight: '800', letterSpacing: '0.8px', textTransform: 'uppercase' } }, 'Showcase')
+                )
+            ),
+
+            // HEADING
+            React.createElement('h3', {
+                style: { color: '#fff', fontSize: '1.65rem', fontWeight: '900', letterSpacing: '-0.3px', marginBottom: '12px', lineHeight: '1.3' }
+            }, 'Portfolio & Design Showcase'),
+
+            // SHORT DESCRIPTION
+            React.createElement('p', {
+                style: { color: 'rgba(255, 255, 255, 0.6)', fontSize: '0.9rem', lineHeight: '1.6', marginBottom: '30px' }
+            }, 'High-impact personal & agency portfolios crafted to convert visitors into high-paying clients.')
+        ),
+
+        // BUTTON
+        React.createElement('button', {
+            className: 'card-btn enterprise-action',
+            onClick: toPortfolioPlans,
+            style: {
+                width: '100%', padding: '14px',
+                background: '#fff', color: '#0a0b12',
+                border: '1px solid #fff', borderRadius: '14px',
+                fontSize: '0.95rem', fontWeight: '800', cursor: 'pointer',
+                boxShadow: '0 12px 25px rgba(255, 255, 255, 0.08)',
+                transition: 'all 0.2s ease', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px'
+            }
+        },
+            'Get Started',
+            React.createElement('span', { style: { fontSize: '1rem', transform: 'translateY(-1px)' } }, '→')
+        )
+    ),
+
+    // RIGHT DETAIL BOX
+    React.createElement('div', {
+        style: {
+            ...detailBoxStyle,
+            flex: '1 1 450px',
+            background: 'rgba(15, 17, 26, 0.5)',
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            borderRadius: '32px',
+            padding: '40px 35px',
+            color: 'rgba(255, 255, 255, 0.75)',
+            fontSize: '1rem',
+            lineHeight: '1.75',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+            display: 'flex',
+            alignItems: 'center',
+            textAlign: 'left',
+            position: 'relative'
+        }
+    },
+        React.createElement('div', {
+            style: {
+                position: 'absolute', left: '0', top: '40px', bottom: '40px', width: '2px',
+                background: 'linear-gradient(to bottom, #9d4edd, transparent)'
+            }
+        }),
+        'We design and develop stunning interactive portfolio websites tailored for developers, freelancers, agencies, and businesses. Our focus is on UI/UX excellence, fast page transitions, and responsive components that showcase your real-world work with extreme precision and style.'
+    )
+),
                 // --- GROUP 4: MONETIZATION & ADS ---
                 React.createElement('div', {
                     style: {
@@ -2585,6 +2714,7 @@ const BannerHeaderSection = ({ banners }) => {
             }, 'View Interface Solutions')
         )
     ),
+    
 
     // 🏷️ CARD 3: SEO Dominance
     React.createElement('div', { 
@@ -3005,310 +3135,465 @@ const BannerHeaderSection = ({ banners }) => {
 
             )
         );
-    } else if (currentPage === 'wp-plans') {
-        // ✨ UPGRADED DESIGN: Modern Grid Pricing Table for WordPress Plans
-        mainElement = React.createElement('main', {
-            style: { padding: '40px 20px', maxWidth: '1200px', margin: '0 auto', color: '#fff', fontFamily: "'Inter', sans-serif" }
+    }else if (currentPage === 'portfolio-plans') {
+    // ✨ Modern Grid Pricing Table for Portfolio & Showcase Plans
+    mainElement = React.createElement('main', {
+        style: { padding: '40px 20px', maxWidth: '1200px', margin: '0 auto', color: '#fff', fontFamily: "'Inter', sans-serif" }
+    },
+        React.createElement('button', {
+            className: 'card-btn',
+            onClick: toServices,
+            onMouseEnter: (e) => {
+                e.target.style.background = 'rgba(255,255,255,0.05)';
+                e.target.style.transform = 'translateY(-2px)';
+            },
+            onMouseLeave: (e) => {
+                e.target.style.background = 'transparent';
+                e.target.style.transform = 'translateY(0)';
+            },
+            style: {
+                display: 'block',
+                margin: '0 auto 30px auto',
+                padding: '10px 20px',
+                borderRadius: '16px',
+                border: '1px solid rgba(255,255,255,0.2)',
+                background: 'transparent',
+                color: '#fff',
+                transition: 'all 0.3s ease',
+                cursor: 'pointer'
+            }
+        }, '← Back to Services'),
+
+        React.createElement('div', {
+            style: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                margin: '0 auto 15px',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                backdropFilter: 'blur(15px)',
+                WebkitBackdropFilter: 'blur(15px)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                borderRadius: '24px',
+                padding: '12px 24px',
+                width: 'fit-content',
+                maxWidth: '92%',
+                boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                boxSizing: 'border-box'
+            }
         },
-            // Back Butto   // 
-            React.createElement('button', {
-                className: 'card-btn',
-                onClick: toServices, // Yeh aapko direct Services wale main page/state per le jayega
-                onMouseEnter: (e) => {
-                    e.target.style.background = 'rgba(255,255,255,0.05)';
-                    e.target.style.transform = 'translateY(-2px)';
-                },
-                onMouseLeave: (e) => {
-                    e.target.style.background = 'transparent';
-                    e.target.style.transform = 'translateY(0)';
-                },
+            React.createElement('h2', {
                 style: {
-                    display: 'block',
-                    margin: '0 auto 30px auto',
-                    padding: '10px 20px',
-                    borderRadius: '16px',
-                    border: '1px solid rgba(255,255,255,0.2)',
-                    background: 'transparent',
-                    color: '#fff',
-                    transition: 'all 0.3s ease',
-                    cursor: 'pointer'
-                }
-            }, '← Back to Services'),
-
-            // Headings
-            // 👑 PREMIUM BORDERED HEADING BADGE
-            React.createElement('div', {
-                style: {
-                    display: 'flex',                             // 'table' se 'flex' kiya takay layout responsive handle ho sake
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    margin: '0 auto 15px',                       // Mobile spacing ke liye margin-bottom adjust kiya
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)',
-                    WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '24px',
-                    padding: '12px 24px',                        // Padding sides se thodi kam ki mobile screen ke liye
-                    width: 'fit-content',
-                    maxWidth: '92%',                             // Container mobile screen edges ke andar hi rahega
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-                    boxSizing: 'border-box'
-                }
-            },
-                React.createElement('h2', {
-                    style: {
-                        display: 'inline-block',
-                        background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        color: 'transparent',
-                        WebkitTextFillColor: 'transparent',
-                        margin: '0',
-                        fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',  // Viewport width ke sath auto-scale down ho jayega
-                        fontWeight: '800',
-                        textAlign: 'center',
-                        whiteSpace: 'nowrap',                    // Heading text hamesha single line me safe rahega
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Wordpress Development Plans')
-            ),
-            React.createElement('p', {
-                style: {
+                    display: 'inline-block',
+                    background: 'linear-gradient(45deg, #9d4edd, #00f2fe)',
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    color: 'transparent',
+                    WebkitTextFillColor: 'transparent',
+                    margin: '0',
+                    fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',
+                    fontWeight: '800',
                     textAlign: 'center',
-                    color: 'rgba(255,255,255,0.6)',
-                    fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',   // Sub-text ka size bhi devices ke mutabiq fluid kiya
-                    padding: '0 15px',                           // Taki corners se text bilkul chipkay na
-                    maxWidth: '500px',
-                    margin: '0 auto 30px'                        // Bottom margin 50px se kam kar ke 30px kiya responsive height optimization ke liye
+                    whiteSpace: 'nowrap',
+                    filter: 'drop-shadow(0 4px 10px rgba(157, 78, 221, 0.3))'
                 }
-            }, 'Choose the perfect WordPress package for your business.'),
+            }, 'Portfolio & Showcase Plans')
+        ),
+        React.createElement('p', {
+            style: {
+                textAlign: 'center',
+                color: 'rgba(255,255,255,0.6)',
+                fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',
+                padding: '0 15px',
+                maxWidth: '500px',
+                margin: '0 auto 30px'
+            }
+        }, 'Choose the perfect portfolio package to showcase your work.'),
 
-            // Grid Container
+        React.createElement('div', {
+            style: { display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', alignItems: 'stretch' }
+        },
+
+            // 📦 1st Card: Basic Portfolio Plan
             React.createElement('div', {
-                style: { display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', alignItems: 'stretch' }
+                style: { flex: '1 1 320px', maxWidth: '380px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: '35px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }
             },
-
-                // 📦 1st Card: Basic WP Plan
-                React.createElement('div', {
-                    style: { flex: '1 1 320px', maxWidth: '380px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: '35px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }
-                },
-                    React.createElement('div', null,
-                        React.createElement('h3', { style: { fontSize: '1.3rem', color: 'rgba(255,255,255,0.7)', margin: '0 0 10px 0' } }, 'Basic WP Plan'),
-                        React.createElement('div', { style: { display: 'flex', alignItems: 'baseline', gap: '5px', marginBottom: '25px' } },
-                            React.createElement('span', { style: { fontSize: '2.2rem', fontWeight: '800', color: '#fff' } }, '35K'),
-                            React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem' } }, 'PKR / total')
-                        ),
-                        React.createElement('div', { style: { width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', marginBottom: '25px' } }),
-
-                        // Features List
-                        React.createElement('ul', { style: { listStyle: 'none', padding: '0', margin: '0', display: 'flex', flexDirection: 'column', gap: '16px' } },
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#21759b', fontWeight: 'bold' } }, '✓'), 'Essential WordPress installation with core framework setup.'),
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#21759b', fontWeight: 'bold' } }, '✓'), 'Standard pre-built theme configuration tailored to your business niche.'),
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#21759b', fontWeight: 'bold' } }, '✓'), 'Basic essential plugin integration for security and speed optimization.'),
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#21759b', fontWeight: 'bold' } }, '✓'), 'Clean layout rendering setup on modern cloud or shared hosting systems.')
-                        )
+                React.createElement('div', null,
+                    React.createElement('h3', { style: { fontSize: '1.3rem', color: 'rgba(255,255,255,0.7)', margin: '0 0 10px 0' } }, 'Basic Portfolio Plan'),
+                    React.createElement('div', { style: { display: 'flex', alignItems: 'baseline', gap: '5px', marginBottom: '25px' } },
+                        React.createElement('span', { style: { fontSize: '2.2rem', fontWeight: '800', color: '#fff' } }, '15K'),
+                        React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem' } }, 'PKR / total')
                     ),
-                    React.createElement('button', {
-                        className: 'card-btn',
-                        style: { marginTop: '35px', width: '100%', padding: '14px', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' },
-                        onClick: toContactForm('Basic WP Plan', '35K PKR')
-                    }, 'Select Basic Plan')
-                ),
+                    React.createElement('div', { style: { width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', marginBottom: '25px' } }),
 
-                // 📦 2nd Card: Standard WP Plan (Highlighted Center)
-                React.createElement('div', {
-                    style: { flex: '1 1 320px', maxWidth: '380px', background: 'rgba(33, 117, 155, 0.04)', border: '1px solid #21759b', borderRadius: '16px', padding: '35px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 10px 30px rgba(33, 117, 155, 0.08)', position: 'relative' }
-                },
-                    React.createElement('div', { style: { position: 'absolute', top: '-15px', right: '25px', background: '#21759b', color: '#fff', fontSize: '0.8rem', fontWeight: '700', padding: '4px 12px', borderRadius: '20px', textTransform: 'uppercase' } }, 'Best Value'),
-                    React.createElement('div', null,
-                        React.createElement('h3', { style: { fontSize: '1.3rem', color: '#21759b', margin: '0 0 10px 0', fontWeight: '700' } }, 'Standard WP Plan'),
-                        React.createElement('div', { style: { display: 'flex', alignItems: 'baseline', gap: '5px', marginBottom: '25px' } },
-                            React.createElement('span', { style: { fontSize: '2.2rem', fontWeight: '800', color: '#fff' } }, '75K'),
-                            React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem' } }, 'PKR / total')
-                        ),
-                        React.createElement('div', { style: { width: '100%', height: '1px', background: 'rgba(33, 117, 155, 0.2)', marginBottom: '25px' } }),
-
-                        // Features List
-                        React.createElement('ul', { style: { listStyle: 'none', padding: '0', margin: '0', display: 'flex', flexDirection: 'column', gap: '16px' } },
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#21759b', fontWeight: 'bold' } }, '✓'), 'Custom dynamic multi-page design mapped on premium parent themes.'),
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#21759b', fontWeight: 'bold' } }, '✓'), 'Advanced plugin suites integration for seamless UI animations and layouts.'),
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#21759b', fontWeight: 'bold' } }, '✓'), 'Complete fluid responsive layout configurations for all desktop & mobile screen sizes.'),
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#21759b', fontWeight: 'bold' } }, '✓'), 'Integrated contact nodes, automated lead capturing mechanisms, and site analytics tracking.')
-                        )
-                    ),
-                    React.createElement('button', {
-                        className: 'card-btn',
-                        style: { marginTop: '35px', width: '100%', padding: '14px', borderRadius: '8px', cursor: 'pointer', fontWeight: '700', background: '#21759b', color: '#fff', border: 'none' },
-                        onClick: toContactForm('Standard WP Plan', '75K PKR')
-                    }, 'Select Standard Plan')
-                ),
-
-                // 📦 3rd Card: Premium WP Plan
-                React.createElement('div', {
-                    style: { flex: '1 1 320px', maxWidth: '380px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: '35px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }
-                },
-                    React.createElement('div', null,
-                        React.createElement('h3', { style: { fontSize: '1.3rem', color: 'rgba(255,255,255,0.7)', margin: '0 0 10px 0' } }, 'Premium WP Plan'),
-                        React.createElement('div', { style: { display: 'flex', alignItems: 'baseline', gap: '5px', marginBottom: '25px' } },
-                            React.createElement('span', { style: { fontSize: '2.2rem', fontWeight: '800', color: '#fff' } }, '150K'),
-                            React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem' } }, 'PKR / total')
-                        ),
-                        React.createElement('div', { style: { width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', marginBottom: '25px' } }),
-
-                        // Features List
-                        React.createElement('ul', { style: { listStyle: 'none', padding: '0', margin: '0', display: 'flex', flexDirection: 'column', gap: '16px' } },
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Full-featured WooCommerce structure modeled for high-volume E-commerce operations.'),
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Advanced programmatic SEO setup alongside strict multi-layered security firewalls.'),
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Premium custom cache engines for high performance and processing speed optimization.'),
-                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Dedicated enterprise infrastructure deployment support + elite tracking script integration.')
-                        )
-                    ),
-                    React.createElement('button', {
-                        className: 'card-btn',
-                        style: { marginTop: '35px', width: '100%', padding: '14px', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' },
-                        onClick: toContactForm('Premium WP Plan', '150K PKR')
-                    }, 'Select Premium Plan')
-                )
-
-            ), // <-- Grid Container Ends Here
-
-            // ✨ UPGRADED SECTION: Deep Dive Detailed Breakdown (Added below cards for WordPress)
-            React.createElement('div', {
-                style: { marginTop: '60px', borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '40px' }
-            },
-                React.createElement('h3', {
-                    style: { fontSize: '1.8rem', fontWeight: '700', marginBottom: '30px', textAlign: 'center', color: '#21759b' }
-                }, 'Comprehensive Plan Breakdown & Strategy'),
-
-                React.createElement('div', {
-                    style: { display: 'flex', flexDirection: 'column', gap: '30px' }
-                },
-                    // Detail Box 1: Basic WP Plan
-                    React.createElement('div', {
-                        style: { background: 'rgba(255, 255, 255, 0.01)', padding: '25px', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.05)' }
-                    },
-                        React.createElement('h4', { style: { fontSize: '1.2rem', color: '#fff', marginBottom: '10px', fontWeight: '600' } }, '01 / Basic WP Plan — Core Strategic Breakdown'),
-                        React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6', fontSize: '0.95rem' } },
-                            'The Basic WP Plan is engineered specifically for businesses, content creators, and startups looking to build a clean, reliable CMS base. We skip heavy pre-built premium bundles that clutter databases, opting instead for custom asset management structures over the WordPress open-source core. By doing clean script configurations, we remove messy background render blocks to keep initial loading times ultra-fast on standard hosting networks. Basic security routines and core policy setups are fully configured to secure your custom domain structure right from day one.'
-                        )
-                    ),
-
-                    // Detail Box 2: Standard WP Plan
-                    React.createElement('div', {
-                        style: { background: 'rgba(33, 117, 155, 0.02)', padding: '25px', borderRadius: '12px', border: '1px solid rgba(33, 117, 155, 0.15)' }
-                    },
-                        React.createElement('h4', { style: { fontSize: '1.2rem', color: '#21759b', marginBottom: '10px', fontWeight: '600' } }, '02 / Standard WP Plan — High Performance Theme Customization'),
-                        React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6', fontSize: '0.95rem' } },
-                            'Designed for established setups and evolving brands, the Standard Plan handles multi-page design systems using highly responsive block structures. We bypass slow builder plug-ins by relying directly on specialized core framework hooks and filters to execute clean animations and elements. Every section handles native responsive data flow smoothly across mobile, tablet, and widescreen systems. Plus, we wire production-ready forms, lead capture tools, and standard analytics scripts cleanly into your template layer without dragging down site metrics.'
-                        )
-                    ),
-
-                    // Detail Box 3: Premium WP Plan
-                    React.createElement('div', {
-                        style: { background: 'rgba(255, 255, 255, 0.01)', padding: '25px', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.05)' }
-                    },
-                        React.createElement('h4', { style: { fontSize: '1.2rem', color: '#fff', marginBottom: '10px', fontWeight: '600' } }, '03 / Premium WP Plan — Enterprise E-Commerce Engine'),
-                        React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6', fontSize: '0.95rem' } },
-                            'The Premium Plan introduces a secure, transaction-heavy operational platform driven by high-volume WooCommerce architectures. We configure advanced transactional paths, programmatic metadata layouts, and strict endpoint validation models to easily process checkout actions under continuous multi-request strain. The setup comes fully equipped with server-side caching scripts (like Object Caching or Redis configurations) and dynamic multi-layered file walls to guard database records. This enterprise-level stack ensures immediate search crawler tracking and high cloud performance for intense transactional scaling.'
-                        )
+                    React.createElement('ul', { style: { listStyle: 'none', padding: '0', margin: '0', display: 'flex', flexDirection: 'column', gap: '16px' } },
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#9d4edd', fontWeight: 'bold' } }, '✓'), 'Single-page interactive portfolio with smooth scroll sections.'),
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#9d4edd', fontWeight: 'bold' } }, '✓'), 'Clean project showcase gallery with hover reveal effects.'),
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#9d4edd', fontWeight: 'bold' } }, '✓'), 'Basic contact section with social media integration.'),
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#9d4edd', fontWeight: 'bold' } }, '✓'), 'Mobile-responsive layout deployed on fast cloud hosting.')
                     )
-                )
+                ),
+                React.createElement('button', {
+                    className: 'card-btn',
+                    style: { marginTop: '35px', width: '100%', padding: '14px', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' },
+                    onClick: toContactForm('Basic Portfolio Plan', '15K PKR')
+                }, 'Select Basic Plan')
             ),
 
-            // 🛠️ TECHNICAL ARCHITECTURE BREAKDOWN (Deep Dive Technical Layer)
+            // 📦 2nd Card: Standard Portfolio Plan (Highlighted Center)
             React.createElement('div', {
-                style: { marginTop: '80px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '60px' }
+                style: { flex: '1 1 320px', maxWidth: '380px', background: 'rgba(157, 78, 221, 0.04)', border: '1px solid #9d4edd', borderRadius: '16px', padding: '35px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 10px 30px rgba(157, 78, 221, 0.08)', position: 'relative' }
             },
-                React.createElement('h2', {
-                    style: { fontSize: '2.2rem', fontWeight: '800', marginBottom: '50px', textAlign: 'center', background: 'linear-gradient(135deg, #fff, #21759b)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
-                }, 'Deep Dive Technical Architecture'),
-
-                React.createElement('div', {
-                    style: { display: 'flex', flexDirection: 'column', gap: '80px' }
-                },
-
-                    // Phase 01 Section
-                    React.createElement('div', {
-                        style: { display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }
-                    },
-                        React.createElement('div', { style: { flex: '1 1 450px' } },
-                            React.createElement('div', { style: { color: '#21759b', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '2px', marginBottom: '10px' } }, 'Phase 01 / Core Environment'),
-                            React.createElement('h3', { style: { fontSize: '1.7rem', fontWeight: '700', color: '#fff', marginBottom: '20px' } }, 'Basic Plan: Core Framework & Lightweight Configuration'),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem', marginBottom: '15px' } },
-                                'The Basic WP Plan provisions a highly optimized instance of the clean WordPress open-source core. Instead of dropping heavy multi-purpose pre-built bundles that result in excessive database queries, we carefully streamline the template’s system dependencies.'
-                            ),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem' } },
-                                'We enforce asset minimization guidelines and asset-loading conditions directly within the theme’s runtime configuration. This ensures that essential security and functional scripts load conditionally, maintaining structural integrity across shared server environments.'
-                            )
-                        ),
-                        React.createElement('div', {
-                            style: { flex: '1 1 350px', maxWidth: '500px', background: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }
-                        },
-                            React.createElement('img', {
-                                src: 'https://images.unsplash.com/photo-1618477388954-7852f32655ec?auto=format&fit=crop&w=600&q=80',
-                                alt: 'WordPress Theme Engineering Layout',
-                                style: { width: '100%', height: 'auto', borderRadius: '12px', opacity: '0.85', display: 'block' }
-                            }),
-                            React.createElement('div', { style: { fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', marginTop: '10px' } }, 'Fig 1.1: Core theme system asset tracking and file hierarchy structures.')
-                        )
+                React.createElement('div', { style: { position: 'absolute', top: '-15px', right: '25px', background: '#9d4edd', color: '#fff', fontSize: '0.8rem', fontWeight: '700', padding: '4px 12px', borderRadius: '20px', textTransform: 'uppercase' } }, 'Best Value'),
+                React.createElement('div', null,
+                    React.createElement('h3', { style: { fontSize: '1.3rem', color: '#9d4edd', margin: '0 0 10px 0', fontWeight: '700' } }, 'Standard Portfolio Plan'),
+                    React.createElement('div', { style: { display: 'flex', alignItems: 'baseline', gap: '5px', marginBottom: '25px' } },
+                        React.createElement('span', { style: { fontSize: '2.2rem', fontWeight: '800', color: '#fff' } }, '25K'),
+                        React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem' } }, 'PKR / total')
                     ),
+                    React.createElement('div', { style: { width: '100%', height: '1px', background: 'rgba(157, 78, 221, 0.2)', marginBottom: '25px' } }),
 
-                    // Phase 02 Section
-                    React.createElement('div', {
-                        style: { display: 'flex', flexWrap: 'wrap-reverse', gap: '40px', alignItems: 'center', background: 'linear-gradient(90deg, rgba(33, 117, 155, 0.03), transparent)', padding: '30px', borderRadius: '24px', borderLeft: '3px solid #21759b' }
-                    },
-                        React.createElement('div', {
-                            style: { flex: '1 1 350px', maxWidth: '500px', background: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }
-                        },
-                            React.createElement('img', {
-                                src: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=600&q=80',
-                                alt: 'Dynamic CMS Dashboard Customization',
-                                style: { width: '100%', height: 'auto', borderRadius: '12px', opacity: '0.85', display: 'block' }
-                            }),
-                            React.createElement('div', { style: { fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', marginTop: '10px' } }, 'Fig 2.1: Custom block layouts and interface hook instrumentation maps.')
-                        ),
-                        React.createElement('div', { style: { flex: '1 1 450px' } },
-                            React.createElement('div', { style: { color: '#21759b', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '2px', marginBottom: '10px' } }, 'Phase 02 / Advanced Hook Customization'),
-                            React.createElement('h3', { style: { fontSize: '1.7rem', fontWeight: '700', color: '#fff', marginBottom: '20px' } }, 'Standard Plan: Premium Theme Engineering & Fluid UX'),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem', marginBottom: '15px' } },
-                                'The Standard WP Plan maps advanced modular logic onto clean parent themes. Rather than allowing bloated third-party page builders to slow your loading speeds, we use highly optimized block architectures to maintain responsive fluid scaling across all devices.'
-                            ),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem' } },
-                                'By targeting custom core hooks and filters, we inject automated forms, secure lead capture nodes, and analytics event tags seamlessly. This approach maintains high Google Core Web Vitals rankings while preserving easy content control.'
-                            )
-                        )
-                    ),
-
-                    // Phase 03 Section
-                    React.createElement('div', {
-                        style: { display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }
-                    },
-                        React.createElement('div', { style: { flex: '1 1 450px' } },
-                            React.createElement('div', { style: { color: '#ff0080', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '2px', marginBottom: '10px' } }, 'Phase 03 / E-Commerce Scale'),
-                            React.createElement('h3', { style: { fontSize: '1.7rem', fontWeight: '700', color: '#fff', marginBottom: '20px' } }, 'Premium Plan: WooCommerce Engine & Enterprise Caching'),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem', marginBottom: '15px' } },
-                                'Engineered directly for modern transactional workflows, the Premium WP Plan features a hardened WooCommerce architecture. We customize transactional endpoints and database schemas to manage complex user checkouts under heavy multi-request loads.'
-                            ),
-                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem' } },
-                                'To protect your site from vulnerabilities, we deploy server-side firewall layers and deep data caching structures (like Redis or Object Caching). This setup lowers your server response times and builds a high-performance, enterprise-ready digital platform.'
-                            )
-                        ),
-                        React.createElement('div', {
-                            style: { flex: '1 1 350px', maxWidth: '500px', background: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }
-                        },
-                            React.createElement('img', {
-                                src: 'https://images.unsplash.com/photo-1607799279861-4dd421887fb3?auto=format&fit=crop&w=600&q=80',
-                                alt: 'Enterprise E-Commerce Server Tracking',
-                                style: { width: '100%', height: 'auto', borderRadius: '12px', opacity: '0.85', display: 'block' }
-                            }),
-                            React.createElement('div', { style: { fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', marginTop: '10px' } }, 'Fig 3.1: Transaction data flow optimization and secure database firewall diagnostics.')
-                        )
+                    React.createElement('ul', { style: { listStyle: 'none', padding: '0', margin: '0', display: 'flex', flexDirection: 'column', gap: '16px' } },
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#9d4edd', fontWeight: 'bold' } }, '✓'), 'Multi-page portfolio with custom page transitions and animations.'),
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#9d4edd', fontWeight: 'bold' } }, '✓'), 'Case-study style project pages with detailed breakdowns.'),
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#9d4edd', fontWeight: 'bold' } }, '✓'), 'Integrated contact form with automated lead notifications.'),
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#9d4edd', fontWeight: 'bold' } }, '✓'), 'Basic SEO setup for improved discoverability.')
                     )
+                ),
+                React.createElement('button', {
+                    className: 'card-btn',
+                    style: { marginTop: '35px', width: '100%', padding: '14px', borderRadius: '8px', cursor: 'pointer', fontWeight: '700', background: '#9d4edd', color: '#fff', border: 'none' },
+                    onClick: toContactForm('Standard Portfolio Plan', '25K PKR')
+                }, 'Select Standard Plan')
+            ),
 
+            // 📦 3rd Card: Premium Portfolio Plan
+            React.createElement('div', {
+                style: { flex: '1 1 320px', maxWidth: '380px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: '35px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }
+            },
+                React.createElement('div', null,
+                    React.createElement('h3', { style: { fontSize: '1.3rem', color: 'rgba(255,255,255,0.7)', margin: '0 0 10px 0' } }, 'Premium Portfolio Plan'),
+                    React.createElement('div', { style: { display: 'flex', alignItems: 'baseline', gap: '5px', marginBottom: '25px' } },
+                        React.createElement('span', { style: { fontSize: '2.2rem', fontWeight: '800', color: '#fff' } }, '40K'),
+                        React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem' } }, 'PKR / total')
+                    ),
+                    React.createElement('div', { style: { width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', marginBottom: '25px' } }),
+
+                    React.createElement('ul', { style: { listStyle: 'none', padding: '0', margin: '0', display: 'flex', flexDirection: 'column', gap: '16px' } },
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#00f2fe', fontWeight: 'bold' } }, '✓'), 'Fully custom agency-grade portfolio with CMS-driven project uploads.'),
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#00f2fe', fontWeight: 'bold' } }, '✓'), 'Advanced micro-interactions, parallax scrolling, and video showcases.'),
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#00f2fe', fontWeight: 'bold' } }, '✓'), 'Advanced technical SEO and structured data for search ranking.'),
+                        React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#00f2fe', fontWeight: 'bold' } }, '✓'), 'Dedicated analytics dashboard and priority support.')
+                    )
+                ),
+                React.createElement('button', {
+                    className: 'card-btn',
+                    style: { marginTop: '35px', width: '100%', padding: '14px', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' },
+                    onClick: toContactForm('Premium Portfolio Plan', '40K PKR')
+                }, 'Select Premium Plan')
+            )
+
+        ),
+
+        // 🌟 PREMIUM FEATURED SHOWCASE SECTION (5 IMAGE + SIDE TEXT CARDS)
+        React.createElement('div', { style: { marginTop: '80px' } },
+            React.createElement('h3', {
+                style: {
+                    fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
+                    fontWeight: '800',
+                    textAlign: 'center',
+                    marginBottom: '40px',
+                    background: 'linear-gradient(90deg, #fff, rgba(255,255,255,0.5))',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                }
+            }, 'Featured Portfolio Showcase Layouts'),
+
+            React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '40px' } },
+
+                // Showcase 1
+                React.createElement('div', {
+                    style: {
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        gap: '30px',
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderRadius: '20px',
+                        padding: '24px',
+                        backdropFilter: 'blur(10px)'
+                    }
+                },
+                    React.createElement('div', { style: { flex: '1 1 300px', borderRadius: '14px', overflow: 'hidden', height: '260px' } },
+                        React.createElement('img', {
+                            src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+                            alt: 'Interactive Dashboard Portfolio',
+                            style: { width: '100%', height: '100%', objectFit: 'cover' }
+                        })
+                    ),
+                    React.createElement('div', { style: { flex: '1 1 300px' } },
+                        React.createElement('span', { style: { color: '#00f2fe', fontSize: '0.85rem', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' } }, 'Layout 01'),
+                        React.createElement('h4', { style: { fontSize: '1.6rem', margin: '8px 0 12px', color: '#fff' } }, 'Interactive Dashboard Showcase'),
+                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', fontSize: '0.95rem' } }, 'Ideal for software engineers, product managers, and data analysts looking to display live metric widgets, project analytics, and interactive GitHub integration.')
+                    )
+                ),
+
+                // Showcase 2
+                React.createElement('div', {
+                    style: {
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        gap: '30px',
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderRadius: '20px',
+                        padding: '24px',
+                        backdropFilter: 'blur(10px)'
+                    }
+                },
+                    React.createElement('div', { style: { flex: '1 1 300px', borderRadius: '14px', overflow: 'hidden', height: '260px' } },
+                        React.createElement('img', {
+                            src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
+                            alt: 'Creative Agency & Artist Portfolio',
+                            style: { width: '100%', height: '100%', objectFit: 'cover' }
+                        })
+                    ),
+                    React.createElement('div', { style: { flex: '1 1 300px' } },
+                        React.createElement('span', { style: { color: '#9d4edd', fontSize: '0.85rem', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' } }, 'Layout 02'),
+                        React.createElement('h4', { style: { fontSize: '1.6rem', margin: '8px 0 12px', color: '#fff' } }, 'Creative Visual Gallery'),
+                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', fontSize: '0.95rem' } }, 'Crafted specifically for UI/UX designers, photographers, and 3D visualizers featuring full-screen lightbox previews, smooth masonry layout, and fluid transitions.')
+                    )
+                ),
+
+                // Showcase 3
+                React.createElement('div', {
+                    style: {
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        gap: '30px',
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderRadius: '20px',
+                        padding: '24px',
+                        backdropFilter: 'blur(10px)'
+                    }
+                },
+                    React.createElement('div', { style: { flex: '1 1 300px', borderRadius: '14px', overflow: 'hidden', height: '260px' } },
+                        React.createElement('img', {
+                            src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
+                            alt: 'Case Study & Long-Form Presentation',
+                            style: { width: '100%', height: '100%', objectFit: 'cover' }
+                        })
+                    ),
+                    React.createElement('div', { style: { flex: '1 1 300px' } },
+                        React.createElement('span', { style: { color: '#00f2fe', fontSize: '0.85rem', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' } }, 'Layout 03'),
+                        React.createElement('h4', { style: { fontSize: '1.6rem', margin: '8px 0 12px', color: '#fff' } }, 'In-Depth Case Study Layout'),
+                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', fontSize: '0.95rem' } }, 'Designed for consultants, strategists, and agencies. Focuses on detailed problem-solution breakdowns, workflow steps, and measurable client results.')
+                    )
+                ),
+
+                // Showcase 4
+                React.createElement('div', {
+                    style: {
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        gap: '30px',
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderRadius: '20px',
+                        padding: '24px',
+                        backdropFilter: 'blur(10px)'
+                    }
+                },
+                    React.createElement('div', { style: { flex: '1 1 300px', borderRadius: '14px', overflow: 'hidden', height: '260px' } },
+                        React.createElement('img', {
+                            src: 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80',
+                            alt: 'Minimalist Monochromatic Portfolio',
+                            style: { width: '100%', height: '100%', objectFit: 'cover' }
+                        })
+                    ),
+                    React.createElement('div', { style: { flex: '1 1 300px' } },
+                        React.createElement('span', { style: { color: '#9d4edd', fontSize: '0.85rem', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' } }, 'Layout 04'),
+                        React.createElement('h4', { style: { fontSize: '1.6rem', margin: '8px 0 12px', color: '#fff' } }, 'Minimalist Personal Brand'),
+                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', fontSize: '0.95rem' } }, 'Clean, high-typography presentation suited for founders, executive leaders, and keynote speakers wanting to establish an influential personal web presence.')
+                    )
+                ),
+
+                // Showcase 5
+                React.createElement('div', {
+                    style: {
+                        display: 'flex',
+                        flexWrap: 'wrap',
+                        alignItems: 'center',
+                        gap: '30px',
+                        background: 'rgba(255, 255, 255, 0.03)',
+                        border: '1px solid rgba(255, 255, 255, 0.08)',
+                        borderRadius: '20px',
+                        padding: '24px',
+                        backdropFilter: 'blur(10px)'
+                    }
+                },
+                    React.createElement('div', { style: { flex: '1 1 300px', borderRadius: '14px', overflow: 'hidden', height: '260px' } },
+                        React.createElement('img', {
+                            src: 'https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=80',
+                            alt: 'Video & Motion Design Portfolio',
+                            style: { width: '100%', height: '100%', objectFit: 'cover' }
+                        })
+                    ),
+                    React.createElement('div', { style: { flex: '1 1 300px' } },
+                        React.createElement('span', { style: { color: '#00f2fe', fontSize: '0.85rem', fontWeight: '700', letterSpacing: '1px', textTransform: 'uppercase' } }, 'Layout 05'),
+                        React.createElement('h4', { style: { fontSize: '1.6rem', margin: '8px 0 12px', color: '#fff' } }, 'Dynamic Video & Motion Showcase'),
+                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.7)', lineHeight: '1.6', fontSize: '0.95rem' } }, 'Built for video editors, animators, and filmmakers with background video loops, showreel integration, and high-performance video modal players.')
+                    )
+                )
+
+            )
+        ),
+
+        // 💎 3 PURE TEXT-ONLY PREMIUM FEATURE BOXES (NO IMAGES)
+        React.createElement('div', { style: { marginTop: '80px' } },
+            React.createElement('h3', {
+                style: {
+                    fontSize: 'clamp(1.5rem, 4vw, 2.2rem)',
+                    fontWeight: '800',
+                    textAlign: 'center',
+                    marginBottom: '40px',
+                    background: 'linear-gradient(90deg, #9d4edd, #00f2fe)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent'
+                }
+            }, 'Why Choose Our Custom Builds'),
+
+            React.createElement('div', {
+                style: {
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    gap: '24px',
+                    justifyContent: 'center',
+                    alignItems: 'stretch'
+                }
+            },
+                // Text Box 1
+                React.createElement('div', {
+                    style: {
+                        flex: '1 1 300px',
+                        maxWidth: '370px',
+                        background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01))',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        borderRadius: '20px',
+                        padding: '30px 25px',
+                        backdropFilter: 'blur(12px)',
+                        boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justify: 'space-between'
+                    }
+                },
+                    React.createElement('div', null,
+                        React.createElement('span', {
+                            style: {
+                                fontSize: '0.8rem',
+                                fontWeight: '700',
+                                letterSpacing: '1px',
+                                textTransform: 'uppercase',
+                                color: '#00f2fe',
+                                background: 'rgba(0, 242, 254, 0.1)',
+                                padding: '4px 10px',
+                                borderRadius: '12px'
+                            }
+                        }, 'High Performance'),
+                        React.createElement('h4', {
+                            style: { fontSize: '1.4rem', color: '#fff', margin: '15px 0 10px', fontWeight: '700' }
+                        }, 'Ultra-Fast Speed Optimization'),
+                        React.createElement('p', {
+                            style: { color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem', lineHeight: '1.6', margin: '0' }
+                        }, 'Every portfolio page is engineered with zero bloat code. Guaranteed sub-second load speeds, Google Lighthouse 95+ scores, and lightning-fast asset delivery for global reach.')
+                    )
+                ),
+
+                // Text Box 2
+                React.createElement('div', {
+                    style: {
+                        flex: '1 1 300px',
+                        maxWidth: '370px',
+                        background: 'linear-gradient(145deg, rgba(157, 78, 221, 0.08), rgba(255, 255, 255, 0.01))',
+                        border: '1px solid rgba(157, 78, 221, 0.3)',
+                        borderRadius: '20px',
+                        padding: '30px 25px',
+                        backdropFilter: 'blur(12px)',
+                        boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justify: 'space-between'
+                    }
+                },
+                    React.createElement('div', null,
+                        React.createElement('span', {
+                            style: {
+                                fontSize: '0.8rem',
+                                fontWeight: '700',
+                                letterSpacing: '1px',
+                                textTransform: 'uppercase',
+                                color: '#9d4edd',
+                                background: 'rgba(157, 78, 221, 0.15)',
+                                padding: '4px 10px',
+                                borderRadius: '12px'
+                            }
+                        }, 'Custom Engineering'),
+                        React.createElement('h4', {
+                            style: { fontSize: '1.4rem', color: '#fff', margin: '15px 0 10px', fontWeight: '700' }
+                        }, 'Bespoke UI & Brand Identity'),
+                        React.createElement('p', {
+                            style: { color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem', lineHeight: '1.6', margin: '0' }
+                        }, 'No generic template shortcuts. We handcraft unique layouts, smooth scroll physics, interactive canvas effects, and sleek dark-mode aesthetics tailored to your personal brand.')
+                    )
+                ),
+
+                // Text Box 3
+                React.createElement('div', {
+                    style: {
+                        flex: '1 1 300px',
+                        maxWidth: '370px',
+                        background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01))',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        borderRadius: '20px',
+                        padding: '30px 25px',
+                        backdropFilter: 'blur(12px)',
+                        boxShadow: '0 10px 25px rgba(0, 0, 0, 0.2)',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justify: 'space-between'
+                    }
+                },
+                    React.createElement('div', null,
+                        React.createElement('span', {
+                            style: {
+                                fontSize: '0.8rem',
+                                fontWeight: '700',
+                                letterSpacing: '1px',
+                                textTransform: 'uppercase',
+                                color: '#00f2fe',
+                                background: 'rgba(0, 242, 254, 0.1)',
+                                padding: '4px 10px',
+                                borderRadius: '12px'
+                            }
+                        }, 'Conversion Focused'),
+                        React.createElement('h4', {
+                            style: { fontSize: '1.4rem', color: '#fff', margin: '15px 0 10px', fontWeight: '700' }
+                        }, 'Lead Capture & Analytics'),
+                        React.createElement('p', {
+                            style: { color: 'rgba(255, 255, 255, 0.7)', fontSize: '0.95rem', lineHeight: '1.6', margin: '0' }
+                        }, 'Turn profile visitors into high-paying clients. Built-in interactive booking systems, instant WhatsApp / Email triggers, and real-time visitor traffic tracking.')
+                    )
                 )
             )
-        );
-    } else if (currentPage === 'seo-plans') {
+        )
+    );
+} else if (currentPage === 'seo-plans') {
         // ✨ UPGRADED DESIGN: Modern Grid Pricing Table for SEO Optimization Plans
         mainElement = React.createElement('main', {
             style: { padding: '40px 20px', maxWidth: '1200px', margin: '0 auto', color: '#fff', fontFamily: "'Inter', sans-serif" }
