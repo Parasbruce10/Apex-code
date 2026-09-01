@@ -3185,22 +3185,16 @@ React.createElement('div', {
                 boxSizing: 'border-box'
             }
         },
-            React.createElement('h2', {
-                style: {
-                    display: 'inline-block',
-                    background: 'linear-gradient(45deg, #9d4edd, #00f2fe)',
-                    backgroundClip: 'text',
-                    WebkitBackgroundClip: 'text',
-                    color: 'transparent',
-                    WebkitTextFillColor: 'transparent',
-                    margin: '0',
-                    fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',
-                    fontWeight: '800',
-                    textAlign: 'center',
-                    whiteSpace: 'nowrap',
-                    filter: 'drop-shadow(0 4px 10px rgba(157, 78, 221, 0.3))'
-                }
-            }, 'Portfolio & Showcase Plans')
+         React.createElement('h2', {
+    style: {
+        color: '#9d4edd',
+        margin: '0',
+        fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',
+        fontWeight: '800',
+        textAlign: 'center',
+        whiteSpace: 'nowrap'
+    }
+}, 'Portfolio & Showcase Plans')
         ),
         React.createElement('p', {
             style: {
@@ -3645,22 +3639,16 @@ React.createElement('div', {
                     boxSizing: 'border-box'
                 }
             },
-                React.createElement('h2', {
-                    style: {
-                        display: 'inline-block',
-                        background: 'linear-gradient(45deg, #ff0080, #00f2fe)',
-                        backgroundClip: 'text',
-                        WebkitBackgroundClip: 'text',
-                        color: 'transparent',
-                        WebkitTextFillColor: 'transparent',
-                        margin: '0',
-                        fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',
-                        fontWeight: '800',
-                        textAlign: 'center',
-                        whiteSpace: 'nowrap',
-                        filter: 'drop-shadow(0 4px 10px rgba(255, 0, 128, 0.3))'
-                    }
-                }, 'WordPress Development Plans')
+             React.createElement('h2', {
+    style: {
+        color: '#ff0080',
+        margin: '0',
+        fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',
+        fontWeight: '800',
+        textAlign: 'center',
+        whiteSpace: 'nowrap'
+    }
+}, 'WordPress Development Plans')
             ),
             React.createElement('p', {
                 style: {
@@ -5800,19 +5788,19 @@ React.createElement('div', {
                     boxSizing: 'border-box'
                 }
             },
-                React.createElement('h2', {
+             React.createElement('h2', {
                     style: {
                         display: 'inline-block',
                         background: 'linear-gradient(45deg, #00f2fe, #ff0080)',
                         backgroundClip: 'text',
                         WebkitBackgroundClip: 'text',
-                        color: 'transparent',
+                        color: '#00f2fe', // ✅ Fallback: agar gradient-clip fail ho to text solid cyan mein dikhega, ghayab nahi hoga
                         WebkitTextFillColor: 'transparent',
                         margin: '0',
-                        fontSize: 'clamp(1.2rem, 5vw, 2.5rem)',  // 2.5rem static size ko hata kar fluid clamping laga di
+                        fontSize: 'clamp(1.2rem, 5vw, 2.5rem)',
                         fontWeight: '800',
                         textAlign: 'center',
-                        whiteSpace: 'nowrap',                    // Text ko har haal mein single line mein lock rakhega
+                        whiteSpace: 'nowrap',
                         filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
                     }
                 }, 'Complete Your Order')
