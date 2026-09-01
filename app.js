@@ -941,6 +941,8 @@ const handleBannerDelete = (id) => {
     const toComplain = (e) => { e.preventDefault(); setCurrentPage('complain-form'); };
     // NAYA STATE: Selected Plan ki details save karne ke liye
     const [selectedPlan, setSelectedPlan] = React.useState({ name: '', price: '' });
+// NAYA STATE: Track karega ke user KAUNSE plans page se order kar raha hai
+const [sourcePlansPage, setSourcePlansPage] = React.useState('plans');
     // Purane states ke neechay ye add karein:
     const [isAdminLoggedIn, setIsAdminLoggedIn] = React.useState(
         localStorage.getItem('isAdminLoggedIn') === 'true'
@@ -1369,10 +1371,11 @@ const handleBannerDelete = (id) => {
     };
     // NAYA FUNCTION: Plan aur Price pass karne ke liye
     const toContactForm = (planName, planPrice) => (e) => {
-        e.preventDefault();
-        setSelectedPlan({ name: planName, price: planPrice });
-        setCurrentPage('contact-form');
-    };
+    e.preventDefault();
+    setSelectedPlan({ name: planName, price: planPrice });
+    setSourcePlansPage(currentPage); // ✅ Yaad rakho konse plans page se order hua
+    setCurrentPage('contact-form');
+};
 
     // FORM SUBMIT FUNCTION: Bina page load kiye message bhejne ke liye
     const handleFormSubmit = (e) => {
@@ -3593,7 +3596,306 @@ React.createElement('div', {
             )
         )
     );
-} else if (currentPage === 'seo-plans') {
+    } else if (currentPage === 'wp-plans') {
+        // ✨ UPGRADED DESIGN: Modern Grid Pricing Table for WordPress Development Plans
+        mainElement = React.createElement('main', {
+            style: { padding: '40px 20px', maxWidth: '1200px', margin: '0 auto', color: '#fff', fontFamily: "'Inter', sans-serif" }
+        },
+            // Back Button
+            React.createElement('button', {
+                className: 'card-btn',
+                onClick: toServices,
+                onMouseEnter: (e) => {
+                    e.target.style.background = 'rgba(255,255,255,0.05)';
+                    e.target.style.transform = 'translateY(-2px)';
+                },
+                onMouseLeave: (e) => {
+                    e.target.style.background = 'transparent';
+                    e.target.style.transform = 'translateY(0)';
+                },
+                style: {
+                    display: 'block',
+                    margin: '0 auto 30px auto',
+                    padding: '10px 20px',
+                    borderRadius: '16px',
+                    border: '1px solid rgba(255,255,255,0.2)',
+                    background: 'transparent',
+                    color: '#fff',
+                    transition: 'all 0.3s ease',
+                    cursor: 'pointer'
+                }
+            }, '← Back to Services'),
+
+            // Headings
+            React.createElement('div', {
+                style: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    margin: '0 auto 15px',
+                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                    backdropFilter: 'blur(15px)',
+                    WebkitBackdropFilter: 'blur(15px)',
+                    border: '1px solid rgba(255, 255, 255, 0.12)',
+                    borderRadius: '24px',
+                    padding: '12px 24px',
+                    width: 'fit-content',
+                    maxWidth: '92%',
+                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                    boxSizing: 'border-box'
+                }
+            },
+                React.createElement('h2', {
+                    style: {
+                        display: 'inline-block',
+                        background: 'linear-gradient(45deg, #ff0080, #00f2fe)',
+                        backgroundClip: 'text',
+                        WebkitBackgroundClip: 'text',
+                        color: 'transparent',
+                        WebkitTextFillColor: 'transparent',
+                        margin: '0',
+                        fontSize: 'clamp(1.3rem, 5vw, 2.5rem)',
+                        fontWeight: '800',
+                        textAlign: 'center',
+                        whiteSpace: 'nowrap',
+                        filter: 'drop-shadow(0 4px 10px rgba(255, 0, 128, 0.3))'
+                    }
+                }, 'WordPress Development Plans')
+            ),
+            React.createElement('p', {
+                style: {
+                    textAlign: 'center',
+                    color: 'rgba(255,255,255,0.6)',
+                    fontSize: 'clamp(0.95rem, 3.5vw, 1.1rem)',
+                    padding: '0 15px',
+                    maxWidth: '500px',
+                    margin: '0 auto 30px'
+                }
+            }, 'Powerful, flexible, and easily manageable CMS solutions for your business.'),
+
+            // Grid Container
+            React.createElement('div', {
+                style: { display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center', alignItems: 'stretch' }
+            },
+
+                // 📦 1st Card: Basic WordPress Plan
+                React.createElement('div', {
+                    style: { flex: '1 1 320px', maxWidth: '380px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: '35px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }
+                },
+                    React.createElement('div', null,
+                        React.createElement('h3', { style: { fontSize: '1.3rem', color: 'rgba(255,255,255,0.7)', margin: '0 0 10px 0' } }, 'Basic WordPress Plan'),
+                        React.createElement('div', { style: { display: 'flex', alignItems: 'baseline', gap: '5px', marginBottom: '25px' } },
+                            React.createElement('span', { style: { fontSize: '2.2rem', fontWeight: '800', color: '#fff' } }, '35K'),
+                            React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem' } }, 'PKR / total')
+                        ),
+                        React.createElement('div', { style: { width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', marginBottom: '25px' } }),
+
+                        React.createElement('ul', { style: { listStyle: 'none', padding: '0', margin: '0', display: 'flex', flexDirection: 'column', gap: '16px' } },
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Bespoke corporate layout mapping with clean, professional theme structuring.'),
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Essential core theme configuration tuned for fast, reliable page loading.'),
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Primary security plugin tuning to block common WordPress vulnerabilities.'),
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Mobile-responsive layout rendering across all screen sizes.')
+                        )
+                    ),
+                    React.createElement('button', {
+                        className: 'card-btn',
+                        style: { marginTop: '35px', width: '100%', padding: '14px', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' },
+                        onClick: toContactForm('Basic WordPress Plan', '35K PKR')
+                    }, 'Select Basic Plan')
+                ),
+
+                // 📦 2nd Card: Standard WordPress Plan (Highlighted Center)
+                React.createElement('div', {
+                    style: { flex: '1 1 320px', maxWidth: '380px', background: 'rgba(255, 0, 128, 0.03)', border: '1px solid #ff0080', borderRadius: '16px', padding: '35px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 10px 30px rgba(255, 0, 128, 0.05)', position: 'relative' }
+                },
+                    React.createElement('div', { style: { position: 'absolute', top: '-15px', right: '25px', background: '#ff0080', color: '#fff', fontSize: '0.8rem', fontWeight: '700', padding: '4px 12px', borderRadius: '20px', textTransform: 'uppercase' } }, 'Best Value'),
+                    React.createElement('div', null,
+                        React.createElement('h3', { style: { fontSize: '1.3rem', color: '#ff0080', margin: '0 0 10px 0', fontWeight: '700' } }, 'Standard WordPress Plan'),
+                        React.createElement('div', { style: { display: 'flex', alignItems: 'baseline', gap: '5px', marginBottom: '25px' } },
+                            React.createElement('span', { style: { fontSize: '2.2rem', fontWeight: '800', color: '#fff' } }, '75K'),
+                            React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem' } }, 'PKR / total')
+                        ),
+                        React.createElement('div', { style: { width: '100%', height: '1px', background: 'rgba(255,0,128,0.2)', marginBottom: '25px' } }),
+
+                        React.createElement('ul', { style: { listStyle: 'none', padding: '0', margin: '0', display: 'flex', flexDirection: 'column', gap: '16px' } },
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Complete commercial business portal with multi-page dynamic structuring.'),
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Advanced structural speed-cache controls for optimized load performance.'),
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Multi-tier CRM contact routing integrated with lead capture forms.'),
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.9)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Custom plugin integrations tailored to your business workflow.')
+                        )
+                    ),
+                    React.createElement('button', {
+                        className: 'card-btn',
+                        style: { marginTop: '35px', width: '100%', padding: '14px', borderRadius: '8px', cursor: 'pointer', fontWeight: '700', background: '#ff0080', color: '#fff', border: 'none' },
+                        onClick: toContactForm('Standard WordPress Plan', '75K PKR')
+                    }, 'Select Standard Plan')
+                ),
+
+                // 📦 3rd Card: Premium WordPress Plan
+                React.createElement('div', {
+                    style: { flex: '1 1 320px', maxWidth: '380px', background: 'rgba(255, 255, 255, 0.02)', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '16px', padding: '35px 25px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }
+                },
+                    React.createElement('div', null,
+                        React.createElement('h3', { style: { fontSize: '1.3rem', color: 'rgba(255,255,255,0.7)', margin: '0 0 10px 0' } }, 'Premium WordPress Plan'),
+                        React.createElement('div', { style: { display: 'flex', alignItems: 'baseline', gap: '5px', marginBottom: '25px' } },
+                            React.createElement('span', { style: { fontSize: '2.2rem', fontWeight: '800', color: '#fff' } }, '150K'),
+                            React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem' } }, 'PKR / total')
+                        ),
+                        React.createElement('div', { style: { width: '100%', height: '1px', background: 'rgba(255,255,255,0.1)', marginBottom: '25px' } }),
+
+                        React.createElement('ul', { style: { listStyle: 'none', padding: '0', margin: '0', display: 'flex', flexDirection: 'column', gap: '16px' } },
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Enterprise WooCommerce integration for full-scale e-commerce operations.'),
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Headless content delivery tuning for maximum flexibility and speed.'),
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Bespoke block modifier optimization with custom Gutenberg components.'),
+                            React.createElement('li', { style: { display: 'flex', alignItems: 'flex-start', gap: '12px', fontSize: '0.95rem', color: 'rgba(255,255,255,0.85)' } }, React.createElement('span', { style: { color: '#ff0080', fontWeight: 'bold' } }, '✓'), 'Priority dedicated support with ongoing maintenance and updates.')
+                        )
+                    ),
+                    React.createElement('button', {
+                        className: 'card-btn',
+                        style: { marginTop: '35px', width: '100%', padding: '14px', borderRadius: '8px', cursor: 'pointer', fontWeight: '600' },
+                        onClick: toContactForm('Premium WordPress Plan', '150K PKR')
+                    }, 'Select Premium Plan')
+                )
+
+            ), // <-- Grid Container Ends Here
+
+            // ✨ UPGRADED SECTION: Comprehensive Plan Breakdown & Strategy
+            React.createElement('div', {
+                style: { marginTop: '60px', borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '40px' }
+            },
+                React.createElement('h3', {
+                    style: { fontSize: '1.8rem', fontWeight: '700', marginBottom: '30px', textAlign: 'center', color: '#ff0080' }
+                }, 'Comprehensive Plan Breakdown & Strategy'),
+
+                React.createElement('div', {
+                    style: { display: 'flex', flexDirection: 'column', gap: '30px' }
+                },
+                    // Detail Box 1: Basic WordPress Plan
+                    React.createElement('div', {
+                        style: { background: 'rgba(255, 255, 255, 0.01)', padding: '25px', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.05)' }
+                    },
+                        React.createElement('h4', { style: { fontSize: '1.2rem', color: '#fff', marginBottom: '10px', fontWeight: '600' } }, '01 / Basic WordPress Plan — Core CMS Setup & Theme Foundations'),
+                        React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6', fontSize: '0.95rem' } },
+                            'The Basic Plan delivers a clean, professionally structured WordPress installation built on a well-optimized theme foundation. We configure the essential plugin stack for security, caching, and SEO readiness right out of the gate, so your business gets an easily manageable CMS without unnecessary bloat. Layouts are hand-tuned to remain fluid across desktop and mobile viewports, giving you a fast, presentable launch point for portfolios, small business sites, and informational pages.'
+                        )
+                    ),
+
+                    // Detail Box 2: Standard WordPress Plan
+                    React.createElement('div', {
+                        style: { background: 'rgba(255, 0, 128, 0.02)', padding: '25px', borderRadius: '12px', border: '1px solid rgba(255, 0, 128, 0.15)' }
+                    },
+                        React.createElement('h4', { style: { fontSize: '1.2rem', color: '#ff0080', marginBottom: '10px', fontWeight: '600' } }, '02 / Standard WordPress Plan — Business Portal & CRM Integration'),
+                        React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6', fontSize: '0.95rem' } },
+                            'Designed for growing businesses, the Standard Plan expands your WordPress build into a complete commercial portal. We integrate structured contact and lead-capture routing, tune server-side and browser caching layers for speed, and wire in custom plugins that match your specific workflow. This tier is built for sites that need to do more than just look good — they need to convert visitors into inquiries reliably.'
+                        )
+                    ),
+
+                    // Detail Box 3: Premium WordPress Plan
+                    React.createElement('div', {
+                        style: { background: 'rgba(255, 255, 255, 0.01)', padding: '25px', borderRadius: '12px', border: '1px solid rgba(255, 255, 255, 0.05)' }
+                    },
+                        React.createElement('h4', { style: { fontSize: '1.2rem', color: '#fff', marginBottom: '10px', fontWeight: '600' } }, '03 / Premium WordPress Plan — WooCommerce & Headless Scaling'),
+                        React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6', fontSize: '0.95rem' } },
+                            'Built for high-volume shops and content-heavy platforms, the Premium Plan delivers a full WooCommerce-powered storefront with enterprise-grade checkout and inventory handling. We fine-tune headless content delivery for maximum flexibility, build bespoke Gutenberg block modifiers for editorial control, and back the entire system with priority maintenance so your store stays fast, secure, and always online.'
+                        )
+                    )
+                )
+            ),
+
+            // 🛠️ TECHNICAL ARCHITECTURE BREAKDOWN (Deep Dive Technical Layer)
+            React.createElement('div', {
+                style: { marginTop: '80px', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '60px' }
+            },
+                React.createElement('h2', {
+                    style: { fontSize: '2.2rem', fontWeight: '800', marginBottom: '50px', textAlign: 'center', background: 'linear-gradient(135deg, #fff, #ff0080)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }
+                }, 'Deep Dive Technical Architecture'),
+
+                React.createElement('div', {
+                    style: { display: 'flex', flexDirection: 'column', gap: '80px' }
+                },
+
+                    // Phase 01 Section
+                    React.createElement('div', {
+                        style: { display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }
+                    },
+                        React.createElement('div', { style: { flex: '1 1 450px' } },
+                            React.createElement('div', { style: { color: '#ff0080', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '2px', marginBottom: '10px' } }, 'Phase 01 / Theme & Security Mapping'),
+                            React.createElement('h3', { style: { fontSize: '1.7rem', fontWeight: '700', color: '#fff', marginBottom: '20px' } }, 'Basic Plan: Bespoke Theme Configuration & Hardened Core'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem', marginBottom: '15px' } },
+                                'The Basic Plan builds on a carefully selected theme foundation, customized rather than left as a generic out-of-the-box install. We restructure layout templates to match your brand identity while stripping out unused scripts that slow down first-paint rendering.'
+                            ),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem' } },
+                                'Security plugins are configured with firewall rules, login-attempt limiting, and malware scanning enabled from day one, giving your site a hardened baseline before it ever goes live.'
+                            )
+                        ),
+                        React.createElement('div', {
+                            style: { flex: '1 1 350px', maxWidth: '500px', background: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }
+                        },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=600&q=80',
+                                alt: 'WordPress Theme and Security Configuration',
+                                style: { width: '100%', height: 'auto', borderRadius: '12px', opacity: '0.85', display: 'block' }
+                            }),
+                            React.createElement('div', { style: { fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', marginTop: '10px' } }, 'Fig 1.1: Custom theme layout mapping and core plugin security hardening.')
+                        )
+                    ),
+
+                    // Phase 02 Section
+                    React.createElement('div', {
+                        style: { display: 'flex', flexWrap: 'wrap-reverse', gap: '40px', alignItems: 'center', background: 'linear-gradient(90deg, rgba(255, 0, 128, 0.02), transparent)', padding: '30px', borderRadius: '24px', borderLeft: '3px solid #ff0080' }
+                    },
+                        React.createElement('div', {
+                            style: { flex: '1 1 350px', maxWidth: '500px', background: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }
+                        },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80',
+                                alt: 'Business Portal CRM and Caching Architecture',
+                                style: { width: '100%', height: 'auto', borderRadius: '12px', opacity: '0.85', display: 'block' }
+                            }),
+                            React.createElement('div', { style: { fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', marginTop: '10px' } }, 'Fig 2.1: Multi-tier CRM routing and structural speed-cache layering.')
+                        ),
+                        React.createElement('div', { style: { flex: '1 1 450px' } },
+                            React.createElement('div', { style: { color: '#ff0080', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '2px', marginBottom: '10px' } }, 'Phase 02 / Business Portal Expansion'),
+                            React.createElement('h3', { style: { fontSize: '1.7rem', fontWeight: '700', color: '#fff', marginBottom: '20px' } }, 'Standard Plan: CRM Routing & Structural Speed-Cache Layers'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem', marginBottom: '15px' } },
+                                'The Standard Plan wires structured contact and lead-routing systems directly into your CMS backend, so every inquiry lands where it needs to without manual sorting.'
+                            ),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem' } },
+                                'We layer object and page caching on top of the core install, cutting server response times significantly, while custom plugin integrations extend the platform to match your exact business workflow.'
+                            )
+                        )
+                    ),
+
+                    // Phase 03 Section
+                    React.createElement('div', {
+                        style: { display: 'flex', flexWrap: 'wrap', gap: '40px', alignItems: 'center' }
+                    },
+                        React.createElement('div', { style: { flex: '1 1 450px' } },
+                            React.createElement('div', { style: { color: '#00f2fe', fontWeight: '700', textTransform: 'uppercase', fontSize: '0.85rem', letterSpacing: '2px', marginBottom: '10px' } }, 'Phase 03 / Commerce & Headless Scale'),
+                            React.createElement('h3', { style: { fontSize: '1.7rem', fontWeight: '700', color: '#fff', marginBottom: '20px' } }, 'Premium Plan: WooCommerce Engine & Headless Delivery Tuning'),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem', marginBottom: '15px' } },
+                                'The Premium Plan configures a full WooCommerce environment capable of handling high product volumes, complex variations, and secure payment gateway integrations without slowdowns.'
+                            ),
+                            React.createElement('p', { style: { color: 'rgba(255, 255, 255, 0.65)', lineHeight: '1.7', fontSize: '0.98rem' } },
+                                'For teams that need front-end flexibility, we tune the WordPress REST/GraphQL layer for headless content delivery, and build bespoke Gutenberg block modifiers giving editors precise, code-free control over page composition.'
+                            )
+                        ),
+                        React.createElement('div', {
+                            style: { flex: '1 1 350px', maxWidth: '500px', background: 'rgba(255,255,255,0.02)', padding: '15px', borderRadius: '16px', border: '1px solid rgba(255,255,255,0.05)', textAlign: 'center' }
+                        },
+                            React.createElement('img', {
+                                src: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80',
+                                alt: 'WooCommerce Storefront and Headless CMS Delivery',
+                                style: { width: '100%', height: 'auto', borderRadius: '12px', opacity: '0.85', display: 'block' }
+                            }),
+                            React.createElement('div', { style: { fontSize: '0.8rem', color: 'rgba(255,255,255,0.4)', marginTop: '10px' } }, 'Fig 3.1: WooCommerce checkout pipeline and headless content delivery tuning.')
+                        )
+                    )
+
+                )
+            )
+        );
+    }else if (currentPage === 'seo-plans') {
         // ✨ UPGRADED DESIGN: Modern Grid Pricing Table for SEO Optimization Plans
         mainElement = React.createElement('main', {
             style: { padding: '40px 20px', maxWidth: '1200px', margin: '0 auto', color: '#fff', fontFamily: "'Inter', sans-serif" }
@@ -5473,10 +5775,10 @@ React.createElement('div', {
         },
             // Back Button with Subtle Glow
             React.createElement('button', {
-                className: 'card-btn',
-                style: { marginBottom: '30px', alignSelf: 'center', borderColor: 'rgba(255,255,255,0.3)' },
-                onClick: toPlans
-            }, '← Back to Plans'),
+    className: 'card-btn',
+    style: { marginBottom: '30px', alignSelf: 'center', borderColor: 'rgba(255,255,255,0.3)' },
+    onClick: (e) => { e.preventDefault(); setCurrentPage(sourcePlansPage); } // ✅ Sahi service ke plans page per wapis
+}, '← Back to Plans'),
 
             // Gradient Animated Heading
             // Gradient Animated Heading// 👑 PREMIUM BORDERED HEADING BADGE
