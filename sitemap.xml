@@ -13,3 +13,27 @@
   <url><loc>https://bookapexcode.store/contact-us</loc></url>
   <url><loc>https://bookapexcode.store/websites-for-sale</loc></url>
 </urlset>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemap.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://bookapexcode.store/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://bookapexcode.store/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bookapexcode.store/services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bookapexcode.store/portfolio</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bookapexcode.store/contact</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
