@@ -774,7 +774,7 @@ const FloatingContactWidget = () => {
             // 2. WhatsApp Button
             React.createElement('a', {
                 key: 'whatsapp-btn',
-                href: 'https://wa.me/923421287734',
+                href: 'https://wa.me/923421287734?text=Hello%20Team%20Apex%20Code,%20I%20visited%20your%20website%20and%20would%20like%20to%20discuss%20a%20web%20development%20project.%20Please%20let%20me%20know%20when%20you%20are%20available.',
                 target: '_blank',
                 rel: 'noopener noreferrer',
                 className: 'floating-contact-btn whatsapp menu-item',
