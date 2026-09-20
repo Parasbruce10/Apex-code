@@ -1589,7 +1589,7 @@ const [sourcePlansPage, setSourcePlansPage] = React.useState('plans');
         React.createElement('div', { className: 'vip-avatar-core' },
             React.createElement('img', {
                 className: 'vip-logo-img',
-                src: 'logo.jpeg',
+                src: 'header.jpeg',
                 alt: 'Apex Code Logo'
             })
         )
