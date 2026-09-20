@@ -13136,7 +13136,130 @@ React.createElement('div', {
                             )
                         )
                     ),
+React.createElement('div', { className: 'catalog-suite-wrapper' },
+    React.createElement('div', { style: { display: 'flex', alignItems: 'center', gap: '12px', borderBottom: '1px solid rgba(255,255,255,0.04)', paddingBottom: '15px' } },
+        React.createElement('span', { style: { width: '6px', height: '18px', borderRadius: '2px', background: '#ff0080' } }),
+        React.createElement('h3', { style: { color: '#fff', fontSize: '1.5rem', fontWeight: '800', margin: '0' } }, 'Portfolio Website Deployments')
+    ),
+    React.createElement('div', { className: 'tier-responsive-grid' },
 
+        // Basic Portfolio (15K)
+        React.createElement('div', { className: 'premium-suite-card card-suite-wp' },
+            React.createElement('div', null,
+                React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '1px' } }, '01 / PERSONAL BRAND'),
+                    React.createElement('span', { style: { color: '#ff0080', background: 'rgba(255, 0, 128, 0.08)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700' } }, 'BASIC')
+                ),
+                React.createElement('div', { style: { margin: '25px 0 15px 0', display: 'flex', alignItems: 'baseline', gap: '6px' } },
+                    React.createElement('span', { style: { color: '#fff', fontSize: '2.5rem', fontWeight: '900', letterSpacing: '-1px' } }, '15,000'),
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.3)', fontSize: '0.9rem', fontWeight: '600' } }, 'PKR')
+                ),
+                React.createElement('div', { style: { height: '1px', background: 'rgba(255,255,255,0.06)', margin: '20px 0' } }),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#ff0080' } }, '✦'), ' Elegant Single-Page Portfolio'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#ff0080' } }, '✦'), ' Responsive Layout & Mobile Tuning'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#ff0080' } }, '✦'), ' Direct Contact Form & Social Links')
+            )
+        ),
+
+        // Standard Portfolio (25K)
+        React.createElement('div', { className: 'premium-suite-card card-suite-wp', style: { borderColor: 'rgba(255, 0, 128, 0.15)' } },
+            React.createElement('div', null,
+                React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '1px' } }, '02 / PRO SHOWCASE'),
+                    React.createElement('span', { style: { color: '#ff0080', background: 'rgba(255, 0, 128, 0.15)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700' } }, 'STANDARD')
+                ),
+                React.createElement('div', { style: { margin: '25px 0 15px 0', display: 'flex', alignItems: 'baseline', gap: '6px' } },
+                    React.createElement('span', { style: { color: '#fff', fontSize: '2.5rem', fontWeight: '900', letterSpacing: '-1px' } }, '25,000'),
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.3)', fontSize: '0.9rem', fontWeight: '600' } }, 'PKR')
+                ),
+                React.createElement('div', { style: { height: '1px', background: 'rgba(255,255,255,0.06)', margin: '20px 0' } }),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#ff0080' } }, '✦'), ' Multi-Page Dynamic Portfolio'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#ff0080' } }, '✦'), ' Interactive Project Showcase & Gallery'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#ff0080' } }, '✦'), ' Speed Optimization & On-Page SEO')
+            )
+        ),
+
+        // Premium Portfolio (40K)
+        React.createElement('div', { className: 'premium-suite-card card-suite-wp' },
+            React.createElement('div', null,
+                React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '1px' } }, '03 / CREATIVE SUITE'),
+                    React.createElement('span', { style: { color: '#ff0080', background: 'rgba(255, 0, 128, 0.08)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700' } }, 'PREMIUM')
+                ),
+                React.createElement('div', { style: { margin: '25px 0 15px 0', display: 'flex', alignItems: 'baseline', gap: '6px' } },
+                    React.createElement('span', { style: { color: '#fff', fontSize: '2.5rem', fontWeight: '900', letterSpacing: '-1px' } }, '40,000'),
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.3)', fontSize: '0.9rem', fontWeight: '600' } }, 'PKR')
+                ),
+                React.createElement('div', { style: { height: '1px', background: 'rgba(255,255,255,0.06)', margin: '20px 0' } }),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#ff0080' } }, '✦'), ' Custom Motion & Glassmorphism UI'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#ff0080' } }, '✦'), ' Dynamic Case Studies & CMS Support'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#ff0080' } }, '✦'), ' Advanced Performance & Analytics Tuning')
+            )
+        )
+    )
+),
+React.createElement('div', { className: 'catalog-suite-wrapper' },
+    React.createElement('div', { style: { display: 'flex', alignItems: 'center', gap: '12px', borderBottom: '1px solid rgba(255,255,255,0.04)', paddingBottom: '15px' } },
+        React.createElement('span', { style: { width: '6px', height: '18px', borderRadius: '2px', background: '#00f0ff' } }),
+        React.createElement('h3', { style: { color: '#fff', fontSize: '1.5rem', fontWeight: '800', margin: '0' } }, 'Shopify Ecosystem Deployments')
+    ),
+    React.createElement('div', { className: 'tier-responsive-grid' },
+
+        // Basic Shopify (25K)
+        React.createElement('div', { className: 'premium-suite-card card-suite-wp' },
+            React.createElement('div', null,
+                React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '1px' } }, '01 / LAUNCHPAD STORE'),
+                    React.createElement('span', { style: { color: '#00f0ff', background: 'rgba(0, 240, 255, 0.08)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700' } }, 'BASIC')
+                ),
+                React.createElement('div', { style: { margin: '25px 0 15px 0', display: 'flex', alignItems: 'baseline', gap: '6px' } },
+                    React.createElement('span', { style: { color: '#fff', fontSize: '2.5rem', fontWeight: '900', letterSpacing: '-1px' } }, '25,000'),
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.3)', fontSize: '0.9rem', fontWeight: '600' } }, 'PKR')
+                ),
+                React.createElement('div', { style: { height: '1px', background: 'rgba(255,255,255,0.06)', margin: '20px 0' } }),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#00f0ff' } }, '✦'), ' Official Free Theme Setup & Customization'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#00f0ff' } }, '✦'), ' Up to 15 Products Upload & Collection Setup'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#00f0ff' } }, '✦'), ' Payment Gateway & Shipping Rates Config')
+            )
+        ),
+
+        // Standard Shopify (50K)
+        React.createElement('div', { className: 'premium-suite-card card-suite-wp', style: { borderColor: 'rgba(0, 240, 255, 0.25)' } },
+            React.createElement('div', null,
+                React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '1px' } }, '02 / COMMERCE GROWTH'),
+                    React.createElement('span', { style: { color: '#00f0ff', background: 'rgba(0, 240, 255, 0.15)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700' } }, 'STANDARD')
+                ),
+                React.createElement('div', { style: { margin: '25px 0 15px 0', display: 'flex', alignItems: 'baseline', gap: '6px' } },
+                    React.createElement('span', { style: { color: '#fff', fontSize: '2.5rem', fontWeight: '900', letterSpacing: '-1px' } }, '50,000'),
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.3)', fontSize: '0.9rem', fontWeight: '600' } }, 'PKR')
+                ),
+                React.createElement('div', { style: { height: '1px', background: 'rgba(255,255,255,0.06)', margin: '20px 0' } }),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#00f0ff' } }, '✦'), ' Premium Theme Customization & Branding'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#00f0ff' } }, '✦'), ' Essential Apps Integration (Reviews, Upsell, WhatsApp)'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#00f0ff' } }, '✦'), ' Automated Abandoned Cart & Email Recovery Setup')
+            )
+        ),
+
+        // Premium Shopify (90K)
+        React.createElement('div', { className: 'premium-suite-card card-suite-wp' },
+            React.createElement('div', null,
+                React.createElement('div', { style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', fontWeight: '700', letterSpacing: '1px' } }, '03 / SCALE ENTERPRISE'),
+                    React.createElement('span', { style: { color: '#00f0ff', background: 'rgba(0, 240, 255, 0.08)', padding: '4px 10px', borderRadius: '6px', fontSize: '0.75rem', fontWeight: '700' } }, 'PREMIUM')
+                ),
+                React.createElement('div', { style: { margin: '25px 0 15px 0', display: 'flex', alignItems: 'baseline', gap: '6px' } },
+                    React.createElement('span', { style: { color: '#fff', fontSize: '2.5rem', fontWeight: '900', letterSpacing: '-1px' } }, '90,000'),
+                    React.createElement('span', { style: { color: 'rgba(255,255,255,0.3)', fontSize: '0.9rem', fontWeight: '600' } }, 'PKR')
+                ),
+                React.createElement('div', { style: { height: '1px', background: 'rgba(255,255,255,0.06)', margin: '20px 0' } }),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#00f0ff' } }, '✦'), ' Liquid Theme Modifications & Custom Sections'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#00f0ff' } }, '✦'), ' Custom Conversion Optimization & Speed Tuning'),
+                React.createElement('div', { className: 'suite-feature-item' }, React.createElement('span', { style: { color: '#00f0ff' } }, '✦'), ' Advanced Analytics, Pixel Setup & ERP/Inventory Routing')
+            )
+        )
+    )
+),
                     // ==========================================
                     // ✳️ SECTION 3: TECHNICAL SEO
                     // ==========================================
