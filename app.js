@@ -11611,7 +11611,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                 letterSpacing: '1px', backdropFilter: 'blur(12px)',
                 boxShadow: '0 4px 15px rgba(0, 242, 254, 0.1)', boxSizing: 'border-box'
             }
-        }, '✨ HELLO WELCOME TO APEX CODE'),
+        }, '✨ WELCOME TO APEX CODE'),
 
         React.createElement('h1', {
             style: {
