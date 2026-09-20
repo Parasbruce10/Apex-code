@@ -11435,17 +11435,17 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
             `),
 
             // 🚀 HERO SECTION (Split Layout)
-            React.createElement('div', {
+  React.createElement('div', {
     style: {
         display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
         gap: '50px', marginBottom: '90px', position: 'relative', 
         width: '100%', 
-        maxWidth: '1350px', // 🚀 Weight (Width) yahan increase ki hai
-        minHeight: '650px', // 🚀 Height add ki taake section massive lage
+        maxWidth: '1350px',
+        minHeight: '650px',
         flexWrap: 'wrap',
         overflow: 'hidden',
-        padding: '60px 50px', // Padding thori barha di hai
-        borderRadius: '40px', // Corners aur smooth kar diye
+        padding: 'clamp(30px, 6vw, 60px) clamp(20px, 5vw, 50px)',
+        borderRadius: '40px',
         boxShadow: '0 40px 80px rgba(0, 0, 0, 0.5)', 
         border: '1px solid rgba(255, 255, 255, 0.05)' 
     }
@@ -11490,9 +11490,8 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
 
             .slider-track {
                 display: flex;
-                width: 300%; /* 3 images hain is liye 300% width */
+                width: 300%;
                 height: 100%;
-                /* Cubic-bezier deta hai fast-start aur slow-stop effect */
                 animation: slideHorizontal 15s infinite cubic-bezier(0.77, 0, 0.175, 1);
             }
             .slide-img {
@@ -11508,6 +11507,48 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                 background: #ffffff;
                 opacity: 0.3;
                 transition: all 0.4s ease;
+            }
+
+            /* 📱 MOBILE RESPONSIVE: Text Center Karne Ke Liye */
+            @media (max-width: 768px) {
+                .hero-left-col {
+                    align-items: center !important;
+                    text-align: center !important;
+                    flex: 1 1 100% !important;
+                    width: 100% !important;
+                }
+                .hero-left-col > div {
+                    text-align: center !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+                .hero-left-col h1 {
+                    font-size: 1.8rem !important;
+                    text-align: center !important;
+                }
+                .hero-left-col p {
+                    text-align: center !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+                .hero-left-col > div:last-child {
+                    justify-content: center !important;
+                    width: 100% !important;
+                }
+            }
+
+            /* 📱 CHOTI MOBILE SCREEN (480px se neeche) */
+            @media (max-width: 480px) {
+                .hero-left-col h1 {
+                    font-size: 1.5rem !important;
+                    line-height: 1.3 !important;
+                }
+                .hero-left-col p {
+                    font-size: 1rem !important;
+                }
+                .hero-left-col {
+                    padding: 0 8px !important;
+                }
             }
         `),
         
@@ -11536,7 +11577,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
         style: {
             position: 'absolute',
             bottom: '35px',
-            left: '50px', // Left side pe align kiya hai typography ke neechay (Center karna ho to left: '50%', transform: 'translateX(-50%)' kar lena)
+            left: '50px',
             display: 'flex',
             gap: '8px',
             zIndex: 3
@@ -11548,7 +11589,19 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
     ),
 
     // LEFT COLUMN: Typography
-    React.createElement('div', { className: 'hero-left-col', style: { flex: '1 1 650px', textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', position: 'relative', zIndex: 3 } },
+    React.createElement('div', { 
+        className: 'hero-left-col', 
+        style: { 
+            flex: '1 1 650px', 
+            textAlign: 'left', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'flex-start', 
+            position: 'relative', 
+            zIndex: 3,
+            width: '100%'
+        } 
+    },
         React.createElement('div', {
             style: {
                 display: 'inline-block', padding: '8px 16px', marginBottom: '20px',
@@ -11562,7 +11615,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
 
         React.createElement('h1', {
             style: {
-                fontSize: '3.5rem', // Heading ka size bhi thora increase kiya hai heavier look ke liye
+                fontSize: 'clamp(1.5rem, 5vw, 3.5rem)',
                 fontWeight: '600', fontFamily: "'Bruno Ace SC', sans-serif",
                 letterSpacing: '1px', margin: '0 0 20px 0', lineHeight: '1.15',
                 background: 'linear-gradient(90deg, #ffffff 0%, #b0c6ff 100%)',
@@ -11574,7 +11627,8 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
         
         React.createElement('p', {
             style: {
-                color: 'rgba(255, 255, 255, 0.75)', fontSize: '1.25rem',
+                color: 'rgba(255, 255, 255, 0.75)', 
+                fontSize: 'clamp(1rem, 2.5vw, 1.25rem)',
                 maxWidth: '620px', margin: '0 0 45px 0', lineHeight: '1.7', minHeight: '60px'
             }
         },
@@ -11588,20 +11642,58 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
             })
         ),
         
-        React.createElement('div', { style: { display: 'flex', gap: '15px', flexWrap: 'wrap' } },
-            React.createElement('button', { onClick: toServices, className: 'cta-btn-primary', style: { padding: '18px 38px', fontSize: '1rem', fontWeight: '700', borderRadius: '50px', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', color: '#fff', border: 'none', cursor: 'pointer', boxShadow: '0 8px 25px rgba(255, 0, 128, 0.25)', transition: 'all 0.3s ease' } }, 'Explore Services'),
-            React.createElement('button', { onClick: toPortfolio, className: 'cta-btn-secondary', style: { padding: '18px 38px', fontSize: '1rem', fontWeight: '700', borderRadius: '50px', background: 'rgba(255, 255, 255, 0.03)', color: '#fff', border: '1px solid rgba(255, 255, 255, 0.15)', cursor: 'pointer', backdropFilter: 'blur(10px)', transition: 'all 0.3s ease' } }, 'View Portfolio')
+        React.createElement('div', { 
+            style: { 
+                display: 'flex', 
+                gap: '15px', 
+                flexWrap: 'wrap',
+                width: '100%'
+            } 
+        },
+            React.createElement('button', { 
+                onClick: toServices, 
+                className: 'cta-btn-primary', 
+                style: { 
+                    padding: '18px 38px', 
+                    fontSize: '1rem', 
+                    fontWeight: '700', 
+                    borderRadius: '50px', 
+                    background: 'linear-gradient(90deg, #00f2fe, #ff0080)', 
+                    color: '#fff', 
+                    border: 'none', 
+                    cursor: 'pointer', 
+                    boxShadow: '0 8px 25px rgba(255, 0, 128, 0.25)', 
+                    transition: 'all 0.3s ease' 
+                } 
+            }, 'Explore Services'),
+            React.createElement('button', { 
+                onClick: toPortfolio, 
+                className: 'cta-btn-secondary', 
+                style: { 
+                    padding: '18px 38px', 
+                    fontSize: '1rem', 
+                    fontWeight: '700', 
+                    borderRadius: '50px', 
+                    background: 'rgba(255, 255, 255, 0.03)', 
+                    color: '#fff', 
+                    border: '1px solid rgba(255, 255, 255, 0.15)', 
+                    cursor: 'pointer', 
+                    backdropFilter: 'blur(10px)', 
+                    transition: 'all 0.3s ease' 
+                } 
+            }, 'View Portfolio')
         )
     )
 ),
+
 React.createElement('div', {
     style: {
         width: '100%',
-        maxWidth: '1600px', // Badi screens ke liye width barha di
+        maxWidth: '100%',
         margin: '0 auto 100px auto',
         overflow: 'hidden',
         position: 'relative',
-        padding: '40px 0',
+        padding: 'clamp(15px, 4vw, 40px) 0',
         maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
         WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)'
     }
@@ -11715,7 +11807,7 @@ React.createElement('div', {
             color: rgba(255, 255, 255, 0.75);
             font-size: 1rem;
             font-weight: 700;
-            font-family: "'Bruno Ace SC', sans-serif";
+            font-family: 'Bruno Ace SC', sans-serif;
             letter-spacing: 1px;
             text-transform: uppercase;
             text-align: center;
@@ -11728,7 +11820,79 @@ React.createElement('div', {
             color: transparent;
             background: linear-gradient(90deg, #00f2fe, #ff0080);
             -webkit-background-clip: text;
+            background-clip: text;
             text-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+        }
+
+        /* 📱 TABLET RESPONSIVE (1024px se neeche) */
+        @media (max-width: 1024px) {
+            .master-track {
+                gap: 35px;
+            }
+            .avatar-super-container {
+                width: 125px;
+                height: 125px;
+            }
+            .avatar-glow-core {
+                width: 105px;
+                height: 105px;
+            }
+            .premium-title {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* 📱 MOBILE RESPONSIVE (768px se neeche) */
+        @media (max-width: 768px) {
+            .master-track {
+                gap: 25px;
+                animation-duration: 25s;
+            }
+            .premium-card {
+                gap: 12px;
+                padding: 5px;
+            }
+            .avatar-super-container {
+                width: 100px;
+                height: 100px;
+            }
+            .spinning-ring {
+                border-width: 1.5px;
+            }
+            .avatar-glow-core {
+                width: 85px;
+                height: 85px;
+                padding: 3px;
+            }
+            .premium-title {
+                font-size: 0.72rem;
+                letter-spacing: 0.5px;
+            }
+        }
+
+        /* 📱 CHOTI MOBILE SCREEN (480px se neeche) */
+        @media (max-width: 480px) {
+            .master-track {
+                gap: 18px;
+                animation-duration: 20s;
+            }
+            .premium-card {
+                gap: 10px;
+                padding: 3px;
+            }
+            .avatar-super-container {
+                width: 85px;
+                height: 85px;
+            }
+            .avatar-glow-core {
+                width: 72px;
+                height: 72px;
+                padding: 2px;
+            }
+            .premium-title {
+                font-size: 0.65rem;
+                letter-spacing: 0.3px;
+            }
         }
     `),
 
@@ -11748,7 +11912,7 @@ React.createElement('div', {
             React.createElement('div', { className: 'avatar-super-container' },
                 React.createElement('div', { className: 'spinning-ring' }),
                 React.createElement('div', { className: 'avatar-glow-core' },
-                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1556742049-0a67d5142129?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1610465299993-e6675c9f9efa?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
                 )
             ),
             React.createElement('span', { className: 'premium-title' }, 'Shopify')
@@ -11813,7 +11977,7 @@ React.createElement('div', {
             React.createElement('div', { className: 'avatar-super-container' },
                 React.createElement('div', { className: 'spinning-ring' }),
                 React.createElement('div', { className: 'avatar-glow-core' },
-                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1556742049-0a67d5142129?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1610465299993-e6675c9f9efa?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
                 )
             ),
             React.createElement('span', { className: 'premium-title' }, 'Shopify')
@@ -11878,7 +12042,7 @@ React.createElement('div', {
             React.createElement('div', { className: 'avatar-super-container' },
                 React.createElement('div', { className: 'spinning-ring' }),
                 React.createElement('div', { className: 'avatar-glow-core' },
-                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1556742049-0a67d5142129?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1610465299993-e6675c9f9efa?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
                 )
             ),
             React.createElement('span', { className: 'premium-title' }, 'Shopify')
@@ -11939,12 +12103,11 @@ React.createElement('div', {
             ),
             React.createElement('span', { className: 'premium-title' }, 'WordPress')
         ),
-        
         React.createElement('div', { className: 'premium-card' },
             React.createElement('div', { className: 'avatar-super-container' },
                 React.createElement('div', { className: 'spinning-ring' }),
                 React.createElement('div', { className: 'avatar-glow-core' },
-                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1610465299993-e6675c9f9efa?w=300&auto=format&fit=crop', alt: 'Shopify' })
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1610465299993-e6675c9f9efa?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
                 )
             ),
             React.createElement('span', { className: 'premium-title' }, 'Shopify')
@@ -11996,6 +12159,8 @@ React.createElement('div', {
         )
     )
 ),
+
+
             // ✨ ULTRA-PREMIUM ANIMATED STATS BAR (NEXT-GEN CINEMATIC VERSION)
             React.createElement('div', {
                 className: 'premium-stats-container',
@@ -12259,6 +12424,7 @@ React.createElement('div', {
                     )
                 )
             ),
+
 
             // 💎 1. KHOOBSURAT HIGHLIGHT CARDS GRID
             React.createElement('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '25px', justifyContent: 'center', width: '100%', maxWidth: '1140px', marginBottom: '80px' } },
