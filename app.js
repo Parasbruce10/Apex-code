@@ -13891,7 +13891,7 @@ React.createElement('div', {
 
                 // LinkedIn
                 React.createElement('a', {
-                    href: 'https://linkedin.com/in/your-profile-link', // <-- Apna Link Yahan Dalein
+                    href: 'https://www.linkedin.com/company/apex-code/', // <-- Apna Link Yahan Dalein
                     target: '_blank', rel: 'noopener noreferrer',
                     className: 'social-btn li', 'aria-label': 'LinkedIn'
                 },
