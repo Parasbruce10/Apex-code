@@ -1568,30 +1568,33 @@ const [sourcePlansPage, setSourcePlansPage] = React.useState('plans');
 
     // 1. Header Element (Left: Text, Right: Logo Image)
     const headerElement = React.createElement(
-        'header',
-        { className: 'header' },
-        React.createElement('h1', {
-            className: 'logo-text',
-            onClick: toHome,
-            style: {
-                cursor: 'pointer',
-                fontFamily: "'Bruno Ace SC', sans-serif",
-                fontWeight: '900px', // Browser ko maximum bold thickness force karne ke liye
-                // fontStyle: 'italic',
-                letterSpacing: '1px',
-                color: '#111111'
-            }
-        }, 'Apex Code ')
-        ,
-        // Is Image element ko badal kar aisa kar dein:
-        React.createElement('img', {
-            className: 'logo-img',
-            src: 'logo.jpeg',
-            alt: 'Apex Code Logo',
-            onClick: toAdminLogin, // Yeh click event lagaya
-            style: { cursor: 'pointer' } // Taake pata chale yeh clickable hai
-        })
-    );
+    'header',
+    { className: 'ultra-vip-header' },
+    
+    // Top Subtle Light Beam (Glass reflection line)
+    React.createElement('div', { className: 'header-top-shine' }),
+
+    // 1. Brand Logo Text (Apex Code)
+    React.createElement('h1', {
+        className: 'vip-logo-text',
+        onClick: toHome
+    }, 
+        'APEX ', 
+        React.createElement('span', { className: 'vip-gradient-text' }, 'CODE')
+    ),
+
+    // 2. Interactive Neon Avatar Ring
+    React.createElement('div', { className: 'vip-avatar-wrapper', onClick: toAdminLogin },
+        React.createElement('div', { className: 'vip-pulse-ring' }),
+        React.createElement('div', { className: 'vip-avatar-core' },
+            React.createElement('img', {
+                className: 'vip-logo-img',
+                src: 'logo.jpeg',
+                alt: 'Apex Code Logo'
+            })
+        )
+    )
+);
 // Banners Display Component (Header ke neechay dikhane ke liye)
 // 🌟 Updated & Compact Banner Header Section
 // 🏆 Hyper-Luxury Cyber-Glass Banner (Wider + Interactive FX)
