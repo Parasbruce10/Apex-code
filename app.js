@@ -11231,7 +11231,7 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
             )
 
         );
-    } else if (currentPage === 'home' || currentPage === '') {
+    }else if (currentPage === 'home' || currentPage === '') {
 
         // 🌌 Home Page Premium Glassmorphism UI
         // ====================== HOME PAGE MAIN ELEMENT ======================
@@ -11409,108 +11409,593 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                     border-color: rgba(255, 255, 255, 0.25) !important;
                     box-shadow: 0 15px 30px rgba(0,0,0,0.4) !important;
                 }
+
+                /* 🌄 HERO BACKGROUND SLIDER ANIMATIONS */
+                @keyframes heroSlideFade {
+                    0% { opacity: 0; transform: scale(1.08); }
+                    8% { opacity: 0.4; transform: scale(1); }
+                    33% { opacity: 0.4; transform: scale(1); }
+                    41% { opacity: 0; transform: scale(1.08); }
+                    100% { opacity: 0; transform: scale(1.08); }
+                }
+                .hero-slide-img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    opacity: 0;
+                    animation: heroSlideFade 15s infinite ease-in-out;
+                    filter: brightness(0.35) contrast(1.1) saturate(1.2);
+                }
+                .hero-slide-img:nth-child(1) { animation-delay: 0s; }
+                .hero-slide-img:nth-child(2) { animation-delay: 5s; }
+                .hero-slide-img:nth-child(3) { animation-delay: 10s; }
             `),
 
             // 🚀 HERO SECTION (Split Layout)
             React.createElement('div', {
-                style: {
-                    display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
-                    gap: '50px', marginBottom: '90px', position: 'relative', width: '100%', maxWidth: '1140px', flexWrap: 'wrap'
-                }
-            },
-                // LEFT COLUMN: Typography
-                React.createElement('div', { className: 'hero-left-col', style: { flex: '1 1 550px', textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start' } },
-                    React.createElement('div', {
-                        style: {
-                            display: 'inline-block',
-                            padding: '8px 16px', // Mobile screen ke liye padding halki si kam ki taake safe rahe
-                            marginBottom: '20px',
-                            background: 'rgba(255, 255, 255, 0.04)',
-                            border: '1px solid rgba(255, 255, 255, 0.1)',
-                            borderRadius: '50px',
-                            color: '#00f2fe',
+    style: {
+        display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',
+        gap: '50px', marginBottom: '90px', position: 'relative', 
+        width: '100%', 
+        maxWidth: '1350px', // 🚀 Weight (Width) yahan increase ki hai
+        minHeight: '650px', // 🚀 Height add ki taake section massive lage
+        flexWrap: 'wrap',
+        overflow: 'hidden',
+        padding: '60px 50px', // Padding thori barha di hai
+        borderRadius: '40px', // Corners aur smooth kar diye
+        boxShadow: '0 40px 80px rgba(0, 0, 0, 0.5)', 
+        border: '1px solid rgba(255, 255, 255, 0.05)' 
+    }
+},
 
-                            // 📱 Mobile responsive dynamic font-size (Har screen par auto-adjust hoga)
-                            fontSize: 'clamp(0.65rem, 3vw, 0.85rem)',
+    // 🌅 PREMIUM SLIDING BACKGROUND CONTAINER
+    React.createElement('div', {
+        style: {
+            position: 'absolute',
+            top: 0, left: 0,
+            width: '100%', height: '100%',
+            zIndex: 0,
+            borderRadius: '40px',
+            overflow: 'hidden',
+            backgroundColor: '#08090f'
+        }
+    },
+        React.createElement('style', null, `
+            /* 1. Horizontal Slide Animation */
+            @keyframes slideHorizontal {
+                0%, 25%   { transform: translateX(0%); }
+                33%, 58%  { transform: translateX(-33.333%); }
+                66%, 91%  { transform: translateX(-66.666%); }
+                100%      { transform: translateX(0%); }
+            }
 
-                            // 🛠️ TEXT KO EK LINE MEIN LOCK KARNE KE LIYE
-                            whiteSpace: 'nowrap',
+            /* 2. Navigation Dots Sync Animation */
+            @keyframes dot1 {
+                0%, 25%   { background: #00f2fe; width: 40px; opacity: 1; }
+                33%, 100% { background: #ffffff; width: 12px; opacity: 0.3; }
+            }
+            @keyframes dot2 {
+                0%, 25%   { background: #ffffff; width: 12px; opacity: 0.3; }
+                33%, 58%  { background: #00f2fe; width: 40px; opacity: 1; }
+                66%, 100% { background: #ffffff; width: 12px; opacity: 0.3; }
+            }
+            @keyframes dot3 {
+                0%, 58%   { background: #ffffff; width: 12px; opacity: 0.3; }
+                66%, 91%  { background: #00f2fe; width: 40px; opacity: 1; }
+                100%      { background: #ffffff; width: 12px; opacity: 0.3; }
+            }
 
-                            fontWeight: '600',
-                            fontFamily: "'Bruno Ace SC', sans-serif",
-                            letterSpacing: '1px',
-                            backdropFilter: 'blur(10px)',
-                            maxWidth: '100%', // Div ko screen se bahar nikalne se roke ga
-                            boxSizing: 'border-box'
-                        }
-                    }, '✨ HELLO WELCOME TO APEX CODE'), // 'âœ¨' ko clean '✨' emoji se replace kiya hai
+            .slider-track {
+                display: flex;
+                width: 300%; /* 3 images hain is liye 300% width */
+                height: 100%;
+                /* Cubic-bezier deta hai fast-start aur slow-stop effect */
+                animation: slideHorizontal 15s infinite cubic-bezier(0.77, 0, 0.175, 1);
+            }
+            .slide-img {
+                width: 33.333%;
+                height: 100%;
+                object-fit: cover;
+                filter: brightness(0.65) contrast(1.15) saturate(1.1);
+            }
+            
+            .nav-dot {
+                height: 8px;
+                border-radius: 20px;
+                background: #ffffff;
+                opacity: 0.3;
+                transition: all 0.4s ease;
+            }
+        `),
+        
+        // The Sliding Track
+        React.createElement('div', { className: 'slider-track' },
+            React.createElement('img', { className: 'slide-img', alt: 'Slide 1', src: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80' }),
+            React.createElement('img', { className: 'slide-img', alt: 'Slide 2', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80' }),
+            React.createElement('img', { className: 'slide-img', alt: 'Slide 3', src: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80' })
+        ),
 
-                    React.createElement('h1', {
-                        style: {
-                            fontSize: '3rem',
-                            fontWeight: '600',
-                            fontFamily: "'Bruno Ace SC', sans-serif",
-                            letterSpacing: '1px',
-                            margin: '0 0 20px 0',
-                            lineHeight: '1.15',
-                            background: 'linear-gradient(90deg, #ffffff 0%, #b0c6ff 100%)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent'
-                        }
-                    }, 'Software Engineering & Web Development ',
-                        React.createElement('span', { style: { background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 4px 12px rgba(0, 242, 254, 0.3))' } }, 'A Global Remote Company')
-                    ),
-                    React.createElement('p', {
-                        style: {
-                            color: 'rgba(255, 255, 255, 0.7)',
-                            fontSize: '1.15rem',
-                            maxWidth: '580px',
-                            margin: '0 0 35px 0',
-                            lineHeight: '1.7',
-                            minHeight: '60px' // Ek single line ke liye min-height adjust ki hai taake layout disturb na ho
-                        }
-                    },
-                        React.createElement(TypewriterText, {
-                            texts: [
-                                'Apex Code delivers high-performance development.',
-                                'Advanced SEO architecture, and strategic ad monetization.',
-                                'Scale your business with code that converts.'
-                            ],
-                            speed: 40,   // Typing ki raftar
-                            delay: 2500  // Har line poori hone ke baad kitni der (milliseconds) ruki rahe
-                        })
-                    ),
-                    React.createElement('div', { style: { display: 'flex', gap: '15px', flexWrap: 'wrap' } },
-                        React.createElement('button', { onClick: toServices, className: 'cta-btn-primary', style: { padding: '16px 34px', fontSize: '1rem', fontWeight: '700', borderRadius: '50px', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', color: '#fff', border: 'none', cursor: 'pointer', boxShadow: '0 8px 25px rgba(255, 0, 128, 0.25)', transition: 'all 0.3s ease' } }, 'Explore Services'),
-                        React.createElement('button', { onClick: toPortfolio, className: 'cta-btn-secondary', style: { padding: '16px 34px', fontSize: '1rem', fontWeight: '700', borderRadius: '50px', background: 'rgba(255, 255, 255, 0.02)', color: '#fff', border: '1px solid rgba(255, 255, 255, 0.12)', cursor: 'pointer', backdropFilter: 'blur(10px)', transition: 'all 0.3s ease' } }, 'View Portfolio')
-                    )
-                ),
-                // RIGHT COLUMN: Animated Moving Object
-                React.createElement('div', { style: { flex: '1 1 400px', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative', minHeight: '400px' } },
-                    React.createElement('div', { className: 'ambient-pulse-glow', style: { position: 'absolute', top: '50%', left: '50%', width: '380px', height: '380px', background: 'radial-gradient(circle, rgba(0, 242, 254, 0.18) 0%, rgba(255, 0, 128, 0.04) 70%)', filter: 'blur(60px)', borderRadius: '50%', zIndex: '1', pointerEvents: 'none' } }),
-                    React.createElement('div', { className: 'premium-float-object', style: { position: 'relative', zIndex: '2', width: '100%', maxWidth: '380px', background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02))', border: '1px solid rgba(255, 255, 255, 0.15)', borderRadius: '20px', boxShadow: '0 30px 60px rgba(0,0,0,0.4)', backdropFilter: 'blur(25px)', padding: '20px' } },
-                        React.createElement('div', { style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '20px', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '12px' } },
-                            React.createElement('div', { style: { display: 'flex', gap: '6px' } },
-                                React.createElement('span', { style: { width: '11px', height: '11px', borderRadius: '50%', background: '#ff5f56' } }),
-                                React.createElement('span', { style: { width: '11px', height: '11px', borderRadius: '50%', background: '#ffbd2e' } }),
-                                React.createElement('span', { style: { width: '11px', height: '11px', borderRadius: '50%', background: '#27c93f' } })
-                            ),
-                            React.createElement('span', { style: { color: 'rgba(255,255,255,0.4)', fontSize: '0.75rem', fontFamily: 'monospace' } }, 'apex-core.js')
-                        ),
-                        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '12px', fontFamily: 'monospace', fontSize: '0.85rem' } },
-                            React.createElement('div', { style: { color: '#ff0080' } }, 'const apexcode = {'),
-                            React.createElement('div', { style: { color: '#00f2fe', paddingLeft: '15px' } }, 'speed: "100ms",'),
-                            React.createElement('div', { style: { color: '#00f2fe', paddingLeft: '15px' } }, 'seo: "Optimized",'),
-                            React.createElement('div', { style: { color: '#00f2fe', paddingLeft: '15px' } }, 'monetization: true'),
-                            React.createElement('div', { style: { color: '#ff0080' } }, '};'),
-                            React.createElement('div', { style: { marginTop: '10px', padding: '15px', borderRadius: '12px', background: 'linear-gradient(90deg, rgba(0, 242, 254, 0.12), rgba(255, 0, 128, 0.04))', border: '1px solid rgba(0, 242, 254, 0.2)', display: 'flex', flexDirection: 'column', gap: '8px' } },
-                                React.createElement('div', { style: { height: '6px', width: '40%', background: '#00f2fe', borderRadius: '4px' } }),
-                                React.createElement('div', { style: { height: '6px', width: '85%', background: 'rgba(255,255,255,0.2)', borderRadius: '4px' } })
-                            )
-                        )
-                    )
+        // Dark Mesh Overlay
+        React.createElement('div', {
+            style: {
+                position: 'absolute',
+                top: 0, left: 0,
+                width: '100%', height: '100%',
+                background: 'linear-gradient(135deg, rgba(8,9,15,0.92) 0%, rgba(8,9,15,0.4) 50%, rgba(8,9,15,0.92) 100%)',
+                zIndex: 1,
+                pointerEvents: 'none'
+            }
+        })
+    ),
+
+    // 🟢 SLIDER NAVIGATION BUTTONS / DOTS
+    React.createElement('div', {
+        style: {
+            position: 'absolute',
+            bottom: '35px',
+            left: '50px', // Left side pe align kiya hai typography ke neechay (Center karna ho to left: '50%', transform: 'translateX(-50%)' kar lena)
+            display: 'flex',
+            gap: '8px',
+            zIndex: 3
+        }
+    },
+        React.createElement('div', { className: 'nav-dot', style: { animation: 'dot1 15s infinite cubic-bezier(0.77, 0, 0.175, 1)' } }),
+        React.createElement('div', { className: 'nav-dot', style: { animation: 'dot2 15s infinite cubic-bezier(0.77, 0, 0.175, 1)' } }),
+        React.createElement('div', { className: 'nav-dot', style: { animation: 'dot3 15s infinite cubic-bezier(0.77, 0, 0.175, 1)' } })
+    ),
+
+    // LEFT COLUMN: Typography
+    React.createElement('div', { className: 'hero-left-col', style: { flex: '1 1 650px', textAlign: 'left', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', position: 'relative', zIndex: 3 } },
+        React.createElement('div', {
+            style: {
+                display: 'inline-block', padding: '8px 16px', marginBottom: '20px',
+                background: 'rgba(255, 255, 255, 0.04)', border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '50px', color: '#00f2fe', fontSize: 'clamp(0.65rem, 3vw, 0.85rem)',
+                whiteSpace: 'nowrap', fontWeight: '600', fontFamily: "'Bruno Ace SC', sans-serif",
+                letterSpacing: '1px', backdropFilter: 'blur(12px)',
+                boxShadow: '0 4px 15px rgba(0, 242, 254, 0.1)', boxSizing: 'border-box'
+            }
+        }, '✨ HELLO WELCOME TO APEX CODE'),
+
+        React.createElement('h1', {
+            style: {
+                fontSize: '3.5rem', // Heading ka size bhi thora increase kiya hai heavier look ke liye
+                fontWeight: '600', fontFamily: "'Bruno Ace SC', sans-serif",
+                letterSpacing: '1px', margin: '0 0 20px 0', lineHeight: '1.15',
+                background: 'linear-gradient(90deg, #ffffff 0%, #b0c6ff 100%)',
+                WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'
+            }
+        }, 'Software Engineering & Web Development ',
+            React.createElement('span', { style: { background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', filter: 'drop-shadow(0 4px 12px rgba(0, 242, 254, 0.3))' } }, 'A Global Remote Company')
+        ),
+        
+        React.createElement('p', {
+            style: {
+                color: 'rgba(255, 255, 255, 0.75)', fontSize: '1.25rem',
+                maxWidth: '620px', margin: '0 0 45px 0', lineHeight: '1.7', minHeight: '60px'
+            }
+        },
+            React.createElement(TypewriterText, {
+                texts: [
+                    'Apex Code delivers high-performance development.',
+                    'Advanced SEO architecture, and strategic ad monetization.',
+                    'Scale your business with code that converts.'
+                ],
+                speed: 40, delay: 2500
+            })
+        ),
+        
+        React.createElement('div', { style: { display: 'flex', gap: '15px', flexWrap: 'wrap' } },
+            React.createElement('button', { onClick: toServices, className: 'cta-btn-primary', style: { padding: '18px 38px', fontSize: '1rem', fontWeight: '700', borderRadius: '50px', background: 'linear-gradient(90deg, #00f2fe, #ff0080)', color: '#fff', border: 'none', cursor: 'pointer', boxShadow: '0 8px 25px rgba(255, 0, 128, 0.25)', transition: 'all 0.3s ease' } }, 'Explore Services'),
+            React.createElement('button', { onClick: toPortfolio, className: 'cta-btn-secondary', style: { padding: '18px 38px', fontSize: '1rem', fontWeight: '700', borderRadius: '50px', background: 'rgba(255, 255, 255, 0.03)', color: '#fff', border: '1px solid rgba(255, 255, 255, 0.15)', cursor: 'pointer', backdropFilter: 'blur(10px)', transition: 'all 0.3s ease' } }, 'View Portfolio')
+        )
+    )
+),
+React.createElement('div', {
+    style: {
+        width: '100%',
+        maxWidth: '1600px', // Badi screens ke liye width barha di
+        margin: '0 auto 100px auto',
+        overflow: 'hidden',
+        position: 'relative',
+        padding: '40px 0',
+        maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+        WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)'
+    }
+},
+    React.createElement('style', null, `
+        /* 1. Flawless Zero-Gap Infinite Loop */
+        @keyframes superInfiniteScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); } 
+        }
+
+        /* 2. Premium Neon Pulsing Backgrounds */
+        @keyframes neonPulseGlow {
+            0%, 100% { 
+                box-shadow: 0 0 25px rgba(0, 242, 254, 0.2), inset 0 0 15px rgba(0, 242, 254, 0.15);
+                border-color: rgba(0, 242, 254, 0.3);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 0, 128, 0.3), inset 0 0 20px rgba(255, 0, 128, 0.2);
+                border-color: rgba(255, 0, 128, 0.5);
+            }
+        }
+
+        /* 3. Tech Ring Rotation */
+        @keyframes spinTechRing {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .master-track {
+            display: flex;
+            gap: 50px;
+            width: max-content;
+            animation: superInfiniteScroll 35s linear infinite;
+            will-change: transform;
+        }
+
+        .master-track:hover {
+            animation-play-state: paused;
+        }
+
+        .premium-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            flex-shrink: 0;
+            padding: 10px;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-12px) scale(1.08);
+        }
+
+        .avatar-super-container {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .spinning-ring {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 50%;
+            border: 2px dashed rgba(0, 242, 254, 0.4);
+            animation: spinTechRing 10s linear infinite;
+            transition: all 0.3s ease;
+        }
+
+        .premium-card:hover .spinning-ring {
+            border-color: rgba(255, 0, 128, 0.8);
+            border-width: 3px;
+            animation-duration: 4s;
+        }
+
+        .avatar-glow-core {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            padding: 5px;
+            background: rgba(15, 17, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(16px);
+            animation: neonPulseGlow 4s infinite ease-in-out;
+            box-sizing: border-box;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .avatar-img-premium {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: brightness(0.85) contrast(1.1) grayscale(15%);
+            transition: all 0.4s ease;
+        }
+
+        .premium-card:hover .avatar-img-premium {
+            filter: brightness(1.2) contrast(1.2) grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .premium-title {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1rem;
+            font-weight: 700;
+            font-family: "'Bruno Ace SC', sans-serif";
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .premium-card:hover .premium-title {
+            color: transparent;
+            background: linear-gradient(90deg, #00f2fe, #ff0080);
+            -webkit-background-clip: text;
+            text-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+        }
+    `),
+
+    React.createElement('div', { className: 'master-track' },
+        
+        // ================= SET 1 (ORIGINAL ITEMS) =================
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1616469829941-c7200edec809?auto=format&fit=crop&w=600&q=80', alt: 'WordPress' })
                 )
             ),
+            React.createElement('span', { className: 'premium-title' }, 'WordPress')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1556742049-0a67d5142129?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Shopify')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80', alt: 'Code Web Dev' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Code Web Dev')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80', alt: 'Montage' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Montage')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80', alt: 'AdSense' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'AdSense')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80', alt: 'Adsterra' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Adsterra')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80', alt: 'Portfolio' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Portfolio')
+        ),
+
+        // ================= SET 2 (GAP FIX) =================
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1616469829941-c7200edec809?auto=format&fit=crop&w=600&q=80', alt: 'WordPress' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'WordPress')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1556742049-0a67d5142129?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Shopify')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80', alt: 'Code Web Dev' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Code Web Dev')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80', alt: 'Montage' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Montage')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80', alt: 'AdSense' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'AdSense')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80', alt: 'Adsterra' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Adsterra')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80', alt: 'Portfolio' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Portfolio')
+        ),
+
+        // ================= SET 3 (LARGE SCREEN FIX) =================
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1616469829941-c7200edec809?auto=format&fit=crop&w=600&q=80', alt: 'WordPress' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'WordPress')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1556742049-0a67d5142129?auto=format&fit=crop&w=600&q=80', alt: 'Shopify' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Shopify')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80', alt: 'Code Web Dev' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Code Web Dev')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80', alt: 'Montage' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Montage')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80', alt: 'AdSense' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'AdSense')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80', alt: 'Adsterra' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Adsterra')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80', alt: 'Portfolio' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Portfolio')
+        ),
+
+        // ================= SET 4 (ULTRA WIDE SCREEN FIX) =================
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1616469829941-c7200edec809?auto=format&fit=crop&w=600&q=80', alt: 'WordPress' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'WordPress')
+        ),
+        
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1610465299993-e6675c9f9efa?w=300&auto=format&fit=crop', alt: 'Shopify' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Shopify')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80', alt: 'Code Web Dev' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Code Web Dev')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80', alt: 'Montage' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Montage')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80', alt: 'AdSense' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'AdSense')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80', alt: 'Adsterra' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Adsterra')
+        ),
+        React.createElement('div', { className: 'premium-card' },
+            React.createElement('div', { className: 'avatar-super-container' },
+                React.createElement('div', { className: 'spinning-ring' }),
+                React.createElement('div', { className: 'avatar-glow-core' },
+                    React.createElement('img', { className: 'avatar-img-premium', src: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80', alt: 'Portfolio' })
+                )
+            ),
+            React.createElement('span', { className: 'premium-title' }, 'Portfolio')
+        )
+    )
+),
             // ✨ ULTRA-PREMIUM ANIMATED STATS BAR (NEXT-GEN CINEMATIC VERSION)
             React.createElement('div', {
                 className: 'premium-stats-container',
