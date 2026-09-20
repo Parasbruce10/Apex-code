@@ -1,11 +1,19 @@
-const CACHE_NAME = 'apex-code-cache-v2'; // 🔁 version bump — purana v1 cache delete trigger karega
+const CACHE_NAME = 'apex-code-cache-v3'; // 🔁 version bump — purana v1 cache delete trigger karega
 const urlsToCache = [
   '/',
   '/index.html',
   '/style.css',
   '/app.js',
-  '/lp.png',
-  '/manifest.json'
+  '/manifest.json',
+  '/favicon.ico',
+  '/favicon-16x16.png',
+  '/favicon-32x32.png',
+  '/favicon-48x48.png',
+  '/apple-touch-icon.png',
+  '/icon-192.png',
+  '/icon-512.png',
+  '/icon-192-maskable.png',
+  '/icon-512-maskable.png'
 ];
 
 // Install: naya SW turant activate ho, purane ka wait na kare

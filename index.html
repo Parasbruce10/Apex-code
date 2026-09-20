@@ -135,11 +135,13 @@
     <meta name="twitter:description"
         content="Custom web development, scalable architectures, premium WordPress design, and strategic SEO — engineered by Apex Code.">
     <meta name="twitter:image" content="https://www.bookapexcode.store/logo1.png">
-
     <meta name="theme-color" content="#0a192f">
 
-    <link rel="icon" type="image/png" href="logo1.png">
-    <link rel="apple-touch-icon" href="logo1.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="favicon-48x48.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
     <link rel="manifest" href="manifest.json">
 
@@ -211,9 +213,14 @@
 
 <div id="root"></div>
 
-    <script src="app.js" defer></script>
+    <!-- PWA Install Button -->
+    <button id="pwa-install-btn" class="pwa-install-btn" aria-label="Install App">
+        <img src="logo1.png" alt="Install App">
+        <span>Install App</span>
+    </button>
 
-    <script>
+    <script src="app.js" defer></script>
+        <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
@@ -225,6 +232,39 @@
                     });
             });
         }
+    </script>
+
+    <!-- PWA Install Logic -->
+    <script>
+        let deferredPrompt;
+        const installBtn = document.getElementById('pwa-install-btn');
+
+        // Agar pehle se installed hai (standalone mode), button kabhi na dikhao
+        const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+            || window.navigator.standalone === true;
+
+        if (!isStandalone) {
+            window.addEventListener('beforeinstallprompt', (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                installBtn.style.display = 'flex'; // button show
+            });
+        }
+
+        installBtn.addEventListener('click', async () => {
+            if (!deferredPrompt) return;
+            installBtn.style.display = 'none'; // click karte hi hide
+            deferredPrompt.prompt();
+            await deferredPrompt.userChoice;
+            deferredPrompt = null;
+        });
+
+        // Install ho jane par (kisi bhi tarah) button hamesha ke liye gayab
+        window.addEventListener('appinstalled', () => {
+            installBtn.style.display = 'none';
+            deferredPrompt = null;
+            console.log('PWA installed successfully');
+        });
     </script>
 </body>
 
