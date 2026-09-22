@@ -844,6 +844,7 @@ const QuickKitApp = () => {
         const alreadyLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';
         return (ADMIN_ONLY_PAGES.includes(initialPage) && !alreadyLoggedIn) ? 'admin-login' : initialPage;
     });
+    const [sortBy, setSortBy] = React.useState('default');
     // A. State variables (Jo banners ka data store rakhenge)
 const [banners, setBanners] = React.useState([]);
 const [bannerToEdit, setBannerToEdit] = React.useState(null);
@@ -10243,304 +10244,380 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
             )
         );
     } else if (currentPage === 'websites-for-sale') {
-        mainElement = React.createElement('main', { className: 'services-page' },
-            // 1️⃣ 👑 ULTRA-PREMIUM BORDERED HEADING BADGE (Exact Jobs Style)
+    // 💡 Helper function to extract numeric price for accurate sorting
+    const getNumericPrice = (priceStr) => {
+        if (!priceStr) return 0;
+        const num = parseFloat(String(priceStr).replace(/[^0-9.]/g, ''));
+        return isNaN(num) ? 0 : num;
+    };
+
+    // 💡 Sorting Logic Applied Here
+    const sortedWebsites = [...websites].sort((a, b) => {
+        const priceA = getNumericPrice(a.price);
+        const priceB = getNumericPrice(b.price);
+
+        if (sortBy === 'low-to-high') {
+            return priceA - priceB;
+        } else if (sortBy === 'high-to-low') {
+            return priceB - priceA;
+        } else if (sortBy === 'oldest') {
+            // Sort by ID or index (Oldest items come first)
+            return (a.id || 0) - (b.id || 0);
+        }
+        return 0; // Default sorting (As added by admin)
+    });
+
+    mainElement = React.createElement('main', { className: 'services-page' },
+        // 1️⃣ 👑 ULTRA-PREMIUM BORDERED HEADING BADGE (Exact Jobs Style)
+        React.createElement('div', {
+            style: {
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                margin: '0 auto 20px',
+                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
+                backdropFilter: 'blur(15px)',
+                WebkitBackdropFilter: 'blur(15px)',
+                border: '1px solid rgba(255, 255, 255, 0.12)',
+                borderRadius: '24px',
+                padding: '12px 24px',
+                width: 'fit-content',
+                maxWidth: '90%',
+                boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
+                boxSizing: 'border-box'
+            }
+        },
+            React.createElement('h2', {
+                style: {
+                    fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',
+                    fontWeight: '800',
+                    letterSpacing: '0.5px',
+                    textAlign: 'center',
+                    margin: '0',
+                    whiteSpace: 'nowrap',
+                    background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
+                }
+            }, 'Websites For Sale 🌐')
+        ),
+
+        // 2️⃣ RELATED DESCRIPTION LINE
+        React.createElement('p', {
+            style: {
+                color: 'rgba(255, 255, 255, 0.65)',
+                fontSize: '0.95rem',
+                textAlign: 'center',
+                marginBottom: '20px',
+                maxWidth: '500px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                lineHeight: '1.6'
+            }
+        }, 'Buy ready-made premium templates and live web projects from here.'),
+
+        // 2.5️⃣ PRICE & FILTER DROPDOWN CONTAINER (Centered Below Description)
+        React.createElement('div', {
+            style: {
+                display: 'flex',
+                justifyContent: 'center',
+                marginBottom: '40px'
+            }
+        },
+            React.createElement('select', {
+    value: sortBy || 'default',
+    onChange: (e) => setSortBy && setSortBy(e.target.value),
+    style: {
+        background: 'rgba(11, 13, 20, 0.85) url("data:image/svg+xml;utf8,<svg fill=\'%2300f2fe\' height=\'24\' viewBox=\'0 0 24 24\' width=\'24\' xmlns=\'http://www.w3.org/2000/svg\'><path d=\'M7 10l5 5 5-5z\'/></svg>") no-repeat right 14px center',
+        color: '#00f2fe',
+        border: '1px solid rgba(0, 242, 254, 0.4)',
+        borderRadius: '16px',
+        padding: '12px 45px 12px 20px',
+        fontSize: '0.95rem',
+        fontWeight: '700',
+        letterSpacing: '0.5px',
+        cursor: 'pointer',
+        outline: 'none',
+        boxShadow: '0 0 20px rgba(0, 242, 254, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)',
+        backdropFilter: 'blur(15px)',
+        WebkitBackdropFilter: 'blur(15px)',
+        appearance: 'none',
+        WebkitAppearance: 'none',
+        MozAppearance: 'none',
+        transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)'
+    },
+    onMouseEnter: (e) => {
+        e.target.style.borderColor = 'rgba(255, 0, 128, 0.6)';
+        e.target.style.color = '#ffffff';
+        e.target.style.boxShadow = '0 0 25px rgba(255, 0, 128, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3)';
+        e.target.style.transform = 'translateY(-2px)';
+    },
+    onMouseLeave: (e) => {
+        e.target.style.borderColor = 'rgba(0, 242, 254, 0.4)';
+        e.target.style.color = '#00f2fe';
+        e.target.style.boxShadow = '0 0 20px rgba(0, 242, 254, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2)';
+        e.target.style.transform = 'translateY(0)';
+    }
+},
+    React.createElement('option', { value: 'default', style: { background: '#0b0d14', color: '#ffffff', fontWeight: '600' } }, '⚡ Sort By: Default'),
+    React.createElement('option', { value: 'low-to-high', style: { background: '#0b0d14', color: '#ffffff', fontWeight: '600' } }, '💎 Price: Low to High'),
+    React.createElement('option', { value: 'high-to-low', style: { background: '#0b0d14', color: '#ffffff', fontWeight: '600' } }, '🔥 Price: High to Low'),
+    React.createElement('option', { value: 'oldest', style: { background: '#0b0d14', color: '#ffffff', fontWeight: '600' } }, '👑 Date: Oldest First')
+)
+        ),
+
+        // 3️⃣ WEBSITES GRID CONTAINER (3 Cards Per Line Responsive Architecture)
+        websites.length === 0 ? React.createElement('p', {
+            style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem', textAlign: 'center' }
+        }, 'No websites are currently available for sale. Please check back later!') :
+
             React.createElement('div', {
                 style: {
-                    display: 'flex',                             // 'table' se 'flex' change kiya takay responsive ho sake
+                    display: 'flex',
+                    flexDirection: 'row',
+                    flexWrap: 'wrap',
                     justifyContent: 'center',
-                    alignItems: 'center',
-                    margin: '0 auto 20px',
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
-                    backdropFilter: 'blur(15px)',
-                    WebkitBackdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '24px',
-                    padding: '12px 24px',                        // Mobile ke liye padding thodi side se kam ki (32px se 24px)
-                    width: 'fit-content',                        // Content ke mutabiq width adjust hogi
-                    maxWidth: '90%',                             // Mobile screen ke corners se chipkay na
-                    boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
-                    boxSizing: 'border-box'
+                    gap: '20px',                  // Balanced gap between cards
+                    width: '100%',
+                    maxWidth: '1200px',           // Expanded max-width to allow 3 cards side-by-side
+                    margin: '0 auto'
                 }
             },
-                React.createElement('h2', {
-                    style: {
-                        fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',  // Mobile par khud chota ho jayega, desktop par full 2.3rem rahega
-                        fontWeight: '800',
-                        letterSpacing: '0.5px',                  // Mobile par letters ko overlap hone se bachaane ke liye thoda kam kiya
-                        textAlign: 'center',
-                        margin: '0',
-                        whiteSpace: 'nowrap',                    // Text aur emoji ko hamesha ek line me lock rakhega
-                        background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        filter: 'drop-shadow(0 4px 10px rgba(0, 242, 254, 0.3))'
-                    }
-                }, 'Websites For Sale 🌐')
-            ),
+                sortedWebsites.map(web => {
+                    // 🔥 PURE ADMIN LINK EXTRACTION
+                    const adminImgSrc = web.imageLink || web.image || web.imageUrl;
 
-            // 2️⃣ RELATED DESCRIPTION LINE
-            React.createElement('p', {
-                style: {
-                    color: 'rgba(255, 255, 255, 0.65)',
-                    fontSize: '0.95rem',
-                    textAlign: 'center',
-                    marginBottom: '40px',
-                    maxWidth: '500px',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                    lineHeight: '1.6'
-                }
-            }, 'Buy ready-made premium templates and live web projects from here.'),
-
-            // 3️⃣ WEBSITES GRID CONTAINER (Exact Jobs Grid Architecture)
-            websites.length === 0 ? React.createElement('p', {
-                style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem', textAlign: 'center' }
-            }, 'No websites are currently available for sale. Please check back later!') :
-
-                React.createElement('div', {
-                    style: {
-                        display: 'flex',
-                        flexDirection: 'row',
-                        flexWrap: 'wrap',
-                        justifyContent: 'center',
-                        gap: '30px',
-                        width: '100%',
-                        maxWidth: '900px',
-                        margin: '0 auto'
-                    }
-                },
-                    websites.map(web => {
-                        // 🔥 PURE ADMIN LINK EXTRACTION (Apne paas se koi third-party link nahi lagaya)
-                        const adminImgSrc = web.imageLink || web.image || web.imageUrl;
-
-                        return React.createElement('div', {
-                            key: web.id,
-                            className: 'card',
-                            style: {
-                                position: 'relative', // Top neon border line ke liye zaroori hai
-                                background: '#0b0d14', // Exact image wala deep dark background
-                                borderRadius: '32px', // Smooth round corners as seen in image
-                                padding: '32px 24px 24px 24px', // Spacious premium padding
-                                boxShadow: '0 40px 80px rgba(0, 0, 0, 0.7)',
-                                border: '1px solid rgba(255, 255, 255, 0.04)', // Ultra thin subtle edge
-                                textAlign: 'left', // Left-aligned typography like the image
-                                maxWidth: '350px',
-                                width: '100%',
-                                boxSizing: 'border-box', // Full mobile responsive safety
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '20px',
-                                overflow: 'hidden', // Neon line ko corners par trim rakhne ke liye
-                                transition: 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)'
-                            },
-                            // Desktop Hover Animation
-                            onMouseEnter: (e) => {
-                                e.currentTarget.style.transform = 'translateY(-6px)';
-                            },
-                            onMouseLeave: (e) => {
-                                e.currentTarget.style.transform = 'translateY(0)';
-                            }
-                        },
-                            // 🌟 THE HEADER NEON GRADIENT LINE (Exact Image Copy)
-                            React.createElement('div', {
-                                style: {
-                                    position: 'absolute',
-                                    top: 0,
-                                    left: 0,
-                                    right: 0,
-                                    height: '4px',
-                                    background: 'linear-gradient(90deg, #00f2fe 0%, #ff007f 100%)'
-                                }
-                            }),
-
-                            // 📸 IMAGE CONTAINER BLOCK
-                            React.createElement('div', {
-                                style: {
-                                    width: '100%',
-                                    height: '160px',
-                                    borderRadius: '20px',
-                                    overflow: 'hidden',
-                                    background: 'rgba(255, 255, 255, 0.02)',
-                                    border: '1px solid rgba(255, 255, 255, 0.06)',
-                                    position: 'relative'
-                                }
-                            },
-                                adminImgSrc && React.createElement('img', {
-                                    src: adminImgSrc,
-                                    alt: web.name,
-                                    style: {
-                                        width: '100%',
-                                        height: '100%',
-                                        objectFit: 'cover'
-                                    }
-                                }),
-
-                                // Floating Premium Badge Overlay (Styled exactly like the image's "POPULAR" badge)
-                                React.createElement('div', {
-                                    style: {
-                                        position: 'absolute',
-                                        top: '12px',
-                                        right: '12px',
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '6px',
-                                        background: 'rgba(255, 0, 127, 0.06)',
-                                        border: '1px solid rgba(255, 0, 127, 0.3)',
-                                        padding: '5px 12px',
-                                        borderRadius: '20px',
-                                    }
-                                },
-                                    // Little glowing dot inside badge
-                                    React.createElement('span', {
-                                        style: {
-                                            width: '6px',
-                                            height: '6px',
-                                            backgroundColor: '#ff007f',
-                                            borderRadius: '50%',
-                                            display: 'inline-block'
-                                        }
-                                    }),
-                                    React.createElement('span', {
-                                        style: {
-                                            color: '#ff007f',
-                                            fontSize: '0.65rem',
-                                            fontWeight: '700',
-                                            letterSpacing: '0.8px'
-                                        }
-                                    }, 'Website For Sale')
-                                )
-                            ),
-
-                            // 📝 TYPOGRAPHY BLOCK (Clean and Crisp)
-                            React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
-                                // Title (Matches the clean layout of "Code Base Website...")
-                                React.createElement('h3', {
-                                    style: {
-                                        color: '#ffffff',
-                                        fontSize: '1.45rem',
-                                        fontWeight: '700',
-                                        margin: '0',
-                                        lineHeight: '1.25',
-                                        letterSpacing: '-0.2px'
-                                    }
-                                }, web.name),
-
-                                // Price Accent
-                                React.createElement('p', {
-                                    style: {
-                                        color: '#a0aec0', // Muted gray description color
-                                        fontSize: '0.95rem',
-                                        margin: '0',
-                                        fontWeight: '500'
-                                    }
-                                }, [
-                                    'Price: ',
-                                    React.createElement('span', { style: { color: '#00f2fe', fontWeight: '600' } }, web.price || 'Negotiable')
-                                ])
-                            ),
-
-                            // 🛠️ BUTTONS PANEL (High-Contrast "Get Started" Pill Vibe)
-                            React.createElement('div', { style: { display: 'flex', gap: '12px', width: '100%', marginTop: '8px' } },
-                                // Left Button: Details (Sleek Ghost Style)
-                                React.createElement('button', {
-                                    onClick: () => setSelectedWebsiteDesc(web),
-                                    style: {
-                                        flex: '1',
-                                        padding: '14px 8px',
-                                        borderRadius: '24px', // Pill shape
-                                        background: 'transparent',
-                                        color: '#ffffff',
-                                        border: '1px solid rgba(255, 255, 255, 0.15)',
-                                        fontSize: '0.85rem',
-                                        fontWeight: '600',
-                                        cursor: 'pointer',
-                                        transition: 'background 0.2s'
-                                    },
-                                    onMouseEnter: (e) => e.target.style.background = 'rgba(255, 255, 255, 0.05)',
-                                    onMouseLeave: (e) => e.target.style.background = 'transparent'
-                                }, 'Details 📋'),
-
-                                // Right Button: Buy Now (Exact copy of the White "Get Started →" Button)
-                                React.createElement('button', {
-                                    onClick: toWebsiteOrderForm(web),
-                                    style: {
-                                        flex: '1.4', // Slightly wider for prime focus
-                                        padding: '14px 8px',
-                                        borderRadius: '24px', // Perfect pill shape
-                                        background: '#ffffff', // High contrast white
-                                        color: '#0b0d14', // Jet black text
-                                        border: 'none',
-                                        fontSize: '0.85rem',
-                                        fontWeight: '700',
-                                        cursor: 'pointer',
-                                        boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1)',
-                                        transition: 'transform 0.1s step-end, opacity 0.2s'
-                                    },
-                                    onMouseEnter: (e) => e.target.style.opacity = '0.9',
-                                    onMouseLeave: (e) => e.target.style.opacity = '1'
-                                }, 'Buy Now 🚀')
-                            )
-                        );
-
-                    }),
-                    renderSaleDetailsBlocks()
-                ),
-
-            // 5️⃣ DETAILS DESCRIPTION MODAL (Exact Jobs Modal Mirror Architecture)
-            selectedWebsiteDesc ? (() => {
-                // Modal ke liye bhi wahi exact link check jo admin provide kar raha hai
-                const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.image || selectedWebsiteDesc.imageUrl;
-                return React.createElement('div', {
-                    onClick: () => setSelectedWebsiteDesc(null),
-                    style: {
-                        position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-                        background: 'rgba(0, 0, 0, 0.75)', backdropFilter: 'blur(5px)',
-                        display: 'flex', alignItems: 'center', justifyContent: 'center',
-                        zIndex: 9999, padding: '20px', boxSizing: 'border-box'
-                    }
-                },
-                    React.createElement('div', {
-                        onClick: (e) => e.stopPropagation(),
+                    return React.createElement('div', {
+                        key: web.id,
+                        className: 'card',
                         style: {
-                            background: 'rgba(20, 20, 30, 0.95)', border: '1px solid rgba(255, 255, 255, 0.15)',
-                            borderRadius: '24px', padding: '35px 30px', maxWidth: '450px', width: '100%',
-                            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)', position: 'relative'
+                            position: 'relative',
+                            background: '#0b0d14',
+                            borderRadius: '32px',
+                            padding: '32px 24px 24px 24px',
+                            boxShadow: '0 40px 80px rgba(0, 0, 0, 0.7)',
+                            border: '1px solid rgba(255, 255, 255, 0.04)',
+                            textAlign: 'left',
+                            
+                            // 💡 3 CARDS PER ROW FLEX LOGIC
+                            flex: '1 1 calc(33.333% - 20px)',
+                            maxWidth: '360px',
+                            minWidth: '280px',            // Auto collapses on mobile screens smoothly
+                            
+                            width: '100%',
+                            boxSizing: 'border-box',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '20px',
+                            overflow: 'hidden',
+                            transition: 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)'
+                        },
+                        // Desktop Hover Animation
+                        onMouseEnter: (e) => {
+                            e.currentTarget.style.transform = 'translateY(-6px)';
+                        },
+                        onMouseLeave: (e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
                         }
                     },
-                        React.createElement('button', {
-                            onClick: () => setSelectedWebsiteDesc(null),
-                            style: { position: 'absolute', top: '14px', right: '18px', background: 'none', border: 'none', color: 'rgba(255,255,255,0.6)', fontSize: '1.4rem', cursor: 'pointer' }
-                        }, '✕'),
-
-                        // 📸 MODAL LARGE PREVIEW IMAGE FROM ADMIN ONLY
-                        adminModalImgSrc && React.createElement('img', {
-                            src: adminModalImgSrc,
-                            alt: selectedWebsiteDesc.name,
+                        // 🌟 THE HEADER NEON GRADIENT LINE (Exact Image Copy)
+                        React.createElement('div', {
                             style: {
-                                width: '100%',
-                                height: '200px',
-                                objectFit: 'cover',
-                                borderRadius: '16px',
-                                marginBottom: '20px',
-                                border: '1px solid rgba(255, 255, 255, 0.1)'
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                height: '4px',
+                                background: 'linear-gradient(90deg, #00f2fe 0%, #ff007f 100%)'
                             }
                         }),
 
-                        React.createElement('h3', { style: { color: '#00f2fe', fontSize: '1.4rem', fontWeight: '700', marginBottom: '6px' } }, selectedWebsiteDesc.name),
-                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', marginBottom: '18px' } }, `Price: ${selectedWebsiteDesc.price || 'Negotiable'}`),
-                        React.createElement('p', { style: { color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: '1.7', whiteSpace: 'pre-wrap' } }, selectedWebsiteDesc.description),
+                        // 📸 IMAGE CONTAINER BLOCK
+                        React.createElement('div', {
+                            style: {
+                                width: '100%',
+                                height: '160px',
+                                borderRadius: '20px',
+                                overflow: 'hidden',
+                                background: 'rgba(255, 255, 255, 0.02)',
+                                border: '1px solid rgba(255, 255, 255, 0.06)',
+                                position: 'relative'
+                            }
+                        },
+                            adminImgSrc && React.createElement('img', {
+                                src: adminImgSrc,
+                                alt: web.name,
+                                style: {
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover'
+                                }
+                            }),
 
-                        // Live Link Preview Button (If link exists)
-                        selectedWebsiteDesc.siteLink && React.createElement('a', {
-                            href: selectedWebsiteDesc.siteLink, target: '_blank', rel: 'noopener noreferrer',
-                            style: { display: 'block', width: '100%', textAlign: 'center', marginTop: '20px', textDecoration: 'none', color: '#ff0080', fontWeight: '700', fontSize: '0.9rem' }
-                        }, '🔗 View Live Demo Website')
-                    )
-                );
-            })() : null
-        );
-    } else if (currentPage === 'website-order-form' && selectedWebsiteForOrder) {
+                            // Floating Premium Badge Overlay
+                            React.createElement('div', {
+                                style: {
+                                    position: 'absolute',
+                                    top: '12px',
+                                    right: '12px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '6px',
+                                    background: 'rgba(255, 0, 127, 0.06)',
+                                    border: '1px solid rgba(255, 0, 127, 0.3)',
+                                    padding: '5px 12px',
+                                    borderRadius: '20px',
+                                }
+                            },
+                                // Glowing dot inside badge
+                                React.createElement('span', {
+                                    style: {
+                                        width: '6px',
+                                        height: '6px',
+                                        backgroundColor: '#ff007f',
+                                        borderRadius: '50%',
+                                        display: 'inline-block'
+                                    }
+                                }),
+                                React.createElement('span', {
+                                    style: {
+                                        color: '#ff007f',
+                                        fontSize: '0.65rem',
+                                        fontWeight: '700',
+                                        letterSpacing: '0.8px'
+                                    }
+                                }, 'Website For Sale')
+                            )
+                        ),
+
+                        // 📝 TYPOGRAPHY BLOCK
+                        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
+                            // Title
+                            React.createElement('h3', {
+                                style: {
+                                    color: '#ffffff',
+                                    fontSize: '1.45rem',
+                                    fontWeight: '700',
+                                    margin: '0',
+                                    lineHeight: '1.25',
+                                    letterSpacing: '-0.2px'
+                                }
+                            }, web.name),
+
+                            // Price Accent
+                            React.createElement('p', {
+                                style: {
+                                    color: '#a0aec0',
+                                    fontSize: '0.95rem',
+                                    margin: '0',
+                                    fontWeight: '500'
+                                }
+                            }, [
+                                'Price: ',
+                                React.createElement('span', { key: 'price-val', style: { color: '#00f2fe', fontWeight: '600' } }, web.price || 'Negotiable')
+                            ])
+                        ),
+
+                        // 🛠️ BUTTONS PANEL
+                        React.createElement('div', { style: { display: 'flex', gap: '12px', width: '100%', marginTop: '8px' } },
+                            // Left Button: Details
+                            React.createElement('button', {
+                                onClick: () => setSelectedWebsiteDesc(web),
+                                style: {
+                                    flex: '1',
+                                    padding: '14px 8px',
+                                    borderRadius: '24px',
+                                    background: 'transparent',
+                                    color: '#ffffff',
+                                    border: '1px solid rgba(255, 255, 255, 0.15)',
+                                    fontSize: '0.85rem',
+                                    fontWeight: '600',
+                                    cursor: 'pointer',
+                                    transition: 'background 0.2s'
+                                },
+                                onMouseEnter: (e) => e.target.style.background = 'rgba(255, 255, 255, 0.05)',
+                                onMouseLeave: (e) => e.target.style.background = 'transparent'
+                            }, 'Details 📋'),
+
+                            // Right Button: Buy Now
+                            React.createElement('button', {
+                                onClick: toWebsiteOrderForm(web),
+                                style: {
+                                    flex: '1.4',
+                                    padding: '14px 8px',
+                                    borderRadius: '24px',
+                                    background: '#ffffff',
+                                    color: '#0b0d14',
+                                    border: 'none',
+                                    fontSize: '0.85rem',
+                                    fontWeight: '700',
+                                    cursor: 'pointer',
+                                    boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1)',
+                                    transition: 'transform 0.1s step-end, opacity 0.2s'
+                                },
+                                onMouseEnter: (e) => e.target.style.opacity = '0.9',
+                                onMouseLeave: (e) => e.target.style.opacity = '1'
+                            }, 'Buy Now 🚀')
+                        )
+                    );
+                }),
+                renderSaleDetailsBlocks()
+            ),
+
+        // 5️⃣ DETAILS DESCRIPTION MODAL
+        selectedWebsiteDesc ? (() => {
+            const adminModalImgSrc = selectedWebsiteDesc.imageLink || selectedWebsiteDesc.image || selectedWebsiteDesc.imageUrl;
+            return React.createElement('div', {
+                onClick: () => setSelectedWebsiteDesc(null),
+                style: {
+                    position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
+                    background: 'rgba(0, 0, 0, 0.75)', backdropFilter: 'blur(5px)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    zIndex: 9999, padding: '20px', boxSizing: 'border-box'
+                }
+            },
+                React.createElement('div', {
+                    onClick: (e) => e.stopPropagation(),
+                    style: {
+                        background: 'rgba(20, 20, 30, 0.95)', border: '1px solid rgba(255, 255, 255, 0.15)',
+                        borderRadius: '24px', padding: '35px 30px', maxWidth: '450px', width: '100%',
+                        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)', position: 'relative'
+                    }
+                },
+                    React.createElement('button', {
+                        onClick: () => setSelectedWebsiteDesc(null),
+                        style: { position: 'absolute', top: '14px', right: '18px', background: 'none', border: 'none', color: 'rgba(255,255,255,0.6)', fontSize: '1.4rem', cursor: 'pointer' }
+                    }, '✕'),
+
+                    // MODAL LARGE PREVIEW IMAGE
+                    adminModalImgSrc && React.createElement('img', {
+                        src: adminModalImgSrc,
+                        alt: selectedWebsiteDesc.name,
+                        style: {
+                            width: '100%',
+                            height: '200px',
+                            objectFit: 'cover',
+                            borderRadius: '16px',
+                            marginBottom: '20px',
+                            border: '1px solid rgba(255, 255, 255, 0.1)'
+                        }
+                    }),
+
+                    React.createElement('h3', { style: { color: '#00f2fe', fontSize: '1.4rem', fontWeight: '700', marginBottom: '6px' } }, selectedWebsiteDesc.name),
+                    React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', marginBottom: '18px' } }, `Price: ${selectedWebsiteDesc.price || 'Negotiable'}`),
+                    React.createElement('p', { style: { color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: '1.7', whiteSpace: 'pre-wrap' } }, selectedWebsiteDesc.description),
+
+                    // Live Link Preview Button
+                    selectedWebsiteDesc.siteLink && React.createElement('a', {
+                        href: selectedWebsiteDesc.siteLink, target: '_blank', rel: 'noopener noreferrer',
+                        style: { display: 'block', width: '100%', textAlign: 'center', marginTop: '20px', textDecoration: 'none', color: '#ff0080', fontWeight: '700', fontSize: '0.9rem' }
+                    }, '🔗 View Live Demo Website')
+                )
+            );
+        })() : null
+    );
+}else if (currentPage === 'website-order-form' && selectedWebsiteForOrder) {
 
         // 📩 FORM SUBMIT LOGIC (Email Bhejne Ka Code)
         const handleSiteOrderSubmit = (e) => {
