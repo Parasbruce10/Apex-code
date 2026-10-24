@@ -13852,12 +13852,73 @@ React.createElement('div', { className: 'catalog-suite-wrapper' },
         React.createElement('div', { className: 'footer-top' },
 
             // Column 1: Website Name & Detail
-            React.createElement('div', { className: 'footer-brand' },
-                React.createElement('h2', { className: 'footer-logo-text' }, 'Apex Code'),
-                React.createElement('p', { className: 'footer-desc' },
-                    'Empowering the digital world with cutting-edge Software Engineering, Web Development, and innovative tech solutions.'
-                )
-            ),
+            React.createElement('div', { 
+    className: 'footer-brand',
+    style: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center', // Horizontal centering
+        textAlign: 'center'   // Text centering
+    }
+},
+    // CSS Keyframe Animation Injector
+    React.createElement('style', null, `
+        @keyframes logoFloatGlow {
+            0% {
+                transform: translateY(0px) scale(1);
+                box-shadow: 0 0 15px rgba(0, 242, 254, 0.3), 0 0 30px rgba(255, 0, 128, 0.2);
+                border-color: rgba(0, 242, 254, 0.5);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.03);
+                box-shadow: 0 0 28px rgba(0, 242, 254, 0.6), 0 0 45px rgba(255, 0, 128, 0.4);
+                border-color: rgba(255, 0, 128, 0.8);
+            }
+            100% {
+                transform: translateY(0px) scale(1);
+                box-shadow: 0 0 15px rgba(0, 242, 254, 0.3), 0 0 30px rgba(255, 0, 128, 0.2);
+                border-color: rgba(0, 242, 254, 0.5);
+            }
+        }
+        .animated-footer-logo:hover {
+            animation-play-state: paused;
+            transform: scale(1.1) rotate(2deg) !important;
+            box-shadow: 0 0 40px rgba(0, 242, 254, 0.8), 0 0 60px rgba(255, 0, 128, 0.6) !important;
+        }
+    `),
+
+    React.createElement('h2', { className: 'footer-logo-text' }, 'Apex Code'),
+    React.createElement('p', { className: 'footer-desc' },
+        'Empowering the digital world with cutting-edge Software Engineering, Web Development, and innovative tech solutions.'
+    ),
+
+    // 🎨 CENTERED ANIMATED LOGO CONTAINER
+    React.createElement('div', {
+        style: {
+            marginTop: '25px',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%'
+        }
+    },
+        React.createElement('img', {
+            src: 'header.jpeg',
+            alt: 'Apex Code Logo',
+            className: 'animated-footer-logo',
+            style: {
+                width: '85px',
+                height: '85px',
+                objectFit: 'cover',
+                borderRadius: '50%', // Circular premium badge
+                border: '2px solid rgba(0, 242, 254, 0.5)',
+                animation: 'logoFloatGlow 4s ease-in-out infinite', // Floating & Glowing loop
+                transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)',
+                cursor: 'pointer'
+            }
+        })
+    )
+),
 
             // Column 2: Nav Links
             React.createElement('div', { className: 'footer-nav' },
