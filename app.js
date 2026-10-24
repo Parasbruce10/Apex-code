@@ -13872,104 +13872,143 @@ React.createElement('div', { className: 'catalog-suite-wrapper' },
             ),
 
             // Column 3: Contact & Legal (UPDATED SECTION)
-            React.createElement('div', { className: 'footer-nav' },
-                React.createElement('h3', { className: 'footer-heading' }, 'Contact & Legal'),
-                React.createElement('ul', { className: 'footer-list' },
-                    // Privacy Policy Updated
-                    React.createElement('li', null, React.createElement('a', {
-                        href: '#',
-                        onClick: (e) => { e.preventDefault(); setCurrentPage('privacy-policy'); window.scrollTo(0, 0); }
-                    }, 'Privacy Policy')),
+           // 🛠️ SERVICES FOOTER COLUMN
+React.createElement('div', { className: 'footer-nav' },
+    React.createElement('h3', { className: 'footer-heading' }, 'Services'),
+    React.createElement('ul', { className: 'footer-list' },
+        React.createElement('li', null, React.createElement('a', {
+            href: '#',
+            onClick: (e) => { e.preventDefault(); toPlans(e); window.scrollTo(0, 0); }
+        }, 'Code Development')),
 
-                    // Terms & Conditions Updated
-                    React.createElement('li', null, React.createElement('a', {
-                        href: '#',
-                        onClick: (e) => { e.preventDefault(); setCurrentPage('terms-conditions'); window.scrollTo(0, 0); }
-                    }, 'Terms & Conditions')),
+        React.createElement('li', null, React.createElement('a', {
+            href: '#',
+            onClick: (e) => { e.preventDefault(); toWpPlans(e); window.scrollTo(0, 0); }
+        }, 'WordPress Development')),
 
-                    // Contact Us (Pehle se theek tha)
-                    React.createElement('li', null, React.createElement('a', { href: '#', onClick: toContactUs }, 'Contact Us')),
+        React.createElement('li', null, React.createElement('a', {
+            href: '#',
+            onClick: (e) => { e.preventDefault(); toSeoPlans(e); window.scrollTo(0, 0); }
+        }, 'SEO Optimization')),
 
-                    // About Us Updated
-                    React.createElement('li', null, React.createElement('a', {
-                        href: '#',
-                        onClick: (e) => { e.preventDefault(); setCurrentPage('about-us'); window.scrollTo(0, 0); }
-                    }, 'About Us'))
-                ),
+        React.createElement('li', null, React.createElement('a', {
+            href: '#',
+            onClick: (e) => { e.preventDefault(); toPortfolioPlans(e); window.scrollTo(0, 0); }
+        }, 'Portfolio Showcase')),
 
-                // 🛠️ ADMIN CONTROLS SECTION (Ab yeh sirf login ke baad dikhega)
-                isAdminLoggedIn ? React.createElement('div', {
-                    style: {
-                        marginTop: '30px',
-                        paddingTop: '20px',
-                        borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-                        width: '100%'
-                    }
-                },
-                    // Section Sub-heading
-                    React.createElement('h3', {
-                        style: {
-                            color: 'rgba(255, 255, 255, 0.7)',
-                            fontSize: '0.95rem',
-                            fontWeight: '600',
-                            marginBottom: '16px',
-                            letterSpacing: '0.5px',
-                            textAlign: 'left',
-                            paddingLeft: '4px'
-                        }
-                    }, '🛠️ Admin Controls'),
+        React.createElement('li', null, React.createElement('a', {
+            href: '#',
+            onClick: (e) => { e.preventDefault(); toAdsPlans(e); window.scrollTo(0, 0); }
+        }, 'Ads Placement')),
 
-                    // 1️⃣ UPLOAD FILES BUTTON
-                    React.createElement('button', {
-                        onClick: toUploadPage,
-                        className: 'card-btn',
-                        style: {
-                            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                            width: '100%', marginBottom: '14px', padding: '12px', fontSize: '0.9rem', fontWeight: '600',
-                            color: '#00f2fe', background: 'linear-gradient(90deg, rgba(0, 242, 254, 0.12), rgba(0, 242, 254, 0.02))',
-                            border: '1px solid rgba(0, 242, 254, 0.35)', borderRadius: '14px', cursor: 'pointer',
-                            boxShadow: '0 4px 20px rgba(0, 242, 254, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                        }
-                    }, 'Upload Panel 📁'),
+        React.createElement('li', null, React.createElement('a', {
+            href: '#',
+            onClick: (e) => { e.preventDefault(); setCurrentPage('contact-form'); window.scrollTo(0, 0); }
+        }, 'Shopify Solutions'))
+    )
+),
 
-                    // 2️⃣ UPDATE PASSWORD BUTTON
-                    React.createElement('button', {
-                        onClick: toUpdatePassword,
-                        className: 'card-btn',
-                        style: {
-                            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                            width: '100%', marginBottom: '14px', padding: '12px', fontSize: '0.9rem', fontWeight: '600',
-                            color: '#ff0080', background: 'linear-gradient(90deg, rgba(255, 0, 128, 0.12), rgba(255, 0, 128, 0.02))',
-                            border: '1px solid rgba(255, 0, 128, 0.35)', borderRadius: '14px', cursor: 'pointer',
-                            boxShadow: '0 4px 20px rgba(255, 0, 128, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                        }
-                    }, 'Update Password 🔑'),
-                    // 👥 EMPLOYEE LIST BUTTON (NEW)
-                    React.createElement('button', {
-                        onClick: toEmployeeList,
-                        className: 'card-btn',
-                        style: {
-                            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                            width: '100%', marginBottom: '14px', padding: '12px', fontSize: '0.9rem', fontWeight: '600',
-                            color: '#00e28c', background: 'linear-gradient(90deg, rgba(0, 224, 140, 0.12), rgba(0, 224, 140, 0.02))',
-                            border: '1px solid rgba(0, 224, 140, 0.35)', borderRadius: '14px', cursor: 'pointer',
-                            boxShadow: '0 4px 20px rgba(0, 224, 140, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                        }
-                    }, 'Employee List 👥'),
-                    // 3️⃣ LOGOUT BUTTON
-                    React.createElement('button', {
-                        onClick: handleLogout,
-                        className: 'card-btn',
-                        style: {
-                            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-                            width: '100%', padding: '12px', fontSize: '0.9rem', fontWeight: '600',
-                            color: '#ff3366', background: 'linear-gradient(90deg, rgba(255, 51, 102, 0.12), rgba(255, 51, 102, 0.02))',
-                            border: '1px solid rgba(255, 51, 102, 0.35)', borderRadius: '14px', cursor: 'pointer',
-                            boxShadow: '0 4px 20px rgba(255, 51, 102, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
-                        }
-                    }, 'Logout 🚪')
-                ) : null
-            )
+// ⚖️ CONTACT & LEGAL COLUMN (APKA EXISTING CODE)
+React.createElement('div', { className: 'footer-nav' },
+    React.createElement('h3', { className: 'footer-heading' }, 'Contact & Legal'),
+    React.createElement('ul', { className: 'footer-list' },
+        // Privacy Policy
+        React.createElement('li', null, React.createElement('a', {
+            href: '#',
+            onClick: (e) => { e.preventDefault(); setCurrentPage('privacy-policy'); window.scrollTo(0, 0); }
+        }, 'Privacy Policy')),
+
+        // Terms & Conditions
+        React.createElement('li', null, React.createElement('a', {
+            href: '#',
+            onClick: (e) => { e.preventDefault(); setCurrentPage('terms-conditions'); window.scrollTo(0, 0); }
+        }, 'Terms & Conditions')),
+
+        // Contact Us
+        React.createElement('li', null, React.createElement('a', { href: '#', onClick: toContactUs }, 'Contact Us')),
+
+        // About Us
+        React.createElement('li', null, React.createElement('a', {
+            href: '#',
+            onClick: (e) => { e.preventDefault(); setCurrentPage('about-us'); window.scrollTo(0, 0); }
+        }, 'About Us'))
+    ),
+
+    // 🛠️ ADMIN CONTROLS SECTION
+    isAdminLoggedIn ? React.createElement('div', {
+        style: {
+            marginTop: '30px',
+            paddingTop: '20px',
+            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+            width: '100%'
+        }
+    },
+        // Section Sub-heading
+        React.createElement('h3', {
+            style: {
+                color: 'rgba(255, 255, 255, 0.7)',
+                fontSize: '0.95rem',
+                fontWeight: '600',
+                marginBottom: '16px',
+                letterSpacing: '0.5px',
+                textAlign: 'left',
+                paddingLeft: '4px'
+            }
+        }, '🛠️ Admin Controls'),
+
+        // 1️⃣ UPLOAD FILES BUTTON
+        React.createElement('button', {
+            onClick: toUploadPage,
+            className: 'card-btn',
+            style: {
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                width: '100%', marginBottom: '14px', padding: '12px', fontSize: '0.9rem', fontWeight: '600',
+                color: '#00f2fe', background: 'linear-gradient(90deg, rgba(0, 242, 254, 0.12), rgba(0, 242, 254, 0.02))',
+                border: '1px solid rgba(0, 242, 254, 0.35)', borderRadius: '14px', cursor: 'pointer',
+                boxShadow: '0 4px 20px rgba(0, 242, 254, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+            }
+        }, 'Upload Panel 📁'),
+
+        // 2️⃣ UPDATE PASSWORD BUTTON
+        React.createElement('button', {
+            onClick: toUpdatePassword,
+            className: 'card-btn',
+            style: {
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                width: '100%', marginBottom: '14px', padding: '12px', fontSize: '0.9rem', fontWeight: '600',
+                color: '#ff0080', background: 'linear-gradient(90deg, rgba(255, 0, 128, 0.12), rgba(255, 0, 128, 0.02))',
+                border: '1px solid rgba(255, 0, 128, 0.35)', borderRadius: '14px', cursor: 'pointer',
+                boxShadow: '0 4px 20px rgba(255, 0, 128, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+            }
+        }, 'Update Password 🔑'),
+
+        // 👥 EMPLOYEE LIST BUTTON
+        React.createElement('button', {
+            onClick: toEmployeeList,
+            className: 'card-btn',
+            style: {
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                width: '100%', marginBottom: '14px', padding: '12px', fontSize: '0.9rem', fontWeight: '600',
+                color: '#00e28c', background: 'linear-gradient(90deg, rgba(0, 224, 140, 0.12), rgba(0, 224, 140, 0.02))',
+                border: '1px solid rgba(0, 224, 140, 0.35)', borderRadius: '14px', cursor: 'pointer',
+                boxShadow: '0 4px 20px rgba(0, 224, 140, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+            }
+        }, 'Employee List 👥'),
+
+        // 3️⃣ LOGOUT BUTTON
+        React.createElement('button', {
+            onClick: handleLogout,
+            className: 'card-btn',
+            style: {
+                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
+                width: '100%', padding: '12px', fontSize: '0.9rem', fontWeight: '600',
+                color: '#ff3366', background: 'linear-gradient(90deg, rgba(255, 51, 102, 0.12), rgba(255, 51, 102, 0.02))',
+                border: '1px solid rgba(255, 51, 102, 0.35)', borderRadius: '14px', cursor: 'pointer',
+                boxShadow: '0 4px 20px rgba(255, 51, 102, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.15)'
+            }
+        }, 'Logout 🚪')
+    ) : null
+)
         ),
 
         // Footer Bottom Section: Animated Copyright
