@@ -9155,35 +9155,42 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                     ))
             )
         );
-    } else if (currentPage === 'available-jobs') {
-        mainElement = React.createElement('main', { className: 'services-page' },
+    }else if (currentPage === 'available-jobs') {
+        mainElement = React.createElement('main', { 
+            className: 'services-page',
+            style: {
+                padding: '20px 14px', // Mobile par sides se safe space
+                boxSizing: 'border-box',
+                width: '100%',
+                overflowX: 'hidden'
+            }
+        },
             // HEADING BADGE
             React.createElement('div', {
                 style: {
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
-                    margin: '0 auto 20px',
+                    margin: '0 auto 16px',
                     background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01))',
                     backdropFilter: 'blur(15px)',
                     WebkitBackdropFilter: 'blur(15px)',
                     border: '1px solid rgba(255, 255, 255, 0.12)',
-                    borderRadius: '24px',
-                    padding: '12px 24px',
+                    borderRadius: '20px',
+                    padding: 'clamp(8px, 2.5vw, 12px) clamp(16px, 4vw, 24px)',
                     width: 'fit-content',
-                    maxWidth: '90%',
+                    maxWidth: '95%',
                     boxShadow: '0 15px 35px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)',
                     boxSizing: 'border-box'
                 }
             },
                 React.createElement('h2', {
                     style: {
-                        fontSize: 'clamp(1.4rem, 5vw, 2.3rem)',
+                        fontSize: 'clamp(1.2rem, 5vw, 2.2rem)', // Mobile par chota, desktop par bara
                         fontWeight: '800',
                         letterSpacing: '0.5px',
                         textAlign: 'center',
                         margin: '0',
-                        whiteSpace: 'nowrap',
                         background: 'linear-gradient(90deg, #00f2fe 0%, #ff0080 100%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
@@ -9193,34 +9200,54 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
             ),
 
             React.createElement('p', {
-                style: { color: 'rgba(255, 255, 255, 0.65)', fontSize: '0.95rem', textAlign: 'center', marginBottom: '40px', maxWidth: '500px', marginLeft: 'auto', marginRight: 'auto', lineHeight: '1.6' }
+                style: { 
+                    color: 'rgba(255, 255, 255, 0.65)', 
+                    fontSize: 'clamp(0.82rem, 3.2vw, 0.95rem)', 
+                    textAlign: 'center', 
+                    marginBottom: 'clamp(24px, 5vw, 40px)', 
+                    maxWidth: '500px', 
+                    marginLeft: 'auto', 
+                    marginRight: 'auto', 
+                    padding: '0 10px',
+                    lineHeight: '1.5' 
+                }
             }, 'Check out the openings below to join the Apex Code team.'),
 
             // JOBS GRID
             jobs.length === 0 ? React.createElement('p', {
-                style: { color: 'rgba(255,255,255,0.5)', fontSize: '1rem', textAlign: 'center' }
+                style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.95rem', textAlign: 'center', padding: '0 15px' }
             }, 'There are no vacancies available at the moment. Please try again later.') :
 
                 React.createElement('div', {
-                    style: { display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '30px', width: '100%', maxWidth: '900px', margin: '0 auto' }
+                    style: { 
+                        display: 'flex', 
+                        flexDirection: 'row', 
+                        flexWrap: 'wrap', 
+                        justifyContent: 'center', 
+                        gap: 'clamp(16px, 4vw, 30px)', 
+                        width: '100%', 
+                        maxWidth: '900px', 
+                        margin: '0 auto',
+                        boxSizing: 'border-box'
+                    }
                 },
                     jobs.map(job => React.createElement('div', {
                         key: job.id,
                         className: 'card',
                         style: {
                             position: 'relative',
-                            background: '#0b0d14', // Exact Deep dark background
-                            borderRadius: '32px',
-                            padding: '32px 24px 24px 24px',
+                            background: '#0b0d14',
+                            borderRadius: 'clamp(22px, 5vw, 32px)',
+                            padding: 'clamp(20px, 5vw, 32px) clamp(16px, 4vw, 24px) clamp(18px, 4vw, 24px)',
                             boxShadow: '0 40px 80px rgba(0, 0, 0, 0.7)',
                             border: '1px solid rgba(255, 255, 255, 0.04)',
-                            textAlign: 'left', // Professional Left alignment
+                            textAlign: 'left',
                             maxWidth: '340px',
-                            width: '100%',
+                            width: '100%', // Mobile par full width (padding ke andar)
                             boxSizing: 'border-box',
                             display: 'flex',
                             flexDirection: 'column',
-                            gap: '20px',
+                            gap: 'clamp(14px, 3.5vw, 20px)',
                             overflow: 'hidden',
                             transition: 'transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)'
                         },
@@ -9251,12 +9278,15 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                         },
                             React.createElement('div', {
                                 style: {
-                                    width: '58px', height: '58px', borderRadius: '18px',
+                                    width: 'clamp(44px, 12vw, 58px)', 
+                                    height: 'clamp(44px, 12vw, 58px)', 
+                                    borderRadius: 'clamp(14px, 3.5vw, 18px)',
                                     background: 'rgba(0, 242, 254, 0.03)',
                                     border: '1px solid rgba(0, 242, 254, 0.3)',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontSize: '1.5rem',
-                                    boxShadow: '0 0 20px rgba(0, 242, 254, 0.15)'
+                                    fontSize: 'clamp(1.2rem, 4vw, 1.5rem)',
+                                    boxShadow: '0 0 20px rgba(0, 242, 254, 0.15)',
+                                    flexShrink: 0
                                 }
                             }, '💼'),
 
@@ -9265,16 +9295,16 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                                 style: {
                                     display: 'flex',
                                     alignItems: 'center',
-                                    gap: '6px',
+                                    gap: '5px',
                                     background: 'rgba(255, 0, 127, 0.06)',
                                     border: '1px solid rgba(255, 0, 127, 0.3)',
-                                    padding: '5px 12px',
+                                    padding: '4px 10px',
                                     borderRadius: '20px'
                                 }
                             },
                                 React.createElement('span', {
                                     style: {
-                                        width: '6px', height: '6px',
+                                        width: '5px', height: '5px',
                                         backgroundColor: '#ff007f',
                                         borderRadius: '50%',
                                         display: 'inline-block'
@@ -9283,31 +9313,33 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                                 React.createElement('span', {
                                     style: {
                                         color: '#ff007f',
-                                        fontSize: '0.65rem',
+                                        fontSize: 'clamp(0.6rem, 2.2vw, 0.65rem)',
                                         fontWeight: '700',
-                                        letterSpacing: '0.8px'
+                                        letterSpacing: '0.8px',
+                                        whiteSpace: 'nowrap'
                                     }
                                 }, 'NEW JOB')
                             )
                         ),
 
                         // 📝 JOB TYPOGRAPHY BLOCK
-                        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '8px' } },
+                        React.createElement('div', { style: { display: 'flex', flexDirection: 'column', gap: '6px' } },
                             React.createElement('h3', {
                                 style: {
                                     color: '#ffffff',
-                                    fontSize: '1.4rem',
+                                    fontSize: 'clamp(1.15rem, 4.5vw, 1.4rem)', // Mobile par compact title
                                     fontWeight: '700',
                                     margin: '0',
                                     lineHeight: '1.3',
-                                    letterSpacing: '-0.2px'
+                                    letterSpacing: '-0.2px',
+                                    wordBreak: 'break-word'
                                 }
                             }, job.title),
 
                             React.createElement('p', {
                                 style: {
                                     color: '#a0aec0',
-                                    fontSize: '0.95rem',
+                                    fontSize: 'clamp(0.85rem, 3.2vw, 0.95rem)',
                                     margin: '0',
                                     fontWeight: '500'
                                 }
@@ -9318,21 +9350,30 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                         ),
 
                         // 🛠️ ACTION BUTTONS PANEL
-                        React.createElement('div', { style: { display: 'flex', gap: '12px', width: '100%', marginTop: 'auto' } },
+                        React.createElement('div', { 
+                            style: { 
+                                display: 'flex', 
+                                flexWrap: 'wrap', // Boht choti screens (300px) par wrap ho sake
+                                gap: '10px', 
+                                width: '100%', 
+                                marginTop: 'auto' 
+                            } 
+                        },
                             // Ghost Style Details Button
                             React.createElement('button', {
                                 onClick: () => setSelectedJobDescription(job),
                                 style: {
-                                    flex: '1',
-                                    padding: '14px 8px',
+                                    flex: '1 1 110px',
+                                    padding: 'clamp(10px, 3vw, 14px) 8px',
                                     borderRadius: '24px',
                                     background: 'transparent',
                                     color: '#ffffff',
                                     border: '1px solid rgba(255, 255, 255, 0.15)',
-                                    fontSize: '0.85rem',
+                                    fontSize: 'clamp(0.78rem, 3vw, 0.85rem)',
                                     fontWeight: '600',
                                     cursor: 'pointer',
-                                    transition: 'background 0.2s'
+                                    transition: 'background 0.2s',
+                                    whiteSpace: 'nowrap'
                                 },
                                 onMouseEnter: (e) => e.target.style.background = 'rgba(255, 255, 255, 0.05)',
                                 onMouseLeave: (e) => e.target.style.background = 'transparent'
@@ -9342,17 +9383,18 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
                             React.createElement('button', {
                                 onClick: toJobApplyForm(job),
                                 style: {
-                                    flex: '1.3',
-                                    padding: '14px 8px',
+                                    flex: '1.2 1 110px',
+                                    padding: 'clamp(10px, 3vw, 14px) 8px',
                                     borderRadius: '24px',
                                     background: '#ffffff',
                                     color: '#0b0d14',
                                     border: 'none',
-                                    fontSize: '0.85rem',
+                                    fontSize: 'clamp(0.78rem, 3vw, 0.85rem)',
                                     fontWeight: '700',
                                     cursor: 'pointer',
                                     boxShadow: '0 4px 20px rgba(255, 255, 255, 0.1)',
-                                    transition: 'opacity 0.2s'
+                                    transition: 'opacity 0.2s',
+                                    whiteSpace: 'nowrap'
                                 },
                                 onMouseEnter: (e) => e.target.style.opacity = '0.9',
                                 onMouseLeave: (e) => e.target.style.opacity = '1'
@@ -9364,31 +9406,78 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
             // 2. YEH WALA BLOCK HAMESHA SHOW HOGA
             renderAvailableJobsBlocks(),
 
-            // DESCRIPTION MODAL
+            // DESCRIPTION MODAL (Mobile Safe + Scrollable)
             selectedJobDescription ? React.createElement('div', {
                 onClick: () => setSelectedJobDescription(null),
                 style: {
                     position: 'fixed', top: 0, left: 0, width: '100%', height: '100%',
-                    background: 'rgba(0, 0, 0, 0.75)', backdropFilter: 'blur(5px)',
+                    background: 'rgba(0, 0, 0, 0.78)', backdropFilter: 'blur(5px)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    zIndex: 9999, padding: '20px', boxSizing: 'border-box'
+                    zIndex: 9999, padding: '16px', boxSizing: 'border-box'
                 }
             },
                 React.createElement('div', {
                     onClick: (e) => e.stopPropagation(),
                     style: {
-                        background: 'rgba(20, 20, 30, 0.95)', border: '1px solid rgba(255, 255, 255, 0.15)',
-                        borderRadius: '24px', padding: '35px 30px', maxWidth: '450px', width: '100%',
-                        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)', position: 'relative'
+                        background: 'rgba(20, 20, 30, 0.96)', 
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        borderRadius: '22px', 
+                        padding: 'clamp(22px, 5vw, 35px) clamp(18px, 4.5vw, 30px)', 
+                        maxWidth: '450px', 
+                        width: '100%',
+                        maxHeight: '85vh', // Mobile par screen se bahar nahi jayega
+                        overflowY: 'auto', // Agar description lambi ho to scroll hoga
+                        boxShadow: '0 20px 50px rgba(0, 0, 0, 0.6)', 
+                        position: 'relative',
+                        boxSizing: 'border-box'
                     }
                 },
                     React.createElement('button', {
                         onClick: () => setSelectedJobDescription(null),
-                        style: { position: 'absolute', top: '14px', right: '18px', background: 'none', border: 'none', color: 'rgba(255,255,255,0.6)', fontSize: '1.4rem', cursor: 'pointer' }
+                        style: { 
+                            position: 'absolute', 
+                            top: '12px', 
+                            right: '14px', 
+                            background: 'rgba(255,255,255,0.08)', 
+                            border: 'none', 
+                            borderRadius: '50%',
+                            width: '32px',
+                            height: '32px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            color: 'rgba(255,255,255,0.8)', 
+                            fontSize: '1rem', 
+                            cursor: 'pointer' 
+                        }
                     }, '✖'),
-                    React.createElement('h3', { style: { color: '#00f2fe', fontSize: '1.4rem', fontWeight: '700', marginBottom: '6px' } }, selectedJobDescription.title),
-                    React.createElement('p', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.85rem', marginBottom: '18px' } }, selectedJobDescription.salary || 'Salary: Negotiable'),
-                    React.createElement('p', { style: { color: 'rgba(255,255,255,0.8)', fontSize: '0.95rem', lineHeight: '1.7', whiteSpace: 'pre-wrap' } }, selectedJobDescription.description)
+                    React.createElement('h3', { 
+                        style: { 
+                            color: '#00f2fe', 
+                            fontSize: 'clamp(1.15rem, 4.5vw, 1.4rem)', 
+                            fontWeight: '700', 
+                            marginBottom: '6px',
+                            paddingRight: '28px', // Close button se na takraye
+                            wordBreak: 'break-word'
+                        } 
+                    }, selectedJobDescription.title),
+                    React.createElement('p', { 
+                        style: { 
+                            color: 'rgba(255,255,255,0.55)', 
+                            fontSize: 'clamp(0.8rem, 3vw, 0.85rem)', 
+                            marginBottom: '16px' 
+                        } 
+                    }, selectedJobDescription.salary || 'Salary: Negotiable'),
+                    React.createElement('p', { 
+                        style: { 
+                            color: 'rgba(255,255,255,0.85)', 
+                            fontSize: 'clamp(0.85rem, 3.3vw, 0.95rem)', 
+                            lineHeight: '1.65', 
+                            whiteSpace: 'pre-wrap',
+                            wordBreak: 'break-word',
+                            margin: 0
+                        } 
+                    }, selectedJobDescription.description)
                 )
             ) : null
         );
@@ -9487,43 +9576,119 @@ React.createElement('li', { style: { marginBottom: '10px', fontSize: '0.95rem' }
             React.createElement('form', {
                 onSubmit: handleApplySubmit,
                 style: {
-                    width: '100%', maxWidth: '600px', background: 'rgba(20, 20, 30, 0.65)', padding: '40px',
-                    borderRadius: '24px', border: '1px solid rgba(255, 255, 255, 0.1)',
-                    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4)', backdropFilter: 'blur(15px)', boxSizing: 'border-box'
+                    width: '100%', 
+                    maxWidth: '600px', 
+                    background: 'rgba(20, 20, 30, 0.65)', 
+                    padding: 'clamp(20px, 5vw, 40px) clamp(16px, 4.5vw, 40px)', // Mobile par compact padding
+                    borderRadius: 'clamp(18px, 4vw, 24px)', 
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4)', 
+                    backdropFilter: 'blur(15px)', 
+                    WebkitBackdropFilter: 'blur(15px)',
+                    boxSizing: 'border-box',
+                    margin: '0 auto',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'clamp(12px, 3vw, 16px)'
                 }
             },
-                React.createElement('div', null,
-                    React.createElement('label', { style: labelStyle }, '👤 Full Name'),
-                    React.createElement('input', { name: 'name', type: 'text', required: true, style: inputStyle })
+                React.createElement('div', { style: { width: '100%' } },
+                    React.createElement('label', { 
+                        style: { ...labelStyle, fontSize: 'clamp(0.85rem, 3.2vw, 0.95rem)', display: 'block', marginBottom: '6px' } 
+                    }, '👤 Full Name'),
+                    React.createElement('input', { 
+                        name: 'name', 
+                        type: 'text', 
+                        required: true, 
+                        style: { ...inputStyle, width: '100%', boxSizing: 'border-box', fontSize: 'clamp(0.9rem, 3.5vw, 1rem)', padding: 'clamp(10px, 3vw, 12px)' } 
+                    })
                 ),
-                React.createElement('div', null,
-                    React.createElement('label', { style: labelStyle }, '✉️ Email Address'),
-                    React.createElement('input', { name: 'email', type: 'email', required: true, style: inputStyle })
+                React.createElement('div', { style: { width: '100%' } },
+                    React.createElement('label', { 
+                        style: { ...labelStyle, fontSize: 'clamp(0.85rem, 3.2vw, 0.95rem)', display: 'block', marginBottom: '6px' } 
+                    }, '✉️ Email Address'),
+                    React.createElement('input', { 
+                        name: 'email', 
+                        type: 'email', 
+                        required: true, 
+                        style: { ...inputStyle, width: '100%', boxSizing: 'border-box', fontSize: 'clamp(0.9rem, 3.5vw, 1rem)', padding: 'clamp(10px, 3vw, 12px)' } 
+                    })
                 ),
-                React.createElement('div', null,
-                    React.createElement('label', { style: labelStyle }, '📞 Phone Number'),
-                    React.createElement('input', { name: 'phone', type: 'tel', required: true, style: inputStyle })
+                React.createElement('div', { style: { width: '100%' } },
+                    React.createElement('label', { 
+                        style: { ...labelStyle, fontSize: 'clamp(0.85rem, 3.2vw, 0.95rem)', display: 'block', marginBottom: '6px' } 
+                    }, '📞 Phone Number'),
+                    React.createElement('input', { 
+                        name: 'phone', 
+                        type: 'tel', 
+                        required: true, 
+                        style: { ...inputStyle, width: '100%', boxSizing: 'border-box', fontSize: 'clamp(0.9rem, 3.5vw, 1rem)', padding: 'clamp(10px, 3vw, 12px)' } 
+                    })
                 ),
-                React.createElement('div', null,
-                    React.createElement('label', { style: labelStyle }, '📍 Current Address'),
-                    React.createElement('textarea', { name: 'address', rows: 2, required: true, style: { ...inputStyle, resize: 'none' } })
+                React.createElement('div', { style: { width: '100%' } },
+                    React.createElement('label', { 
+                        style: { ...labelStyle, fontSize: 'clamp(0.85rem, 3.2vw, 0.95rem)', display: 'block', marginBottom: '6px' } 
+                    }, '📍 Current Address'),
+                    React.createElement('textarea', { 
+                        name: 'address', 
+                        rows: 2, 
+                        required: true, 
+                        style: { ...inputStyle, width: '100%', boxSizing: 'border-box', fontSize: 'clamp(0.9rem, 3.5vw, 1rem)', padding: 'clamp(10px, 3vw, 12px)', resize: 'none' } 
+                    })
                 ),
-                React.createElement('div', null,
-                    React.createElement('label', { style: labelStyle }, '💼 Professional Experience'),
-                    React.createElement('textarea', { name: 'experience', rows: 4, placeholder: 'Apna relevant experience ya technical stack tafseel se likhein...', required: true, style: { ...inputStyle, resize: 'none' } })
+                React.createElement('div', { style: { width: '100%' } },
+                    React.createElement('label', { 
+                        style: { ...labelStyle, fontSize: 'clamp(0.85rem, 3.2vw, 0.95rem)', display: 'block', marginBottom: '6px' } 
+                    }, '💼 Professional Experience'),
+                    React.createElement('textarea', { 
+                        name: 'experience', 
+                        rows: 4, 
+                        placeholder: 'Apna relevant experience ya technical stack tafseel se likhein...', 
+                        required: true, 
+                        style: { ...inputStyle, width: '100%', boxSizing: 'border-box', fontSize: 'clamp(0.9rem, 3.5vw, 1rem)', padding: 'clamp(10px, 3vw, 12px)', resize: 'none' } 
+                    })
                 ),
 
-                React.createElement('div', { style: { display: 'flex', gap: '15px', marginTop: '15px' } },
+                React.createElement('div', { 
+                    style: { 
+                        display: 'flex', 
+                        flexWrap: 'wrap', // Choti screens par buttons neatly stack honge
+                        gap: 'clamp(10px, 3vw, 15px)', 
+                        marginTop: '8px',
+                        width: '100%'
+                    } 
+                },
                     React.createElement('button', {
                         type: 'submit',
                         className: 'card-btn',
-                        style: { flex: 2, padding: '14px', fontSize: '16px', fontWeight: '700', background: 'linear-gradient(45deg, #00f2fe, #ff0080)', color: '#fff', border: 'none', borderRadius: '12px', cursor: 'pointer', boxShadow: '0 4px 15px rgba(0, 242, 254, 0.3)' }
+                        style: { 
+                            flex: '2 1 180px', // Mobile par poori width le sake agar jagah kam ho
+                            padding: 'clamp(12px, 3.5vw, 14px) 16px', 
+                            fontSize: 'clamp(0.88rem, 3.5vw, 1rem)', 
+                            fontWeight: '700', 
+                            background: 'linear-gradient(45deg, #00f2fe, #ff0080)', 
+                            color: '#fff', 
+                            border: 'none', 
+                            borderRadius: '12px', 
+                            cursor: 'pointer', 
+                            boxShadow: '0 4px 15px rgba(0, 242, 254, 0.3)',
+                            whiteSpace: 'nowrap'
+                        }
                     }, 'Submit Application 🚀'),
 
                     React.createElement('button', {
                         type: 'button',
                         className: 'card-btn',
-                        style: { flex: 1, padding: '14px', fontSize: '16px', background: 'transparent', color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '12px', cursor: 'pointer' },
+                        style: { 
+                            flex: '1 1 100px', 
+                            padding: 'clamp(12px, 3.5vw, 14px) 16px', 
+                            fontSize: 'clamp(0.88rem, 3.5vw, 1rem)', 
+                            background: 'transparent', 
+                            color: 'rgba(255,255,255,0.6)', 
+                            border: '1px solid rgba(255,255,255,0.2)', 
+                            borderRadius: '12px', 
+                            cursor: 'pointer' 
+                        },
                         onClick: () => setCurrentPage('available-jobs')
                     }, 'Cancel')
                 )
