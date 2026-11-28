@@ -205,6 +205,242 @@ const TopFAQSection = () => {
     ]);
 };
 
+// 🖼️ INFINITE ZOOM ENGINEERING SLIDER (Mobile Responsive + Built-in CSS)
+// 🖼️ 3-CARD CENTER FOCUS ZOOM + BACKGROUND BLUR INFINITE SLIDER
+const EngineeringSlider = () => {
+    const baseSlides = [
+        {
+            tag: 'Custom Codebase',
+            title: 'Full-Stack Web Development',
+            img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80'
+        },
+        {
+            tag: 'E-Commerce',
+            title: 'Shopify Storefront Architecture',
+            img: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80'
+        },
+        {
+            tag: 'CMS & Scalability',
+            title: 'Custom WordPress Platforms',
+            img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80'
+        },
+        {
+            tag: 'Monetization',
+            title: 'Google AdSense & Revenue Setup',
+            img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80'
+        },
+        {
+            tag: 'Creative Production',
+            title: 'Asera & Video Montage Editing',
+            img: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=900&q=80'
+        }
+    ];
+
+    // Seamless infinite loop ke liye shuru ke 3 slides aakhir mein clone kiye hain
+    const slides = [...baseSlides, ...baseSlides.slice(0, 3)];
+
+    const [index, setIndex] = React.useState(0);
+    const [isTransitioning, setIsTransitioning] = React.useState(true);
+    const [visibleCount, setVisibleCount] = React.useState(window.innerWidth <= 768 ? 1 : 3);
+
+    React.useEffect(() => {
+        const handleResize = () => {
+            setVisibleCount(window.innerWidth <= 768 ? 1 : 3);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Har 3 second baad 1-by-1 slide hoga
+    React.useEffect(() => {
+        const timer = setInterval(() => {
+            setIsTransitioning(true);
+            setIndex((prev) => prev + 1);
+        }, 3000);
+        return () => clearInterval(timer);
+    }, []);
+
+    // Infinite loop reset bina jhatke ke
+    React.useEffect(() => {
+        if (index === baseSlides.length) {
+            const resetTimer = setTimeout(() => {
+                setIsTransitioning(false);
+                setIndex(0);
+            }, 700);
+            return () => clearTimeout(resetTimer);
+        }
+    }, [index, baseSlides.length]);
+
+    // Desktop par Center wala card (index + 1) aur Mobile par current card (index) active hoga
+    const activeFocusIndex = visibleCount === 3 ? index + 1 : index;
+
+    const sliderStyles = `
+        .apex-row-slider-container {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto 55px auto;
+            overflow: hidden;
+            padding: 35px 0; /* Upar niche extra jagah taake bara card kate nahi */
+            box-sizing: border-box;
+        }
+        .apex-row-track {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+        .apex-row-card-slot {
+            flex: 0 0 33.3333%;
+            max-width: 33.3333%;
+            padding: 0 12px;
+            box-sizing: border-box;
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), z-index 0.3s;
+        }
+        /* Active card bahar nikal kar bara hoga */
+        .apex-row-card-slot.is-focused {
+            transform: scale(1.12);
+            z-index: 10;
+        }
+        /* Side/Peeche wale cards thore chote aur peeche dabe hue lagenge */
+        .apex-row-card-slot.is-blurred {
+            transform: scale(0.90);
+            z-index: 1;
+        }
+        .apex-row-card {
+            position: relative;
+            height: 310px;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0a0b12;
+            transition: all 0.7s ease;
+        }
+        /* Peeche wale cards ki image blur aur dim hogi */
+        .apex-row-card-slot.is-blurred .apex-row-card {
+            filter: blur(3.5px) brightness(0.45);
+            opacity: 0.75;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        /* Samne wala active card bilkul crystal clear + neon glow */
+        .apex-row-card-slot.is-focused .apex-row-card {
+            filter: blur(0px) brightness(1);
+            opacity: 1;
+            border-color: rgba(0, 242, 254, 0.65);
+            box-shadow: 0 25px 55px rgba(0, 0, 0, 0.9), 0 0 30px rgba(0, 242, 254, 0.3);
+        }
+        .apex-row-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            transition: transform 2.8s ease-out;
+        }
+        /* Active card ke andar ki image bhi smoothly zoom-in hogi */
+        .apex-row-card-slot.is-focused .apex-row-card img {
+            transform: scale(1.16);
+        }
+        .apex-row-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(6, 7, 12, 0.95) 0%, rgba(6, 7, 12, 0.2) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: flex-start;
+            padding: 22px;
+            text-align: left;
+        }
+        .apex-row-tag {
+            background: rgba(0, 242, 254, 0.15);
+            border: 1px solid rgba(0, 242, 254, 0.45);
+            color: #00f2fe;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            backdrop-filter: blur(6px);
+        }
+        .apex-row-title {
+            color: #fff;
+            font-size: 1.12rem;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* 📱 MOBILE RESPONSIVE: 1 Card clean & sharp */
+        @media (max-width: 768px) {
+            .apex-row-slider-container {
+                margin: 0 auto 30px auto !important;
+                padding: 12px 10px !important;
+            }
+            .apex-row-card-slot {
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+                padding: 0 6px !important;
+            }
+            .apex-row-card-slot.is-focused {
+                transform: scale(1.02) !important;
+            }
+            .apex-row-card {
+                height: 225px !important;
+                border-radius: 16px !important;
+            }
+            .apex-row-card-overlay {
+                padding: 15px !important;
+            }
+            .apex-row-tag {
+                font-size: 0.62rem !important;
+                padding: 3px 9px !important;
+            }
+            .apex-row-title {
+                font-size: 0.98rem !important;
+            }
+        }
+    `;
+
+    const slidePercentage = 100 / visibleCount;
+
+    return React.createElement(
+        'div',
+        { className: 'apex-row-slider-container' },
+        React.createElement('style', null, sliderStyles),
+        React.createElement(
+            'div',
+            {
+                className: 'apex-row-track',
+                style: {
+                    transform: `translateX(-${index * slidePercentage}%)`,
+                    transition: isTransitioning ? 'transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)' : 'none'
+                }
+            },
+            slides.map((slide, i) => {
+                const isFocused = i === activeFocusIndex;
+                return React.createElement(
+                    'div',
+                    {
+                        key: i,
+                        className: `apex-row-card-slot ${isFocused ? 'is-focused' : 'is-blurred'}`
+                    },
+                    React.createElement(
+                        'div',
+                        { className: 'apex-row-card' },
+                        React.createElement('img', { src: slide.img, alt: slide.title }),
+                        React.createElement(
+                            'div',
+                            { className: 'apex-row-card-overlay' },
+                            React.createElement('span', { className: 'apex-row-tag' }, slide.tag),
+                            React.createElement('h3', { className: 'apex-row-title' }, slide.title)
+                        )
+                    )
+                );
+            })
+        )
+    );
+};
+
 // 🌟 1. WEBSITE SALE DETAILS ARRAY (Online Images & English Details)
 const websiteSaleDetails = [
     {
@@ -12950,7 +13186,7 @@ const QuickKitApp = () => {
 
                     // Subtle Background Grid Effect
                     React.createElement('div', { className: 'premium-grid-bg' }),
-
+React.createElement(EngineeringSlider),
                     // Moving Animated Core Title
                     React.createElement('h2', {
                         className: 'moving-neon-text',
@@ -13814,6 +14050,8 @@ const QuickKitApp = () => {
 
                 ),
                 React.createElement(TopFAQSection, null),
+
+                
 
                 // 🏷️ 8. APEX CODE ULTRALUXE BORDERLESS GRID CTA (Vercel/Stripe Style)
                 React.createElement('div', {
